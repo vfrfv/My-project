@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ public class Tower : MonoBehaviour
 
     private Radar _radar;
     private List<Enemy> _enemyList;
-    private float _turningSpeed = 8f;
+    private float _turningSpeed = 5f;
     private bool _canShoot;
 
     public bool CanShoot => _enemyList.Count > 0;
@@ -32,6 +31,26 @@ public class Tower : MonoBehaviour
         _radar.EnemyLost -= RemoveEnemy;
     }
 
+    private void Update()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
+
+        if (_enemyList.Count > 0)
+        {
+            Enemy targetEnemy = _enemyList[0];
+            LookAtDirection(targetEnemy);
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.collider.TryGetComponent<Enemy>(out Enemy enemy))
+                {
+                    _weapon.Shoot();
+                }
+            }
+        }
+    }
+
     private void AddEnemy(Enemy enemy)
     {
         _enemyList.Add(enemy);
@@ -47,17 +66,6 @@ public class Tower : MonoBehaviour
     {
         _enemyList.Remove(enemy);
         enemy.Died -= OnEnemyDied;
-    }
-
-    private void Update()
-    {
-        if (_enemyList.Count > 0)
-        {
-            Enemy targetEnemy = _enemyList[0];
-
-            LookAtDirection(targetEnemy);
-            _weapon.Shoot();
-        }
     }
 
     private void LookAtDirection(Enemy enemy)

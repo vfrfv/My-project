@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
+    private float flightSpeed = 15;
+
+    public event Action<Missile> Destroyed;
+
     private void Update()
     {
-        transform.Translate(Vector3.forward * 10 * Time.deltaTime);
+        transform.Translate(Vector3.forward * flightSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
+            Destroyed?.Invoke(this);
         }
     }
 }
