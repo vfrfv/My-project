@@ -258,6 +258,8 @@ GameObject:
   - component: {fileID: 77890187}
   - component: {fileID: 77890189}
   - component: {fileID: 77890188}
+  - component: {fileID: 77890191}
+  - component: {fileID: 77890190}
   m_Layer: 0
   m_Name: TankFree_Canon
   m_TagString: Untagged
@@ -274,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 77890186}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.283638, z: 0.7371832}
+  m_LocalPosition: {x: 0, y: 0.283638, z: 0.734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -330,6 +332,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77890186}
   m_Mesh: {fileID: -5981544062969976662, guid: 3d210b2be9d4b9144b53828dfc2e73e3, type: 3}
+--- !u!114 &77890190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77890186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e84486a798cba4b84f7530e843adfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &77890191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77890186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e660ecb49120f2c4383de3709776af66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabMissile: {fileID: 2391189517565312332, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
 --- !u!4 &89860589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1377342691647915899, guid: 8b4b2d25a973af541a88de9a34c53ee4, type: 3}
@@ -1560,8 +1587,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9107852, y: 1.899646, z: 2.6642036}
-  m_Center: {x: 0.00000035762787, y: 0.10697973, z: -0.038929224}
+  m_Size: {x: 1.7735214, y: 1.6705248, z: 2.1128485}
+  m_Center: {x: 0.27049828, y: -0.0075808764, z: -0.16184461}
 --- !u!4 &904724287
 Transform:
   m_ObjectHideFlags: 0
@@ -1771,8 +1798,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0250397, y: 1.4277699, z: 2.837368}
-  m_Center: {x: -0.023794174, y: -0.08797014, z: 0.04304123}
+  m_Size: {x: 1.893465, y: 1.8468771, z: 2.206071}
+  m_Center: {x: -0.012829781, y: 0.12158346, z: -0.06773615}
 --- !u!4 &1055068016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1676515232765691307, guid: ae98f3b2f9fb19e4dba07742ad8d6f4d, type: 3}
@@ -2105,7 +2132,6 @@ GameObject:
   - component: {fileID: 1585302166}
   - component: {fileID: 1585302169}
   - component: {fileID: 1585302168}
-  - component: {fileID: 1585302167}
   m_Layer: 0
   m_Name: TankFree_Red (1)
   m_TagString: Untagged
@@ -2132,27 +2158,6 @@ Transform:
   - {fileID: 1930974369}
   m_Father: {fileID: 904724287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1585302167
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585302165}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.9107852, y: 1.6594164, z: 2.6642036}
-  m_Center: {x: 0.00000035762787, y: 0.32970798, z: -0.038929224}
 --- !u!23 &1585302168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2656,7 +2661,7 @@ Transform:
   m_GameObject: {fileID: 1943253114}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.48999977, z: -0.22000003}
+  m_LocalPosition: {x: 0.237, y: 0.48999977, z: -0.22000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2725,6 +2730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e9e4862ce9eb0488fa8086a108ccb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weapon: {fileID: 77890190}
   _enemy: {fileID: 904724284}
 --- !u!114 &1943253120
 MonoBehaviour:

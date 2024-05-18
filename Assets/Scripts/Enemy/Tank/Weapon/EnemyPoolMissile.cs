@@ -1,26 +1,27 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPoolMissile
+public class EnemyPoolMissile : MonoBehaviour
 {
-    private Missile _prefabMissile;
-    private Queue<Missile> _missileQueue;
+    private EnemyMissile _prefabMissile;
+    private Queue<EnemyMissile> _missileQueue;
 
-    public PlayerPoolMissile(Missile prefabMissile)
+    public EnemyPoolMissile(EnemyMissile prefabMissile)
     {
         _prefabMissile = prefabMissile ?? throw new ArgumentNullException(nameof(prefabMissile));
-        _missileQueue = new Queue<Missile>();
+        _missileQueue = new Queue<EnemyMissile>();
     }
 
-    public Missile GiveMissile(Vector3 position, Quaternion rotation)
+    public EnemyMissile GiveMissile(Vector3 position, Quaternion rotation)
     {
         if (_missileQueue.Count < 1)
         {
             CreateMissile();
         }
 
-        Missile missile = _missileQueue.Dequeue();
+        EnemyMissile missile = _missileQueue.Dequeue();
 
         missile.gameObject.SetActive(true);
         missile.transform.position = position;
@@ -29,7 +30,7 @@ public class PlayerPoolMissile
         return missile;
     }
 
-    public void GetMissile(Missile missile)
+    public void GetMissile(EnemyMissile missile)
     {
         missile.gameObject.SetActive(false);
         _missileQueue.Enqueue(missile);
@@ -37,7 +38,7 @@ public class PlayerPoolMissile
 
     private void CreateMissile()
     {
-        Missile missile = GameObject.Instantiate(_prefabMissile);
+        EnemyMissile missile = GameObject.Instantiate(_prefabMissile);
         missile.gameObject.SetActive(false);
         _missileQueue.Enqueue(missile);
     }

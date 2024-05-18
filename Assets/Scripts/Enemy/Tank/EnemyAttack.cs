@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    //[SerializeField] private PlayerWeapon _weapon;
+    [SerializeField] private EnemyWeapon _weapon;
 
     [SerializeField] private Enemy _enemy;
     private float _turningSpeed = 8;
@@ -25,7 +25,7 @@ public class EnemyAttack : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent<Player>(out Player player))
                 {
-                    //_weapon.Shoot();
+                    _weapon.Shoot();
                 }
             }
         }
