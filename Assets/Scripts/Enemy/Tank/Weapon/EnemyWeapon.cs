@@ -34,6 +34,7 @@ public class EnemyWeapon : MonoBehaviour
     private void ReturnMissile(EnemyMissile missile)
     {
         _poolHandler.Pool.GetMissile(missile);
+        missile.Destroyed -= ReturnMissile;
     }
 
     private IEnumerator StartCooldown()
