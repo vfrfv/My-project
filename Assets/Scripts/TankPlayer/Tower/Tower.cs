@@ -4,9 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Renderer))]
 public class Tower : MonoBehaviour
 {
-    [SerializeField] private Weapon _weapon;
+    [SerializeField] private PlayerWeapon _weapon;
+    [SerializeField] private LayerMask _layerMask;
 
-    private Radar _radar;
+    private SearchEnemyState _radar;
     private List<Enemy> _enemyList;
     private float _turningSpeed = 5f;
     private bool _canShoot;
@@ -16,7 +17,7 @@ public class Tower : MonoBehaviour
     private void Awake()
     {
         _enemyList = new List<Enemy>();
-        _radar = GetComponent<Radar>();
+        _radar = GetComponent<SearchEnemyState>();
     }
 
     private void OnEnable()

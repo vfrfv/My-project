@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class PoolMissile 
+public class PlayerPoolMissile
 {
     private Missile _prefabMissile;
     private Queue<Missile> _missileQueue;
 
-    public PoolMissile(Missile prefabMissile)
+    public PlayerPoolMissile(Missile prefabMissile)
     {
         _prefabMissile = prefabMissile ?? throw new ArgumentNullException(nameof(prefabMissile));
         _missileQueue = new Queue<Missile>();

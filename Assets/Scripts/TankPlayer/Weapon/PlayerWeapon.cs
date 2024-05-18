@@ -1,18 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(PoolHandler))]
-public class Weapon : MonoBehaviour
+[RequireComponent(typeof(PlayerPoolHandler))]
+public class PlayerWeapon : MonoBehaviour
 {
     private float _shootDelayCounter = 0;
     private readonly float _shootDelayInSeconds = 1;
-    private PoolHandler _poolHandler;
+    private PlayerPoolHandler _poolHandler;
 
     public bool CanShoot => _shootDelayCounter <= 0;
 
     private void Awake()
     {
-        _poolHandler = GetComponent<PoolHandler>();
+        _poolHandler = GetComponent<PlayerPoolHandler>();
     }
 
     public void Shoot()

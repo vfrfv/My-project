@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    private float flightSpeed = 15;
+    private float flightSpeed = 5;
 
     public event Action<Missile> Destroyed;
 
@@ -16,7 +16,7 @@ public class Missile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
+        if (other != null)
         {
             Destroyed?.Invoke(this);
         }

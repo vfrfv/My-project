@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private Player _player;
+
+    public Player Player => _player;
+
+
     public event Action<Enemy> Died;
 
     private void OnTriggerEnter(Collider other)
@@ -14,5 +19,15 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             Died?.Invoke(this);
         }
+    }
+
+    public void SetPlayer(Player player)
+    {
+        _player = player;
+    }
+
+    public void LosePlayer()
+    {
+        _player = null;
     }
 }
