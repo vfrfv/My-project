@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    private float flightSpeed = 5;
+    private float flightSpeed = 10;
 
     public event Action<Missile> Destroyed;
 

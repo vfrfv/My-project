@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private Player _player;
+    private int _health = 2;
 
     public Player Player => _player;
 
@@ -16,9 +17,31 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<Missile>(out Missile missile))
         {
-            Destroy(gameObject);
+            TakeDamage();
             Died?.Invoke(this);
         }
+    }
+
+    private void Update()
+    {
+        print(_health);
+    }
+
+    private void TakeDamage()
+    {
+        if(_health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            _health--;
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 
     public void SetPlayer(Player player)

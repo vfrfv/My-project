@@ -19,8 +19,6 @@ public class EnemyRadar : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(StartScanning());
-
-        Debug.Log("vv");
     }
 
     private IEnumerator StartScanning()

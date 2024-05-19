@@ -5,8 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyPoolHandler))]
 public class EnemyWeapon : MonoBehaviour
 {
+    [SerializeField] private Transform _shootPoint;
+
     private float _shootDelayCounter = 0;
-    private readonly float _shootDelayInSeconds = 1;
+    private readonly float _shootDelayInSeconds = 4;
     private EnemyPoolHandler _poolHandler;
 
     public bool CanShoot => _shootDelayCounter <= 0;
@@ -25,7 +27,7 @@ public class EnemyWeapon : MonoBehaviour
 
         _shootDelayCounter = _shootDelayInSeconds;
 
-        EnemyMissile missile = _poolHandler.Pool.GiveMissile(transform.position, transform.rotation);
+        EnemyMissile missile = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
         missile.Destroyed += ReturnMissile;
 
         StartCoroutine(StartCooldown());

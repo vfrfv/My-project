@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,7 +9,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
+        if (other.TryGetComponent(out EnemyMissile enemyMissile))
+        {
+            TakeDamage();
+        }
     }
 
     public void SetTarget(Enemy enemy)
@@ -26,6 +27,18 @@ public class Player : MonoBehaviour
 
     private void TakeDamage()
     {
-        _health--;
+        if (_health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            _health--;
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
