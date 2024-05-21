@@ -1,16 +1,27 @@
+using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour , IHealth
 {
-    private float _health = 5f;
     private Enemy _target;
 
+    private int _health = 5;
     public Enemy Target => _target;
+
+    public int Value => _health;
+
+    public event Action<int> Changed;
+
+    private void Start()
+    {
+        Changed?.Invoke(Value);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out EnemyMissile enemyMissile) ||
-            other.TryGetComponent(out ArtaMissile artaMissile))
+            other.TryGetComponent(out ArtaMissile artaMissile) ||
+                other.TryGetComponent(out Barrels barrels))
         {
             TakeDamage();
         }
@@ -40,6 +51,7 @@ public class Player : MonoBehaviour
         else
         {
             _health--;
+            Changed?.Invoke(_health);
         }
     }
 

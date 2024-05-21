@@ -3,15 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour , IHealth
 {
     private Player _player;
     private int _health = 2;
 
     public Player Player => _player;
 
+    public int Value => _health;
 
     public event Action<Enemy> Died;
+    public event Action<int> Changed;
+
+    private void Start()
+    {
+        Changed?.Invoke(_health);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,6 +43,7 @@ public class Enemy : MonoBehaviour
         else
         {
             _health--;
+            Changed?.Invoke(_health);
         }
     }
 

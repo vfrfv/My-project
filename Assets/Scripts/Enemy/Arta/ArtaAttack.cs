@@ -22,9 +22,6 @@ public class ArtaAttack : MonoBehaviour
     private void Shoot()
     {
         ArtaMissile missile = Instantiate(_prefabMissile);
-        //Vector3 targetPosition = _target.transform.position;
-        //Vector3 direction = targetPosition - transform.position;
-        //missile.transform.rotation = Quaternion.LookRotation(direction);
 
         StartCoroutine(Fly(missile));
     }
@@ -43,27 +40,27 @@ public class ArtaAttack : MonoBehaviour
     {
         Vector3 startPoint = _shootPoint.position;
         Vector3 targetPosition = _target.transform.position;
-        float duration = 1f; // Предполагаем, что ракета должна достичь цели за 1 секунду. Подкорректируйте по необходимости.
+        float duration = 2f; 
 
         for (float t = 0f; t <= 1f; t += Time.deltaTime / duration)
         {
             float verticalPosition = _curve.Evaluate(t);
-            Vector3 newTestPosition = Vector3.Lerp(startPoint, targetPosition, t) + Vector3.up * (verticalPosition * 3);
+            Vector3 newPosition = Vector3.Lerp(startPoint, targetPosition, t) + Vector3.up * (verticalPosition * 3);
 
             if (missile == null)
             {
                 yield break;
             }
 
-            Vector3 previousPosition = missile.transform.position; // Сохраняем текущую позицию перед её изменением
-            missile.transform.position = newTestPosition;
+            Vector3 previousPosition = missile.transform.position; 
+            missile.transform.position = newPosition;
 
-            Vector3 direction = (newTestPosition - previousPosition).normalized; // Вычисляем направление на основе разницы между новой и предыдущей позицией
+            Vector3 direction = (newPosition - previousPosition).normalized; 
 
-            if (direction != Vector3.zero) // Проверяем, что вектор направления валиден
+            if (direction != Vector3.zero) 
             {
                 Quaternion toRotation = Quaternion.LookRotation(direction);
-                missile.transform.rotation = toRotation; // Плавное вращение
+                missile.transform.rotation = toRotation;
             }
 
 
