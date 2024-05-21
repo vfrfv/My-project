@@ -27,11 +27,6 @@ public class Player : MonoBehaviour , IHealth
         }
     }
 
-    private void Update()
-    {
-        Debug.Log($"ХП Игрока {_health}");
-    }
-
     public void SetTarget(Enemy enemy)
     {
         _target = enemy;

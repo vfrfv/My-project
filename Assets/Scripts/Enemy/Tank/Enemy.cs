@@ -29,21 +29,14 @@ public class Enemy : MonoBehaviour , IHealth
         }
     }
 
-    private void Update()
-    {
-        print(_health);
-    }
-
     private void TakeDamage()
     {
-        if(_health <= 0)
+        _health--;
+        Changed?.Invoke(_health);
+
+        if (_health <= 0)
         {
             Die();
-        }
-        else
-        {
-            _health--;
-            Changed?.Invoke(_health);
         }
     }
 

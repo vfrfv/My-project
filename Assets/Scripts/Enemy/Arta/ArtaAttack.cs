@@ -30,9 +30,9 @@ public class ArtaAttack : MonoBehaviour
     {
         while (true)
         {
-            Shoot();
-
             yield return new WaitForSeconds(3f);
+
+            Shoot();
         }
     }
 
