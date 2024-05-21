@@ -9,10 +9,16 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out EnemyMissile enemyMissile))
+        if (other.TryGetComponent(out EnemyMissile enemyMissile) ||
+            other.TryGetComponent(out ArtaMissile artaMissile))
         {
             TakeDamage();
         }
+    }
+
+    private void Update()
+    {
+        Debug.Log($"ХП Игрока {_health}");
     }
 
     public void SetTarget(Enemy enemy)
