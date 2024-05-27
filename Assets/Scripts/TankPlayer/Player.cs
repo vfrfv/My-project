@@ -39,14 +39,12 @@ public class Player : MonoBehaviour , IHealth
 
     private void TakeDamage()
     {
+        _health--;
+        Changed?.Invoke(_health);
+
         if (_health <= 0)
         {
             Die();
-        }
-        else
-        {
-            _health--;
-            Changed?.Invoke(_health);
         }
     }
 
