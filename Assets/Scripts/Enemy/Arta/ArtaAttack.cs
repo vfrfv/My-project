@@ -40,12 +40,17 @@ public class ArtaAttack : MonoBehaviour
     {
         Vector3 startPoint = _shootPoint.position;
         Vector3 targetPosition = _target.transform.position;
-        float duration = 2f; 
+        float speed = 10f;
+
+        float distance = Vector3.Distance(startPoint, targetPosition);
+        float verticalScaleFactor = distance * 0.1f;
+
+        float duration = distance / speed;
 
         for (float t = 0f; t <= 1f; t += Time.deltaTime / duration)
         {
             float verticalPosition = _curve.Evaluate(t);
-            Vector3 newPosition = Vector3.Lerp(startPoint, targetPosition, t) + Vector3.up * (verticalPosition * 3);
+            Vector3 newPosition = Vector3.Lerp(startPoint, targetPosition, t) + Vector3.up * (verticalPosition * verticalScaleFactor);
 
             if (missile == null)
             {

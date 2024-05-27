@@ -7,7 +7,7 @@ public class PlayerRadar : MonoBehaviour
     [SerializeField] private LayerMask _mask;
 
     [SerializeField] private Player _player;
-    private float _fieldView = 10f;
+    private float _fieldView = 15f;
 
     public float FieldView => _fieldView;
 

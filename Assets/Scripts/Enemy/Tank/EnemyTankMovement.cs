@@ -14,7 +14,7 @@ public class EnemyTankMovement : MonoBehaviour
 
     private void Update()
     {
-        if(_agent.pathPending && _agent.remainingDistance < 0.5f)
+        if(!_agent.pathPending && _agent.remainingDistance < 2f)
         {
             SetRandomDestination();
         }

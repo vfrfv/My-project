@@ -17,15 +17,15 @@ public class Player : MonoBehaviour , IHealth
         Changed?.Invoke(Value);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out EnemyMissile enemyMissile) ||
-            other.TryGetComponent(out ArtaMissile artaMissile) ||
-                other.TryGetComponent(out Barrels barrels))
-        {
-            TakeDamage();
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.TryGetComponent(out EnemyMissile enemyMissile) ||
+    //        other.TryGetComponent(out ArtaMissile artaMissile) ||
+    //            other.TryGetComponent(out Barrels barrels))
+    //    {
+    //        TakeDamage();
+    //    }
+    //}
 
     public void SetTarget(Enemy enemy)
     {
