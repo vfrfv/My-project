@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MovementPlayerTank : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private NavMeshAgent _meshAgent;
 
     private InputsPlayer _inputsPlayer;
     private float _turningSpeed = 10f;
@@ -34,7 +36,8 @@ public class MovementPlayerTank : MonoBehaviour
     private void Move(Vector2 direction)
     {
         Vector3 moveDirection = new Vector3(direction.x, 0, direction.y);
-        transform.position += moveDirection * _moveSpeed * Time.deltaTime;
+        _meshAgent.destination = transform.position + moveDirection * _moveSpeed * Time.deltaTime;
+        //transform.position += moveDirection * _moveSpeed * Time.deltaTime;
     }
 
     private void TurnCourse(Vector2 course)

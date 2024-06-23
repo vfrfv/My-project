@@ -22,16 +22,15 @@ public class Enemy : MonoBehaviour , IHealth
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Missile>(out Missile missile))
+        if (other.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
         {
-            TakeDamage();
-            Died?.Invoke(this);
+            TakeDamage(bullet.Damage);        
         }
     }
 
-    private void TakeDamage()
+    private void TakeDamage(int damage)
     {
-        _health--;
+        _health-= damage;
         Changed?.Invoke(_health);
 
         if (_health <= 0)
@@ -43,6 +42,7 @@ public class Enemy : MonoBehaviour , IHealth
     private void Die()
     {
         Destroy(gameObject);
+        Died?.Invoke(this);
     }
 
     public void SetPlayer(Player player)

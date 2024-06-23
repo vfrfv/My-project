@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+
     [SerializeField] private EnemyWeapon _weapon;
 
     [SerializeField] private Enemy _enemy;
@@ -14,20 +15,20 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
-        Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
+        //Ray ray = new Ray(transform.position, transform.forward);
+        //Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
 
         if (_enemy.Player != null)
         {
             LookAtDirection(_enemy.Player);
 
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                if (hit.collider.TryGetComponent<Player>(out Player player))
-                {
+            //if (Physics.Raycast(ray, out RaycastHit hit))
+            //{
+            //    if (hit.collider.TryGetComponent<Player>(out Player player))
+            //    {
                     _weapon.Shoot();
-                }
-            }
+                //}
+            //}
         }
     }
 

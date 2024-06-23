@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPoolHandler : MonoBehaviour
 {
-    [SerializeField] private EnemyMissile _prefabMissile;
+    [SerializeField] private EnemyBullet _prefabBullet;
 
     private EnemyPoolMissile _pool;
 
@@ -12,6 +12,6 @@ public class EnemyPoolHandler : MonoBehaviour
 
     private void Awake()
     {
-        _pool = new EnemyPoolMissile(_prefabMissile);
+        _pool = new EnemyPoolMissile(_prefabBullet);
     }
 }

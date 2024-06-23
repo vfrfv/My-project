@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missile : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
-    private float flightSpeed = 10;
+   [SerializeField] private float flightSpeed = 7;
 
-    public event Action<Missile> Destroyed;
+    public event Action<EnemyBullet> Destroyed;
 
     private void Update()
     {

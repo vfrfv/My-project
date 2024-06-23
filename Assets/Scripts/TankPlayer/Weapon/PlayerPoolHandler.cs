@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class PlayerPoolHandler : MonoBehaviour
 {
-    [SerializeField] private Missile _prefabMissile;
+    [SerializeField] private Bullet _prefabBullet;
 
-    private PlayerPoolMissile _pool;
+    private PlayerPoolBullet _pool;
 
-    public PlayerPoolMissile Pool => _pool;
+    public PlayerPoolBullet Pool => _pool;
 
     private void Awake()
     {
-        _pool = new PlayerPoolMissile(_prefabMissile);
+        _pool = new PlayerPoolBullet(_prefabBullet);
     }
 }

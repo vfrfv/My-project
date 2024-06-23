@@ -4,11 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerPoolHandler))]
 public class PlayerWeapon : MonoBehaviour
 {
+    [SerializeField] private readonly float _shootDelayInSeconds = 1;
+    [SerializeField] private Player _player;
+
     private float _shootDelayCounter = 0;
-    private readonly float _shootDelayInSeconds = 1;
     private PlayerPoolHandler _poolHandler;
 
     public bool CanShoot => _shootDelayCounter <= 0;
+    //public bool CanShoot = true;
 
     private void Awake()
     {
@@ -24,27 +27,25 @@ public class PlayerWeapon : MonoBehaviour
 
         _shootDelayCounter = _shootDelayInSeconds;
 
-        Missile missile = _poolHandler.Pool.GiveMissile(transform.position, transform.rotation);
-        missile.Destroyed += ReturnMissile;
+        Bullet bullet = _poolHandler.Pool.GiveMissile(transform.position, transform.rotation);
+        bullet.SetDamage(_player.Damage);
+        bullet.Destroyed += ReturnMissile;
 
         StartCoroutine(StartCooldown());
     }
 
-    private void ReturnMissile(Missile missile)
+    private void ReturnMissile(Bullet bullet)
     {
-        _poolHandler.Pool.GetMissile(missile);
+        bullet.Destroyed -= ReturnMissile;
+        _poolHandler.Pool.GetMissile(bullet);
     }
 
     private IEnumerator StartCooldown()
     {
-        float step = 0.01f;
-        var wait = new WaitForSeconds(step);
-
         while (CanShoot == false)
         {
-            _shootDelayCounter -= step;
-
-            yield return wait;
+            yield return null;
+            _shootDelayCounter -= Time.deltaTime;
         }
     }
 }

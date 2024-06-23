@@ -27,28 +27,24 @@ public class EnemyWeapon : MonoBehaviour
 
         _shootDelayCounter = _shootDelayInSeconds;
 
-        EnemyMissile missile = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
-        missile.Destroyed += ReturnMissile;
+        EnemyBullet bullet = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
+        bullet.Destroyed += ReturnMissile;
 
         StartCoroutine(StartCooldown());
     }
 
-    private void ReturnMissile(EnemyMissile missile)
+    private void ReturnMissile(EnemyBullet bullet)
     {
-        _poolHandler.Pool.GetMissile(missile);
-        missile.Destroyed -= ReturnMissile;
+        _poolHandler.Pool.GetMissile(bullet);
+        bullet.Destroyed -= ReturnMissile;
     }
 
     private IEnumerator StartCooldown()
     {
-        float step = 0.01f;
-        var wait = new WaitForSeconds(step);
-
         while (CanShoot == false)
         {
-            _shootDelayCounter -= step;
-
-            yield return wait;
+            yield return null;
+            _shootDelayCounter -= Time.deltaTime;
         }
     }
 }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4615291900961522816}
   - component: {fileID: 7112964878170368475}
   - component: {fileID: 8789396235896559221}
-  - component: {fileID: 4484882437002073277}
   - component: {fileID: 1188206684238764601}
   - component: {fileID: -5729389854261662298}
+  - component: {fileID: 1758020515383084606}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6483224468216594818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.58, y: 5.005, z: 14.356617}
+  m_LocalPosition: {x: 37.324284, y: 3.83, z: 31.609154}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,18 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4484882437002073277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6483224468216594818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe2274790a202c49b32a222ca1f05ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1188206684238764601
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -146,3 +134,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &1758020515383084606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6483224468216594818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d0f535e24b48e4ba11e11401e5336f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flightSpeed: 7
