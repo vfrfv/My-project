@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebeb1ccc044c9c848becfa83b32c6f38, type: 3}
   m_Name: Unit Config 1
   m_EditorClassIdentifier: 
+  _unitPrefab: {fileID: 5767529140642037074, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
   _health: 5
   _damage: 1

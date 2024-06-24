@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CompositionRoot : MonoBehaviour
 {
-    [SerializeField] private UnitConfig _playerConfig;
+    //[SerializeField] private UnitConfig _playerConfig;
 
     [SerializeField] private Player _player;
     [SerializeField] private List<Enemy> _enemies;
@@ -16,7 +16,7 @@ public class CompositionRoot : MonoBehaviour
 
     private void Awake()
     {
-        _upgradeService = new UpgradeService(_unitConfigs);
+        _upgradeService = new UpgradeService(_unitConfigs, _player);
         _levelProgressService = new LevelProgressService(_enemies);
         _loopService = new GameLoopService(_levelProgressService, _upgradeService);
         //_fragmentCounter = new FragmentCounter(_enemies);   
@@ -24,6 +24,6 @@ public class CompositionRoot : MonoBehaviour
 
     private void Start()
     {
-        _player.Init(_playerConfig.GetStats());
+        _player.Init(_unitConfigs[0].GetStats());
     }
 }

@@ -6,9 +6,6 @@ public class Player : MonoBehaviour, IHealth
 {
     private int _health;
     private int _damage;
-
-    private List<Enemy> _killedOpponents;
-
     private Enemy _target;
 
     public int Damage => _damage;
@@ -19,7 +16,6 @@ public class Player : MonoBehaviour, IHealth
 
     private void Start()
     {
-        _killedOpponents = new List<Enemy>();
         Changed?.Invoke(Value);
     }
 

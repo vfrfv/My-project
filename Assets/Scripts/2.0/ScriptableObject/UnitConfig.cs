@@ -3,8 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Unit Config", menuName = "Tank/Create new unit config")]
 public class UnitConfig : ScriptableObject
 {
+    [SerializeField] private GameObject _unitPrefab;
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
+
+    public GameObject UnitPrefab => _unitPrefab;
 
     public StatsDto GetStats()
     {
