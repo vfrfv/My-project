@@ -19,6 +19,11 @@ public class ArtaAttack : MonoBehaviour
         LookAtDirection(_target);
     }
 
+    public void GetNewTarget(Player target)
+    {
+        _target = target;
+    }
+
     private void Shoot()
     {
         ArtaMissile missile = Instantiate(_prefabMissile);

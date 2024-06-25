@@ -13,6 +13,11 @@ public class SmoothHealthBar : MonoBehaviour
 
     private void Awake()
     {
+        if(_helthSourse == null)
+        {
+            return;
+        }
+
         _health = _helthSourse.GetComponent<IHealth>();
         _slider = GetComponent<Slider>();
     }
@@ -25,6 +30,11 @@ public class SmoothHealthBar : MonoBehaviour
     private void OnDisable()
     {
         _health.Changed -= Fill;
+    }
+
+    public void Init(Player player)
+    {
+        _health = player.GetComponent<IHealth>();
     }
 
     private void Fill(int currentValue)

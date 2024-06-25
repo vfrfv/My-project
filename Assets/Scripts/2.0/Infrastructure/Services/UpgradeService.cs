@@ -5,12 +5,13 @@ public class UpgradeService
 {
     private List<UnitConfig> _unitConfigs;
     private Player _player;
+    private IndicateTarget _indicateTarget;
 
-    // Здесь будет логика апгрейда 
-    public UpgradeService(List<UnitConfig> unitConfigs, Player player)
+    public UpgradeService(List<UnitConfig> unitConfigs, Player player, IndicateTarget indicateTarget)
     {
         _unitConfigs = unitConfigs;
         _player = player;
+        _indicateTarget = indicateTarget;
     }
 
     public void Upgrade()
@@ -19,5 +20,7 @@ public class UpgradeService
         Object.Destroy(_player.gameObject);
         _player = player.GetComponent<Player>();
         _player.Init(_unitConfigs[1].GetStats());
+        _indicateTarget.InstallNewPlayerCamera(_player);
+        _indicateTarget.InstallNewPlayerArta(_player);
     }
 }
