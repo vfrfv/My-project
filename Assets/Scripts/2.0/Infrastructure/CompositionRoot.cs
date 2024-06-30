@@ -10,6 +10,7 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private ArtaAttack _artaAttack;
     [SerializeField] private SmoothHealthBar _healthBar;
+    [SerializeField] private Barrier _barrier;
 
     private IndicateTarget _indicateTarget;
     private GameLoopService _loopService;
@@ -20,7 +21,7 @@ public class CompositionRoot : MonoBehaviour
     {
         _indicateTarget = new IndicateTarget(_camera, _artaAttack);  
         _upgradeService = new UpgradeService(_unitConfigs, _player, _indicateTarget);
-        _levelProgressService = new LevelProgressService(_enemies);
+        _levelProgressService = new LevelProgressService(_enemies, _barrier);
         _loopService = new GameLoopService(_levelProgressService, _upgradeService);
     }
 

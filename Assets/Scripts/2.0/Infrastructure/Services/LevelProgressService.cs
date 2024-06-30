@@ -8,15 +8,19 @@ public class LevelProgressService
     // Следит за количеством фрагов и сообщает GameLoopService 
 
     private List<Enemy> _enemies = new List<Enemy>();
+    private Barrier _barrier;
     private int _killedOpponents;
 
-    public LevelProgressService(List<Enemy> enemies)
+    public LevelProgressService(List<Enemy> enemies, Barrier barrier)
     {
         _enemies = enemies ?? throw new ArgumentNullException(nameof(enemies));
+        _barrier = barrier ?? throw new ArgumentNullException(nameof(barrier));
+
         OnEnemiesDie();
     }
-
+    
     public event Action Improved;
+    public event Action MovedNextLevel;
 
     public void OnEnemiesDie()
     {
@@ -34,7 +38,12 @@ public class LevelProgressService
         if (_killedOpponents >= 2)
         {
             Improved?.Invoke();
-            _killedOpponents = 0;
+            //_killedOpponents = 0;
+        }
+
+        if(_killedOpponents >= 4)
+        {
+           _barrier.OpenZone();
         }
     }
 }
