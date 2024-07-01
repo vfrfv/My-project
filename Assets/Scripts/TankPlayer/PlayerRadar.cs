@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerRadar : MonoBehaviour
 {
     [SerializeField] private LayerMask _mask;
+    [SerializeField] private LayerMask _obstacleMask;
     [SerializeField] private Player _player;
 
     private float _fieldView = 15f;
@@ -36,10 +37,12 @@ public class PlayerRadar : MonoBehaviour
         {
             if (collider.TryGetComponent<Enemy>(out Enemy enemy))
             {
+                Debug.Log(enemy.gameObject.name);
+
                 //Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
                 //float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 
-                if (!Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit hit, _mask))
+                if (!Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit hit, _obstacleMask))
                 {
                     _player.SetTarget(enemy);
                     return;

@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameLoopService 
+public class GameLoopService // —ервис игрового цикла, отвечает за логику уровн€
 {
+    // следит за смертию врагов, при смерти вызывает AddProgress 
+
     // - LevelProgressService
     // - UpgradeService
 

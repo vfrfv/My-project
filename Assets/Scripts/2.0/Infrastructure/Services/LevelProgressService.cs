@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelProgressService 
+public class LevelProgressService  // Отвечает за прокаску уровня игрока, 
+    // останется только подсчет фрагов 
 {
     // Следит за количеством фрагов и сообщает GameLoopService 
 
@@ -26,14 +27,14 @@ public class LevelProgressService
     {
         foreach (Enemy enemy in _enemies)
         {
-            enemy.Died += AddDeadEnemy;
+            enemy.Died += AddProgress;
         }
     }
 
-    private void AddDeadEnemy(Enemy enemy)
+    private void AddProgress(Enemy enemy)
     {
         _killedOpponents++;
-        enemy.Died -= AddDeadEnemy;
+        enemy.Died -= AddProgress;
 
         if (_killedOpponents >= 2)
         {
