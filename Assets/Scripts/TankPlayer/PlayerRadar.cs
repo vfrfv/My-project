@@ -1,20 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRadar : MonoBehaviour
 {
     [SerializeField] private LayerMask _mask;
-
     [SerializeField] private Player _player;
+
     private float _fieldView = 15f;
 
     public float FieldView => _fieldView;
-
-    //private void Awake()
-    //{
-    //    _player = GetComponent<Player>();
-    //}
 
     private void OnEnable()
     {
@@ -42,8 +36,14 @@ public class PlayerRadar : MonoBehaviour
         {
             if (collider.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                _player.SetTarget(enemy);              
-                return;
+                //Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
+                //float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (!Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit hit, _mask))
+                {
+                    _player.SetTarget(enemy);
+                    return;
+                }
             }
         }
     }
