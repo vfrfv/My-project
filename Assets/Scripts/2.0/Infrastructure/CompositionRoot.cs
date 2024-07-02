@@ -16,13 +16,15 @@ public class CompositionRoot : MonoBehaviour
     private GameLoopService _loopService;
     private LevelProgressService _levelProgressService;
     private UpgradeService _upgradeService;
+    private ZoneService _zoneService;
 
     private void Awake()
     {
         _indicateTarget = new IndicateTarget(_camera, _artaAttack);  
         _upgradeService = new UpgradeService(_unitConfigs, _player, _indicateTarget);
-        _levelProgressService = new LevelProgressService(_enemies, _barrier);
-        _loopService = new GameLoopService(_levelProgressService, _upgradeService);
+        _levelProgressService = new LevelProgressService();
+        _zoneService = new ZoneService();
+        _loopService = new GameLoopService(_enemies,_levelProgressService, _upgradeService, _zoneService, _barrier);
     }
 
     private void Start()

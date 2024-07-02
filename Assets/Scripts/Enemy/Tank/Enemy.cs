@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour , IHealth
 {
+    [SerializeField] private UnitConfig _unitConfig;
+
     private Player _player;
-    private int _health = 2;
+    private int _health;
+    private int _damage;
 
     public Player Player => _player;
-
+    public int Damage => _damage;
     public int Value => _health;
 
     public event Action<Enemy> Died;
@@ -18,6 +21,7 @@ public class Enemy : MonoBehaviour , IHealth
     private void Start()
     {
         Changed?.Invoke(_health);
+        Init(_unitConfig.GetStats());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +30,14 @@ public class Enemy : MonoBehaviour , IHealth
         {
             TakeDamage(bullet.Damage);        
         }
+    }
+
+    public void Init(StatsDto statsDto)
+    {
+        _health = statsDto.Health;
+        _damage = statsDto.Damage;
+
+        Debug.Log($"{_health} {_damage}");
     }
 
     private void TakeDamage(int damage)

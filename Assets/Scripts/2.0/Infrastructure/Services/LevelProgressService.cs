@@ -4,47 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelProgressService  // Отвечает за прокаску уровня игрока, 
-    // останется только подсчет фрагов 
 {
-    // Следит за количеством фрагов и сообщает GameLoopService 
-
-    private List<Enemy> _enemies = new List<Enemy>();
-    private Barrier _barrier;
     private int _killedOpponents;
+    private int _numberFragsUpgrade = 3;
 
-    public LevelProgressService(List<Enemy> enemies, Barrier barrier)
-    {
-        _enemies = enemies ?? throw new ArgumentNullException(nameof(enemies));
-        _barrier = barrier ?? throw new ArgumentNullException(nameof(barrier));
 
-        OnEnemiesDie();
-    }
-    
     public event Action Improved;
     public event Action MovedNextLevel;
 
-    public void OnEnemiesDie()
-    {
-        foreach (Enemy enemy in _enemies)
-        {
-            enemy.Died += AddProgress;
-        }
-    }
-
-    private void AddProgress(Enemy enemy)
+    public void AddProgress(Enemy enemy)
     {
         _killedOpponents++;
-        enemy.Died -= AddProgress;
 
-        if (_killedOpponents >= 2)
+        if (_killedOpponents >= _numberFragsUpgrade)
         {
             Improved?.Invoke();
-            //_killedOpponents = 0;
-        }
-
-        if(_killedOpponents >= 4)
-        {
-           _barrier.OpenZone();
+            _killedOpponents = 0;
         }
     }
 }
