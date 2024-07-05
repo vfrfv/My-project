@@ -16,11 +16,14 @@ public class UpgradeService
 
     public void Upgrade()
     {
-        var player = Object.Instantiate(_unitConfigs[1].UnitPrefab, _player.transform.position, _player.transform.rotation);
-        Object.Destroy(_player.gameObject);
+        var player = Object.Instantiate(_unitConfigs[1].UnitPrefab, _player.transform.position, _player.transform.rotation); // Builder (строитель)
+        Object.Destroy(_player.gameObject);// Builder (строитель)
+
         _player = player.GetComponent<Player>();
         _player.Init(_unitConfigs[1].GetStats());
-        _indicateTarget.InstallNewPlayerCamera(_player);
-        _indicateTarget.InstallNewPlayerArta(_player);
+
+        _indicateTarget.BindPlayerToCamera(_player);
+        _indicateTarget.BindPlayerToArta(_player);
+        _indicateTarget.BindPlayerToHealthBar(_player);
     }
 }

@@ -9,8 +9,8 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private List<UnitConfig> _unitConfigs;
     [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private ArtaAttack _artaAttack;
-    [SerializeField] private SmoothHealthBar _healthBar;
     [SerializeField] private Barrier _barrier;
+    [SerializeField] private SmoothHealthBar _smoothHealthBar;
 
     private IndicateTarget _indicateTarget;
     private GameLoopService _loopService;
@@ -20,16 +20,17 @@ public class CompositionRoot : MonoBehaviour
 
     private void Awake()
     {
-        _indicateTarget = new IndicateTarget(_camera, _artaAttack);  
+        _indicateTarget = new IndicateTarget(_camera, _artaAttack, _smoothHealthBar);  
         _upgradeService = new UpgradeService(_unitConfigs, _player, _indicateTarget);
         _levelProgressService = new LevelProgressService();
         _zoneService = new ZoneService();
         _loopService = new GameLoopService(_enemies,_levelProgressService, _upgradeService, _zoneService, _barrier);
+       
+        _player.Init(_unitConfigs[0].GetStats());
     }
 
     private void Start()
     {
-        _player.Init(_unitConfigs[0].GetStats());
-        _healthBar.Init(_player);
+        
     }
 }

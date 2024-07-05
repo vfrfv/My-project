@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour , IHealth
 
     private void Start()
     {
-        Changed?.Invoke(_health);
         Init(_unitConfig.GetStats());
+        Changed?.Invoke(_health);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,8 +36,6 @@ public class Enemy : MonoBehaviour , IHealth
     {
         _health = statsDto.Health;
         _damage = statsDto.Damage;
-
-        Debug.Log($"{_health} {_damage}");
     }
 
     private void TakeDamage(int damage)

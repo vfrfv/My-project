@@ -18,23 +18,35 @@ public class SmoothHealthBar : MonoBehaviour
             return;
         }
 
-        _health = _helthSourse.GetComponent<IHealth>();
+        Init(_helthSourse.GetComponent<IHealth>());
+
         _slider = GetComponent<Slider>();
     }
 
-    private void OnEnable()
-    {
-        _health.Changed += Fill;
-    }
+    //private void OnEnable()
+    //{
+    //    _health.Changed += Fill;
+    //}
 
-    private void OnDisable()
+    //private void OnDisable()
+    //{
+    //    _health.Changed -= Fill;
+    //}
+
+    private void OnDestroy()
     {
         _health.Changed -= Fill;
     }
 
-    public void Init(Player player)
+    public void Init(IHealth health)
     {
-        _health = player.GetComponent<IHealth>();
+        if(health != null)
+        {
+            _health.Changed -= Fill;
+        }
+
+        _health = health;
+        _health.Changed += Fill;
     }
 
     private void Fill(int currentValue)

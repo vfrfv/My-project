@@ -1,20 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class GameLoopService // —ервис игрового цикла, отвечает за логику уровн€
 {
-    // следит за смертию врагов, при смерти вызывает AddProgress  у LevelProgressService 
-
-    // - LevelProgressService
-    // - UpgradeService
-
-    // говорит апгейду прокачатьс€ 
-
     private LevelProgressService _levelProgressService;
     private UpgradeService _upgradeService;
-   private ZoneService _zoneService;
+    private ZoneService _zoneService;
 
     private List<Enemy> _enemies = new List<Enemy>();
     private Barrier _barrier;
@@ -32,7 +23,7 @@ public class GameLoopService // —ервис игрового цикла, отвечает за логику уровн€
         zoneService.MovedNextZone += OpenNextZone;
     }
 
-    ~ GameLoopService() // диструктор, вызываетс€ 
+    ~GameLoopService() // диструктор, вызываетс€ 
     {
 
     }

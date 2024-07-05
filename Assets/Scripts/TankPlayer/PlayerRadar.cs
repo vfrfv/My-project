@@ -37,11 +37,6 @@ public class PlayerRadar : MonoBehaviour
         {
             if (collider.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                Debug.Log(enemy.gameObject.name);
-
-                //Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
-                //float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-
                 if (!Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit hit, _obstacleMask))
                 {
                     _player.SetTarget(enemy);

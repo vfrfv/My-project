@@ -61,8 +61,8 @@ public class Player : MonoBehaviour, IHealth
         Destroy(gameObject);
     }
 
-    //private void Update()
-    //{
-    //    Debug.Log("Жизней" + _health + ", Дамага" + _damage);
-    //}
+    private void Update()
+    {
+        Debug.Log("Жизней" + _health + ", Дамага" + _damage);
+    }
 }
