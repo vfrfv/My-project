@@ -8,7 +8,6 @@ public class ZoneService
 {   
     private int _killedOpponents;
     private int _numberFragmentsMoveSecondZone = 5;
-    private List<Enemy> _enemies = new List<Enemy>();
 
     public event Action MovedNextZone;
 

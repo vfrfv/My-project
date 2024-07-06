@@ -23,16 +23,6 @@ public class SmoothHealthBar : MonoBehaviour
         _slider = GetComponent<Slider>();
     }
 
-    //private void OnEnable()
-    //{
-    //    _health.Changed += Fill;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    _health.Changed -= Fill;
-    //}
-
     private void OnDestroy()
     {
         _health.Changed -= Fill;
@@ -40,11 +30,12 @@ public class SmoothHealthBar : MonoBehaviour
 
     public void Init(IHealth health)
     {
-        if(health != null)
-        {
-            _health.Changed -= Fill;
-        }
+        //if(health != null)
+        //{
+        //    _health.Changed -= Fill;
+        //}
 
+        //_slider.maxValue = health.Value;
         _health = health;
         _health.Changed += Fill;
     }

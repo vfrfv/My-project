@@ -10,7 +10,8 @@ public class GameLoopService // —ервис игрового цикла, отвечает за логику уровн€
     private List<Enemy> _enemies = new List<Enemy>();
     private Barrier _barrier;
 
-    public GameLoopService(List<Enemy> enemies, LevelProgressService levelProgressService, UpgradeService upgradeService, ZoneService zoneService, Barrier barrier)
+    public GameLoopService(List<Enemy> enemies, LevelProgressService levelProgressService,
+        UpgradeService upgradeService, ZoneService zoneService, Barrier barrier)
     {
         _levelProgressService = levelProgressService ?? throw new ArgumentNullException(nameof(levelProgressService));
         _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));

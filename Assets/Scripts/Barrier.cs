@@ -35,6 +35,11 @@ public class Barrier : MonoBehaviour
         _openingArea.enabled = true;
     }
 
+    public void CloseZone()
+    {
+        _openingArea.enabled = false;
+    }
+
     public void Open()
     {
         //_hingeJoint.spring.targetPosition;

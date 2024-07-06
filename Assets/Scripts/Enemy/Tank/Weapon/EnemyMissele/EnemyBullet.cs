@@ -7,6 +7,8 @@ public class EnemyBullet : MonoBehaviour
 {
    [SerializeField] private float flightSpeed = 7;
 
+    private int _damage;
+
     public event Action<EnemyBullet> Destroyed;
 
     private void Update()
@@ -20,5 +22,10 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroyed?.Invoke(this);
         }
+    }
+
+    public void SetDamage(int damage)
+    {
+        _damage = damage;
     }
 }
