@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
 
             //    if (hit.collider.TryGetComponent<Enemy>(out Enemy enemy))
             //    {
-                    _weapon.Shoot();
+            _weapon.Shoot();
             //    }   
             //}
         }

@@ -8,7 +8,7 @@ public class MovementPlayerTank : MonoBehaviour
     [SerializeField] private NavMeshAgent _meshAgent;
 
     private InputsPlayer _inputsPlayer;
-    private float _turningSpeed = 10f;
+    private float _turningSpeed = 8f;
 
     private void Awake()
     {

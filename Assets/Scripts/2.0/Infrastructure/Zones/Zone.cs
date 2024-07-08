@@ -15,6 +15,8 @@ public class Zone : MonoBehaviour
             {
                 _enemies.Add(enemy);
                 enemy.Died += RemoveEnemy;
+
+                UpdateBarrierState();
             }
         }
     }
@@ -26,17 +28,28 @@ public class Zone : MonoBehaviour
         if (_enemies.Count <= 0)
         {
             //Debug.Log("Зона открыта");
-            _barrier.OpenZone();
+            //_barrier.OpenZone();
         }
         else
         {
             //Debug.Log("Зона закрыта");
-            _barrier.CloseZone();
+            //_barrier.CloseZone();
         }
     }
 
     private void RemoveEnemy(Enemy enemy)
     {
         _enemies.Remove(enemy);
+        enemy.Died -= RemoveEnemy;
+
+        UpdateBarrierState();
+    }
+
+    private void UpdateBarrierState()
+    {
+        if (_enemies.Count <= 0)
+            _barrier.OpenZone();
+        else
+            _barrier.CloseZone();
     }
 }

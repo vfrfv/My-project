@@ -16,15 +16,15 @@ public class CompositionRoot : MonoBehaviour
     private GameLoopService _loopService;
     private LevelProgressService _levelProgressService;
     private UpgradeService _upgradeService;
-    private ZoneService _zoneService;
+    //private ZoneService _zoneService;
 
     private void Awake()
     {
         _indicateTarget = new IndicateTarget(_camera, _artaAttack, _smoothHealthBar);  
         _upgradeService = new UpgradeService(_unitConfigs, _player, _indicateTarget);
         _levelProgressService = new LevelProgressService();
-        _zoneService = new ZoneService();
-        _loopService = new GameLoopService(_enemies,_levelProgressService, _upgradeService, _zoneService, _barrier);
+        //_zoneService = new ZoneService();
+        _loopService = new GameLoopService(_enemies,_levelProgressService, _upgradeService, /*_zoneService,*/ _barrier);
        
         _player.Init(_unitConfigs[0].GetStats());
     }
