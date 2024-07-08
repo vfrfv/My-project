@@ -272,6 +272,9 @@ MonoBehaviour:
   _mask:
     serializedVersion: 2
     m_Bits: 128
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 8192
   _player: {fileID: 1175782099933304724}
 --- !u!1 &8441849976431812753 stripped
 GameObject:

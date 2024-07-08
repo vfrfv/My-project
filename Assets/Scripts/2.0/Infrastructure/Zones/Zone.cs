@@ -6,6 +6,9 @@ public class Zone : MonoBehaviour
     [SerializeField] private Barrier _barrier;
 
     private List<Enemy> _enemies = new List<Enemy>();
+    private GameLoopService _loopService;
+
+    public List<Enemy> Enemies => _enemies;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +18,7 @@ public class Zone : MonoBehaviour
             {
                 _enemies.Add(enemy);
                 enemy.Died += RemoveEnemy;
+                _loopService.OnEnemiesDie(enemy);
 
                 UpdateBarrierState();
             }
@@ -24,17 +28,11 @@ public class Zone : MonoBehaviour
     private void Update()
     {
         Debug.Log($"Количество врагов в зоне{_enemies.Count}");
+    }
 
-        if (_enemies.Count <= 0)
-        {
-            //Debug.Log("Зона открыта");
-            //_barrier.OpenZone();
-        }
-        else
-        {
-            //Debug.Log("Зона закрыта");
-            //_barrier.CloseZone();
-        }
+    public void Init(GameLoopService gameLoopService)
+    {
+        _loopService = gameLoopService;
     }
 
     private void RemoveEnemy(Enemy enemy)

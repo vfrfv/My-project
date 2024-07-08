@@ -5,7 +5,8 @@ using UnityEngine;
 public class CompositionRoot : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private List<Enemy> _enemies;
+    //[SerializeField] private List<Enemy> _enemies;
+    [SerializeField] private List<Zone> _zones = new List<Zone>();
     [SerializeField] private List<UnitConfig> _unitConfigs;
     [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private ArtaAttack _artaAttack;
@@ -23,9 +24,14 @@ public class CompositionRoot : MonoBehaviour
         _indicateTarget = new IndicateTarget(_camera, _artaAttack, _smoothHealthBar);  
         _upgradeService = new UpgradeService(_unitConfigs, _player, _indicateTarget);
         _levelProgressService = new LevelProgressService();
-        //_zoneService = new ZoneService();
-        _loopService = new GameLoopService(_enemies,_levelProgressService, _upgradeService, /*_zoneService,*/ _barrier);
+        //_zoneService = new ZoneService(_zones);
+        _loopService = new GameLoopService(_levelProgressService, _upgradeService, /*_zoneService,*/ _barrier);
        
+        foreach (var zone in _zones)
+        {
+            zone.Init(_loopService);
+        }
+
         _player.Init(_unitConfigs[0].GetStats());
     }
 
@@ -33,4 +39,6 @@ public class CompositionRoot : MonoBehaviour
     {
         
     }
+
+
 }
