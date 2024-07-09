@@ -7,7 +7,7 @@ public class SmoothHealthBar : MonoBehaviour
 {
     [SerializeField] private GameObject _helthSourse;
 
-    private IHealth _health;
+    private IHealth _value;
     private Coroutine _coroutine;
     private Slider _slider;
 
@@ -25,7 +25,7 @@ public class SmoothHealthBar : MonoBehaviour
 
     private void OnDestroy()
     {
-        _health.Changed -= Fill;
+        _value.Changed -= Fill;
     }
 
     public void Init(IHealth health)
@@ -35,9 +35,8 @@ public class SmoothHealthBar : MonoBehaviour
         //    _health.Changed -= Fill;
         //}
 
-        //_slider.maxValue = health.Value;
-        _health = health;
-        _health.Changed += Fill;
+        _value = health;
+        _value.Changed += Fill;
     }
 
     private void Fill(int currentValue)
@@ -52,8 +51,9 @@ public class SmoothHealthBar : MonoBehaviour
 
     private IEnumerator SmoothlyChange(float currentValue)
     {
-        float degreeVolumeChange = 10f;
+        float degreeVolumeChange = 8f;
         bool IsChanges = true;
+        currentValue /= _value.MaxValue;
 
         while (IsChanges)
         {

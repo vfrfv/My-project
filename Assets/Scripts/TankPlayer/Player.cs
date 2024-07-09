@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IHealth
 {
+    private int _maxHealth;
     private int _health;
     private int _damage;
     private Enemy _target;
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour, IHealth
     public int Damage => _damage;
     public Enemy Target => _target;
     public int Value => _health;
+    public int MaxValue => _maxHealth;
 
     public event Action<int> Changed;
 
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour, IHealth
 
     public void Init(StatsDto statsDto)
     {
+        _maxHealth = statsDto.Health;
         _health = statsDto.Health;
         _damage = statsDto.Damage;
     }

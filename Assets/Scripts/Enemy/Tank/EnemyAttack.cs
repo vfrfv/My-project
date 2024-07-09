@@ -8,11 +8,6 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     private float _turningSpeed = 8;
 
-    //private void Awake()
-    //{
-    //    _enemy = GetComponent<Enemy>();
-    //}
-
     private void Update()
     {
         //Ray ray = new Ray(transform.position, transform.forward);

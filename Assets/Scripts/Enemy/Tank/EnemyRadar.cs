@@ -1,20 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyRadar : MonoBehaviour
 {
     [SerializeField] private LayerMask _mask;
+    [SerializeField] private LayerMask _obstacleMask;
+    [SerializeField] private Enemy _enemy;
 
-   [SerializeField]  private Enemy _enemy;
-    private float _fieldView = 10f;
+    private float _fieldView = 15f;
 
     public float FieldView => _fieldView;
-
-    //private void Awake()
-    //{
-    //    _enemy = GetComponent<Enemy>();
-    //}
 
     private void OnEnable()
     {
@@ -42,8 +37,11 @@ public class EnemyRadar : MonoBehaviour
         {
             if (collider.TryGetComponent<Player>(out Player player))
             {
-                _enemy.SetPlayer(player);
-                return;
+                if (!Physics.Linecast(transform.position, player.transform.position, out RaycastHit hit, _obstacleMask))
+                {
+                    _enemy.SetPlayer(player);
+                    return;
+                }
             }
         }
     }

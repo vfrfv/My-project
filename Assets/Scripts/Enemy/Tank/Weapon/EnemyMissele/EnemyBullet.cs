@@ -13,7 +13,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.forward * flightSpeed * Time.deltaTime);
+        Fly();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,6 +22,11 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroyed?.Invoke(this);
         }
+    }
+
+    private void Fly()
+    {
+        transform.Translate(Vector3.forward * flightSpeed * Time.deltaTime);
     }
 
     public void SetDamage(int damage)

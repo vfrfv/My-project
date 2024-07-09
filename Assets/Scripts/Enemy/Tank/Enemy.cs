@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour , IHealth
     private Player _player;
     private int _health;
     private int _damage;
+    private int _maxValue;
 
     public Player Player => _player;
     public int Damage => _damage;
     public int Value => _health;
+    public int MaxValue => _maxValue;
 
     public event Action<Enemy> Died;
     public event Action<int> Changed;
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour , IHealth
 
     public void Init(StatsDto statsDto)
     {
+        _maxValue = statsDto.Health;
         _health = statsDto.Health;
         _damage = statsDto.Damage;
     }

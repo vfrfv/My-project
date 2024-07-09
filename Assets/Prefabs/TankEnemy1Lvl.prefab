@@ -191,7 +191,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 2
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 1986917845799038090}
   - component: {fileID: 8723879443525629777}
   m_Layer: 7
-  m_Name: 'TankEnemy '
+  m_Name: TankEnemy1Lvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1116,6 +1116,9 @@ MonoBehaviour:
   _mask:
     serializedVersion: 2
     m_Bits: 64
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 8192
   _enemy: {fileID: 3577128622675474931}
 --- !u!114 &312032366255762597
 MonoBehaviour:

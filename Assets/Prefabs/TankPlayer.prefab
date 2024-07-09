@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1013459266845585946, guid: ae98f3b2f9fb19e4dba07742ad8d6f4d, type: 3}
       propertyPath: m_Name
-      value: TankPlayer Variant
+      value: TankPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 1013459266845585946, guid: ae98f3b2f9fb19e4dba07742ad8d6f4d, type: 3}
       propertyPath: m_Layer
@@ -151,6 +151,9 @@ MonoBehaviour:
   _mask:
     serializedVersion: 2
     m_Bits: 128
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
   _player: {fileID: 5946965532614688620}
 --- !u!1 &5250167885546535548 stripped
 GameObject:

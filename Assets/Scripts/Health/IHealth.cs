@@ -5,4 +5,5 @@ public interface IHealth
     event Action<int> Changed;
 
     int Value { get; }
+    int MaxValue { get; }
 }
