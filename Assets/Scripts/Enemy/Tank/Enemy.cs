@@ -6,6 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour , IValue
 {
     [SerializeField] private UnitConfig _unitConfig;
+    [SerializeField] private EnemyRadar _enemyRadar;
+    [SerializeField] private EnemyWeapon _enemyWeapon;
 
     private Player _player;
     private int _health;
@@ -39,6 +41,8 @@ public class Enemy : MonoBehaviour , IValue
         _maxValue = statsDto.Health;
         _health = statsDto.Health;
         _damage = statsDto.Damage;
+        _enemyRadar.InstallFieldView(statsDto.FieldView);
+        _enemyWeapon.InstallShootDelayInSeconds(statsDto.ShootDelayInSeconds);
     }
 
     private void TakeDamage(int damage)

@@ -15,3 +15,5 @@ MonoBehaviour:
   _unitPrefab: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
   _health: 2
   _damage: 1
+  _shootDelayInSeconds: 3
+  _fieldView: 15

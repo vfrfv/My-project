@@ -1504,6 +1504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitConfig: {fileID: 11400000, guid: d564660b2511fca44ae48d6f36b7efcf, type: 2}
+  _enemyRadar: {fileID: 903852456593312761}
+  _enemyWeapon: {fileID: 2488291145062101472}
 --- !u!195 &3153798256592855706
 NavMeshAgent:
   m_ObjectHideFlags: 0

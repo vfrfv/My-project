@@ -29,6 +29,11 @@ public class EnemyRadar : MonoBehaviour
         }
     }
 
+    public void InstallFieldView(float fieldView)
+    {
+        _fieldView = fieldView;
+    }
+
     private void Detect()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, _fieldView, _mask);

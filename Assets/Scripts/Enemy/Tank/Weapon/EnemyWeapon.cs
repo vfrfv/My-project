@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyPoolHandler))]
@@ -8,7 +7,7 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
 
     private float _shootDelayCounter = 0;
-    private readonly float _shootDelayInSeconds = 4;
+    private float _shootDelayInSeconds = 4;
     private EnemyPoolHandler _poolHandler;
 
     public bool CanShoot => _shootDelayCounter <= 0;
@@ -16,6 +15,11 @@ public class EnemyWeapon : MonoBehaviour
     private void Awake()
     {
         _poolHandler = GetComponent<EnemyPoolHandler>();
+    }
+
+    public void InstallShootDelayInSeconds(float shootDelayInSeconds)
+    {
+        _shootDelayInSeconds = shootDelayInSeconds;
     }
 
     public void Shoot()
