@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelProgressService 
+public class LevelProgressService // 
 {
-    private int _killedOpponents;
+    private int _killedOpponents = 0;
     private int _numberFragsUpgrade = 3;
 
-    public int Value => _killedOpponents;
+    public int KilledOpponents => _killedOpponents;
+    public int NumberFragsUpgrade => _numberFragsUpgrade;
+
+    //public int Value => _killedOpponents;
 
     public event Action Improved;
     public event Action MovedNextLevel;

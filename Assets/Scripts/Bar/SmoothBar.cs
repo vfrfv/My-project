@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class SmoothHealthBar : MonoBehaviour
+public class SmoothBar : MonoBehaviour
 {
     [SerializeField] private GameObject _helthSourse;
 
-    private IHealth _value;
+    private IValue _value;
     private Coroutine _coroutine;
     private Slider _slider;
 
@@ -18,7 +18,7 @@ public class SmoothHealthBar : MonoBehaviour
             return;
         }
 
-        Init(_helthSourse.GetComponent<IHealth>());
+        Init(_helthSourse.GetComponent<IValue>());
 
         _slider = GetComponent<Slider>();
     }
@@ -28,13 +28,15 @@ public class SmoothHealthBar : MonoBehaviour
         _value.Changed -= Fill;
     }
 
-    public void Init(IHealth health)
+    public void Init(IValue health)
     {
-        //if(health != null)
+        //if (_value != null)
         //{
-        //    _health.Changed -= Fill;
+        //    _value.Changed -= Fill;
         //}
 
+        _slider = GetComponent<Slider>();
+        _slider.SetValueWithoutNotify(health.Value);
         _value = health;
         _value.Changed += Fill;
     }

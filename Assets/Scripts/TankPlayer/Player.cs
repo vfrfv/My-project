@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IHealth
+public class Player : MonoBehaviour, IValue
 {
     private int _maxHealth;
     private int _health;

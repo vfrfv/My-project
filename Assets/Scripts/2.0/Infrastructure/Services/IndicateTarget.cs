@@ -8,9 +8,9 @@ public class IndicateTarget
 {
     private CinemachineVirtualCamera _camera;
     private ArtaAttack _artaAttack;
-    private SmoothHealthBar _smoothHealthBar;
+    private SmoothBar _smoothHealthBar;
 
-    public IndicateTarget(CinemachineVirtualCamera camera,  ArtaAttack artaAttack, SmoothHealthBar smoothHealthBar)
+    public IndicateTarget(CinemachineVirtualCamera camera,  ArtaAttack artaAttack, SmoothBar smoothHealthBar)
     {
         _camera = camera ?? throw new ArgumentNullException(nameof(camera));
         _artaAttack = artaAttack ?? throw new ArgumentNullException(nameof(artaAttack));

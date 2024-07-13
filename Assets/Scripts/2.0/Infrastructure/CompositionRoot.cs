@@ -1,5 +1,6 @@
 using Cinemachine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CompositionRoot : MonoBehaviour
@@ -10,7 +11,8 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private ArtaAttack _artaAttack;
     [SerializeField] private Barrier _barrier;
-    [SerializeField] private SmoothHealthBar _smoothHealthBar;
+    [SerializeField] private SmoothBar _smoothHealthBar;
+    [SerializeField] private SmoothBar _progressBar;
 
     private IndicateTarget _indicateTarget;
     private GameLoopService _loopService;
@@ -24,6 +26,8 @@ public class CompositionRoot : MonoBehaviour
         _levelProgressService = new LevelProgressService();
         _loopService = new GameLoopService(_levelProgressService, _upgradeService);
 
+        var provider = _progressBar.AddComponent<ValueProvider>();
+        provider.Init(_levelProgressService, _progressBar);
 
         SubscribePumping();
         _player.Init(_unitConfigs[0].GetStats());

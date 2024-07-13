@@ -1,6 +1,6 @@
 using System;
 
-public interface IHealth
+public interface IValue
 {
     event Action<int> Changed;
 

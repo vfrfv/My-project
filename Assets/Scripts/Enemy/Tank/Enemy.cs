@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour , IHealth
+public class Enemy : MonoBehaviour , IValue
 {
     [SerializeField] private UnitConfig _unitConfig;
 
