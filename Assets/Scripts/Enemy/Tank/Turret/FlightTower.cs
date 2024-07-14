@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlightTower : MonoBehaviour
 {
     [SerializeField] private Transform _flightDirection;
+    [SerializeField] private Enemy _bossEnemy;
 
     private Rigidbody _rigidbody;
 
@@ -31,4 +32,26 @@ public class FlightTower : MonoBehaviour
         gameObject.transform.localRotation = _flightDirection.localRotation;
         _rigidbody.AddRelativeForce(gameObject.transform.forward * 1000, ForceMode.Force);
     }
+
+    //private void Start()
+    //{
+    //    _bossEnemy.Died += LaunchTower;
+    //}
+
+    //public event Action Flew;
+
+    //private void LaunchTower(Enemy enemy)
+    //{
+    //    _rigidbody.isKinematic = false;
+    //    Flew?.Invoke();
+    //    Fly();
+
+    //    _bossEnemy.Died -= LaunchTower;
+    //}
+
+    //private void Fly()
+    //{
+    //    gameObject.transform.localRotation = _flightDirection.localRotation;
+    //    _rigidbody.AddRelativeForce(gameObject.transform.forward * 1000, ForceMode.Force);
+    //}
 }
