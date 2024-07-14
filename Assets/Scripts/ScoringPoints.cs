@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScoringPoints : MonoBehaviour
@@ -36,12 +38,15 @@ public class ScoringPoints : MonoBehaviour
 
     private IEnumerator AddPoints()
     {
-        while(true)
-        {
-            _glasses++;
-            _text.text = _glasses.ToString();
+        bool works = true;
 
-            yield return new WaitForSeconds(0.01f);
+        while (works)
+        {
+            _glasses += Time.deltaTime;
+
+            _text.text = Convert.ToInt32(_glasses).ToString();
+
+            yield return null;
         }
     }
 }

@@ -11,6 +11,8 @@ public class SmoothBar : MonoBehaviour
     private Coroutine _coroutine;
     private Slider _slider;
 
+    public IValue Value => _value;
+
     private void Awake()
     {
         if(_helthSourse == null)

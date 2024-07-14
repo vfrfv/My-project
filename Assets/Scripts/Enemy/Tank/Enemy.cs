@@ -58,8 +58,8 @@ public class Enemy : MonoBehaviour , IValue
 
     private void Die()
     {
-        Destroy(gameObject);
         Died?.Invoke(this);
+        Destroy(gameObject);
     }
 
     public void SetPlayer(Player player)

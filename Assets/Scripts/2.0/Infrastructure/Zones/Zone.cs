@@ -37,8 +37,8 @@ public class Zone : MonoBehaviour
 
     private void RemoveEnemy(Enemy enemy)
     {
-        _enemies.Remove(enemy);
         enemy.Died -= RemoveEnemy;
+        _enemies.Remove(enemy);
 
         UpdateBarrierState();
     }
