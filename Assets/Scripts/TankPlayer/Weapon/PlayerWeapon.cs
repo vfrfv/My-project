@@ -45,7 +45,7 @@ public class PlayerWeapon : MonoBehaviour
         while (CanShoot == false)
         {
             yield return null;
-            _shootDelayCounter -= Time.deltaTime;
+            _shootDelayCounter -= Time.fixedDeltaTime;
         }
     }
 }

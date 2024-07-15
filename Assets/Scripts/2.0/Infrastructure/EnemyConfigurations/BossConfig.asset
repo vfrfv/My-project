@@ -16,4 +16,4 @@ MonoBehaviour:
   _health: 8
   _damage: 1
   _shootDelayInSeconds: 1
-  _fieldView: 15
+  _fieldView: 16

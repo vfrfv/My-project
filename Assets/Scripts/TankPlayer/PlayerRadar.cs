@@ -37,7 +37,13 @@ public class PlayerRadar : MonoBehaviour
         {
             if (collider.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                if (!Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit hit, _obstacleMask))
+                if (!Physics.Raycast(
+                    transform.position,
+                    (enemy.transform.position - transform.position).normalized,
+                    out RaycastHit hit,
+                    10,
+                    _obstacleMask,
+                    queryTriggerInteraction: QueryTriggerInteraction.Collide))
                 {
                     _player.SetTarget(enemy);
                     return;

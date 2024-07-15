@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -9,49 +8,35 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Player _player;
 
     private float _turningSpeed = 8;
-    private bool _hooked = false;
+    private float _angleThreshold = 5.0f;
 
-    //private void Awake()
-    //{
-    //    _player = GetComponent<Player>();
-    //}
-
-    private void Update()
+    private void FixedUpdate()
     {
+        // Заменить рейкаст на сравнение поворона башни относительно врага
+        //Перенести всё в FixedUpdate и дельтатаймы и фиксы, расчеты должны операться ны фиксыдельтатайм
+
         if (_player.Target != null)
         {
             LookAtDirection(_player.Target);
 
-            Ray ray = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
-
-            var hits = Physics.RaycastAll(ray, _enemy);
-
-            Debug.Log(hits.Length);
-
-            foreach (var hit in hits)
+            if (IsTurretFacingTarget(_player.Target))
             {
-                Debug.Log(hit.collider.name);
-
-                if (hit.collider.TryGetComponent<Enemy>(out Enemy enemy))
-                {
-                    _weapon.Shoot();
-                }
+                _weapon.Shoot();
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private bool IsTurretFacingTarget(Enemy enemy)
     {
-        if(other.TryGetComponent(out Enemy enemy))
+        if (enemy != null)
         {
-            _hooked = true;
-        }
-    }
+            Vector3 directionToTarget = enemy.transform.position - transform.position;
+            float angle = Vector3.Angle(transform.forward, directionToTarget);
 
-    private void OnTriggerExit(Collider other)
-    {
-        _hooked = false ;
+            return angle <= _angleThreshold;
+        }
+
+        return false;
     }
 
     private void LookAtDirection(Enemy enemy)
@@ -60,8 +45,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Vector3 direction = enemy.transform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _turningSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _turningSpeed * Time.fixedDeltaTime);
         }
     }
-
 }

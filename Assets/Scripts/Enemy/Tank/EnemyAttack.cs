@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Enemy _enemy;
 
     private float _turningSpeed = 8;
-    private bool _hooked = false;
+    private float _angleThreshold = 5.0f;
 
     private void Update()
     {
@@ -18,27 +19,24 @@ public class EnemyAttack : MonoBehaviour
         {
             LookAtDirection(_enemy.Player);
 
-            //if (Physics.Raycast(ray, out RaycastHit hit))
-            //{
-            if (_hooked == true)
+            if (IsTurretFacingTarget(_enemy.Player))
             {
                 _weapon.Shoot();
             }
-            //}
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private bool IsTurretFacingTarget(Player player)
     {
-        if (other.TryGetComponent(out Player player))
+        if (player != null)
         {
-            _hooked = true;
-        }
-    }
+            Vector3 directionToTarget = player.transform.position - transform.position;
+            float angle = Vector3.Angle(transform.forward, directionToTarget);
 
-    private void OnTriggerExit(Collider other)
-    {
-        _hooked = false;
+            return angle <= _angleThreshold;
+        }
+
+        return false;
     }
 
     private void LookAtDirection(Player player)
