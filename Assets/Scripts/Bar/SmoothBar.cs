@@ -55,7 +55,7 @@ public class SmoothBar : MonoBehaviour
 
     private IEnumerator SmoothlyChange(float currentValue)
     {
-        float degreeVolumeChange = 8f;
+        float degreeVolumeChange = 1f;
         bool IsChanges = true;
         currentValue /= _value.MaxValue;
 

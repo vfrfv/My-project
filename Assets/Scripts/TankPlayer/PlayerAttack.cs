@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -6,34 +7,51 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask _enemy;
 
     [SerializeField] private Player _player;
+
     private float _turningSpeed = 8;
+    private bool _hooked = false;
 
     //private void Awake()
     //{
     //    _player = GetComponent<Player>();
     //}
 
-    private void LateUpdate()
+    private void Update()
     {
         if (_player.Target != null)
         {
             LookAtDirection(_player.Target);
 
-            //Ray ray = new Ray(transform.position, transform.forward);
-            //Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
+            Ray ray = new Ray(transform.position, transform.forward);
+            Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
 
-            //var hits = Physics.RaycastAll(ray,10, _enemy);
+            var hits = Physics.RaycastAll(ray, _enemy);
 
-            //foreach (var hit in hits)
-            //{
-            //    Debug.Log(hit.collider.name);
+            Debug.Log(hits.Length);
 
-            //    if (hit.collider.TryGetComponent<Enemy>(out Enemy enemy))
-            //    {
-            _weapon.Shoot();
-            //    }   
-            //}
+            foreach (var hit in hits)
+            {
+                Debug.Log(hit.collider.name);
+
+                if (hit.collider.TryGetComponent<Enemy>(out Enemy enemy))
+                {
+                    _weapon.Shoot();
+                }
+            }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent(out Enemy enemy))
+        {
+            _hooked = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        _hooked = false ;
     }
 
     private void LookAtDirection(Enemy enemy)

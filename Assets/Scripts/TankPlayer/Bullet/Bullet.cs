@@ -22,10 +22,10 @@ public class Bullet : MonoBehaviour
             Destroyed?.Invoke(this);
         }
 
-        if (other.gameObject.TryGetComponent(out Enemy enemy))
-        {
+        //if (other.gameObject.TryGetComponent(out Enemy enemy))
+        //{
 
-        }
+        //}
     }
 
     public void SetDamage(int damage)

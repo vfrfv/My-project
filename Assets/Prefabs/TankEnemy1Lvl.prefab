@@ -1015,6 +1015,7 @@ GameObject:
   - component: {fileID: 1097266153675233136}
   - component: {fileID: 6287943497783559534}
   - component: {fileID: 312032366255762597}
+  - component: {fileID: 4656795607133836800}
   m_Layer: 0
   m_Name: TankFree_Tower
   m_TagString: Untagged
@@ -1136,6 +1137,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapon: {fileID: 1698025680553694463}
   _enemy: {fileID: 3577128622675474931}
+--- !u!65 &4656795607133836800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262296860073290196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 32768
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.33425522, y: 0.30337763, z: 17.474916}
+  m_Center: {x: -0.06734848, y: 0.2577312, z: 8.083392}
 --- !u!1 &9068282077688023174
 GameObject:
   m_ObjectHideFlags: 0

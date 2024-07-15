@@ -8,7 +8,7 @@ public class FlightTower : MonoBehaviour
     [SerializeField] private SmoothBar _smoothBar;
 
     private Rigidbody _rigidbody;
-    private int _launchForce = 200;
+    private int _launchForce = 150;
 
     private void Awake()
     {
