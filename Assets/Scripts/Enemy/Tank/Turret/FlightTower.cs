@@ -36,8 +36,6 @@ public class FlightTower : MonoBehaviour
     {
         gameObject.transform.localRotation = _flightDirection.localRotation;
 
-        Debug.Log(_smoothBar.Value.Value * _launchForce);
-
         _rigidbody.AddRelativeForce(gameObject.transform.forward * (_smoothBar.Value.Value * _launchForce), ForceMode.Force);
     }
 }

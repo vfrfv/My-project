@@ -25,7 +25,7 @@ public class MovementPlayerTank : MonoBehaviour
         _inputsPlayer.Disable();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector2 moveDirection = _inputsPlayer.Player.Move.ReadValue<Vector2>();
 
@@ -33,10 +33,15 @@ public class MovementPlayerTank : MonoBehaviour
         TurnCourse(moveDirection);
     }
 
+    public void OffMovement()
+    {
+        this.enabled = false;
+    }
+
     private void Move(Vector2 direction)
     {
         Vector3 moveDirection = new Vector3(direction.x, 0, direction.y);
-        _meshAgent.destination = transform.position + moveDirection * _moveSpeed * Time.deltaTime;
+        _meshAgent.destination = transform.position + moveDirection * _moveSpeed * Time.fixedDeltaTime;
         //transform.position += moveDirection * _moveSpeed * Time.deltaTime;
     }
 

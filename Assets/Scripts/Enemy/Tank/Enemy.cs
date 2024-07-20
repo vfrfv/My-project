@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour , IValue
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Bullet>(out Bullet bullet))
+        if (other.gameObject.TryGetComponent<PlayerBullet>(out PlayerBullet bullet))
         {
             TakeDamage(bullet.Damage);        
         }
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour , IValue
     private void Die()
     {
         Died?.Invoke(this);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public void SetPlayer(Player player)

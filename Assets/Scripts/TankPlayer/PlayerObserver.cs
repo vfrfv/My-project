@@ -7,11 +7,6 @@ public class PlayerObserver : MonoBehaviour
 
     [SerializeField] private Player _player;
 
-    //private void Awake()
-    //{
-    //    _player = GetComponent<Player>();
-    //}
-
     private void Start()
     {
         _enemyRadar.enabled = true;

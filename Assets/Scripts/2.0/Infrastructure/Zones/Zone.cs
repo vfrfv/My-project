@@ -25,10 +25,10 @@ public class Zone : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    Debug.Log($"Количество врагов в зоне{_enemies.Count}");
-    //}
+    private void Update()
+    {
+        Debug.Log($"Количество врагов в зоне{_enemies.Count}");
+    }
 
     public void Init(GameLoopService gameLoopService)
     {
@@ -39,6 +39,8 @@ public class Zone : MonoBehaviour
     {
         enemy.Died -= RemoveEnemy;
         _enemies.Remove(enemy);
+
+        Destroy(enemy.gameObject);
 
         UpdateBarrierState();
     }

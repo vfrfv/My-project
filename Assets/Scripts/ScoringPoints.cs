@@ -44,7 +44,8 @@ public class ScoringPoints : MonoBehaviour
         {
             _glasses += Time.deltaTime;
 
-            _text.text = Convert.ToInt32(_glasses).ToString();
+            //_text.text = Convert.ToInt32(_glasses).ToString();
+            _text.text = Convert.ToInt32(_glasses * 100).ToString();
 
             yield return null;
         }

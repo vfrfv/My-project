@@ -12,7 +12,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Заменить рейкаст на сравнение поворона башни относительно врага
         //Перенести всё в FixedUpdate и дельтатаймы и фиксы, расчеты должны операться ны фиксыдельтатайм
 
         if (_player.Target != null)

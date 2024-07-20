@@ -3,25 +3,21 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyAttack : MonoBehaviour
 {
-
     [SerializeField] private EnemyWeapon _weapon;
     [SerializeField] private Enemy _enemy;
 
     private float _turningSpeed = 8;
     private float _angleThreshold = 5.0f;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //Ray ray = new Ray(transform.position, transform.forward);
-        //Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
-
         if (_enemy.Player != null)
         {
             LookAtDirection(_enemy.Player);
 
             if (IsTurretFacingTarget(_enemy.Player))
             {
-                _weapon.Shoot();
+                //_weapon.Shoot();
             }
         }
     }
@@ -45,7 +41,7 @@ public class EnemyAttack : MonoBehaviour
         {
             Vector3 direction = player.transform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _turningSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _turningSpeed * Time.fixedDeltaTime);
         }
     }
 }

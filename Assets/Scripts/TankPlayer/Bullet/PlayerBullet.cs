@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
     [SerializeField] private int _flightSpeed = 7;
     [SerializeField] private int _damage;
 
     public int Damage => _damage;
 
-    public event Action<Bullet> Destroyed;
+    public event Action<PlayerBullet> Destroyed;
 
     private void Update()
     {
@@ -21,15 +21,15 @@ public class Bullet : MonoBehaviour
         {
             Destroyed?.Invoke(this);
         }
-
-        //if (other.gameObject.TryGetComponent(out Enemy enemy))
-        //{
-
-        //}
     }
 
     public void SetDamage(int damage)
     {
         _damage = damage;
+    }
+
+    private void Fly()
+    {
+        transform.Translate(Vector3.forward * _flightSpeed * Time.deltaTime);
     }
 }

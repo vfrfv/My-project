@@ -27,14 +27,14 @@ public class PlayerWeapon : MonoBehaviour
 
         _shootDelayCounter = _shootDelayInSeconds;
 
-        Bullet bullet = _poolHandler.Pool.GiveMissile(transform.position, transform.rotation);
+        PlayerBullet bullet = _poolHandler.Pool.GiveMissile(transform.position, transform.rotation);
         bullet.SetDamage(_player.Damage);
         bullet.Destroyed += ReturnMissile;
 
         StartCoroutine(StartCooldown());
     }
 
-    private void ReturnMissile(Bullet bullet)
+    private void ReturnMissile(PlayerBullet bullet)
     {
         bullet.Destroyed -= ReturnMissile;
         _poolHandler.Pool.GetMissile(bullet);

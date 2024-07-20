@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-   [SerializeField] private float flightSpeed = 7;
+    [SerializeField] private float _flightSpeed = 7;
+    [SerializeField] private int _damage;
 
-    private int _damage;
+    public int Damage => _damage;
 
     public event Action<EnemyBullet> Destroyed;
 
@@ -26,7 +25,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void Fly()
     {
-        transform.Translate(Vector3.forward * flightSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * _flightSpeed * Time.deltaTime);
     }
 
     public void SetDamage(int damage)

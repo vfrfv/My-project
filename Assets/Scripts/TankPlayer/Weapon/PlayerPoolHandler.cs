@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerPoolHandler : MonoBehaviour
 {
-    [SerializeField] private Bullet _prefabBullet;
+    [SerializeField] private PlayerBullet _prefabBullet;
 
     private PlayerPoolBullet _pool;
 

@@ -6,12 +6,14 @@ public class Barrier : MonoBehaviour
     [SerializeField] private HingeJoint _hingeJoint;
     [SerializeField] private BoxCollider _openingArea;
     [SerializeField] private NavMeshObstacle _obstacle;
+    [SerializeField] private Arrow _arrow;
 
     private bool _inPlace = false;
 
     private void Start()
     {
         _openingArea.enabled = false;
+        _arrow.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,6 +35,7 @@ public class Barrier : MonoBehaviour
     public void OpenZone()
     {
         _openingArea.enabled = true;
+        _arrow.gameObject.SetActive(true);
     }
 
     public void CloseZone()
@@ -49,5 +52,6 @@ public class Barrier : MonoBehaviour
         _hingeJoint.spring = jointSpring;
 
         _obstacle.enabled = false;
+        _arrow.gameObject.SetActive(false);
     }
 }

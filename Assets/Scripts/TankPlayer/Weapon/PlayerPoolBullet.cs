@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class PlayerPoolBullet
 {
-    private Bullet _prefabMissile;
-    private Queue<Bullet> _bulletQueue;
+    private PlayerBullet _prefabMissile;
+    private Queue<PlayerBullet> _bulletQueue;
 
-    public PlayerPoolBullet(Bullet prefabMissile)
+    public PlayerPoolBullet(PlayerBullet prefabMissile)
     {
         _prefabMissile = prefabMissile ?? throw new ArgumentNullException(nameof(prefabMissile));
-        _bulletQueue = new Queue<Bullet>();
+        _bulletQueue = new Queue<PlayerBullet>();
     }
 
-    public Bullet GiveMissile(Vector3 position, Quaternion rotation)
+    public PlayerBullet GiveMissile(Vector3 position, Quaternion rotation)
     {
         if (_bulletQueue.Count < 1)
         {
             CreateMissile();
         }
 
-        Bullet bullet = _bulletQueue.Dequeue();
+        PlayerBullet bullet = _bulletQueue.Dequeue();
 
         bullet.gameObject.SetActive(true);
         bullet.transform.position = position;
@@ -29,7 +29,7 @@ public class PlayerPoolBullet
         return bullet;
     }
 
-    public void GetMissile(Bullet bullet)
+    public void GetMissile(PlayerBullet bullet)
     {
         bullet.gameObject.SetActive(false);
         _bulletQueue.Enqueue(bullet);
@@ -37,7 +37,7 @@ public class PlayerPoolBullet
 
     public void CreateMissile()
     {
-        Bullet missile = GameObject.Instantiate(_prefabMissile);
+        PlayerBullet missile = GameObject.Instantiate(_prefabMissile);
         missile.gameObject.SetActive(false);
         _bulletQueue.Enqueue(missile);
     }
