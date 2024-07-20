@@ -40,8 +40,6 @@ public class Zone : MonoBehaviour
         enemy.Died -= RemoveEnemy;
         _enemies.Remove(enemy);
 
-        Destroy(enemy.gameObject);
-
         UpdateBarrierState();
     }
 

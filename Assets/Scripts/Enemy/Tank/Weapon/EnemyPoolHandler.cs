@@ -6,12 +6,12 @@ public class EnemyPoolHandler : MonoBehaviour
 {
     [SerializeField] private EnemyBullet _prefabBullet;
 
-    private EnemyPoolMissile _pool;
+    private EnemyPoolBullet _pool;
 
-    public EnemyPoolMissile Pool => _pool;
+    public EnemyPoolBullet Pool => _pool;
 
     private void Awake()
     {
-        _pool = new EnemyPoolMissile(_prefabBullet);
+        _pool = new EnemyPoolBullet(_prefabBullet);
     }
 }

@@ -23,9 +23,7 @@ public class Player : MonoBehaviour, IValue
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out EnemyBullet enemyMissile) ||
-            other.TryGetComponent(out ArtaMissile artaMissile) ||
-                other.TryGetComponent(out Barrels barrels))
+        if (other.TryGetComponent(out EnemyBullet enemyMissile))
         {
             TakeDamage();
         }
@@ -48,9 +46,9 @@ public class Player : MonoBehaviour, IValue
         _damage = statsDto.Damage;
     }
 
-    private void TakeDamage()
+    private void TakeDamage(int damage)
     {
-        _health--;
+        _health -= damage;
         Changed?.Invoke(_health);
 
         if (_health <= 0)
@@ -63,9 +61,4 @@ public class Player : MonoBehaviour, IValue
     {
         Destroy(gameObject);
     }
-
-    //private void Update()
-    //{
-    //    Debug.Log("Жизней" + _health + ", Дамага" + _damage);
-    //}
 }

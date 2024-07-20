@@ -900,7 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e660ecb49120f2c4383de3709776af66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabBullet: {fileID: 570068909421669466, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
+  _prefabBullet: {fileID: 5809886216609705320, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
 --- !u!114 &1698025680553694463
 MonoBehaviour:
   m_ObjectHideFlags: 0

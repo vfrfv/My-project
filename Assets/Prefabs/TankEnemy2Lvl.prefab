@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 2952029081208349185}
   - component: {fileID: 903852456593312761}
   - component: {fileID: 3012700804296193977}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Carro_Armato_L6_40_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e660ecb49120f2c4383de3709776af66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabBullet: {fileID: 570068909421669466, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
+  _prefabBullet: {fileID: 5809886216609705320, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
 --- !u!114 &2488291145062101472
 MonoBehaviour:
   m_ObjectHideFlags: 0

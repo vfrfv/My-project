@@ -31,13 +31,13 @@ public class EnemyWeapon : MonoBehaviour
 
         _shootDelayCounter = _shootDelayInSeconds;
 
-        EnemyBullet bullet = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
+        Bullet bullet = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
         bullet.Destroyed += ReturnMissile;
 
         StartCoroutine(StartCooldown());
     }
 
-    private void ReturnMissile(EnemyBullet bullet)
+    private void ReturnMissile(Bullet bullet)
     {
         _poolHandler.Pool.GetMissile(bullet);
         bullet.Destroyed -= ReturnMissile;

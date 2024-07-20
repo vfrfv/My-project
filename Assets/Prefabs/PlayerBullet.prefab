@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8789396235896559221}
   - component: {fileID: 1188206684238764601}
   - component: {fileID: -5729389854261662298}
-  - component: {fileID: 1758020515383084606}
+  - component: {fileID: -4260745991760374110}
   m_Layer: 15
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &1758020515383084606
+--- !u!114 &-4260745991760374110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6483224468216594818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d0f535e24b48e4ba11e11401e5336f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4053f46dd64d4514eaeefbcca92ac8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flightSpeed: 11
-  _damage: 1
+  _flightSpeed: 7
+  _damage: 0
