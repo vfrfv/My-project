@@ -17,7 +17,7 @@ public class EnemyAttack : MonoBehaviour
 
             if (IsTurretFacingTarget(_enemy.Player))
             {
-                //_weapon.Shoot();
+                _weapon.Shoot();
             }
         }
     }

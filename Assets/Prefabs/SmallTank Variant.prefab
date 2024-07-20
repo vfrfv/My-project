@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2c0ea562d17f945a9fa4152b97df5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabBullet: {fileID: 1758020515383084606, guid: 3d5556852db06604681744695189d3e8, type: 3}
+  _prefabBullet: {fileID: 3663900292414943480, guid: 3d5556852db06604681744695189d3e8, type: 3}
 --- !u!114 &5900849521171143382
 MonoBehaviour:
   m_ObjectHideFlags: 0
