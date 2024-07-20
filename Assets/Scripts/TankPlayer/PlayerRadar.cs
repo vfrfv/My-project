@@ -35,17 +35,17 @@ public class PlayerRadar : MonoBehaviour
 
         foreach (var collider in colliders)
         {
-            if (collider.TryGetComponent<Enemy>(out Enemy enemy))
+            if (collider.TryGetComponent<Enemy>(out Enemy target))
             {
                 if (!Physics.Raycast(
                     transform.position,
-                    (enemy.transform.position - transform.position).normalized,
+                    (target.transform.position - transform.position).normalized,
                     out RaycastHit hit,
                     10,
                     _obstacleMask,
                     queryTriggerInteraction: QueryTriggerInteraction.Collide))
                 {
-                    _player.SetTarget(enemy);
+                    _player.SetTarget(target);
                     return;
                 }
             }

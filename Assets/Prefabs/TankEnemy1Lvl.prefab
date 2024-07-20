@@ -914,6 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 5314317363372448151}
+  _enemy: {fileID: 3577128622675474931}
 --- !u!1 &7472550533527519031
 GameObject:
   m_ObjectHideFlags: 0

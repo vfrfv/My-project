@@ -23,9 +23,9 @@ public class Player : MonoBehaviour, IValue
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out EnemyBullet enemyMissile))
+        if (other.TryGetComponent(out EnemyBullet enemyBullet))
         {
-            TakeDamage();
+            TakeDamage(enemyBullet.Damage);
         }
     }
 

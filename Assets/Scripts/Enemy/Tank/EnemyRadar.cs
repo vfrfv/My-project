@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyRadar : MonoBehaviour
 {
@@ -29,11 +30,6 @@ public class EnemyRadar : MonoBehaviour
         }
     }
 
-    public void InstallFieldView(float fieldView)
-    {
-        _fieldView = fieldView;
-    }
-
     private void Detect()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, _fieldView, _mask);
@@ -42,9 +38,15 @@ public class EnemyRadar : MonoBehaviour
         {
             if (collider.TryGetComponent<Player>(out Player player))
             {
-                if (!Physics.Linecast(transform.position, player.transform.position, out RaycastHit hit, _obstacleMask))
+                if (!Physics.Raycast(
+                    transform.position,
+                    (player.transform.position - transform.position).normalized,
+                    out RaycastHit hit,
+                    10,
+                    _obstacleMask,
+                    queryTriggerInteraction: QueryTriggerInteraction.Collide))
                 {
-                    _enemy.SetPlayer(player);
+                    _enemy.SetTarget(player);
                     return;
                 }
             }
