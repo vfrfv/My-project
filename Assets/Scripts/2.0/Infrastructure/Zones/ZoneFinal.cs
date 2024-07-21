@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ZoneFinal : MonoBehaviour
 {
+    [SerializeField] private Transform _playerLocation;
     [SerializeField] private Enemy _boss;
 
-    private Player _player;
+    public event Action PlayerInZone;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out MovementPlayerTank movement))
+        if(other.TryGetComponent(out Player player))
         {
-            movement.OffMovement();
+            PlayerInZone?.Invoke();
+
+            player.SetTarget(_boss);
         }
     }
 }

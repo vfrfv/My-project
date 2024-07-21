@@ -350,6 +350,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &58661556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5441867327572087440, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+  m_PrefabInstance: {fileID: 7739169356585741785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3b32498969bba4e830538372b9b853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104548609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,10 +1708,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankEnemy2Lvl (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4344340194190646503, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7974317933272502184, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2849,6 +2856,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 26034740}
   m_SourcePrefab: {fileID: 100100000, guid: 3b703535d10b66844a909b8cd4b12fc5, type: 3}
+--- !u!4 &841057695 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6358918930996410189, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
+  m_PrefabInstance: {fileID: 8134300030610336415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &841057696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1835160608590292866, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
+  m_PrefabInstance: {fileID: 8134300030610336415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a3894a26d42624e9039aee9966e0e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &842039767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,7 +3201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3754167, y: -3e-45, z: 1e-45, w: 0.92685616}
+  m_LocalRotation: {x: 0.3754167, y: 1e-45, z: -1e-45, w: 0.92685616}
   m_LocalPosition: {x: 26.49, y: 14.25, z: 14.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3750,6 +3773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 1229524211}
+  _enemy: {fileID: 0}
 --- !u!114 &1229524213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3762,7 +3786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e660ecb49120f2c4383de3709776af66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabBullet: {fileID: 570068909421669466, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
+  _prefabBullet: {fileID: 5809886216609705320, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
 --- !u!1001 &1259338573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4137,6 +4161,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6f343cc46467004f811ce2ba3a3841b, type: 3}
+--- !u!1 &1395688023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395688024}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1395688024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395688023}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 841057695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1398126455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4361,6 +4416,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73b6ead8a8349cb4e9c4d3151f0c75ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1442969839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6988344146316013117, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
+  m_PrefabInstance: {fileID: 8134300030610336415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fce98d57f2a9e741afea3bdc9a31107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!23 &1447578616
@@ -6240,7 +6306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925756064}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3754167, y: -3e-45, z: 1e-45, w: 0.92685616}
+  m_LocalRotation: {x: 0.3754167, y: 1e-45, z: -1e-45, w: 0.92685616}
   m_LocalPosition: {x: 26.49, y: 14.25, z: 14.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6937,10 +7003,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankEnemy1Lvl
       objectReference: {fileID: 0}
-    - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7132,6 +7194,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2488291145062101472, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+      propertyPath: _enemy
+      value: 
+      objectReference: {fileID: 58661556}
     - target: {fileID: 4344340194190646503, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: m_Name
       value: TankEnemy2Lvl
@@ -7165,6 +7231,14 @@ PrefabInstance:
       propertyPath: _enemy.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1835160608590292866, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
+      propertyPath: _shootPoint
+      value: 
+      objectReference: {fileID: 1395688024}
+    - target: {fileID: 4014832426010114044, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
+      propertyPath: _prefabBullet
+      value: 
+      objectReference: {fileID: -4260745991760374110, guid: 3d5556852db06604681744695189d3e8, type: 3}
     - target: {fileID: 4816063765325904580, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -7217,6 +7291,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5946965532614688620, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
+      propertyPath: _playerRadar
+      value: 
+      objectReference: {fileID: 1442969839}
+    - target: {fileID: 5946965532614688620, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
+      propertyPath: _playerWeapon
+      value: 
+      objectReference: {fileID: 841057696}
     - target: {fileID: 6349463919618901152, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
       propertyPath: _moveSpeed
       value: 300
@@ -7227,7 +7309,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6358918930996410189, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1395688024}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
 --- !u!1 &8982990620970272108

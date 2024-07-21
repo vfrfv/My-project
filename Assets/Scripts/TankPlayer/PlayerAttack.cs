@@ -16,6 +16,8 @@ public class PlayerAttack : MonoBehaviour
 
         if (_player.Target != null)
         {
+            //Debug.Log(_player.Target.gameObject.name);
+
             LookAtDirection(_player.Target);
 
             if (IsTurretFacingTarget(_player.Target))
