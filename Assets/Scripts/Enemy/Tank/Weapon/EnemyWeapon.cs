@@ -8,7 +8,7 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] private Enemy _enemy;
 
     private float _shootDelayCounter = 0;
-    private float _shootDelayInSeconds = 4;
+    private float _shootDelayInSeconds;
     private EnemyPoolHandler _poolHandler;
 
     public bool CanShoot => _shootDelayCounter <= 0;
@@ -16,6 +16,11 @@ public class EnemyWeapon : MonoBehaviour
     private void Awake()
     {
         _poolHandler = GetComponent<EnemyPoolHandler>();
+    }
+
+    private void Start()
+    {
+        _shootDelayInSeconds = _enemy.ShootDelayInSeconds;      
     }
 
     public void Shoot()
@@ -45,7 +50,7 @@ public class EnemyWeapon : MonoBehaviour
         while (CanShoot == false)
         {
             yield return null;
-            _shootDelayCounter -= Time.deltaTime;
+            _shootDelayCounter -= Time.fixedDeltaTime;
         }
     }
 }

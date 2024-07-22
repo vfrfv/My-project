@@ -7,6 +7,7 @@ public class VirtualCamera : MonoBehaviour
 {
     [SerializeField] private FlightTower _flightTower;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
+    [SerializeField] private EnemyAttack _enemyAttack;
 
     private void Start()
     {
@@ -15,8 +16,8 @@ public class VirtualCamera : MonoBehaviour
 
     private void ChangeTarget()
     {
-        _virtualCamera.Follow = _flightTower.transform;
-        _virtualCamera.LookAt = _flightTower.transform;
+        _virtualCamera.Follow = _enemyAttack.transform;
+        _virtualCamera.LookAt = _enemyAttack.transform;
 
         _flightTower.Flew -= ChangeTarget;
     }

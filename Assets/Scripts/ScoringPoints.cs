@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScoringPoints : MonoBehaviour
@@ -12,21 +10,26 @@ public class ScoringPoints : MonoBehaviour
 
     private float _glasses = 0;
     private Coroutine _coroutine;
+    private bool _works = true;
 
     private void Start()
     {
         _flightTower.Flew += StartAddPoints;
+        _flightTower.AchievedGoal += StopAddPoints;
+
         _text.enabled = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void StopAddPoints()
     {
-        if(collision.collider.TryGetComponent(out Earth earth))
+        if (_coroutine != null)
         {
+            _works = false;
             StopCoroutine(_coroutine);
-
-            _flightTower.Flew -= StartAddPoints;
         }
+
+        _flightTower.Flew -= StartAddPoints;
+        _flightTower.AchievedGoal -= StopAddPoints;
     }
 
     private void StartAddPoints()
@@ -38,13 +41,9 @@ public class ScoringPoints : MonoBehaviour
 
     private IEnumerator AddPoints()
     {
-        bool works = true;
-
-        while (works)
+        while (_works)
         {
             _glasses += Time.deltaTime;
-
-            //_text.text = Convert.ToInt32(_glasses).ToString();
             _text.text = Convert.ToInt32(_glasses * 100).ToString();
 
             yield return null;

@@ -7,7 +7,6 @@ public class UnitConfig : ScriptableObject
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
     [SerializeField] private float _shootDelayInSeconds;
-    [SerializeField] private float _fieldView;
 
     public GameObject UnitPrefab => _unitPrefab;
 
@@ -18,7 +17,6 @@ public class UnitConfig : ScriptableObject
             Health = _health,
             Damage = _damage,
             ShootDelayInSeconds = _shootDelayInSeconds,
-            FieldView = _fieldView
         };
     }
 }
@@ -28,5 +26,4 @@ public struct StatsDto
     public int Health;
     public int Damage;
     public float ShootDelayInSeconds;
-    public float FieldView;
 }

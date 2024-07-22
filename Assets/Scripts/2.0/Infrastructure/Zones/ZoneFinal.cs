@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ZoneFinal : MonoBehaviour
 {
-    [SerializeField] private Transform _playerLocation;
     [SerializeField] private Enemy _boss;
 
     public event Action PlayerInZone;
@@ -17,6 +16,7 @@ public class ZoneFinal : MonoBehaviour
             PlayerInZone?.Invoke();
 
             player.SetTarget(_boss);
+            _boss.SetTarget(player);
         }
     }
 }

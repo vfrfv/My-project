@@ -11,18 +11,24 @@ public class Enemy : MonoBehaviour , IValue
     private int _health;
     private int _damage;
     private int _maxValue;
+    private float _shootDelayInSeconds;
 
     public Player Player => _target;
     public int Damage => _damage;
     public int Value => _health;
     public int MaxValue => _maxValue;
+    public float ShootDelayInSeconds => _shootDelayInSeconds;
 
     public event Action<Enemy> Died;
     public event Action<int> Changed;
 
+    private void Awake()
+    {
+        Init(_unitConfig.GetStats());     
+    }
+
     private void Start()
     {
-        Init(_unitConfig.GetStats());
         Changed?.Invoke(_health);
     }
 
@@ -39,6 +45,7 @@ public class Enemy : MonoBehaviour , IValue
         _maxValue = statsDto.Health;
         _health = statsDto.Health;
         _damage = statsDto.Damage;
+        _shootDelayInSeconds = statsDto.ShootDelayInSeconds;
     }
 
     private void TakeDamage(int damage)

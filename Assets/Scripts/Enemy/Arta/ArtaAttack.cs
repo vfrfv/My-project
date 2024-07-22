@@ -7,7 +7,7 @@ public class ArtaAttack : MonoBehaviour
     [SerializeField] private Player _target;
 
     [SerializeField] AnimationCurve _curve;
-    [SerializeField] private ArtaMissile _prefabMissile;
+    [SerializeField] private ArtaBullet _prefabMissile;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class ArtaAttack : MonoBehaviour
 
     private void Shoot()
     {
-        ArtaMissile missile = Instantiate(_prefabMissile);
+        ArtaBullet missile = Instantiate(_prefabMissile);
 
         StartCoroutine(Fly(missile));
     }
@@ -41,7 +41,7 @@ public class ArtaAttack : MonoBehaviour
         }
     }
 
-    private IEnumerator Fly(ArtaMissile missile)
+    private IEnumerator Fly(ArtaBullet bullet)
     {
         Vector3 startPoint = _shootPoint.position;
         Vector3 targetPosition = _target.transform.position;
@@ -57,27 +57,26 @@ public class ArtaAttack : MonoBehaviour
             float verticalPosition = _curve.Evaluate(t);
             Vector3 newPosition = Vector3.Lerp(startPoint, targetPosition, t) + Vector3.up * (verticalPosition * verticalScaleFactor);
 
-            if (missile == null)
+            if (bullet == null)
             {
                 yield break;
             }
 
-            Vector3 previousPosition = missile.transform.position; 
-            missile.transform.position = newPosition;
+            Vector3 previousPosition = bullet.transform.position; 
+            bullet.transform.position = newPosition;
 
             Vector3 direction = (newPosition - previousPosition).normalized; 
 
             if (direction != Vector3.zero) 
             {
                 Quaternion toRotation = Quaternion.LookRotation(direction);
-                missile.transform.rotation = toRotation;
+                bullet.transform.rotation = toRotation;
             }
-
 
             yield return null;
         }
 
-        Destroy(missile.gameObject);
+        Destroy(bullet.gameObject);
     }
 
     private void LookAtDirection(Player player)

@@ -29,11 +29,6 @@ public class Player : MonoBehaviour, IValue
         }
     }
 
-    private void Update()
-    {
-        Debug.Log(_target.gameObject.name);
-    }
-
     public void SetTarget(Enemy enemy)
     {
         _target = enemy;
