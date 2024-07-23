@@ -29,9 +29,9 @@ public class Player : MonoBehaviour, IValue
         }
     }
 
-    public void SetTarget(Enemy enemy)
+    public void SetTarget(Enemy target)
     {
-        _target = enemy;
+        _target = target;
     }
 
     public void LoseTarget()

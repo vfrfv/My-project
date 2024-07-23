@@ -8,45 +8,30 @@ public class ScoringPoints : MonoBehaviour
     [SerializeField] private TMP_Text _text;
     [SerializeField] private FlightTower _flightTower;
 
-    private float _glasses = 0;
+    private float _points = 0;
     private Coroutine _coroutine;
     private bool _works = true;
 
     private void Start()
     {
         _flightTower.Flew += StartAddPoints;
-        _flightTower.AchievedGoal += StopAddPoints;
-
+        _flightTower.NumberPointsChanged += ChengPointsValue;
         _text.enabled = false;
     }
 
-    private void StopAddPoints()
+    private void OnDestroy()
     {
-        if (_coroutine != null)
-        {
-            _works = false;
-            StopCoroutine(_coroutine);
-        }
-
         _flightTower.Flew -= StartAddPoints;
-        _flightTower.AchievedGoal -= StopAddPoints;
+        _flightTower.NumberPointsChanged -= ChengPointsValue;
     }
 
     private void StartAddPoints()
     {
         _text.enabled = true;
-
-        _coroutine = StartCoroutine(AddPoints());
     }
 
-    private IEnumerator AddPoints()
+    private void ChengPointsValue(float value)
     {
-        while (_works)
-        {
-            _glasses += Time.deltaTime;
-            _text.text = Convert.ToInt32(_glasses * 100).ToString();
-
-            yield return null;
-        }
+        _text.text = value.ToString("F0");  
     }
 }

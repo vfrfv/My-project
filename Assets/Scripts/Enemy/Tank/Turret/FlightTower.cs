@@ -12,9 +12,11 @@ public class FlightTower : MonoBehaviour
     [SerializeField] private EnemyAttack _enemyAttack;
 
     private int _launchForce = 150;
+    private float _points = 0;
 
     public event Action Flew;
     public event Action AchievedGoal;
+    public event Action <float> NumberPointsChanged;
 
     private void Start()
     {
@@ -25,14 +27,12 @@ public class FlightTower : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Flew?.Invoke();
             StartCoroutine(Fly(_enemyAttack));
         }
     }
 
     private void LaunchTower(Enemy enemy)
     {
-        Flew?.Invoke();
         StartCoroutine(Fly(_enemyAttack));
 
         _bossEnemy.Died -= LaunchTower;
@@ -40,6 +40,10 @@ public class FlightTower : MonoBehaviour
 
     private IEnumerator Fly(EnemyAttack enemyAttack)
     {
+        Flew?.Invoke();
+
+        float totalPoints = _smoothBar.Value.Value * 100;
+
         Vector3 startPoint = transform.position;
         Vector3 targetPosition = _point.transform.position;
         float speed = 25f;
@@ -54,10 +58,16 @@ public class FlightTower : MonoBehaviour
             float verticalPosition = _curve.Evaluate(t);
             Vector3 newPosition = Vector3.Lerp(startPoint, targetPosition, t) + Vector3.up * (verticalPosition * verticalScaleFactor);
 
+            _points = t * totalPoints;
+            NumberPointsChanged?.Invoke(_points);
+
             enemyAttack.gameObject.transform.position = newPosition;
 
             yield return null;
         }
+
+        _points = totalPoints;
+        NumberPointsChanged?.Invoke(_points);
 
         enemyAttack.gameObject.transform.position = _point.transform.position;
         AchievedGoal?.Invoke();

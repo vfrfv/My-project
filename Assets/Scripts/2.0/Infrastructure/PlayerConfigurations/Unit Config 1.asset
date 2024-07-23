@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Unit Config 1
   m_EditorClassIdentifier: 
   _unitPrefab: {fileID: 5767529140642037074, guid: f9cf7a7b9ac024c46a2effcc58608131, type: 3}
-  _health: 5
+  _health: 6
   _damage: 1
   _shootDelayInSeconds: 0
-  _fieldView: 16

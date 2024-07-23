@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour , IValue
     private void Die()
     {
         Died?.Invoke(this);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.01f);
     }
 
     public void SetTarget(Player target)
