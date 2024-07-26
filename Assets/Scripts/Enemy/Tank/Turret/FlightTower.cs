@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class FlightTower : MonoBehaviour
@@ -16,24 +15,23 @@ public class FlightTower : MonoBehaviour
 
     public event Action Flew;
     public event Action AchievedGoal;
-    public event Action <float> NumberPointsChanged;
+    public event Action<float> NumberPointsChanged;
+    private Coroutine _coroutine;
 
     private void Start()
     {
         _bossEnemy.Died += LaunchTower;
     }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            StartCoroutine(Fly(_enemyAttack));
-        }
-    }
-
     private void LaunchTower(Enemy enemy)
     {
-        StartCoroutine(Fly(_enemyAttack));
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+        else
+        {
+            _coroutine = StartCoroutine(Fly(_enemyAttack));
+        }
 
         _bossEnemy.Died -= LaunchTower;
     }

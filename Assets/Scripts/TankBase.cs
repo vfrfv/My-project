@@ -1,13 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TankBase : MonoBehaviour
+public abstract class TankBase : MonoBehaviour, IValue
 {
+       
+
     protected int _maxHealth;
     protected int _health;
     protected int _damage;
+    protected TankModel _tankModel;
 
     public int Damage => _damage;
     public int Value => _health;
@@ -20,16 +21,13 @@ public abstract class TankBase : MonoBehaviour
         Changed?.Invoke(Value);
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
-    {
-        // Implementation for specific units will be in derived classes
-    }
+    protected virtual void OnTriggerEnter(Collider other) { }
 
-    public void Init(StatsDto statsDto)
+    public virtual void Init(UnitConfig unitConfig)
     {
-        _maxHealth = statsDto.Health;
-        _health = statsDto.Health;
-        _damage = statsDto.Damage;
+        _maxHealth = unitConfig.Health;
+        _health = unitConfig.Health;
+        _damage = unitConfig.Damage;
     }
 
     protected void TakeDamage(int damage)

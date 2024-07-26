@@ -4,9 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerPoolHandler))]
 public class PlayerWeapon : MonoBehaviour
 {
-    [SerializeField] private Transform _shootPoint;
     [SerializeField] private Player _player;
 
+    private Transform _shootPoint;
     private float _shootDelayCounter = 0;
     private float _shootDelayInSeconds = 1;
     private PlayerPoolHandler _poolHandler;
@@ -16,6 +16,11 @@ public class PlayerWeapon : MonoBehaviour
     private void Awake()
     {
         _poolHandler = GetComponent<PlayerPoolHandler>();
+    }
+
+    public void InstallShootPoint(Transform shootPoint)
+    {
+        _shootPoint = shootPoint;
     }
 
     public void Shoot()
