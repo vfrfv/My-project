@@ -1,37 +1,43 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class ZoneFinal : MonoBehaviour
 {
     [SerializeField] CameraManagement _camera;
     [SerializeField] private Enemy _boss;
-    [SerializeField] private SmoothBar _enemyHealthBar;
+    [SerializeField] private EnemyAttack _bossAttack;
 
     public event Action PlayerInZone;
 
     private void Awake()
     {
         _boss.Died += SwitchCameraToTowerBoss;
-    }
 
-    private void Start()
-    {
-        _enemyHealthBar.gameObject.SetActive(false);
+        _bossAttack.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out MovementPlayerTank movementPlayerTank))
+        if (other.TryGetComponent(out Player player))
         {
+            _bossAttack.enabled = true;
+            StartCoroutine(StartBattle(player));
             _camera.SwitchToBoss();
-            movementPlayerTank.enabled = false;
-            _enemyHealthBar.gameObject.SetActive(true);
         }
     }
 
     private void OnDisable()
     {
         _boss.Died -= SwitchCameraToTowerBoss;
+    }
+
+    private IEnumerator StartBattle(Player player)
+    {
+        yield return new WaitForSeconds(2);
+
+        _boss.SetTarget(player);
+        player.SetTarget(_boss);
     }
 
     private void SwitchCameraToTowerBoss(Enemy enemy)

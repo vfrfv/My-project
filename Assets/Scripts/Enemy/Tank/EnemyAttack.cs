@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Enemy _enemy;
 
     private float _turningSpeed = 8;
-    private float _angleThreshold = 5.0f;
+    private float _angleThreshold = 3.0f;
 
     private void FixedUpdate()
     {

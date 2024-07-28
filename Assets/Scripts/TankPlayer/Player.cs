@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : TankBase /*MonoBehaviour, IValue*/
+public class Player : TankBase
 {
     [SerializeField] private PlayerAttack _playerAttack;
     [SerializeField] private PlayerWeapon _playerWeapon;

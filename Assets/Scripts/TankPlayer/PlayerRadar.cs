@@ -14,6 +14,7 @@ public class PlayerRadar : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(StartScanning());
+        print("¬ключились");
     }
 
     private IEnumerator StartScanning()
