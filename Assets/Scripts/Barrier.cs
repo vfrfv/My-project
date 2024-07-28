@@ -18,18 +18,14 @@ public class Barrier : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Player player))
-        {
-            _inPlace = true;
-        }
+        if (other.GetComponent<Player>())
+            _inPlace = true;     
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && _inPlace)
-        {
-            Open();
-        }
+            Open();     
     }
 
     public void OpenZone()

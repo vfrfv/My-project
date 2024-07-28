@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebeb1ccc044c9c848becfa83b32c6f38, type: 3}
   m_Name: BossConfig
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 0}
-  _health: 3
+  _TankModelPrefab: {fileID: 0}
+  _health: 6
   _damage: 1
   _shootDelayInSeconds: 1
