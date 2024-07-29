@@ -43,5 +43,7 @@ public class ZoneFinal : MonoBehaviour
     private void SwitchCameraToTowerBoss(Enemy enemy)
     {
         _camera.SwitchToTowerBoss();
+
+        _bossAttack.enabled = false;
     }
 }

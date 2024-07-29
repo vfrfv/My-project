@@ -28,6 +28,6 @@ public class MapDisplay : MonoBehaviour
             _mapImage.color = Color.gray;
 
         _playBatton.onClick.RemoveAllListeners();
-        _playBatton.onClick.AddListener(() => SceneManager.LoadScene(map.SceneToLoad.name));
+        _playBatton.onClick.AddListener(() => SceneManager.LoadSceneAsync(1));
     }
 }
