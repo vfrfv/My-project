@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private Player _player;
+    [SerializeField] private ParticleSystem _prefabShot;
 
     private Transform _shootPoint;
     private float _shootDelayCounter = 0;
@@ -33,6 +34,7 @@ public class PlayerWeapon : MonoBehaviour
         _shootDelayCounter = _shootDelayInSeconds;
 
         Bullet bullet = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
+        Instantiate(_prefabShot, _shootPoint.transform.position, _shootPoint.transform.rotation);
         bullet.SetDamage(_player.Damage);
         bullet.Destroyed += ReturnMissile;
 

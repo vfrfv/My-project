@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : TankBase /*MonoBehaviour , IValue*/
 {
     [SerializeField] private UnitConfig _unitConfig;
+    [SerializeField] private ParticleSystem _prefabExplosionEffect;
 
     private Player _target;
     private float _shootDelayInSeconds;
@@ -42,6 +43,7 @@ public class Enemy : TankBase /*MonoBehaviour , IValue*/
     protected override void Die()
     {
         Died?.Invoke(this);
+        Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
         Debug.Log($"Передаю себя для удаления из листа{this.gameObject.name}");
         Destroy(gameObject, 0.01f);
     }

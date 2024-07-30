@@ -765,8 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitConfig: {fileID: 11400000, guid: 7e5e65126cdf87543be29b67e8c35d5e, type: 2}
-  _enemyRadar: {fileID: 6287943497783559534}
-  _enemyWeapon: {fileID: 1698025680553694463}
+  _prefabExplosionEffect: {fileID: 19800006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
 --- !u!195 &1986917845799038090
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -915,6 +914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 5314317363372448151}
   _enemy: {fileID: 3577128622675474931}
+  _prefabShot: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
 --- !u!1 &7472550533527519031
 GameObject:
   m_ObjectHideFlags: 0
