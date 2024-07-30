@@ -7,6 +7,7 @@ public class Enemy : TankBase /*MonoBehaviour , IValue*/
 {
     [SerializeField] private UnitConfig _unitConfig;
     [SerializeField] private ParticleSystem _prefabExplosionEffect;
+    //[SerializeField] private AudioSource _soundExplosion;
 
     private Player _target;
     private float _shootDelayInSeconds;
@@ -44,6 +45,7 @@ public class Enemy : TankBase /*MonoBehaviour , IValue*/
     {
         Died?.Invoke(this);
         Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
+        //_soundExplosion.Play();
         Debug.Log($"Передаю себя для удаления из листа{this.gameObject.name}");
         Destroy(gameObject, 0.01f);
     }

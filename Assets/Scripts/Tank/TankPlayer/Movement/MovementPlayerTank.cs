@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,9 +7,14 @@ public class MovementPlayerTank : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private NavMeshAgent _meshAgent;
+    [SerializeField] private AudioSource _movementSource;
+    [SerializeField] private float _fadeDuration = 0.01f;
+
 
     private InputsPlayer _inputsPlayer;
     private float _turningSpeed = 8f;
+    private bool _isMoving;
+    private Coroutine _fadeCoroutine;
 
     private void Awake()
     {
@@ -29,8 +35,45 @@ public class MovementPlayerTank : MonoBehaviour
     {
         Vector2 moveDirection = _inputsPlayer.Player.Move.ReadValue<Vector2>();
 
+        bool isCurrentlyMoving = moveDirection != Vector2.zero;
+
+        if (isCurrentlyMoving && !_isMoving)
+        {
+            if (_fadeCoroutine != null)
+            {
+                StopCoroutine(_fadeCoroutine);
+                _fadeCoroutine = null;
+            }
+            _movementSource.volume = 0.5f;
+            _movementSource.Play();
+        }
+        else if (!isCurrentlyMoving && _isMoving)
+        {
+            if (_fadeCoroutine != null)
+            {
+                StopCoroutine(_fadeCoroutine);
+            }
+            _fadeCoroutine = StartCoroutine(FadeOut());
+        }
+
+        _isMoving = isCurrentlyMoving;
+
         Move(moveDirection);
         TurnCourse(moveDirection);
+    }
+
+    private IEnumerator FadeOut()
+    {
+        float startVolume = _movementSource.volume;
+
+        for (float t = 0; t < _fadeDuration; t += Time.deltaTime)
+        {
+            _movementSource.volume = Mathf.Lerp(startVolume, 0, t / _fadeDuration);
+            yield return null;
+        }
+
+        _movementSource.volume = 0;
+        _movementSource.Stop();
     }
 
     public void OffMovement()
@@ -42,7 +85,6 @@ public class MovementPlayerTank : MonoBehaviour
     {
         Vector3 moveDirection = new Vector3(direction.x, 0, direction.y);
         _meshAgent.destination = transform.position + moveDirection * _moveSpeed * Time.fixedDeltaTime;
-        //transform.position += moveDirection * _moveSpeed * Time.deltaTime;
     }
 
     private void TurnCourse(Vector2 course)

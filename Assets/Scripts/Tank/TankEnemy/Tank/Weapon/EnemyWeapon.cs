@@ -7,6 +7,7 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private ParticleSystem _prefabShot;
+    [SerializeField] private AudioSource _shootSound;
 
     private float _shootDelayCounter = 0;
     private float _shootDelayInSeconds;
@@ -35,6 +36,7 @@ public class EnemyWeapon : MonoBehaviour
 
         Bullet bullet = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
         Instantiate(_prefabShot, _shootPoint.transform.position, _shootPoint.transform.rotation);
+        _shootSound.Play();
         bullet.SetDamage(_enemy.Damage);
         bullet.Destroyed += ReturnMissile;
 
