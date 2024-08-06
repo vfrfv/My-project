@@ -1041,6 +1041,7 @@ GameObject:
   - component: {fileID: 2891788021369324119}
   - component: {fileID: 3860563261439287359}
   - component: {fileID: 2488291145062101472}
+  - component: {fileID: 5218372620597755863}
   m_Layer: 0
   m_Name: Carro_Armato_L6_40_Gun
   m_TagString: Untagged
@@ -1140,7 +1141,105 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 6688765850233583763}
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 5441867327572087440}
+  _prefabShoot: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
+  _shootSound: {fileID: 5218372620597755863}
+--- !u!82 &5218372620597755863
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643321127497946620}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 38bb15ebbe571ca48828d887804dcb4c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3696665186810982645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,8 +1604,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitConfig: {fileID: 11400000, guid: d564660b2511fca44ae48d6f36b7efcf, type: 2}
-  _enemyRadar: {fileID: 903852456593312761}
-  _enemyWeapon: {fileID: 2488291145062101472}
+  _prefabExplosionEffect: {fileID: 19800006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
+  _sfxPlayerPrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _deathSound: {fileID: 8300000, guid: b1ef5c5eb330454499bfb4379c76b435, type: 3}
 --- !u!195 &3153798256592855706
 NavMeshAgent:
   m_ObjectHideFlags: 0

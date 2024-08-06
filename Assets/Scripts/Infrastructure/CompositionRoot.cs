@@ -11,6 +11,8 @@ public class CompositionRoot : MonoBehaviour
 
     [SerializeField] private SmoothBar _smoothHealthBar;
     [SerializeField] private SmoothBar _progressBar;
+    [SerializeField] private ParticleSystem _upgradeEffect;
+    [SerializeField] private AudioSource _upgradeSound;
 
     private GameLoopService _loopService;
     private LevelProgressService _levelProgressService;
@@ -18,7 +20,7 @@ public class CompositionRoot : MonoBehaviour
 
     private void Awake()
     {
-        _upgradeService = new UpgradeService(_unitConfigs, _player);
+        _upgradeService = new UpgradeService(_unitConfigs, _player, _upgradeSound, _upgradeEffect);
         _levelProgressService = new LevelProgressService();
         _loopService = new GameLoopService(_levelProgressService, _upgradeService);
 

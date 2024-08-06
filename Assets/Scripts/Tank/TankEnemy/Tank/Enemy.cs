@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : TankBase /*MonoBehaviour , IValue*/
 {
     [SerializeField] private UnitConfig _unitConfig;
     [SerializeField] private ParticleSystem _prefabExplosionEffect;
-    //[SerializeField] private AudioSource _soundExplosion;
+    [SerializeField] private AudioSource _sfxPlayerPrefab;
+    [SerializeField] private AudioClip _deathSound;
 
     private Player _target;
     private float _shootDelayInSeconds;
@@ -44,9 +43,12 @@ public class Enemy : TankBase /*MonoBehaviour , IValue*/
     protected override void Die()
     {
         Died?.Invoke(this);
-        Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
-        //_soundExplosion.Play();
-        Debug.Log($"Передаю себя для удаления из листа{this.gameObject.name}");
+        ParticleSystem prefabExplosionEffect = Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
+        AudioSource sfxInstance = Instantiate(_sfxPlayerPrefab, transform.position, Quaternion.identity);
+        sfxInstance.PlayOneShot(_deathSound);
+
+        Destroy(sfxInstance.gameObject, _deathSound.length);
+        Destroy(prefabExplosionEffect.gameObject, 2);
         Destroy(gameObject, 0.01f);
     }
 

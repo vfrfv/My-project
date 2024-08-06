@@ -767,7 +767,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitConfig: {fileID: 11400000, guid: 7e5e65126cdf87543be29b67e8c35d5e, type: 2}
   _prefabExplosionEffect: {fileID: 19800006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
-  _soundExplosion: {fileID: 9036906286194188889}
+  _sfxPlayerPrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _deathSound: {fileID: 8300000, guid: b1ef5c5eb330454499bfb4379c76b435, type: 3}
 --- !u!195 &1986917845799038090
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1013,7 +1014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 5314317363372448151}
   _enemy: {fileID: 3577128622675474931}
-  _prefabShot: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
+  _prefabShoot: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
   _shootSound: {fileID: 8671765687542703896}
 --- !u!82 &8671765687542703896
 AudioSource:

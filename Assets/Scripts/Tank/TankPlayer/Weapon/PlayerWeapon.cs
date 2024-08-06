@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private ParticleSystem _prefabShot;
+    [SerializeField] private ParticleSystem _prefabShoot;
     [SerializeField] private AudioSource _shootSound;
 
     private Transform _shootPoint;
@@ -35,7 +35,9 @@ public class PlayerWeapon : MonoBehaviour
         _shootDelayCounter = _shootDelayInSeconds;
 
         Bullet bullet = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
-        Instantiate(_prefabShot, _shootPoint.transform.position, _shootPoint.transform.rotation);
+        ParticleSystem shootEffect = Instantiate(_prefabShoot, _shootPoint.transform.position, _shootPoint.transform.rotation);
+        Destroy(shootEffect.gameObject, 1);
+        
         _shootSound.Play();
         bullet.SetDamage(_player.Damage);
         bullet.Destroyed += ReturnMissile;
