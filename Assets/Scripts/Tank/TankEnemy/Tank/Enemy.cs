@@ -43,12 +43,13 @@ public class Enemy : TankBase /*MonoBehaviour , IValue*/
     protected override void Die()
     {
         Died?.Invoke(this);
-        ParticleSystem prefabExplosionEffect = Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
+        print(transform.position.y);
+        ParticleSystem explosionEffect = Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
         AudioSource sfxInstance = Instantiate(_sfxPlayerPrefab, transform.position, Quaternion.identity);
         sfxInstance.PlayOneShot(_deathSound);
 
         Destroy(sfxInstance.gameObject, _deathSound.length);
-        Destroy(prefabExplosionEffect.gameObject, 2);
+        Destroy(explosionEffect.gameObject, 2);
         Destroy(gameObject, 0.01f);
     }
 
