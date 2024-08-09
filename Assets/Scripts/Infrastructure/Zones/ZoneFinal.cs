@@ -21,8 +21,6 @@ public class ZoneFinal : MonoBehaviour
     {
         if (other.TryGetComponent(out Player player))
         {
-            Debug.Log("»грок в зоне");
-
             _bossAttack.enabled = true;
             StartCoroutine(StartBattle(player));
             _cameraManagement.SwitchToBoss();
