@@ -18,13 +18,13 @@ public class UILevel : MonoBehaviour
 
     private void OnEnable()
     {
-        _restartButton.onClick.AddListener(Restsrt);
+        _restartButton.onClick.AddListener(Restart);
         _menuButton.onClick.AddListener(ExitInMenu);
     }
 
     private void OnDisable()
     {
-        _restartButton.onClick.RemoveListener(Restsrt);
+        _restartButton.onClick.RemoveListener(Restart);
         _menuButton.onClick.RemoveListener(ExitInMenu);
 
         _player.Died -= ShowDefeatWindow;
@@ -58,9 +58,9 @@ public class UILevel : MonoBehaviour
         _imageVictory.SetActive(true);
     }
 
-    public void Restsrt()
+    public void Restart()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }
     public void ExitInMenu()
