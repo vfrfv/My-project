@@ -7,6 +7,7 @@ public class UpgradeService
     private Player _player;
     private AudioSource _audioSource;
     private ParticleSystem _particleSystem;
+    private int _currentConfig = 0;
 
     public UpgradeService(List<UnitConfig> unitConfigs, Player player, AudioSource audioSource, ParticleSystem particleSystem)
     {
@@ -18,8 +19,29 @@ public class UpgradeService
 
     public void Upgrade()
     {
-        Object.Instantiate(_particleSystem, _player.transform.position, Quaternion.identity);
-        _audioSource.Play();
-        _player.Init(_unitConfigs[1]);
+        UnitConfig nextConfig = GetFollowingConfiguration();
+
+        if (nextConfig != null)
+        {
+            Object.Instantiate(_particleSystem, _player.transform.position, Quaternion.identity);
+            _audioSource.Play();
+
+            _player.Init(nextConfig);
+        }
+    }
+
+    private UnitConfig GetFollowingConfiguration()
+    {
+        if (_currentConfig < _unitConfigs.Count)
+        {
+            _currentConfig++;
+            UnitConfig config = _unitConfigs[_currentConfig];
+
+            return config;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
