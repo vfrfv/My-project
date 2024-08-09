@@ -9,7 +9,7 @@ public class MovementPlayerTank : MonoBehaviour
     [SerializeField] private NavMeshAgent _meshAgent;
     [SerializeField] private AudioSource _movementSource;
     [SerializeField] private float _fadeDuration = 0.01f;
-    [SerializeField] private Animator _animator;
+    //[SerializeField] private Animator _animator;
 
     private InputsPlayer _inputsPlayer;
     private float _turningSpeed = 8f;
@@ -19,7 +19,7 @@ public class MovementPlayerTank : MonoBehaviour
     private void Awake()
     {
         _inputsPlayer = new InputsPlayer();
-        _animator.enabled = false;
+        //_animator.enabled = false;
     }
 
     private void OnEnable()
@@ -48,7 +48,7 @@ public class MovementPlayerTank : MonoBehaviour
             _movementSource.volume = 0.5f;
             _movementSource.Play();
 
-            _animator.enabled = true;
+            //_animator.enabled = true;
         }
         else if (!isCurrentlyMoving && _isMoving)
         {
@@ -58,7 +58,7 @@ public class MovementPlayerTank : MonoBehaviour
             }
 
             _fadeCoroutine = StartCoroutine(FadeOut());
-            _animator.enabled = false;
+            //_animator.enabled = false;
         }
 
         _isMoving = isCurrentlyMoving;

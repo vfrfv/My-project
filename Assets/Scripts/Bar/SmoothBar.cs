@@ -32,11 +32,6 @@ public class SmoothBar : MonoBehaviour
 
     public void Init(IValue health)
     {
-        //if (_value != null)
-        //{
-        //    _value.Changed -= Fill;
-        //}
-
         _slider = GetComponent<Slider>();
         _slider.SetValueWithoutNotify(health.Value);
         _value = health;

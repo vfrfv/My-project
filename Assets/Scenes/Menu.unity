@@ -536,7 +536,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -101.724686, y: 0, z: -95.638626, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -792,6 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjects:
   - {fileID: 11400000, guid: dc5d9f39ee72dd4409a0936cb2192a10, type: 2}
+  - {fileID: 11400000, guid: 5aa17eebf7c316c49b72f519b30b858d, type: 2}
   _mapDisplay: {fileID: 350650590}
 --- !u!1 &779437568
 GameObject:
@@ -1655,7 +1656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1816616127
 RectTransform:
   m_ObjectHideFlags: 0

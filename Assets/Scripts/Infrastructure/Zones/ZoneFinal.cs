@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZoneFinal : MonoBehaviour
 {
-    [SerializeField] CameraManagement _camera;
+    [SerializeField] CameraManagement _cameraManagement;
     [SerializeField] private Enemy _boss;
     [SerializeField] private EnemyAttack _bossAttack;
 
@@ -21,9 +21,11 @@ public class ZoneFinal : MonoBehaviour
     {
         if (other.TryGetComponent(out Player player))
         {
+            Debug.Log("»грок в зоне");
+
             _bossAttack.enabled = true;
             StartCoroutine(StartBattle(player));
-            _camera.SwitchToBoss();
+            _cameraManagement.SwitchToBoss();
         }
     }
 
@@ -42,7 +44,7 @@ public class ZoneFinal : MonoBehaviour
 
     private void SwitchCameraToTowerBoss(Enemy enemy)
     {
-        _camera.SwitchToTowerBoss();
+        _cameraManagement.SwitchToTowerBoss();
 
         _bossAttack.enabled = false;
     }

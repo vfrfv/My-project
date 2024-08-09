@@ -48,6 +48,8 @@ public class PlayerObserver : MonoBehaviour
     {
         if (other.GetComponent<ZoneFinal>())
         {
+            Debug.Log("Я в финальной зоне");
+
             StopCoroutine(_coroutine);
 
             _playerRadar.enabled = false;
