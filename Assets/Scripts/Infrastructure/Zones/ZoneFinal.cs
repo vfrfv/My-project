@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZoneFinal : MonoBehaviour
 {
     [SerializeField] CameraManagement _cameraManagement;
+    [SerializeField] SoundManager _soundManager;
     [SerializeField] private Enemy _boss;
     [SerializeField] private EnemyAttack _bossAttack;
 
@@ -24,6 +25,7 @@ public class ZoneFinal : MonoBehaviour
             _bossAttack.enabled = true;
             StartCoroutine(StartBattle(player));
             _cameraManagement.SwitchToBoss();
+            _soundManager.TurnOnBossBattle();
         }
     }
 

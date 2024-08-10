@@ -201,7 +201,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1726700374567334124, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3231950321110191135, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_LocalPosition.x
@@ -246,6 +246,10 @@ PrefabInstance:
     - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_Name
       value: TankEnemy1Lvl (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -367,7 +371,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1726700374567334124, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3231950321110191135, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_LocalPosition.x
@@ -412,6 +416,10 @@ PrefabInstance:
     - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_Name
       value: TankEnemy1Lvl (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1772,6 +1780,8 @@ GameObject:
   - component: {fileID: 771208971}
   - component: {fileID: 771208970}
   - component: {fileID: 771208969}
+  - component: {fileID: 771208973}
+  - component: {fileID: 771208972}
   m_Layer: 14
   m_Name: ZoneFinal
   m_TagString: Untagged
@@ -1808,6 +1818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraManagement: {fileID: 771208971}
+  _soundManager: {fileID: 771208972}
   _boss: {fileID: 1050465329}
   _bossAttack: {fileID: 1050465327}
 --- !u!65 &771208968
@@ -1887,6 +1898,116 @@ MonoBehaviour:
   _cameraPlayer: {fileID: 1133987939}
   _cameraBoss: {fileID: 1346345821}
   _cameraTowerBoss: {fileID: 1028099696}
+--- !u!114 &771208972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771208965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425f90d1a46e80b4cae51dfad089a0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundBackground: {fileID: 681839589}
+  _soundBossBackground: {fileID: 771208973}
+--- !u!82 &771208973
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771208965}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6e7abca4453fc4e40884e160ce2b0d9e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &774085750 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2377104138623805303, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
@@ -2266,7 +2387,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1726700374567334124, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3231950321110191135, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2311,6 +2432,10 @@ PrefabInstance:
     - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_Name
       value: TankEnemy1Lvl (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3643,7 +3768,7 @@ Transform:
   m_GameObject: {fileID: 1530777026}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 63.22, y: 12.05, z: 79.29}
+  m_LocalPosition: {x: 60.35, y: 12.05, z: 79.29}
   m_LocalScale: {x: 22.333326, y: 4.162394, z: 0.9207088}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3772,9 +3897,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankEnemy2Lvl
       objectReference: {fileID: 0}
+    - target: {fileID: 4344340194190646503, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7974317933272502184, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3791,7 +3920,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1726700374567334124, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3231950321110191135, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3836,6 +3965,10 @@ PrefabInstance:
     - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
       propertyPath: m_Name
       value: TankEnemy1Lvl
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732407154131380407, guid: e7ede5ef1949b9b47bffe96e401f9660, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
