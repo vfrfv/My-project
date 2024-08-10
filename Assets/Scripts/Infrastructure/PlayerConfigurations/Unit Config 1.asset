@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Unit Config 1
   m_EditorClassIdentifier: 
   _TankModelPrefab: {fileID: 6719830382662648955, guid: 237ae500f388e6444b4e86d765137aff, type: 3}
-  _health: 15
+  _health: 5
   _damage: 1
   _shootDelayInSeconds: 0

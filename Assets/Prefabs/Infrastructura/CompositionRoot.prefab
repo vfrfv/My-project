@@ -52,6 +52,7 @@ MonoBehaviour:
   _unitConfigs:
   - {fileID: 11400000, guid: fb62dbcc965e01940b3d808544eacded, type: 2}
   - {fileID: 11400000, guid: 0408d9be781bae544a597c9f9bc4c5dc, type: 2}
+  - {fileID: 11400000, guid: aa210beb58dafdf4e85c93bf6432ff94, type: 2}
   _smoothHealthBar: {fileID: 0}
   _progressBar: {fileID: 0}
   _upgradeEffect: {fileID: 19800004, guid: 084c6a87873fd6e4da7978a01aa18b34, type: 3}
