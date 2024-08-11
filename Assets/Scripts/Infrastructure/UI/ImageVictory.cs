@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ImageVictory : MonoBehaviour
 {
     [SerializeField] private TMP_Text _textPoints;
+    [SerializeField] private TMP_Text _message;
     [SerializeField] private FlightTower _flightTower;
     [SerializeField] private Button _nextLevel;
 
@@ -37,6 +38,10 @@ public class ImageVictory : MonoBehaviour
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            _message.text = "В разработке";
         }
 
         Time.timeScale = 1;

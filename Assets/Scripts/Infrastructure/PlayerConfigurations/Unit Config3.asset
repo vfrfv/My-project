@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TankModelPrefab: {fileID: 7192572984787097886, guid: 912d9934ff9b55542b900f284d1094f2, type: 3}
   _health: 13
-  _damage: 2
+  _damage: 1
   _shootDelayInSeconds: 0

@@ -6,6 +6,8 @@ public class Player : TankBase
     [SerializeField] private PlayerAttack _playerAttack;
     [SerializeField] private PlayerWeapon _playerWeapon;
     [SerializeField] private Transform _parentTransform;
+    [SerializeField] private AudioSource _sfxPlayerPrefab;
+    [SerializeField] private AudioClip _deathSound;
 
     private Enemy _target;
     private TankModel _model;
@@ -41,11 +43,16 @@ public class Player : TankBase
     {
         Destroy(gameObject);
         Died?.Invoke();
-}
+
+        AudioSource sfxInstance = Instantiate(_sfxPlayerPrefab, transform.position, Quaternion.identity);
+        sfxInstance.PlayOneShot(_deathSound);
+
+        Destroy(sfxInstance.gameObject, _deathSound.length);
+    }
 
     public override void Init(UnitConfig unitConfig)
     {
-        if(_model != null)
+        if (_model != null)
         {
             Destroy(_model.gameObject);
         }
