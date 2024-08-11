@@ -1103,6 +1103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 5992466286788368107}
   _tower: {fileID: 7303117530325545037}
+  _animator: {fileID: 2258333644472939653}
 --- !u!95 &2258333644472939653
 Animator:
   serializedVersion: 5

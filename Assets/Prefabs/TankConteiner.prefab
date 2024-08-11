@@ -56,7 +56,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAttack: {fileID: 698888640377090386}
   _playerWeapon: {fileID: 8549805691916039289}
+  _movementPlayerTank: {fileID: 4690517391707818023}
   _parentTransform: {fileID: 6520761207262236639}
+  _sfxPlayerPrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _deathSound: {fileID: 8300000, guid: 5689676c239874e488fee41403207744, type: 3}
 --- !u!114 &252791847660143296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +125,7 @@ MonoBehaviour:
   _meshAgent: {fileID: 590773490042098520}
   _movementSource: {fileID: 3093937552135192153}
   _fadeDuration: 1
+  _animator: {fileID: 0}
 --- !u!114 &7997094938824878354
 MonoBehaviour:
   m_ObjectHideFlags: 0
