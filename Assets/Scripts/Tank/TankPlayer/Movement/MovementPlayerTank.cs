@@ -18,8 +18,12 @@ public class MovementPlayerTank : MonoBehaviour
 
     private void Awake()
     {
-        _inputsPlayer = new InputsPlayer();
-        _animator.enabled = false;
+        _inputsPlayer = new InputsPlayer();       
+    }
+
+    private void Start()
+    {
+        DisableMotionAnimation();
     }
 
     private void OnEnable()
@@ -58,7 +62,7 @@ public class MovementPlayerTank : MonoBehaviour
             }
 
             _fadeCoroutine = StartCoroutine(FadeOut());
-            _animator.enabled = false;
+            DisableMotionAnimation();
         }
 
         _isMoving = isCurrentlyMoving;
@@ -81,14 +85,14 @@ public class MovementPlayerTank : MonoBehaviour
         _movementSource.Stop();
     }
 
-    public void OffMovement()
-    {
-        this.enabled = false;
-    }
-
     public void InstallAnimator(Animator animator)
     {
         _animator = animator;
+    }
+
+    public void DisableMotionAnimation()
+    {
+        _animator.enabled = false;
     }
 
     private void Move(Vector2 direction)

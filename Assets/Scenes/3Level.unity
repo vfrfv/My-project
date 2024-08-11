@@ -2150,14 +2150,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6569542050825263756, guid: c296bd319dfe424499df110c60bd4484, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.9057617
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569542050825263756, guid: c296bd319dfe424499df110c60bd4484, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.6972656
-      objectReference: {fileID: 0}
     - target: {fileID: 7149004833446849042, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: _helthSourse
       value: 
@@ -2169,10 +2161,6 @@ PrefabInstance:
     - target: {fileID: 7607461319563929663, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7641094045684439777, guid: c296bd319dfe424499df110c60bd4484, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -5.2159424
       objectReference: {fileID: 0}
     - target: {fileID: 7642146831989746051, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: m_Pivot.x

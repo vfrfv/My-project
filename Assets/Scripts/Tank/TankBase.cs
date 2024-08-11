@@ -26,6 +26,8 @@ public abstract class TankBase : MonoBehaviour, IValue
         _maxHealth = unitConfig.Health;
         _health = unitConfig.Health;
         _damage = unitConfig.Damage;
+
+        Changed?.Invoke(_health);
     }
 
     protected void TakeDamage(int damage)

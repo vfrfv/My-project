@@ -16,6 +16,7 @@ public class PlayerObserver : MonoBehaviour
         //_playerAttask.enabled = false;
 
         _coroutine = StartCoroutine(DestroyEnemies());
+        _movement.enabled = true;
     }
 
     private IEnumerator DestroyEnemies()
@@ -52,6 +53,7 @@ public class PlayerObserver : MonoBehaviour
 
             _playerRadar.enabled = false;
             _movement.enabled  = false;
+            _movement.DisableMotionAnimation();
 
             _playerAttask.enabled = true;
         }
