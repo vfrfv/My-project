@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UpgradeService
@@ -23,7 +24,7 @@ public class UpgradeService
 
         if (nextConfig != null)
         {
-            Object.Instantiate(_particleSystem, _player.transform.position, Quaternion.identity);
+           ParticleSystem particleSystem = Object.Instantiate(_particleSystem, _player.transform.position, Quaternion.identity);
             _audioSource.Play();
 
             _player.Init(nextConfig);

@@ -126,6 +126,7 @@ MonoBehaviour:
   _movementSource: {fileID: 3093937552135192153}
   _fadeDuration: 1
   _animator: {fileID: 0}
+  _joystick: {fileID: 0}
 --- !u!114 &7997094938824878354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +207,7 @@ AudioSource:
   m_GameObject: {fileID: 2377104138623805303}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6114017412239342837, guid: 790ebf58b0a83734fa16382f4d8dc181, type: 2}
   m_audioClip: {fileID: 8300000, guid: 38bb15ebbe571ca48828d887804dcb4c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -302,7 +303,7 @@ AudioSource:
   m_GameObject: {fileID: 2377104138623805303}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6114017412239342837, guid: 790ebf58b0a83734fa16382f4d8dc181, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7efd5c0b54c196746a47fa0b16d64a10, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.725

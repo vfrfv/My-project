@@ -22,8 +22,6 @@ public class LevelProgressService
     {
         _killedOpponents++;
 
-        //Changed?.Invoke(_killedOpponents);
-
         if (_killedOpponents >= _numberFragsUpgrade)
         {
             Improved?.Invoke();

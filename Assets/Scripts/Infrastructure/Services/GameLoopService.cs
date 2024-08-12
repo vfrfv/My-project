@@ -10,14 +10,8 @@ public class GameLoopService
     {
         _levelProgressService = levelProgressService ?? throw new ArgumentNullException(nameof(levelProgressService));
         _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
-        //_levelProgressService = new LevelProgressService(_upgradeService);
 
         levelProgressService.Improved += OnImproved;
-    }
-
-    ~GameLoopService() // диструктор, вызывается 
-    {
-
     }
 
     public void OnEnemiesDie(Enemy enemy)
@@ -32,6 +26,6 @@ public class GameLoopService
 
     private void Dispose()
     {
-        // посмотреть на метаните
+        
     }
 }

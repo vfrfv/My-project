@@ -17,7 +17,6 @@ public class Zone : MonoBehaviour
             if (_enemies.Contains(enemy) == false)
             {
                 _enemies.Add(enemy);
-                //Debug.Log($"Добавил в лист {enemy.gameObject.name}");
                 enemy.Died += RemoveEnemy;
                 _loopService.OnEnemiesDie(enemy);
 
@@ -35,7 +34,6 @@ public class Zone : MonoBehaviour
     {
         enemy.Died -= RemoveEnemy;
         _enemies.Remove(enemy);
-        //Debug.Log($"Удалил {enemy.gameObject.name} из листа");
 
         UpdateBarrierState();
     }
