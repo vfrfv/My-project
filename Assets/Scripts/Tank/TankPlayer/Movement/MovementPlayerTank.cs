@@ -45,15 +45,27 @@ public class MovementPlayerTank : MonoBehaviour
     {
         if(IsMobileDevice())
         {
+            if(!_joystick.gameObject.activeSelf == false)
+            {
+                _joystick.gameObject.SetActive(true);
+            }
+
             _moveDirection = _joystick.Direction;
         }
         else
         {
+            if(_joystick.gameObject.activeSelf)
+            {
+                _joystick.gameObject.SetActive(false);
+            }
+
             _moveDirection = _inputsPlayer.Player.Move.ReadValue<Vector2>();
         }
 
-        ControlSound(_moveDirection);
-        ControlAnimation(_moveDirection);
+        _isMoving = _moveDirection != Vector2.zero;
+
+        ControlSound(_isMoving);
+        ControlAnimation(_isMoving);
 
         Move(_moveDirection);
         TurnCourse(_moveDirection);
@@ -83,27 +95,21 @@ public class MovementPlayerTank : MonoBehaviour
         _animator.enabled = false;
     }
 
-    private void ControlAnimation(Vector2 moveDirection)
+    private void ControlAnimation(bool isMoving)
     {
-        bool isCurrentlyMoving = moveDirection != Vector2.zero;
-
-        if (isCurrentlyMoving && !_isMoving)
+        if (isMoving && !_animator.enabled)
         {
             _animator.enabled = true;
         }
-        else if (!isCurrentlyMoving && _isMoving)
+        else if (!isMoving && _animator.enabled)
         {
             DisableMotionAnimation();
         }
-
-        _isMoving = isCurrentlyMoving;
     }
 
-    private void ControlSound(Vector2 moveDirection)
+    private void ControlSound(bool isMoving)
     {
-        bool isCurrentlyMoving = moveDirection != Vector2.zero;
-
-        if (isCurrentlyMoving && !_isMoving)
+        if (isMoving && !_movementSource.isPlaying)
         {
             if (_fadeCoroutine != null)
             {
@@ -112,10 +118,8 @@ public class MovementPlayerTank : MonoBehaviour
             }
             _movementSource.volume = 0.5f;
             _movementSource.Play();
-
-            _animator.enabled = true;
         }
-        else if (!isCurrentlyMoving && _isMoving)
+        else if (!isMoving && _movementSource.isPlaying)
         {
             if (_fadeCoroutine != null)
             {
@@ -123,10 +127,7 @@ public class MovementPlayerTank : MonoBehaviour
             }
 
             _fadeCoroutine = StartCoroutine(FadeOut());
-            DisableMotionAnimation();
         }
-
-        _isMoving = isCurrentlyMoving;
     }
 
     private void Move(Vector2 direction)
