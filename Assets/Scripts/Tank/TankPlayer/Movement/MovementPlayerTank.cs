@@ -13,8 +13,6 @@ public class MovementPlayerTank : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Joystick _joystick;
 
-    [SerializeField] private bool _joystickActive;
-
     private InputsPlayer _inputsPlayer;
     private float _turningSpeed = 8f;
     private bool _isMoving;

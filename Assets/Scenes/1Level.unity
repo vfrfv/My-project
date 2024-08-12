@@ -1453,6 +1453,7 @@ MonoBehaviour:
   _soundManager: {fileID: 883032010}
   _boss: {fileID: 1853914821}
   _bossAttack: {fileID: 754117826}
+  _playerBoxCollider: {fileID: 2655948341935185492}
 --- !u!114 &883032007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,7 +1834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30457315, y: -0.000000023177387, z: 0.00000000741133, w: 0.95248896}
+  m_LocalRotation: {x: 0.30457315, y: 0.000000023177387, z: -0.00000000741133, w: 0.95248896}
   m_LocalPosition: {x: 28.2, y: 11.91, z: -15.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4352,11 +4353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000023177387
+      value: 0.000000023177387
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000000741133
+      value: -0.00000000741133
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4526,6 +4527,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
+--- !u!65 &2655948341935185492 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7499043151605965738, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
+  m_PrefabInstance: {fileID: 2655948341935185491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3871760267457999076
 PrefabInstance:
   m_ObjectHideFlags: 0

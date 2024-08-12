@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class ZoneFinal : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class ZoneFinal : MonoBehaviour
     [SerializeField] SoundManager _soundManager;
     [SerializeField] private Enemy _boss;
     [SerializeField] private EnemyAttack _bossAttack;
+    [SerializeField] private BoxCollider _playerBoxCollider;
 
     public event Action PlayerInZone;
 
     private void Awake()
     {
         _boss.Died += SwitchCameraToTowerBoss;
+        _boss.Died += DisableTakingPlayerDamage;
 
         _bossAttack.enabled = false;
     }
@@ -32,6 +35,7 @@ public class ZoneFinal : MonoBehaviour
     private void OnDisable()
     {
         _boss.Died -= SwitchCameraToTowerBoss;
+        _boss.Died += DisableTakingPlayerDamage;
     }
 
     private IEnumerator StartBattle(Player player)
@@ -45,7 +49,11 @@ public class ZoneFinal : MonoBehaviour
     private void SwitchCameraToTowerBoss(Enemy enemy)
     {
         _cameraManagement.SwitchToTowerBoss();
-
         _bossAttack.enabled = false;
+    }
+
+    private void DisableTakingPlayerDamage(Enemy enemy)
+    {
+        _playerBoxCollider.enabled = false;
     }
 }
