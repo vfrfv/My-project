@@ -3,7 +3,7 @@ using System;
 public class LevelProgressService
 {
     private int _killedOpponents = 0;
-    private int _numberFragsUpgrade = 2;
+    private int _numberFragsUpgrade = 4;
     private UpgradeService _upgradeService;
 
     public LevelProgressService(UpgradeService upgradeService)
