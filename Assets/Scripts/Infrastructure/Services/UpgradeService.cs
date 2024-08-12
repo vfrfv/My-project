@@ -32,7 +32,7 @@ public class UpgradeService
 
     private UnitConfig GetFollowingConfiguration()
     {
-        if (_currentConfig < _unitConfigs.Count)
+        if (_currentConfig < _unitConfigs.Count -1)
         {
             _currentConfig++;
             UnitConfig config = _unitConfigs[_currentConfig];
@@ -43,5 +43,10 @@ public class UpgradeService
         {
             return null;
         }
+    }
+
+    public bool IsMaxLevel()
+    {
+        return _currentConfig >= _unitConfigs.Count - 1;
     }
 }

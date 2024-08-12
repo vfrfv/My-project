@@ -21,7 +21,7 @@ public class CompositionRoot : MonoBehaviour
     private void Awake()
     {
         _upgradeService = new UpgradeService(_unitConfigs, _player, _upgradeSound, _upgradeEffect);
-        _levelProgressService = new LevelProgressService();
+        _levelProgressService = new LevelProgressService(_upgradeService);
         _loopService = new GameLoopService(_levelProgressService, _upgradeService);
 
         var provider = _progressBar.AddComponent<ValueProvider>();
