@@ -14,13 +14,25 @@ public class AdjustVolume : MonoBehaviour
 
     private int _minimumVolumeLevel = -80;
 
-    public void ChangeVolumeMusic()
+    private void Start()
     {
-        _audioMixerGroup.audioMixer.SetFloat(MusicGroup, Mathf.Lerp(_minimumVolumeLevel, 0, _musicVolume.value));
+        _musicVolume.onValueChanged.AddListener(ChangeVolumeMusic);
+        _SFXVolume.onValueChanged.AddListener(ChangeVolumeSFX);
     }
 
-    public void ChangeVolumeSFX()
+    private void OnDestroy()
     {
-        _audioMixerGroup.audioMixer.SetFloat(SFXGroup, Mathf.Lerp(_minimumVolumeLevel, 0, _SFXVolume.value));
+        _musicVolume.onValueChanged.RemoveListener(ChangeVolumeMusic);
+        _SFXVolume.onValueChanged.RemoveListener(ChangeVolumeSFX);
+    }
+
+    public void ChangeVolumeMusic(float value)
+    {
+        _audioMixerGroup.audioMixer.SetFloat(MusicGroup, Mathf.Lerp(_minimumVolumeLevel, 0, value));
+    }
+
+    public void ChangeVolumeSFX(float value)
+    {
+        _audioMixerGroup.audioMixer.SetFloat(SFXGroup, Mathf.Lerp(_minimumVolumeLevel, 0, value));
     }
 }
