@@ -41,7 +41,7 @@ public class PlayerRadar : MonoBehaviour
                     transform.position,
                     (target.transform.position - transform.position).normalized,
                     out RaycastHit hit,
-                    10,
+                    15,
                     _obstacleMask,
                     queryTriggerInteraction: QueryTriggerInteraction.Collide))
                 {

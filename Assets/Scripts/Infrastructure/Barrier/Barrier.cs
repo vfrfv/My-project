@@ -8,8 +8,6 @@ public class Barrier : MonoBehaviour
     [SerializeField] private NavMeshObstacle _obstacle;
     [SerializeField] private Arrow _arrow;
 
-    private bool _inPlace = false;
-
     private void Start()
     {
         _openingArea.enabled = false;
@@ -19,14 +17,9 @@ public class Barrier : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Player>())
-            _inPlace = true;     
+            Open();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && _inPlace)
-            Open();     
-    }
 
     public void OpenZone()
     {

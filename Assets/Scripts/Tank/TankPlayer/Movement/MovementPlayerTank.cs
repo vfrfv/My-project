@@ -22,7 +22,8 @@ public class MovementPlayerTank : MonoBehaviour
 
     private void Awake()
     {
-        _inputsPlayer = new InputsPlayer();       
+        _inputsPlayer = new InputsPlayer();
+        _joystickActive = true;
     }
 
     private void Start()
@@ -51,15 +52,15 @@ public class MovementPlayerTank : MonoBehaviour
 
             _moveDirection = _joystick.Direction;
         }
-        else
-        {
-            if(_joystick.gameObject.activeSelf)
-            {
-                _joystick.gameObject.SetActive(false);
-            }
+        //else
+        //{
+        //    if (_joystick.gameObject.activeSelf)
+        //    {
+        //        _joystick.gameObject.SetActive(false);
+        //    }
 
-            _moveDirection = _inputsPlayer.Player.Move.ReadValue<Vector2>();
-        }
+        //    _moveDirection = _inputsPlayer.Player.Move.ReadValue<Vector2>();
+        //}
 
         _isMoving = _moveDirection != Vector2.zero;
 

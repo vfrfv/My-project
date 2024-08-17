@@ -4157,7 +4157,7 @@ PrefabInstance:
       objectReference: {fileID: 2063318120}
     - target: {fileID: 4690517391707818023, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
       propertyPath: _joystickActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6520761207262236639, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
       propertyPath: m_LocalPosition.x
