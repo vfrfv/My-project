@@ -23,6 +23,7 @@ public class ImageVictory : MonoBehaviour
     private void Start()
     {
         _flightTower.NumberPointsChanged += ShowPoints;
+        _message.gameObject.SetActive(false);
     }
 
     private void ShowPoints(float point)
@@ -41,6 +42,7 @@ public class ImageVictory : MonoBehaviour
         }
         else
         {
+            _message.gameObject.SetActive(true);
             _message.text = "В разработке";
         }
 

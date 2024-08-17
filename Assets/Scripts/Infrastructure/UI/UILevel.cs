@@ -1,9 +1,7 @@
-using GLTF.Schema;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class UILevel : MonoBehaviour
@@ -33,7 +31,7 @@ public class UILevel : MonoBehaviour
 
     private void Start()
     {
-       _imageDefeat.SetActive(false);
+        _imageDefeat.SetActive(false);
         _imageVictory.SetActive(false);
 
         _player.Died += ShowDefeatWindow;

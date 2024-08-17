@@ -12,6 +12,7 @@ public class MovementPlayerTank : MonoBehaviour
     [SerializeField] private float _fadeDuration = 0.01f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Joystick _joystick;
+    [SerializeField] private bool _joystickActive;
 
     private InputsPlayer _inputsPlayer;
     private float _turningSpeed = 8f;
@@ -41,7 +42,7 @@ public class MovementPlayerTank : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(IsMobileDevice())
+        if(_joystickActive == true)
         {
             if(!_joystick.gameObject.activeSelf == false)
             {
@@ -143,18 +144,19 @@ public class MovementPlayerTank : MonoBehaviour
         }
     }
 
-    private bool IsMobileDevice()
-    {
-        return SystemInfo.deviceType == DeviceType.Handheld;
+    //private bool IsMobileDevice()
+    //{
+    //    return SystemInfo.deviceType == DeviceType.Handheld;
 
-        //string deiveUser = YandexGame.EnvironmentData.deviceType;
-        //if (deiveUser == "mobile" || deiveUser == "table")
-        //{
-        //    return true;
-        //}
-        //else
-        //{
-        //    return false;
-        //}
-    }
+    //    //string deiveUser = YandexGame.EnvironmentData.deviceType;
+
+    //    //if (deiveUser == "mobile" || deiveUser == "table")
+    //    //{
+    //    //    return true;
+    //    //}
+    //    //else
+    //    //{
+    //    //    return false;
+    //    //}
+    //}
 }
