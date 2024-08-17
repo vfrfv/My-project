@@ -10,7 +10,6 @@ public class FlightTower : MonoBehaviour
     [SerializeField] AnimationCurve _curve;
     [SerializeField] private EnemyAttack _enemyAttack;
 
-    private int _launchForce = 150;
     private float _points = 0;
 
     public event Action Flew;
