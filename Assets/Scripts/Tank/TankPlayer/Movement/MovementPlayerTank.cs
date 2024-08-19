@@ -1,3 +1,4 @@
+using Agava.WebUtility;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -12,7 +13,6 @@ public class MovementPlayerTank : MonoBehaviour
     [SerializeField] private float _fadeDuration = 0.01f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Joystick _joystick;
-    [SerializeField] private bool _joystickActive = true;
 
     private InputsPlayer _inputsPlayer;
     private float _turningSpeed = 8f;
@@ -23,7 +23,6 @@ public class MovementPlayerTank : MonoBehaviour
     private void Awake()
     {
         _inputsPlayer = new InputsPlayer();
-        _joystickActive = true;
     }
 
     private void Start()
@@ -43,7 +42,7 @@ public class MovementPlayerTank : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_joystickActive == true)
+        if(Device.IsMobile)
         {
             if(!_joystick.gameObject.activeSelf == false)
             {
@@ -52,15 +51,15 @@ public class MovementPlayerTank : MonoBehaviour
 
             _moveDirection = _joystick.Direction;
         }
-        //else
-        //{
-        //    if (_joystick.gameObject.activeSelf)
-        //    {
-        //        _joystick.gameObject.SetActive(false);
-        //    }
+        else
+        {
+            if (_joystick.gameObject.activeSelf)
+            {
+                _joystick.gameObject.SetActive(false);
+            }
 
-        //    _moveDirection = _inputsPlayer.Player.Move.ReadValue<Vector2>();
-        //}
+            _moveDirection = _inputsPlayer.Player.Move.ReadValue<Vector2>();
+        }
 
         _isMoving = _moveDirection != Vector2.zero;
 
@@ -144,20 +143,4 @@ public class MovementPlayerTank : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _turningSpeed * Time.deltaTime);
         }
     }
-
-    //private bool IsMobileDevice()
-    //{
-    //    return SystemInfo.deviceType == DeviceType.Handheld;
-
-    //    //string deiveUser = YandexGame.EnvironmentData.deviceType;
-
-    //    //if (deiveUser == "mobile" || deiveUser == "table")
-    //    //{
-    //    //    return true;
-    //    //}
-    //    //else
-    //    //{
-    //    //    return false;
-    //    //}
-    //}
 }
