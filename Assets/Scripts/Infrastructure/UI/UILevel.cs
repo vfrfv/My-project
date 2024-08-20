@@ -12,18 +12,26 @@ public class UILevel : MonoBehaviour
     [SerializeField] private FlightTower _flightTower;
 
     [SerializeField] private Button _restartButton;
-    [SerializeField] private Button _menuButton;
+    [SerializeField] private Button[] _menuButtons;
 
     private void OnEnable()
     {
         _restartButton.onClick.AddListener(Restart);
-        _menuButton.onClick.AddListener(ExitInMenu);
+
+        foreach (var button in _menuButtons)
+        {
+            button.onClick.AddListener(ExitInMenu);
+        }
     }
 
     private void OnDisable()
     {
         _restartButton.onClick.RemoveListener(Restart);
-        _menuButton.onClick.RemoveListener(ExitInMenu);
+
+        foreach (var button in _menuButtons)
+        {
+            button.onClick.RemoveListener(ExitInMenu);
+        }
 
         _player.Died -= ShowDefeatWindow;
         _flightTower.AchievedGoal += ShowVictoryWindow;
