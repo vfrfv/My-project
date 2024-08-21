@@ -11,11 +11,15 @@ public class FlightTower : MonoBehaviour
     [SerializeField] private EnemyAttack _enemyAttack;
 
     private float _points = 0;
+    private float _totalPoints;
 
     public event Action Flew;
     public event Action AchievedGoal;
     public event Action<float> NumberPointsChanged;
+    public event Action<float> PointsTransferredPlayer;
     private Coroutine _coroutine;
+
+    public float TotalPoints => _totalPoints;
 
     private void Start()
     {
@@ -39,7 +43,7 @@ public class FlightTower : MonoBehaviour
     {
         Flew?.Invoke();
 
-        float totalPoints = _smoothBar.Value.Value * 100;
+        _totalPoints = _smoothBar.Value.Value * 100;
 
         Vector3 startPoint = transform.position;
         Vector3 targetPosition = _point.transform.position;
@@ -55,7 +59,7 @@ public class FlightTower : MonoBehaviour
             float verticalPosition = _curve.Evaluate(t);
             Vector3 newPosition = Vector3.Lerp(startPoint, targetPosition, t) + Vector3.up * (verticalPosition * verticalScaleFactor);
 
-            _points = t * totalPoints;
+            _points = t * _totalPoints;
             NumberPointsChanged?.Invoke(_points);
 
             enemyAttack.gameObject.transform.position = newPosition;
@@ -63,8 +67,9 @@ public class FlightTower : MonoBehaviour
             yield return null;
         }
 
-        _points = totalPoints;
+        _points = _totalPoints;
         NumberPointsChanged?.Invoke(_points);
+        PointsTransferredPlayer?.Invoke(_totalPoints);
 
         enemyAttack.gameObject.transform.position = _point.transform.position;
         AchievedGoal?.Invoke();

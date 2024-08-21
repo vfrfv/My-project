@@ -13,16 +13,19 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private SmoothBar _progressBar;
     [SerializeField] private ParticleSystem _upgradeEffect;
     [SerializeField] private AudioSource _upgradeSound;
+    [SerializeField] private FlightTower _flightTower;
 
     private GameLoopService _loopService;
     private LevelProgressService _levelProgressService;
     private UpgradeService _upgradeService;
+    private PlayerPointsManager _playerPointsManager;
 
     private void Awake()
     {
         _upgradeService = new UpgradeService(_unitConfigs, _player, _upgradeSound, _upgradeEffect);
         _levelProgressService = new LevelProgressService(_upgradeService);
         _loopService = new GameLoopService(_levelProgressService, _upgradeService);
+        _playerPointsManager = new PlayerPointsManager(_flightTower);
 
         var provider = _progressBar.AddComponent<ValueProvider>();
         provider.Init(_levelProgressService, _progressBar);

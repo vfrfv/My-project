@@ -53,7 +53,7 @@ public class ZoneFinal : MonoBehaviour
     {
         _levelManager.CompleteLevel();
 
-        Debug.Log(_levelManager.CurrentLevel);
+       
     }
 
     private void SwitchCameraToTowerBoss(Enemy enemy)
