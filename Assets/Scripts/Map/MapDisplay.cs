@@ -20,6 +20,8 @@ public class MapDisplay : MonoBehaviour
         _mapName.text = map.MapName;
         _mapImage.sprite = map.MapImage;
 
+        _levelManager.Load();
+
         bool mapUnlocked = _levelManager.CurrentLevel >= _map.MapIndex;
 
         Debug.Log($"{_levelManager.CurrentLevel} { _map.MapIndex}");

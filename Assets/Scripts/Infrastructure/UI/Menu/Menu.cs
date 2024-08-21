@@ -13,6 +13,8 @@ public class Menu : MonoBehaviour
     [SerializeField] Image _imageLevelsWindow;
     [SerializeField] Image _imageSettings;
 
+    [SerializeField] LevelManager _levelManager;
+
     private void OnEnable()
     {
         _startButton.onClick.AddListener(Play);
@@ -39,7 +41,9 @@ public class Menu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadSceneAsync(1);
+        _levelManager.Load();
+
+        SceneManager.LoadSceneAsync(_levelManager.CurrentLevel);
     }
 
     public void OpenLevelsWindow()
