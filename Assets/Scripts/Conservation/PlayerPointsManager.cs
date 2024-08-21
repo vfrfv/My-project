@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerPointsManager
 {
+    private const string KeySavedPoints = "CurrentPoints";
+
     private FlightTower _flightTower;
     private float _currentPoints;
 
@@ -23,20 +25,21 @@ public class PlayerPointsManager
         float anInteger = (float)Math.Truncate(points);
         _currentPoints += anInteger;
 
-        PlayerPrefs.SetFloat("CurrentPoints", _currentPoints);
+        PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
+        PlayerPrefs.Save();
     }
 
     public void Load()
     {
-        if (PlayerPrefs.HasKey("CurrentPoints"))
+        if (PlayerPrefs.HasKey(KeySavedPoints))
         {
-            _currentPoints = PlayerPrefs.GetFloat("CurrentPoints");
+            _currentPoints = PlayerPrefs.GetFloat(KeySavedPoints);
         }
     }
 
     public void SetDefolt()
     {
-        PlayerPrefs.SetFloat("CurrentPoints", 0);
+        PlayerPrefs.SetFloat(KeySavedPoints, 0);
         PlayerPrefs.Save();
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class LevelManager
 {
-    const string KeySavedLevel = "ÑurrentLevel";
+    private const string KeySavedLevel = "ÑurrentLevel";
 
     [SerializeField] private int _currentLevel = 1;
 
@@ -15,6 +15,7 @@ public class LevelManager
         _currentLevel++;
 
         PlayerPrefs.SetInt(KeySavedLevel, _currentLevel);
+        PlayerPrefs.Save();
     }
 
     public void Load()
