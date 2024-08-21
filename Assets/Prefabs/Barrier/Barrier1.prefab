@@ -321,7 +321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125265982072119376}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 35.52709, y: 3.83, z: 33.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: 6008581078046727789}
   - component: {fileID: 4996819983016089021}
   - component: {fileID: 1962994537317185693}
+  - component: {fileID: 5728773889677646698}
   m_Layer: 12
   m_Name: GATE_Vehicle_Moving
   m_TagString: Untagged
@@ -829,8 +830,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.652272, y: 0.16294475, z: 0.08436086}
-  m_Center: {x: -2.7548718, y: -0.01126416, z: 0.023153055}
+  m_Size: {x: 5.0338306, y: 0.4878037, z: 0.08436086}
+  m_Center: {x: -2.7375522, y: -0.17369363, z: 0.023153055}
 --- !u!59 &1962994537317185693
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -870,3 +871,24 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!65 &5728773889677646698
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8405672100353860652}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.652272, y: 0.16294475, z: 0.16059297}
+  m_Center: {x: -2.7548718, y: -0.011263922, z: -0.014963001}
