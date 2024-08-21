@@ -10,6 +10,7 @@ public class ZoneFinal : MonoBehaviour
     [SerializeField] private Enemy _boss;
     [SerializeField] private EnemyAttack _bossAttack;
     [SerializeField] private BoxCollider _playerBoxCollider;
+    [SerializeField] private LevelManager _levelManager;
 
     public event Action PlayerInZone;
 
@@ -17,6 +18,7 @@ public class ZoneFinal : MonoBehaviour
     {
         _boss.Died += SwitchCameraToTowerBoss;
         _boss.Died += DisableTakingPlayerDamage;
+        _boss.Died += OpenNextLevel;
 
         _bossAttack.enabled = false;
     }
@@ -35,7 +37,8 @@ public class ZoneFinal : MonoBehaviour
     private void OnDisable()
     {
         _boss.Died -= SwitchCameraToTowerBoss;
-        _boss.Died += DisableTakingPlayerDamage;
+        _boss.Died -= DisableTakingPlayerDamage;
+        _boss.Died -= OpenNextLevel;
     }
 
     private IEnumerator StartBattle(Player player)
@@ -44,6 +47,13 @@ public class ZoneFinal : MonoBehaviour
 
         _boss.SetTarget(player);
         player.SetTarget(_boss);
+    }
+
+    private void OpenNextLevel(Enemy enemy)
+    {
+        _levelManager.CompleteLevel();
+
+        Debug.Log(_levelManager.CurrentLevel);
     }
 
     private void SwitchCameraToTowerBoss(Enemy enemy)

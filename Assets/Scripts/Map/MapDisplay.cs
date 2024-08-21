@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +9,7 @@ public class MapDisplay : MonoBehaviour
     [SerializeField] private Image _mapImage;
     [SerializeField] private Button _playBatton;
     [SerializeField] private Image _locImage;
+    [SerializeField] private LevelManager _levelManager;
 
     private Map _map;
 
@@ -20,27 +20,25 @@ public class MapDisplay : MonoBehaviour
         _mapName.text = map.MapName;
         _mapImage.sprite = map.MapImage;
 
-        //bool mapUnlocked = PlayerPrefs.GetInt("currentScene", 0) >= map.MapIndex;
+        bool mapUnlocked = _levelManager.CurrentLevel >= _map.MapIndex;
 
-        //_locImage.gameObject.SetActive(!mapUnlocked);
-        //_playBatton.interactable = mapUnlocked;
+        Debug.Log($"{_levelManager.CurrentLevel} { _map.MapIndex}");
 
-        //if (mapUnlocked)
-        //    _mapImage.color = Color.white;
-        //else
-        //    _mapImage.color = Color.gray;
+        _locImage.gameObject.SetActive(!mapUnlocked);
+        _playBatton.interactable = mapUnlocked;
+
+        if (mapUnlocked)
+            _mapImage.color = Color.white;
+        else
+            _mapImage.color = Color.gray;
 
         _playBatton.onClick.RemoveAllListeners();
 
-        _playBatton.onClick.AddListener(OnPlayButtonClick);     
+        _playBatton.onClick.AddListener(OnPlayButtonClick);
     }
 
     private void OnPlayButtonClick()
     {
-        Debug.Log(_map);
-        //Debug.Log(_map.SceneToLoad);
-        Debug.Log(_map.NameScene);
-
         SceneManager.LoadScene(_map.NameScene);
     }
 }

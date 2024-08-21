@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BossConfig
   m_EditorClassIdentifier: 
   _TankModelPrefab: {fileID: 0}
-  _health: 6
+  _health: 2
   _damage: 1
   _shootDelayInSeconds: 1

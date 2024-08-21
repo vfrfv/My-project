@@ -328,6 +328,8 @@ MonoBehaviour:
   _mapImage: {fileID: 1129325275}
   _playBatton: {fileID: 2078201874}
   _locImage: {fileID: 1816616128}
+  _levelManager:
+    _currentLevel: 1
 --- !u!1 &398429630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3790271874485826701, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
@@ -1513,8 +1515,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112972995722455479, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112972995722455479, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: -186
       objectReference: {fileID: 0}
     - target: {fileID: 5559536544396496754, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_Color.b
@@ -1530,7 +1536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5803850409570358060, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6480030754227406737, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1538,7 +1544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480030754227406737, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 6544398006004081407, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_Transition
@@ -2286,7 +2292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1449274996
 RectTransform:
   m_ObjectHideFlags: 0
