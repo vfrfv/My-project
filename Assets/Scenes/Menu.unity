@@ -354,6 +354,8 @@ MonoBehaviour:
   _exitSettings: {fileID: 908996532}
   _imageLevelsWindow: {fileID: 1449274997}
   _imageSettings: {fileID: 698951597}
+  _levelManager:
+    _currentLevel: 1
 --- !u!1 &422081825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,6 +1251,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dc5d9f39ee72dd4409a0936cb2192a10, type: 2}
   - {fileID: 11400000, guid: 5aa17eebf7c316c49b72f519b30b858d, type: 2}
   - {fileID: 11400000, guid: 913e71612a6e33f4b89921377fc6ea96, type: 2}
+  - {fileID: 11400000, guid: 71a8ec0a080a710409c57bc5b026e095, type: 2}
   _mapDisplay: {fileID: 350650590}
 --- !u!1 &779437568
 GameObject:
