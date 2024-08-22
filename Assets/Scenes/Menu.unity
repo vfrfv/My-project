@@ -1525,6 +1525,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -186
       objectReference: {fileID: 0}
+    - target: {fileID: 5261612834912604649, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
+      propertyPath: m_text
+      value: "\u0422\u0430\u0431\u043B\u0438\u0446\u0430 \u043B\u0438\u0434\u0435\u0440\u043E\u0432"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261612834912604649, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
+      propertyPath: m_fontSize
+      value: 15.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261612834912604649, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 15.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5559536544396496754, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_Color.b
       value: 0.8490566
@@ -2295,7 +2307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1449274996
 RectTransform:
   m_ObjectHideFlags: 0
