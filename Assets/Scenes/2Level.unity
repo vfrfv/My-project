@@ -1535,7 +1535,7 @@ Terrain:
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
+  m_HeightmapPixelError: 10
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
@@ -2047,10 +2047,6 @@ PrefabInstance:
     - target: {fileID: 4344340194190646503, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: m_Name
       value: TankEnemy2Lvl (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4344340194190646503, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974317933272502184, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: m_AnchorMax.y
