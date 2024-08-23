@@ -1252,6 +1252,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5aa17eebf7c316c49b72f519b30b858d, type: 2}
   - {fileID: 11400000, guid: 913e71612a6e33f4b89921377fc6ea96, type: 2}
   - {fileID: 11400000, guid: 71a8ec0a080a710409c57bc5b026e095, type: 2}
+  - {fileID: 11400000, guid: 46575fdedf93e6242a146089498bdc97, type: 2}
   _mapDisplay: {fileID: 350650590}
 --- !u!1 &779437568
 GameObject:
@@ -1527,15 +1528,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5261612834912604649, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_text
-      value: "\u0422\u0430\u0431\u043B\u0438\u0446\u0430 \u043B\u0438\u0434\u0435\u0440\u043E\u0432"
+      value: "\u041B\u0438\u0434\u0435\u0440\u044B"
       objectReference: {fileID: 0}
     - target: {fileID: 5261612834912604649, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_fontSize
-      value: 15.8
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5261612834912604649, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_fontSizeBase
-      value: 15.8
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5559536544396496754, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_Color.b
