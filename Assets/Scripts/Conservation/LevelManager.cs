@@ -31,7 +31,7 @@ public class LevelManager
 
     public void SetDefolt()
     {
-        PlayerPrefs.SetInt("ÑurrentLevel", 1);
+        PlayerPrefs.SetInt(KeySavedLevel, 1);
         PlayerPrefs.Save();
     }
 }

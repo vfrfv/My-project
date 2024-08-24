@@ -51,9 +51,8 @@ public class ZoneFinal : MonoBehaviour
 
     private void OpenNextLevel(Enemy enemy)
     {
-        _levelManager.CompleteLevel();
-
-       
+        _levelManager.Load();
+        _levelManager.CompleteLevel();   
     }
 
     private void SwitchCameraToTowerBoss(Enemy enemy)

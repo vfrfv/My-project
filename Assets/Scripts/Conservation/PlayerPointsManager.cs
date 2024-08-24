@@ -2,12 +2,14 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[Serializable]
 public class PlayerPointsManager
 {
     private const string KeySavedPoints = "CurrentPoints";
 
+    [SerializeField] private float _currentPoints;
+
     private FlightTower _flightTower;
-    private float _currentPoints;
 
     public PlayerPointsManager(FlightTower flightTower)
     {
@@ -27,6 +29,8 @@ public class PlayerPointsManager
 
         PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
         PlayerPrefs.Save();
+
+        _flightTower.PointsTransferredPlayer -= AddPoints;
     }
 
     public void Load()

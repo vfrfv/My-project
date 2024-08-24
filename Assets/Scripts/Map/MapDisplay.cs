@@ -24,8 +24,6 @@ public class MapDisplay : MonoBehaviour
 
         bool mapUnlocked = _levelManager.CurrentLevel >= _map.MapIndex;
 
-        Debug.Log($"{_levelManager.CurrentLevel} { _map.MapIndex}");
-
         _locImage.gameObject.SetActive(!mapUnlocked);
         _playBatton.interactable = mapUnlocked;
 

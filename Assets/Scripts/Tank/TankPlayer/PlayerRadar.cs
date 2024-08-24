@@ -18,7 +18,7 @@ public class PlayerRadar : MonoBehaviour
 
     private IEnumerator StartScanning()
     {
-        float amountDelay = 0.5f;
+        float amountDelay = 0.3f;
         var delay = new WaitForSeconds(amountDelay);
 
         while (_player.Target == null)
@@ -52,9 +52,9 @@ public class PlayerRadar : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 15f);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, 15f);
+    //}
 }
