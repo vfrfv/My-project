@@ -1,3 +1,4 @@
+using Lean.Localization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ public class MapDisplay : MonoBehaviour
     [SerializeField] private Button _playBatton;
     [SerializeField] private Image _locImage;
     [SerializeField] private LevelManager _levelManager;
+    [SerializeField] private LeanLocalization _localization;
 
     private Map _map;
 
@@ -18,6 +20,9 @@ public class MapDisplay : MonoBehaviour
         _map = map;
 
         _mapName.text = map.MapName;
+
+        //_localization
+
         _mapImage.sprite = map.MapImage;
 
         _levelManager.Load();

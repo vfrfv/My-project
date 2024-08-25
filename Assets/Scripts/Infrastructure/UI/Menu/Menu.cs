@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,8 +28,6 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
-
-
         ExitLevelsWindow();
         ExitSettings();
     }
