@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ImageVictory : MonoBehaviour
 {
+    private const string _mesajRU = "Начислено очков ";
+    private const string _mesajEU = "Points awarded ";
+    private const string _mesajTR = "Puan verildi ";
+
     [SerializeField] private TMP_Text _textPoints;
     [SerializeField] private TMP_Text _message;
     [SerializeField] private FlightTower _flightTower;
@@ -12,29 +16,30 @@ public class ImageVictory : MonoBehaviour
 
     private void OnEnable()
     {
+        _flightTower.NumberPointsChanged += ShowPoints;
         _nextLevel.onClick.AddListener(LaunchNextLevel);
     }
 
     private void OnDisable()
     {
+        _flightTower.NumberPointsChanged -= ShowPoints;
         _nextLevel.onClick.RemoveListener(LaunchNextLevel);
     }
 
     private void Start()
     {
-        _flightTower.NumberPointsChanged += ShowPoints;
         _message.gameObject.SetActive(false);
     }
 
     private void ShowPoints(float point)
     {
-        _textPoints.text = $"Начислено {point.ToString("F0")} очков";
+        _textPoints.text = _mesajRU + point.ToString("F0");
     }
 
     private void LaunchNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
+        int nextSceneIndex = currentSceneIndex ++;
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -43,7 +48,6 @@ public class ImageVictory : MonoBehaviour
         else
         {
             _message.gameObject.SetActive(true);
-            _message.text = "В разработке";
         }
 
         Time.timeScale = 1;

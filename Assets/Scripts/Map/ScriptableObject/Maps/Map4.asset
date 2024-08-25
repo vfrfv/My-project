@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Map4
   m_EditorClassIdentifier: 
   _mapIndex: 4
-  _mapName: "\u0422\u043E\u043F\u044C"
+  _mapNameRU: "\u0422\u043E\u043F\u044C"
+  _mapNameEU: The swamp
+  _mapNameTR: Batak
   _mapImage: {fileID: 21300000, guid: b490eafe8900aab4fa8f07cc22ff2a8a, type: 3}
   _nameScene: 4Level

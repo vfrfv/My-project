@@ -19,7 +19,7 @@ public class MapDisplay : MonoBehaviour
     {
         _map = map;
 
-        _mapName.text = map.MapName;
+        _mapName.text = map.MapNameRU;
 
         //_localization
 
