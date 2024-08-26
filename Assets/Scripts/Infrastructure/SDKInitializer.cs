@@ -7,15 +7,21 @@ namespace Source.Yandex
 {
     public class SDKInitializer : MonoBehaviour
     {
+        [SerializeField] private LevelManager _levelManager;
+
         private const string FirstScene = "Menu";
 
         private void Awake()
         {
-            YandexGamesSdk.GameReady();
             YandexGamesSdk.CallbackLogging = true;
         }
 
-        private IEnumerator Start()
+        private void Start()
+        {
+            StartCoroutine(Coroutine());
+        }
+
+        private IEnumerator Coroutine()
         {
             yield return YandexGamesSdk.Initialize(OnInitialized);
         }
@@ -23,6 +29,7 @@ namespace Source.Yandex
         private void OnInitialized()
         {
             SceneManager.LoadScene(FirstScene);
+
         }
     }
 }

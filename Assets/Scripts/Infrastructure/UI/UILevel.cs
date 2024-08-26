@@ -13,6 +13,7 @@ public class UILevel : MonoBehaviour
 
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button[] _menuButtons;
+    [SerializeField] private ImageVictory _image;
 
     private void OnEnable()
     {
@@ -35,6 +36,7 @@ public class UILevel : MonoBehaviour
 
         _player.Died -= ShowDefeatWindow;
         _flightTower.AchievedGoal += ShowVictoryWindow;
+        _flightTower.NumberPointsChanged -= ShowVictoryWindow;
     }
 
     private void Start()
@@ -44,6 +46,7 @@ public class UILevel : MonoBehaviour
 
         _player.Died += ShowDefeatWindow;
         _flightTower.AchievedGoal += ShowVictoryWindow;
+        _flightTower.NumberPointsChanged += ShowVictoryWindow;
     }
 
     private void ShowDefeatWindow()
@@ -52,16 +55,17 @@ public class UILevel : MonoBehaviour
         _imageDefeat.SetActive(true);
     }
 
-    private void ShowVictoryWindow()
+    private void ShowVictoryWindow(float point)
     {
-        StartCoroutine(DelayBeforeShowing());
+        StartCoroutine(DelayBeforeShowing(point));
     }
 
-    private IEnumerator DelayBeforeShowing()
+    private IEnumerator DelayBeforeShowing(float point)
     {
         yield return new WaitForSeconds(2);
 
         _imageVictory.SetActive(true);
+        _image.ShowPoints(point);
     }
 
     public void Restart()
@@ -71,7 +75,7 @@ public class UILevel : MonoBehaviour
     }
     public void ExitInMenu()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
         Time.timeScale = 1;
     }
 }

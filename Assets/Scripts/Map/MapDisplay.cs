@@ -1,4 +1,5 @@
 using Agava.YandexGames;
+using Assets.Scripts;
 using System.Drawing;
 using TMPro;
 using UnityEngine;
@@ -16,59 +17,43 @@ public class MapDisplay : MonoBehaviour
     [SerializeField] private Button _playBatton;
     [SerializeField] private Image _locImage;
     [SerializeField] private LevelManager _levelManager;
+    [SerializeField] private Localization _localization;
 
-    private string _languageCode;
     private Map _map;
-
-    private void Awake()
-    {
-        _languageCode = YandexGamesSdk.Environment.i18n.lang;
-    }
 
     public void DisplayMap(Map map)
     {
         _map = map;
 
-        TranslateText();
+        _mapName.text = Lean.Localization.LeanLocalization.GetTranslationText(_map.MapNameKey);
         _mapImage.sprite = _map.MapImage;
 
         _levelManager.Load();
 
         bool mapUnlocked = _levelManager.CurrentLevel >= _map.MapIndex;
-
-        _locImage.gameObject.SetActive(!mapUnlocked);
-        _playBatton.interactable = mapUnlocked;
-
-        if (mapUnlocked)
-            _mapImage.color = UnityEngine.Color.white;
-        else
-            _mapImage.color = UnityEngine.Color.gray;
+        DisplayExclamationMark(mapUnlocked);
+        DarkenMapDisplay(mapUnlocked);
 
         _playBatton.onClick.RemoveAllListeners();
-
         _playBatton.onClick.AddListener(OnPlayButtonClick);
-    }
-
-    private void TranslateText()
-    {
-        switch (_languageCode)
-        {
-            case English:
-                _mapName.text = _map.MapNameEU;
-                break;
-
-            case Turkish:
-                _mapName.text = _map.MapNameTR;
-                break;
-
-            case Russian:
-                _mapName.text = _map.MapNameRU;
-                break;
-        }
     }
 
     private void OnPlayButtonClick()
     {
         SceneManager.LoadScene(_map.NameScene);
+    }
+
+    private void DisplayExclamationMark(bool mapUnlocked)
+    {
+        _locImage.gameObject.SetActive(!mapUnlocked);
+        _playBatton.interactable = mapUnlocked;
+    }
+
+    private void DarkenMapDisplay(bool mapUnlocked)
+    {
+        if (mapUnlocked)
+            _mapImage.color = UnityEngine.Color.white;
+        else
+            _mapImage.color = UnityEngine.Color.gray;
     }
 }

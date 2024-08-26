@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,12 +5,7 @@ using UnityEngine.UI;
 
 public class ImageVictory : MonoBehaviour
 {
-    private const string MesajRU = "Начислено очков ";
-    private const string MesajEU = "Points awarded ";
-    private const string MesajTR = "Puan verildi ";
-    private const string Turkish = "tr";
-    private const string Russian = "ru";
-    private const string English = "en";
+    private const string KeyTextPoints = "Points";
 
     [SerializeField] private TMP_Text _textPoints;
     [SerializeField] private TMP_Text _message;
@@ -32,32 +26,14 @@ public class ImageVictory : MonoBehaviour
         _nextLevel.onClick.RemoveListener(LaunchNextLevel);
     }
 
-    private void Awake()
-    {
-        _languageCode = YandexGamesSdk.Environment.i18n.lang;
-    }
-
     private void Start()
     {
         _message.gameObject.SetActive(false);
     }
 
-    private void ShowPoints(float point)
+    public void ShowPoints(float point)
     {
-        switch (_languageCode)
-        {
-            case English:
-                _textPoints.text = MesajEU + point.ToString("F0");
-                break;
-
-            case Turkish:
-                _textPoints.text = MesajTR + point.ToString("F0");
-                break;
-
-            case Russian:
-                _textPoints.text = MesajRU + point.ToString("F0");
-                break;
-        }
+        _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {point.ToString("F0")}";
     }
 
     private void LaunchNextLevel()
@@ -67,6 +43,8 @@ public class ImageVictory : MonoBehaviour
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
+            Debug.Log("Запускаю" + nextSceneIndex + "сцену");
+
             SceneManager.LoadScene(nextSceneIndex);
         }
         else

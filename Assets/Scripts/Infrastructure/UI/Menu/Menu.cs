@@ -28,6 +28,8 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
+        //YandexGamesSdk.GameReady();
+
         ExitLevelsWindow();
         ExitSettings();
     }
@@ -45,7 +47,9 @@ public class Menu : MonoBehaviour
     {
         _levelManager.Load();
 
-        SceneManager.LoadSceneAsync(_levelManager.CurrentLevel);
+        int levelIndex = _levelManager.CurrentLevel;
+
+        SceneManager.LoadSceneAsync(++levelIndex);
     }
 
     public void OpenLevelsWindow()

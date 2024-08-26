@@ -14,7 +14,7 @@ public class FlightTower : MonoBehaviour
     private float _totalPoints;
 
     public event Action Flew;
-    public event Action AchievedGoal;
+    public event Action<float> AchievedGoal;
     public event Action<float> NumberPointsChanged;
     public event Action<float> PointsTransferredPlayer;
     private Coroutine _coroutine;
@@ -72,6 +72,6 @@ public class FlightTower : MonoBehaviour
         PointsTransferredPlayer?.Invoke(_totalPoints);
 
         enemyAttack.gameObject.transform.position = _point.transform.position;
-        AchievedGoal?.Invoke();
+        AchievedGoal?.Invoke(_points);
     }
 }
