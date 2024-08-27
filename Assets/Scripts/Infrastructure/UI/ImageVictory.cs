@@ -39,12 +39,10 @@ public class ImageVictory : MonoBehaviour
     private void LaunchNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex++;
+        int nextSceneIndex = currentSceneIndex + 1;
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            Debug.Log("Запускаю" + nextSceneIndex + "сцену");
-
             SceneManager.LoadScene(nextSceneIndex);
         }
         else

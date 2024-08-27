@@ -2394,6 +2394,7 @@ MonoBehaviour:
   _menuButtons:
   - {fileID: 6988939882735465623}
   - {fileID: 6969612065949773618}
+  _image: {fileID: 2214332135665075367}
 --- !u!1 &8342600176402289219
 GameObject:
   m_ObjectHideFlags: 0

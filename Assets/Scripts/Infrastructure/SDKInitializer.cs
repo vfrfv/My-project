@@ -2,12 +2,13 @@ using Agava.YandexGames;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Source.Yandex
 {
     public class SDKInitializer : MonoBehaviour
     {
-        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private Slider _slider;
 
         private const string FirstScene = "Menu";
 
@@ -28,8 +29,19 @@ namespace Source.Yandex
 
         private void OnInitialized()
         {
-            SceneManager.LoadScene(FirstScene);
+            StartCoroutine(LoadSceneAsync(FirstScene));
+        }
 
+        private IEnumerator LoadSceneAsync(string sceneName)
+        {
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+
+            while (!asyncOperation.isDone)
+            {
+                _slider.value = asyncOperation.progress;
+
+                yield return null;
+            }
         }
     }
 }

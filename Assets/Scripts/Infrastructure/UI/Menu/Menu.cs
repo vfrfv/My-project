@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -47,9 +46,8 @@ public class Menu : MonoBehaviour
     {
         _levelManager.Load();
 
-        int levelIndex = _levelManager.CurrentLevel;
-
-        SceneManager.LoadSceneAsync(++levelIndex);
+        int levelIndex = Mathf.Min(_levelManager.CurrentLevel + 1, SceneManager.sceneCountInBuildSettings - 1);
+        SceneManager.LoadScene(levelIndex);
     }
 
     public void OpenLevelsWindow()
