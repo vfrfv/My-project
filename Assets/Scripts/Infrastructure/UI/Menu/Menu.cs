@@ -26,7 +26,7 @@ public class Menu : MonoBehaviour
         _exitLevelsWindowButton.onClick.AddListener(ExitLevelsWindow);
         _settingsButton.onClick.AddListener(OpenSettings);
         _exitSettings.onClick.AddListener(ExitSettings);
-        _leaderboardButton.onClick.AddListener(OpenLeaderboard);
+        //_leaderboardButton.onClick.AddListener(OpenLeaderboard);
         _exitLeaderboardButton.onClick.AddListener(ExitLeaderboard);
     }
 
@@ -46,7 +46,7 @@ public class Menu : MonoBehaviour
         _exitLevelsWindowButton.onClick.RemoveListener(ExitLevelsWindow);
         _settingsButton.onClick.RemoveListener(OpenSettings);
         _exitSettings.onClick.RemoveListener(ExitSettings);
-        _leaderboardButton.onClick.RemoveListener(OpenLeaderboard);
+        //_leaderboardButton.onClick.RemoveListener(OpenLeaderboard);
         _exitLeaderboardButton.onClick.RemoveListener(ExitLeaderboard);
     }
 
@@ -78,10 +78,10 @@ public class Menu : MonoBehaviour
         _imageSettings.gameObject.SetActive(false);
     }
 
-    public void OpenLeaderboard()
-    {
-        _imageLeaderboard.gameObject.SetActive(true);
-    }
+    //public void OpenLeaderboard()
+    //{
+    //    _imageLeaderboard.gameObject.SetActive(true);
+    //}
 
     public void ExitLeaderboard()
     {

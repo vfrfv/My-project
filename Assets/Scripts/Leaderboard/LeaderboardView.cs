@@ -53,8 +53,6 @@ public class LeaderboardView : MonoBehaviour
         }
     }
 
-    
-
     public void OpenAuthorizationWindow()
     {
         _imageAuthorizations.gameObject.SetActive(true);
@@ -73,6 +71,16 @@ public class LeaderboardView : MonoBehaviour
     public void CloseErrorWindow()
     {
         _imageAuthorizationError.gameObject.SetActive(false);
+    }
+
+    public void OpenLeaderboard()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    public void CloseLeaderboard()
+    {
+        this.gameObject.SetActive(false);
     }
 
     private void ClearLeaderboard()
