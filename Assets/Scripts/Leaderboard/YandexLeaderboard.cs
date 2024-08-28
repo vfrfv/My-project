@@ -16,7 +16,7 @@ public class YandexLeaderboard : MonoBehaviour
     {
         if(PlayerAccount.IsAuthorized == false)
         {
-            return;
+            PlayerAccount.Authorize();
         }
 
         Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
