@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class TestFocus : MonoBehaviour
 {
-    [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private AudioMixerGroup _audioMixerGroup;
  
     private void OnEnable()
     {
@@ -36,18 +36,12 @@ public class TestFocus : MonoBehaviour
     {
         if (value == false)
         {
-            if (PlayerPrefs.HasKey("currentVolume"))
-            {
-                AudioListener.volume = PlayerPrefs.GetFloat("currentVolume");
-                return;
-            }
-
-            AudioListener.volume = 1;
+            _audioMixerGroup.audioMixer.SetFloat("Master", 0);
         }
 
         if (value == true)
         {
-            AudioListener.volume = 0;
+            _audioMixerGroup.audioMixer.SetFloat("Master", -80);
         }
     }
 

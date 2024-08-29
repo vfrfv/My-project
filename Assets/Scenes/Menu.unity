@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 43961931}
   - component: {fileID: 43961933}
   - component: {fileID: 43961932}
+  - component: {fileID: 43961934}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -350,6 +351,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43961930}
   m_CullTransparentMesh: 1
+--- !u!114 &43961934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43961930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Attention
+  FallbackText: "\u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415"
 --- !u!1 &82492468
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +496,7 @@ GameObject:
   - component: {fileID: 134123667}
   - component: {fileID: 134123669}
   - component: {fileID: 134123668}
+  - component: {fileID: 134123670}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -604,6 +620,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134123666}
   m_CullTransparentMesh: 1
+--- !u!114 &134123670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134123666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Exit
+  FallbackText: "\u0412\u042B\u0425\u041E\u0414"
 --- !u!114 &175475708 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1086814621768857642, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
@@ -753,6 +783,61 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &236972477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236972478}
+  - component: {fileID: 236972479}
+  m_Layer: 0
+  m_Name: Name
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &236972478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236972477}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7453619110204833192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &236972479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236972477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0418\u043C\u044F"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Name
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ad
+    Object: {fileID: 0}
 --- !u!1 &269697774
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +914,119 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269697774}
   m_CullTransparentMesh: 1
+--- !u!1 &286767113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286767114}
+  - component: {fileID: 286767115}
+  m_Layer: 0
+  m_Name: AuthorizationText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &286767114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286767113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7453619110204833192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &286767115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286767113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0414\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430
+      \u0442\u0430\u0431\u043B\u0438\u0446\u044B \u043B\u0438\u0434\u0435\u0440\u043E\u0432
+      \u0432\u0430\u043C \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E
+      \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F"
+    Object: {fileID: 0}
+  - Language: English
+    Text: To view the leaderboard, you need to log in
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Lider tablosunu g\xF6r\xFCnt\xFClemek i\xE7in oturum a\xE7man\u0131z gerekir"
+    Object: {fileID: 0}
+--- !u!1 &301909091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 301909092}
+  - component: {fileID: 301909093}
+  m_Layer: 0
+  m_Name: Authorization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &301909092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301909091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7453619110204833192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &301909093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301909091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0410\u0412\u0422\u041E\u0420\u0418\u0417\u0410\u0426\u0418\u042F"
+    Object: {fileID: 0}
+  - Language: English
+    Text: AUTHORIZATION
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "YETK\u0130LEND\u0130RME"
+    Object: {fileID: 0}
 --- !u!1 &310200671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2134029148733119877, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
@@ -884,6 +1082,61 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &326817637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 326817638}
+  - component: {fileID: 326817639}
+  m_Layer: 0
+  m_Name: Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326817638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326817637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7453619110204833192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326817639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326817637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0412\u042B\u0425\u041E\u0414"
+    Object: {fileID: 0}
+  - Language: English
+    Text: EXIT
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xC7IKI\u015E"
+    Object: {fileID: 0}
 --- !u!1 &344868965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1557,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422081825}
   m_CullTransparentMesh: 1
+--- !u!1 &521400159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521400160}
+  - component: {fileID: 521400161}
+  m_Layer: 0
+  m_Name: Attention
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &521400160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521400159}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7453619110204833192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &521400161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521400159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0412\u041D\u0418\u041C\u0410\u041D\u0418\u0415"
+    Object: {fileID: 0}
+  - Language: English
+    Text: ATTENTION
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\u0130KKAT"
+    Object: {fileID: 0}
 --- !u!1 &536899571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,6 +1623,7 @@ GameObject:
   - component: {fileID: 536899572}
   - component: {fileID: 536899574}
   - component: {fileID: 536899573}
+  - component: {fileID: 536899575}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -1438,6 +1747,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536899571}
   m_CullTransparentMesh: 1
+--- !u!114 &536899575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536899571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Name
+  FallbackText: "\u0418\u043C\u044F"
 --- !u!1 &543268060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,6 +2392,7 @@ GameObject:
   - component: {fileID: 742765198}
   - component: {fileID: 742765197}
   - component: {fileID: 742765196}
+  - component: {fileID: 742765199}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2150,6 +2474,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742765199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742765195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46cc4457158600489b69225370afbba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixerGroup: {fileID: 24300002, guid: 790ebf58b0a83734fa16382f4d8dc181, type: 2}
 --- !u!1 &746232112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,6 +2624,7 @@ GameObject:
   - component: {fileID: 767736515}
   - component: {fileID: 767736517}
   - component: {fileID: 767736516}
+  - component: {fileID: 767736518}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2410,6 +2748,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767736514}
   m_CullTransparentMesh: 1
+--- !u!114 &767736518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767736514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Authorization
+  FallbackText: "\u0410\u0412\u0422\u041E\u0420\u0418\u0417\u0410\u0426\u0418\u042F"
 --- !u!1 &779437568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,6 +3828,7 @@ GameObject:
   - component: {fileID: 1065232844}
   - component: {fileID: 1065232846}
   - component: {fileID: 1065232845}
+  - component: {fileID: 1065232847}
   m_Layer: 5
   m_Name: Points
   m_TagString: Untagged
@@ -3599,6 +3952,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065232843}
   m_CullTransparentMesh: 1
+--- !u!114 &1065232847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065232843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: WordPoints
+  FallbackText: "\u041E\u0447\u043A\u0438"
 --- !u!1 &1070912088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7788475654156467236, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
@@ -3629,6 +3996,7 @@ GameObject:
   - component: {fileID: 1078439719}
   - component: {fileID: 1078439721}
   - component: {fileID: 1078439720}
+  - component: {fileID: 1078439722}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3752,6 +4120,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078439718}
   m_CullTransparentMesh: 1
+--- !u!114 &1078439722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078439718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Leaders
+  FallbackText: "\u041B\u0438\u0434\u0435\u0440\u044B"
 --- !u!1 &1093307305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3763,6 +4145,7 @@ GameObject:
   - component: {fileID: 1093307306}
   - component: {fileID: 1093307308}
   - component: {fileID: 1093307307}
+  - component: {fileID: 1093307309}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3886,6 +4269,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093307305}
   m_CullTransparentMesh: 1
+--- !u!114 &1093307309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093307305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: AuthorizationError
+  FallbackText: "\u041E\u0428\u0418\u0411\u041A\u0410 \u0410\u0412\u0422\u041E\u0420\u0418\u0417\u0410\u0426\u0418\u0418"
 --- !u!1 &1129325273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4112,6 +4509,7 @@ GameObject:
   - component: {fileID: 1187086443}
   - component: {fileID: 1187086445}
   - component: {fileID: 1187086444}
+  - component: {fileID: 1187086446}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4235,6 +4633,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187086442}
   m_CullTransparentMesh: 1
+--- !u!114 &1187086446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187086442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Exit
+  FallbackText: "\u0412\u042B\u0425\u041E\u0414"
 --- !u!1 &1215468498
 GameObject:
   m_ObjectHideFlags: 0
@@ -4517,6 +4929,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246335474}
   m_CullTransparentMesh: 1
+--- !u!1 &1260117572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260117573}
+  - component: {fileID: 1260117574}
+  m_Layer: 0
+  m_Name: WordPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1260117573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260117572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7453619110204833192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1260117574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260117572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041E\u0447\u043A\u0438"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Points
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "G\xF6zl\xFCk"
+    Object: {fileID: 0}
 --- !u!1 &1273381475
 GameObject:
   m_ObjectHideFlags: 0
@@ -4534,7 +5001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1273381476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5658,6 +6125,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701677853}
   m_CullTransparentMesh: 1
+--- !u!1 &1749438255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1749438256}
+  - component: {fileID: 1749438257}
+  m_Layer: 0
+  m_Name: AuthorizationError
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1749438256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749438255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7453619110204833192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1749438257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749438255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041E\u0428\u0418\u0411\u041A\u0410 \u0410\u0412\u0422\u041E\u0420\u0418\u0417\u0410\u0426\u0418\u0418"
+    Object: {fileID: 0}
+  - Language: English
+    Text: AUTHORIZATION ERROR
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "YETK\u0130LEND\u0130RME HATASI"
+    Object: {fileID: 0}
 --- !u!1 &1754272504
 GameObject:
   m_ObjectHideFlags: 0
@@ -5669,6 +6191,7 @@ GameObject:
   - component: {fileID: 1754272505}
   - component: {fileID: 1754272507}
   - component: {fileID: 1754272506}
+  - component: {fileID: 1754272508}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5792,6 +6315,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754272504}
   m_CullTransparentMesh: 1
+--- !u!114 &1754272508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754272504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Authorization
+  FallbackText: "\u0410\u0412\u0422\u041E\u0420\u0418\u0417\u0410\u0426\u0418\u042F"
 --- !u!1 &1793991692
 GameObject:
   m_ObjectHideFlags: 0
@@ -6175,7 +6712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2020286020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6249,6 +6786,7 @@ GameObject:
   - component: {fileID: 2021426631}
   - component: {fileID: 2021426633}
   - component: {fileID: 2021426632}
+  - component: {fileID: 2021426634}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6375,6 +6913,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021426630}
   m_CullTransparentMesh: 1
+--- !u!114 &2021426634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021426630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: AuthorizationText
+  FallbackText: "\u0414\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430
+    \u0442\u0430\u0431\u043B\u0438\u0446\u044B \u043B\u0438\u0434\u0435\u0440\u043E\u0432
+    \u0432\u0430\u043C \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E
+    \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F"
 --- !u!1 &2039918259
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,9 +7254,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 236972478}
+    - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1260117573}
+    - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 301909092}
+    - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 286767114}
+    - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 326817638}
+    - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1749438256}
+    - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 521400160}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+--- !u!4 &7453619110204833192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+  m_PrefabInstance: {fileID: 7453619110204833191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

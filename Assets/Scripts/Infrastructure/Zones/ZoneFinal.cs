@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements.Experimental;
 
 public class ZoneFinal : MonoBehaviour
 {
@@ -52,11 +51,16 @@ public class ZoneFinal : MonoBehaviour
 
     private void OpenNextLevel(Enemy enemy)
     {
+        Debug.Log("В методе");
+
         _levelManager.Load();
 
-        //if (SceneManager.sceneCountInBuildSettings < )
+        //if (SceneManager.sceneCountInBuildSettings == _levelManager.CurrentLevel + 1)
+        //{
+        //    Debug.Log($"{ SceneManager.sceneCountInBuildSettings } { _levelManager.CurrentLevel + 1 }");
 
-        _levelManager.CompleteLevel();   
+            _levelManager.CompleteLevel();
+        //} 
     }
 
     private void SwitchCameraToTowerBoss(Enemy enemy)
