@@ -8,57 +8,23 @@ public class YandexLeaderboard : MonoBehaviour
     private const string LeaderboardName = "Leaderboard";
     private const string AnonymousName = "Anonymous";
 
-    private LoggingServis _loggingServis;
-
     private readonly List<LeaderboardPlayer> _leaderboardPlayers = new List<LeaderboardPlayer>();
 
     [SerializeField] private LeaderboardView _leaderboardView;
     [SerializeField] private Button _buttonLeaderboard;
 
-    private void Awake()
-    {
-        _loggingServis = new LoggingServis();
-    }
-
     private void OnEnable()
     {
         _buttonLeaderboard.onClick.AddListener(OpenLeaderboard);
-
-        _leaderboardView.Logged += Log;
-        _loggingServis.LogSuccess += LogSuccess;
-        _loggingServis.LogError += LogError;
     }
 
     private void OnDisable()
     {
         _buttonLeaderboard.onClick.RemoveListener(OpenLeaderboard);
-
-        _leaderboardView.Logged -= Log;
-        _loggingServis.LogSuccess -= LogSuccess;
-        _loggingServis.LogError -= LogError;
     }
-
-    //public void SetPlayerScore(int score)
-    //{
-    //    if (_loggingServis.IsLogged == false)
-    //    {
-    //        return;
-    //    }
-
-    //    Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-    //    {
-    //        if (result == null || result.score < score)
-    //            Leaderboard.SetScore(LeaderboardName, score);
-    //    });
-    //}
 
     public void Fill()
     {
-        if (PlayerAccount.IsAuthorized == false)
-        {
-            return;
-        }
-
         _leaderboardPlayers.Clear();
 
         Leaderboard.GetEntries(LeaderboardName, (result) =>
@@ -79,13 +45,12 @@ public class YandexLeaderboard : MonoBehaviour
         });
     }
 
-    private void LogSuccess()
+    private void OnAuthorizeSuccess()
     {
-        Fill();
-        _leaderboardView.OpenLeaderboard();
+        PlayerAccount.RequestPersonalProfileDataPermission(OnPermissionDataSuccess, OnPermissionDataError);
     }
 
-    private void LogError(string message)
+    private void OnAuthorizeError(string message)
     {
         _leaderboardView.CloseAuthorizationWindow();
         _leaderboardView.OpenErrorWindow();
@@ -93,16 +58,23 @@ public class YandexLeaderboard : MonoBehaviour
 
     private void OpenLeaderboard()
     {
-        if (_loggingServis.IsLogged == false)
+        if(PlayerAccount.IsAuthorized == false)
         {
-            _leaderboardView.OpenAuthorizationWindow();
+            _leaderboardView.OpenAuthorizationWindow(OnAuthorizeSuccess, OnAuthorizeError);
         }
-
-        _leaderboardView.OpenLeaderboard();
+        else
+        {
+            OnAuthorizeSuccess();
+        }
     }
 
-    private void Log()
+    private void OnPermissionDataSuccess()
     {
-        _loggingServis.Log();
+        Fill();
+    }
+
+    private void OnPermissionDataError(string massage)
+    {
+        Fill();
     }
 }

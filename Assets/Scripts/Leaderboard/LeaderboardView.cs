@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -17,8 +18,11 @@ public class LeaderboardView : MonoBehaviour
     [SerializeField] private Button _buttonAuthorizationError;
 
     private List<LeaderboardElement> _spawnedElements = new List<LeaderboardElement>();
+    public Action _onSuccess;
+    public Action<string> _onError;
 
     public event Action Logged;
+
 
     private void Awake()
     {
@@ -28,14 +32,14 @@ public class LeaderboardView : MonoBehaviour
 
     private void OnEnable()
     {
-        _buttonAuthorization.onClick.AddListener(Log);
+        _buttonAuthorization.onClick.AddListener(Authorize);
         _buttonClosingAuthorization.onClick.AddListener(CloseAuthorizationWindow);
         _buttonAuthorizationError.onClick.AddListener(CloseErrorWindow);
     }
 
     private void OnDisable()
     {
-        _buttonAuthorization.onClick.RemoveListener(Log);
+        _buttonAuthorization.onClick.RemoveListener(Authorize);
         _buttonClosingAuthorization.onClick.RemoveListener(CloseAuthorizationWindow);
         _buttonAuthorizationError.onClick.RemoveListener(CloseErrorWindow);
     }
@@ -53,14 +57,19 @@ public class LeaderboardView : MonoBehaviour
         }
     }
 
-    public void OpenAuthorizationWindow()
+    public void OpenAuthorizationWindow(Action onSuccess, Action<string> onError)
     {
+        _onSuccess = onSuccess;
+        _onError = onError;
+
         _imageAuthorizations.gameObject.SetActive(true);
     }
 
     public void CloseAuthorizationWindow()
     {
         _imageAuthorizations.gameObject.SetActive(false);
+
+        _onError?.Invoke("0");
     }
 
     public void OpenErrorWindow()
@@ -68,7 +77,7 @@ public class LeaderboardView : MonoBehaviour
         _imageAuthorizationError.gameObject.SetActive(true);
     }
 
-    public void CloseErrorWindow()
+    private void CloseErrorWindow()
     {
         _imageAuthorizationError.gameObject.SetActive(false);
     }
@@ -93,8 +102,10 @@ public class LeaderboardView : MonoBehaviour
         _spawnedElements.Clear();
     }
 
-    private void Log()
+    private void Authorize()
     {
-        Logged?.Invoke();
+        PlayerAccount.Authorize(_onSuccess, _onError);
+
+        CloseAuthorizationWindow();
     }
 }

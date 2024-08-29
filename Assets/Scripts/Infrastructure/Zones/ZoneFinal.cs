@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements.Experimental;
 
 public class ZoneFinal : MonoBehaviour
@@ -52,6 +53,9 @@ public class ZoneFinal : MonoBehaviour
     private void OpenNextLevel(Enemy enemy)
     {
         _levelManager.Load();
+
+        //if (SceneManager.sceneCountInBuildSettings < )
+
         _levelManager.CompleteLevel();   
     }
 
