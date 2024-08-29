@@ -54,8 +54,7 @@ public class Menu : MonoBehaviour
     {
         _levelManager.Load();
 
-        int levelIndex = Mathf.Min(_levelManager.CurrentLevel + 1, SceneManager.sceneCountInBuildSettings - 1);
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(_levelManager.CurrentLevel);
     }
 
     public void OpenLevelsWindow()

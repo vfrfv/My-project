@@ -51,16 +51,12 @@ public class ZoneFinal : MonoBehaviour
 
     private void OpenNextLevel(Enemy enemy)
     {
-        Debug.Log("В методе");
-
         _levelManager.Load();
 
-        //if (SceneManager.sceneCountInBuildSettings == _levelManager.CurrentLevel + 1)
-        //{
-        //    Debug.Log($"{ SceneManager.sceneCountInBuildSettings } { _levelManager.CurrentLevel + 1 }");
-
+        if (SceneManager.GetActiveScene().buildIndex == _levelManager.CurrentLevel)
+        {
             _levelManager.CompleteLevel();
-        //} 
+        }
     }
 
     private void SwitchCameraToTowerBoss(Enemy enemy)

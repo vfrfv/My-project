@@ -75,7 +75,7 @@ public class UILevel : MonoBehaviour
     }
     public void ExitInMenu()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene("Menu");
         Time.timeScale = 1;
     }
 }
