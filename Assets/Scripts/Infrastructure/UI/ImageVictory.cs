@@ -41,7 +41,7 @@ public class ImageVictory : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        if (SceneManager.GetSceneByBuildIndex(nextSceneIndex).name != "Menu")
         {
             SceneManager.LoadScene(nextSceneIndex);
         }

@@ -27,7 +27,7 @@ public class PlayerPointsManager
 
     public event Action<int> IsPointsAwarded;
 
-    private void AddPoints(float points)
+    public void AddPoints(float points)
     {
         float anInteger = (float)Math.Truncate(points);
         _currentPoints += anInteger;

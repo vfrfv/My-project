@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class Zone : MonoBehaviour
     private GameLoopService _loopService;
 
     public List<Enemy> Enemies => _enemies;
+
+    public event Action EnemiesAreOver;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,7 +44,10 @@ public class Zone : MonoBehaviour
     private void UpdateBarrierState()
     {
         if (_enemies.Count <= 0)
+        {
+            EnemiesAreOver?.Invoke();
             _barrier.OpenZone();
+        }
         else
             _barrier.CloseZone();
     }
