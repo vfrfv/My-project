@@ -12,7 +12,6 @@ public class Training : MonoBehaviour
     [SerializeField] private Image _imageSlide2;
     [SerializeField] private Image _imageSlide3;
 
-    [SerializeField] private GameStopControl _stopControl;
     [SerializeField] private Zone _zone;
 
     private bool _isPressed = false;

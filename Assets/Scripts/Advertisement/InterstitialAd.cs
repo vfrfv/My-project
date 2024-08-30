@@ -20,8 +20,11 @@ public class InterstitialAd : MonoBehaviour
 
     public void Show()
     {
-        //Agava.YandexGames.InterstitialAd.Show(_gameStopControl.Stop, ,_gameStopControl.Play);
+        Agava.YandexGames.InterstitialAd.Show(_gameStopControl.Stop, OnClose);
     }
 
-
+    private void OnClose(bool value)
+    {
+        _gameStopControl.Play();
+    }
 }
