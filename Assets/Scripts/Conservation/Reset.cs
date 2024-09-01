@@ -22,5 +22,7 @@ public class Reset : MonoBehaviour
     {
         _levelManager.SetDefolt();
         _playerPointsManager.SetDefolt();
+        PlayerPrefs.DeleteKey("TrainingCompleted");
+
     }
 }

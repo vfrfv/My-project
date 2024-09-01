@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &33273670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2435362261766271137, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
+  m_PrefabInstance: {fileID: 1980451937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &79110628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2255464837064802975, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
@@ -2948,7 +2953,7 @@ PrefabInstance:
     - target: {fileID: 1412390513414597968, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: _helthSourse
       value: 
-      objectReference: {fileID: 1842947018}
+      objectReference: {fileID: 33273670}
     - target: {fileID: 2214332135665075367, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: _flightTower
       value: 
@@ -3212,11 +3217,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4770208387494730, guid: ba2b67dbc790eb74f8a401c592dd619f, type: 3}
   m_PrefabInstance: {fileID: 1756759408}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1842947018 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9175835680418667636, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
-  m_PrefabInstance: {fileID: 1980451937}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1872128764
 PrefabInstance:
@@ -3597,10 +3597,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1980451940 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5421898125293843092, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4206574845529185076, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
   m_PrefabInstance: {fileID: 1980451937}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842947018}
+  m_GameObject: {fileID: 33273670}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db3b32498969bba4e830538372b9b853, type: 3}

@@ -36,12 +36,12 @@ public class TestFocus : MonoBehaviour
     {
         if (value == false)
         {
-            _audioMixerGroup.audioMixer.SetFloat("Master", 0);
+            AudioListener.pause = false;
         }
 
         if (value == true)
         {
-            _audioMixerGroup.audioMixer.SetFloat("Master", -80);
+            AudioListener.pause = true;
         }
     }
 

@@ -1471,11 +1471,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 482546, guid: 8a13b3dbbf597744192ac4a84ebb93c6, type: 3}
   m_PrefabInstance: {fileID: 655073339}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &656114636 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9175835680418667636, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
-  m_PrefabInstance: {fileID: 1050465325}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &664488142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2298,7 +2293,7 @@ PrefabInstance:
     - target: {fileID: 1412390513414597968, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: _helthSourse
       value: 
-      objectReference: {fileID: 656114636}
+      objectReference: {fileID: 1050465330}
     - target: {fileID: 2214332135665075367, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: _flightTower
       value: 
@@ -2965,15 +2960,20 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1050465329 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5421898125293843092, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4206574845529185076, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
   m_PrefabInstance: {fileID: 1050465325}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656114636}
+  m_GameObject: {fileID: 1050465330}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db3b32498969bba4e830538372b9b853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1050465330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2435362261766271137, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
+  m_PrefabInstance: {fileID: 1050465325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1066470170
 PrefabInstance:
   m_ObjectHideFlags: 0

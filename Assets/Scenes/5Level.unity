@@ -2777,7 +2777,7 @@ PrefabInstance:
     - target: {fileID: 1412390513414597968, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: _helthSourse
       value: 
-      objectReference: {fileID: 1660755342}
+      objectReference: {fileID: 1773577036}
     - target: {fileID: 2214332135665075367, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: _flightTower
       value: 
@@ -2941,11 +2941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1660755342 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9175835680418667636, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
-  m_PrefabInstance: {fileID: 1773577031}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1665452854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3308,15 +3303,20 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1773577035 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5421898125293843092, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4206574845529185076, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
   m_PrefabInstance: {fileID: 1773577031}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660755342}
+  m_GameObject: {fileID: 1773577036}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db3b32498969bba4e830538372b9b853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1773577036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2435362261766271137, guid: 69ad2b327c475214f96e1cd83f2fae7f, type: 3}
+  m_PrefabInstance: {fileID: 1773577031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1801419475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}

@@ -1,30 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InterstitialAd : MonoBehaviour
 {
-    [SerializeField] private Button _advertisement;
     [SerializeField] private GameStopControl _gameStopControl;
+    [SerializeField] private ImageVictory _imageVictory;
 
-    private void Awake()
+    private void OnEnable()
     {
-        _advertisement.onClick.AddListener(Show);
+        _imageVictory.Pressed += Show;
     }
 
     private void OnDisable()
     {
-        _advertisement.onClick.RemoveListener(Show);
+        _imageVictory.Pressed -= Show;
     }
 
     public void Show()
     {
-        Agava.YandexGames.InterstitialAd.Show(_gameStopControl.Stop, OnClose);
+        Agava.YandexGames.InterstitialAd.Show(Stop, OnClose);
     }
 
     private void OnClose(bool value)
     {
-        _gameStopControl.Play();
+        _imageVictory.LaunchNextLevel();
+        Play();
+    }
+
+    public void Play()
+    {
+        Time.timeScale = 1;
+        AudioListener.volume = 1;
+        //_mixerGroup.audioMixer.SetFloat("Master", -80);
+    }
+
+    public void Stop()
+    {
+        Time.timeScale = 0;
+        AudioListener.volume = 0;
+        //_mixerGroup.audioMixer.SetFloat("Master", 0);
     }
 }

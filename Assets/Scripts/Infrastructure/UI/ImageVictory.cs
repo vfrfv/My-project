@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,19 +12,24 @@ public class ImageVictory : MonoBehaviour
     [SerializeField] private TMP_Text _message;
     [SerializeField] private FlightTower _flightTower;
     [SerializeField] private Button _nextLevel;
+    [SerializeField] VideoAd _videoAd;
 
-    private string _languageCode;
+    private float _currentPoints;
+
+    public event Action Pressed;
 
     private void OnEnable()
     {
+        _videoAd.looked += AddPointsAfterAd;
         _flightTower.NumberPointsChanged += ShowPoints;
-        _nextLevel.onClick.AddListener(LaunchNextLevel);
+        _nextLevel.onClick.AddListener(RunBeforeChangingScene);
     }
 
     private void OnDisable()
     {
         _flightTower.NumberPointsChanged -= ShowPoints;
-        _nextLevel.onClick.RemoveListener(LaunchNextLevel);
+        _videoAd.looked -= AddPointsAfterAd;
+        _nextLevel.onClick.RemoveListener(RunBeforeChangingScene);
     }
 
     private void Start()
@@ -33,16 +39,25 @@ public class ImageVictory : MonoBehaviour
 
     public void ShowPoints(float point)
     {
-        _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {point.ToString("F0")}";
+        _currentPoints = point;
+        _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
     }
 
-    private void LaunchNextLevel()
+    public void AddPointsAfterAd(float bonusPoints)
+    {
+        _currentPoints += bonusPoints; 
+        _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
+    }
+
+    public void LaunchNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
-        if (SceneManager.GetSceneByBuildIndex(nextSceneIndex).name != "Menu")
+        if (SceneManager.GetSceneByName ("Menu").buildIndex != nextSceneIndex)
         {
+            Debug.Log(SceneManager.GetSceneByBuildIndex(nextSceneIndex).name);
+
             SceneManager.LoadScene(nextSceneIndex);
         }
         else
@@ -51,5 +66,10 @@ public class ImageVictory : MonoBehaviour
         }
 
         Time.timeScale = 1;
+    }
+
+    private void RunBeforeChangingScene()
+    {
+        Pressed?.Invoke();
     }
 }

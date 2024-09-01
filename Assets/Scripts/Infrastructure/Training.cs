@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Training : MonoBehaviour
 {
+    private const string TrainingCompletedKey = "TrainingCompleted";
+
     [SerializeField] private Image _imageArm;
     [SerializeField] private Image _imageKeys;
 
@@ -30,6 +32,12 @@ public class Training : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey(TrainingCompletedKey))
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         StartCoroutine(OffUIManagement());
     }
 
@@ -151,6 +159,9 @@ public class Training : MonoBehaviour
 
             _imageSlide3.gameObject.SetActive(false);
             Time.timeScale = 1;
+
+            PlayerPrefs.SetInt(TrainingCompletedKey, 1);
+            PlayerPrefs.Save();
 
             isPressed = true;
         }
