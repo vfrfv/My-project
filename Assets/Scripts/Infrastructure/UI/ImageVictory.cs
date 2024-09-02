@@ -54,15 +54,23 @@ public class ImageVictory : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
-        if (SceneManager.GetSceneByName ("Menu").buildIndex != nextSceneIndex)
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            Debug.Log(SceneManager.GetSceneByBuildIndex(nextSceneIndex).name);
+            string nextScenePath = SceneUtility.GetScenePathByBuildIndex(nextSceneIndex);
+            string nextSceneName = System.IO.Path.GetFileNameWithoutExtension(nextScenePath);
 
-            SceneManager.LoadScene(nextSceneIndex);
+            if (nextSceneName != "Menu")
+            {
+                SceneManager.LoadScene(nextSceneIndex);
+            }
+            else
+            {
+                _message.gameObject.SetActive(true);
+            }
         }
         else
         {
-            _message.gameObject.SetActive(true);
+            _message.gameObject.SetActive(true); 
         }
 
         Time.timeScale = 1;

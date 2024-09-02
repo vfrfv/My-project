@@ -9,30 +9,33 @@ public class VideoAd : MonoBehaviour
     [SerializeField] private PlayerPointsManager _playerPointsManager;
     [SerializeField] private ImageVictory _imageVictory;
 
-    [SerializeField] private AudioSource[] _sounds;
+    [SerializeField] private AudioSource _music;
+    [SerializeField] private AudioSource _sound;
 
     private float _points = 50;
 
     public event Action<float> looked;
 
-    private void Awake()
-    {
-        
-    }
-
     private void OnEnable()
     {
         _advertisement.onClick.AddListener(Show);
+        _advertisement.onClick.AddListener(StopSound);
         _advertisement.interactable = true;
     }
 
     private void OnDisable()
     {
         _advertisement.onClick.RemoveListener(Show);
+        _advertisement.onClick.RemoveListener(StopSound);
     }
 
     public void Show()
     {
+        _music.volume = 0;
+        _sound.volume = 0;
+
+        _music.Stop();
+
         Agava.YandexGames.VideoAd.Show(Stop, OnRewardCallback, Play);
         _advertisement.interactable = false;
     }
@@ -45,22 +48,32 @@ public class VideoAd : MonoBehaviour
 
     public void Play()
     {
-        Time.timeScale = 1;
+        _music.Play();
+        _sound.Play();
 
-        foreach (var sound in _sounds)
-        {
-            sound.volume = 1;
-        }
+        _music.volume = 1;
+        _sound.volume = 1;
+
+        Time.timeScale = 1;
     }
 
     public void Stop()
     {
-        Time.timeScale = 0;
+        _music.volume = 0;
+        _sound.volume = 0;
 
-        foreach(var sound in _sounds)
-        {
-            sound.volume = 0;
-            Debug.Log("«вук на ноль");
-        }
+        _music.Stop();
+        _sound.Stop();
+
+        Time.timeScale = 0;
+    }
+
+    private void StopSound()
+    {
+        _music.volume = 0;
+        _sound.volume = 0;
+
+        _music.Stop();
+        _sound.Stop();
     }
 }

@@ -1432,7 +1432,7 @@ GameObject:
   - component: {fileID: 1655109954409236080}
   - component: {fileID: 4727661011575073658}
   m_Layer: 6
-  m_Name: AdvertisementButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2358,9 +2358,8 @@ MonoBehaviour:
   _playerPointsManager:
     _currentPoints: 0
   _imageVictory: {fileID: 2214332135665075367}
-  _sounds:
-  - {fileID: 0}
-  - {fileID: 0}
+  _music: {fileID: 0}
+  _sound: {fileID: 0}
 --- !u!114 &536410983747872330
 MonoBehaviour:
   m_ObjectHideFlags: 0
