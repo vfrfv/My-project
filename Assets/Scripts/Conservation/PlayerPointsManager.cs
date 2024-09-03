@@ -11,12 +11,12 @@ public class PlayerPointsManager
     [SerializeField] private float _currentPoints;
 
     private FlightTower _flightTower;
-    private LoggingServis _loggingServis;
+    ////private LoggingServis _loggingServis;
 
     public PlayerPointsManager(FlightTower flightTower)
     {
         _flightTower = flightTower ?? throw new ArgumentNullException(nameof(flightTower));
-        _loggingServis = new LoggingServis();
+        //_loggingServis = new LoggingServis();
 
         Load();
 
@@ -32,7 +32,7 @@ public class PlayerPointsManager
         float anInteger = (float)Math.Truncate(points);
         _currentPoints += anInteger;
 
-        SetPlayerScore((int)_currentPoints);
+        //SetPlayerScore((int)_currentPoints);
 
         IsPointsAwarded?.Invoke((int)_currentPoints);
 
@@ -56,17 +56,17 @@ public class PlayerPointsManager
         PlayerPrefs.Save();
     }
 
-    public void SetPlayerScore(int score)
-    {
-        if (_loggingServis.IsLogged == false)
-        {
-            return;
-        }
+    //public void SetPlayerScore(int score)
+    //{
+    //    if (_loggingServis.IsLogged == false)
+    //    {
+    //        return;
+    //    }
 
-        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-        {
-            if (result == null || result.score < score)
-                Leaderboard.SetScore(LeaderboardName, score);
-        });
-    }
+    //    Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
+    //    {
+    //        if (result == null || result.score < score)
+    //            Leaderboard.SetScore(LeaderboardName, score);
+    //    });
+    //}
 }

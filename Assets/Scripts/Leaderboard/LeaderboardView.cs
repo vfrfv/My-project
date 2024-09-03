@@ -1,111 +1,60 @@
-using Agava.YandexGames;
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LeaderboardView : MonoBehaviour
 {
-    [SerializeField] private Transform _container;
-    [SerializeField] private LeaderboardElement _leaderboardElementPrefab;
+    [SerializeField] private Transform _mainContainer;
+    [SerializeField] private Transform _playerEntryContainer;
+    [SerializeField] private Button _closeButton;
+    [SerializeField] private LeaderboardEntryView _leaderboardEntryViewPrefab;
 
-    [SerializeField] private Image _imageAuthorizations;
-    [SerializeField] private Image _imageAuthorizationError;
+    private List<LeaderboardEntryView> _leaderboardEntryViewInstances = new();
+    private LeaderboardEntryView _leaderboardPlayerViewInstance;
 
-    [SerializeField] private Button _buttonAuthorization;
-    [SerializeField] private Button _buttonClosingAuthorization;
-    [SerializeField] private Button _buttonAuthorizationError;
+    private void Awake() => _closeButton.onClick.AddListener(Hide);
+    private void OnDestroy() => _closeButton.onClick.RemoveListener(Hide);
 
-    private List<LeaderboardElement> _spawnedElements = new List<LeaderboardElement>();
-    public Action _onSuccess;
-    public Action<string> _onError;
-
-    public event Action Logged;
-
-
-    private void Awake()
+    public void ConstructEntries(List<LeaderboardEntryData> entryDatas)
     {
-        CloseAuthorizationWindow();
-        CloseErrorWindow();
-    }
+        ClearEntries();
 
-    private void OnEnable()
-    {
-        _buttonAuthorization.onClick.AddListener(Authorize);
-        _buttonClosingAuthorization.onClick.AddListener(CloseAuthorizationWindow);
-        _buttonAuthorizationError.onClick.AddListener(CloseErrorWindow);
-    }
-
-    private void OnDisable()
-    {
-        _buttonAuthorization.onClick.RemoveListener(Authorize);
-        _buttonClosingAuthorization.onClick.RemoveListener(CloseAuthorizationWindow);
-        _buttonAuthorizationError.onClick.RemoveListener(CloseErrorWindow);
-    }
-
-    public void ConstructLeaderboard(List<LeaderboardPlayer> leaderboardPlayers)
-    {
-        ClearLeaderboard();
-
-        foreach (var player in leaderboardPlayers)
+        foreach (LeaderboardEntryData entryData in entryDatas)
         {
-            LeaderboardElement leaderboardElementInstance = Instantiate(_leaderboardElementPrefab, _container);
-            leaderboardElementInstance.Initialize(player.Name, player.Rank, player.Score);
+            LeaderboardEntryView entryView = Instantiate(_leaderboardEntryViewPrefab, _mainContainer);
+            entryView.Initialize(entryData);
 
-            _spawnedElements.Add(leaderboardElementInstance);
+            _leaderboardEntryViewInstances.Add(entryView);
         }
     }
 
-    public void OpenAuthorizationWindow(Action onSuccess, Action<string> onError)
+    public void ConstructPlayerInfo(LeaderboardEntryData entryData)
     {
-        _onSuccess = onSuccess;
-        _onError = onError;
+        ClearPlayerEntry();
 
-        _imageAuthorizations.gameObject.SetActive(true);
+        LeaderboardEntryView entryView = Instantiate(_leaderboardEntryViewPrefab, _playerEntryContainer);
+        entryView.Initialize(entryData);
+
+        _leaderboardPlayerViewInstance = entryView;
     }
 
-    public void CloseAuthorizationWindow()
-    {
-        _imageAuthorizations.gameObject.SetActive(false);
+    public void Show() => gameObject.SetActive(true);
+    private void Hide() => gameObject.SetActive(false);
 
-        _onError?.Invoke("0");
+    private void ClearEntries()
+    {
+        foreach (LeaderboardEntryView leaderboardEntryView in _leaderboardEntryViewInstances)
+            Destroy(leaderboardEntryView.gameObject);
+
+        _leaderboardEntryViewInstances.Clear();
     }
 
-    public void OpenErrorWindow()
+    private void ClearPlayerEntry()
     {
-        _imageAuthorizationError.gameObject.SetActive(true);
-    }
+        if (_leaderboardPlayerViewInstance == null)
+            return;
 
-    private void CloseErrorWindow()
-    {
-        _imageAuthorizationError.gameObject.SetActive(false);
-    }
-
-    public void OpenLeaderboard()
-    {
-        this.gameObject.SetActive(true);
-    }
-
-    public void CloseLeaderboard()
-    {
-        this.gameObject.SetActive(false);
-    }
-
-    private void ClearLeaderboard()
-    {
-        foreach (var element in _spawnedElements)
-        {
-            Destroy(element.gameObject);
-        }
-
-        _spawnedElements.Clear();
-    }
-
-    private void Authorize()
-    {
-        PlayerAccount.Authorize(_onSuccess, _onError);
-
-        CloseAuthorizationWindow();
+        Destroy(_leaderboardPlayerViewInstance.gameObject);
+        _leaderboardPlayerViewInstance = null;
     }
 }
