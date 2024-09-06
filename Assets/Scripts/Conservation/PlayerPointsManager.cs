@@ -1,7 +1,5 @@
-using Agava.YandexGames;
 using System;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 [Serializable]
 public class PlayerPointsManager
@@ -28,11 +26,12 @@ public class PlayerPointsManager
     public void AddPoints(float points)
     {
         float anInteger = (float)Math.Truncate(points);
+        Load();
         _currentPoints += anInteger;
 
         IsPointsAwarded?.Invoke((int)_currentPoints);
 
-        Agava.YandexGames.Utility. PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
+        Agava.YandexGames.Utility.PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
         Agava.YandexGames.Utility.PlayerPrefs.Save();
         Agava.YandexGames.Leaderboard.SetScore(Constants.LEADERBOARD_NAME, (int)_currentPoints);
     }
@@ -41,7 +40,7 @@ public class PlayerPointsManager
     {
         if (PlayerPrefs.HasKey(KeySavedPoints))
         {
-            _currentPoints = PlayerPrefs.GetFloat(KeySavedPoints);
+            _currentPoints = Agava.YandexGames.Utility.PlayerPrefs.GetFloat(KeySavedPoints);
         }
     }
 
