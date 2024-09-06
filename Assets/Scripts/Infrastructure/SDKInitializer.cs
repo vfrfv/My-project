@@ -25,6 +25,7 @@ namespace Source.Yandex
         private IEnumerator Coroutine()
         {
             yield return YandexGamesSdk.Initialize(OnInitialized);
+            Agava.YandexGames.Utility.PlayerPrefs.Load();
         }
 
         private void OnInitialized()

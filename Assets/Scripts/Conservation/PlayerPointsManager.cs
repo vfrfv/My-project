@@ -27,7 +27,9 @@ public class PlayerPointsManager
     {
         float anInteger = (float)Math.Truncate(points);
         Load();
+        Debug.Log($"Перед{_currentPoints}");
         _currentPoints += anInteger;
+        Debug.Log($"После{_currentPoints}");
 
         IsPointsAwarded?.Invoke((int)_currentPoints);
 
