@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class TestFocus : MonoBehaviour
 {
-    [SerializeField] private AudioMixerGroup _audioMixerGroup;
+    [SerializeField] private GameStopControl _stopControl;
  
     private void OnEnable()
     {
@@ -36,12 +36,12 @@ public class TestFocus : MonoBehaviour
     {
         if (value == false)
         {
-            AudioListener.pause = false;
+            _stopControl.Play();
         }
 
         if (value == true)
         {
-            AudioListener.pause = true;
+           _stopControl.Stop();
         }
     }
 
