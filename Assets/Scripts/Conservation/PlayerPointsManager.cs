@@ -1,22 +1,20 @@
 using Agava.YandexGames;
 using System;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 [Serializable]
 public class PlayerPointsManager
 {
-    private const string LeaderboardName = "Leaderboard";
     private const string KeySavedPoints = "CurrentPoints";
 
     [SerializeField] private float _currentPoints;
 
     private FlightTower _flightTower;
-    ////private LoggingServis _loggingServis;
 
     public PlayerPointsManager(FlightTower flightTower)
     {
         _flightTower = flightTower ?? throw new ArgumentNullException(nameof(flightTower));
-        //_loggingServis = new LoggingServis();
 
         Load();
 
@@ -32,14 +30,11 @@ public class PlayerPointsManager
         float anInteger = (float)Math.Truncate(points);
         _currentPoints += anInteger;
 
-        //SetPlayerScore((int)_currentPoints);
-
         IsPointsAwarded?.Invoke((int)_currentPoints);
 
-        PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
-        PlayerPrefs.Save();
-
-        _flightTower.PointsTransferredPlayer -= AddPoints;
+        Agava.YandexGames.Utility. PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
+        Agava.YandexGames.Utility.PlayerPrefs.Save();
+        Agava.YandexGames.Leaderboard.SetScore(Constants.LEADERBOARD_NAME, (int)_currentPoints);
     }
 
     public void Load()
@@ -55,18 +50,4 @@ public class PlayerPointsManager
         PlayerPrefs.SetFloat(KeySavedPoints, 0);
         PlayerPrefs.Save();
     }
-
-    //public void SetPlayerScore(int score)
-    //{
-    //    if (_loggingServis.IsLogged == false)
-    //    {
-    //        return;
-    //    }
-
-    //    Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-    //    {
-    //        if (result == null || result.score < score)
-    //            Leaderboard.SetScore(LeaderboardName, score);
-    //    });
-    //}
 }

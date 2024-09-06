@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &15840100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -156,7 +156,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1640244774}
-  - {fileID: 2020286020}
   - {fileID: 1701677854}
   m_Father: {fileID: 817047210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -227,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ef8746d4909124ca1e1206e3773bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _openButton: {fileID: 1418357449}
+  _openButton: {fileID: 175475708}
   _leaderboardView: {fileID: 1640244778}
   _authorizationOfferView: {fileID: 2020286023}
   _authorizationErrorView: {fileID: 1273381479}
@@ -847,7 +846,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.010009766, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -802.327}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &222135217
 MonoBehaviour:
@@ -3104,7 +3103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8045520165713804703, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.5000305
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8398232485471582456, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       propertyPath: m_Sprite
@@ -3146,6 +3145,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4188221463368297327, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       insertIndex: -1
       addedObject: {fileID: 15840100}
+    - targetCorrespondingSourceObject: {fileID: 4188221463368297327, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2020286020}
+    - targetCorrespondingSourceObject: {fileID: 4188221463368297327, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1273381476}
     - targetCorrespondingSourceObject: {fileID: 913202510958052198, guid: 6944ad390eb263f41838d2c1be593949, type: 3}
       insertIndex: -1
       addedObject: {fileID: 344868966}
@@ -4834,7 +4839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1273381476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4850,11 +4855,11 @@ RectTransform:
   - {fileID: 1093307306}
   - {fileID: 195201128}
   - {fileID: 1148835833}
-  m_Father: {fileID: 2020286020}
+  m_Father: {fileID: 817047210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.56810725}
   m_AnchorMax: {x: 0.5, y: 0.56810725}
-  m_AnchoredPosition: {x: -0.00008440018, y: -33.06962}
+  m_AnchoredPosition: {x: -5.2390842, y: -16.999996}
   m_SizeDelta: {x: 487.702, y: 443.295}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1273381477
@@ -6234,7 +6239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1816616127
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6252,7 +6257,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35.9, y: 59.1}
+  m_SizeDelta: {x: 344.7, y: 446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1816616128
 MonoBehaviour:
@@ -6684,7 +6689,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020286019}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6693,8 +6698,7 @@ RectTransform:
   - {fileID: 269697775}
   - {fileID: 1582029722}
   - {fileID: 413448454}
-  - {fileID: 1273381476}
-  m_Father: {fileID: 15840100}
+  m_Father: {fileID: 817047210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.56810725}
   m_AnchorMax: {x: 0.5, y: 0.56810725}

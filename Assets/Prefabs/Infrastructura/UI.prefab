@@ -2358,8 +2358,7 @@ MonoBehaviour:
   _playerPointsManager:
     _currentPoints: 0
   _imageVictory: {fileID: 2214332135665075367}
-  _music: {fileID: 0}
-  _sound: {fileID: 0}
+  _stopControl: {fileID: 2974741376401618760}
 --- !u!114 &536410983747872330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2812,7 +2811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e483038b8cf5dd046af4a4b3c6a9beea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mixerGroup: {fileID: 24300002, guid: 790ebf58b0a83734fa16382f4d8dc181, type: 2}
 --- !u!1 &8342600176402289219
 GameObject:
   m_ObjectHideFlags: 0

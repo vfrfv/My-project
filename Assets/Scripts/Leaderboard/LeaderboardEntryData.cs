@@ -1,14 +1,16 @@
 public struct LeaderboardEntryData
 {
-    public LeaderboardEntryData(int rank, string name, int score)
+    public LeaderboardEntryData(Agava.YandexGames.LeaderboardEntryResponse entry)
     {
-        Rank = rank;
-        Name = name;
-        Score = score;
+        Rank = entry.rank;
+        Name = entry.player.publicName;
+        Score = entry.score;
+
+        if (string.IsNullOrEmpty(Name))
+            Name = Constants.ANONYMOUS_NAME;
     }
 
     public int Rank { get; }
     public string Name { get; }
     public int Score { get; }
-
 }

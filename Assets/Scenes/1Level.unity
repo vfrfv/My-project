@@ -1636,7 +1636,7 @@ Transform:
   m_GameObject: {fileID: 751690177}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.201586, y: -5.0827007, z: -15.064854}
+  m_LocalPosition: {x: 22.201565, y: -5.0826817, z: -15.064855}
   m_LocalScale: {x: 3.0559673, y: 3.0559673, z: 3.0559673}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2285,7 +2285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30457324, y: 0.00000001638889, z: -0.0000000052406044, w: 0.95248896}
+  m_LocalRotation: {x: 0.30457324, y: -0.000000016388887, z: 0.0000000052406035, w: 0.95248896}
   m_LocalPosition: {x: 38.4, y: 11.91, z: 94.100006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5062,11 +5062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001638889
+      value: -0.000000016388887
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000052406044
+      value: 0.0000000052406035
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5235,11 +5235,6 @@ PrefabInstance:
 --- !u!65 &2655948341935185492 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 7499043151605965738, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
-  m_PrefabInstance: {fileID: 2655948341935185491}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2655948341935185494 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3093937552135192153, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
   m_PrefabInstance: {fileID: 2655948341935185491}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3871760267457999076
@@ -5651,14 +5646,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 9014901200374716111, guid: c296bd319dfe424499df110c60bd4484, type: 3}
-      propertyPath: _music
-      value: 
-      objectReference: {fileID: 883032011}
-    - target: {fileID: 9014901200374716111, guid: c296bd319dfe424499df110c60bd4484, type: 3}
-      propertyPath: _sound
-      value: 
-      objectReference: {fileID: 2655948341935185494}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

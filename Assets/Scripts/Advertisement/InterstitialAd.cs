@@ -28,15 +28,11 @@ public class InterstitialAd : MonoBehaviour
 
     public void Play()
     {
-        Time.timeScale = 1;
-        AudioListener.volume = 1;
-        //_mixerGroup.audioMixer.SetFloat("Master", -80);
+        _gameStopControl.Play();
     }
 
     public void Stop()
     {
-        Time.timeScale = 0;
-        AudioListener.volume = 0;
-        //_mixerGroup.audioMixer.SetFloat("Master", 0);
+        _gameStopControl.Stop();
     }
 }

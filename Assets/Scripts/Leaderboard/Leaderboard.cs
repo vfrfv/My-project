@@ -22,26 +22,13 @@ public class Leaderboard : MonoBehaviour
             {
                 List<LeaderboardEntryData> entries = new();
                 foreach (Agava.YandexGames.LeaderboardEntryResponse entry in result.entries)
-                {
-                    int rank = entry.rank;
-                    string name = entry.player.publicName;
-                    int score = entry.score;
-                    if (string.IsNullOrEmpty(name))
-                        name = Constants.ANONYMOUS_NAME;
-                    entries.Add(new LeaderboardEntryData(rank, name, score));
-                }
+                    entries.Add(new LeaderboardEntryData(entry));
                 _leaderboardView.ConstructEntries(entries);
             });
 
         Agava.YandexGames.Leaderboard.GetPlayerEntry(
             Constants.LEADERBOARD_NAME,
-            result =>
-            {
-                int rank = result.rank;
-                string name = result.player.publicName;
-                int score = result.score;
-                _leaderboardView.ConstructPlayerInfo(new LeaderboardEntryData(rank, name, score));
-            });
+            entry => _leaderboardView.ConstructPlayerInfo(new LeaderboardEntryData(entry)));
 
         _leaderboardView.Show();
     }
@@ -62,5 +49,4 @@ public class Leaderboard : MonoBehaviour
 
         _authorizationOfferView.Show(onAuthorizeSuccess, onAuthorizeError);
     }
-
 }
