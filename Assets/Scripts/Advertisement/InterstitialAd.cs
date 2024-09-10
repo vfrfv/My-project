@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class InterstitialAd : MonoBehaviour
 {
+    private const string Interstitial = "interstitial";
+
     [SerializeField] private GameStopControl _gameStopControl;
     [SerializeField] private ImageVictory _imageVictory;
 
@@ -28,11 +30,11 @@ public class InterstitialAd : MonoBehaviour
 
     public void Play()
     {
-        _gameStopControl.Play();
+        _gameStopControl.Play(new PauseSource(Interstitial));
     }
 
     public void Stop()
     {
-        _gameStopControl.Stop();
+        _gameStopControl.Stop(new PauseSource(Interstitial));
     }
 }

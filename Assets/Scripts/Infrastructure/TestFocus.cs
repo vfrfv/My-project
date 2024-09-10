@@ -6,6 +6,8 @@ using UnityEngine.Audio;
 
 public class TestFocus : MonoBehaviour
 {
+    private const string Focus = "focus";
+
     [SerializeField] private GameStopControl _stopControl;
  
     private void OnEnable()
@@ -36,12 +38,12 @@ public class TestFocus : MonoBehaviour
     {
         if (value == false)
         {
-            _stopControl.Play();
+            _stopControl.Play(new PauseSource(Focus));
         }
 
         if (value == true)
         {
-           _stopControl.Stop();
+           _stopControl.Stop(new PauseSource(Focus));
         }
     }
 

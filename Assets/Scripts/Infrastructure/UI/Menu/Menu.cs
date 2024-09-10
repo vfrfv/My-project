@@ -9,11 +9,11 @@ public class Menu : MonoBehaviour
     [SerializeField] Button _exitLevelsWindowButton;
     [SerializeField] Button _settingsButton;
     [SerializeField] Button _exitSettings;
-    [SerializeField] Button _leaderboardButton;
-    [SerializeField] Button _exitLeaderboardButton;
+    //[SerializeField] Button _leaderboardButton;
+    //[SerializeField] Button _exitLeaderboardButton;
 
     [SerializeField] Image _imageLevelsWindow;
-    [SerializeField] Image _imageLeaderboard;
+    //[SerializeField] Image _imageLeaderboard;
     [SerializeField] Image _imageSettings;
 
     [SerializeField] LevelManager _levelManager;
@@ -26,8 +26,8 @@ public class Menu : MonoBehaviour
         _exitLevelsWindowButton.onClick.AddListener(ExitLevelsWindow);
         _settingsButton.onClick.AddListener(OpenSettings);
         _exitSettings.onClick.AddListener(ExitSettings);
-        _leaderboardButton.onClick.AddListener(OpenLeaderboard);
-        _exitLeaderboardButton.onClick.AddListener(ExitLeaderboard);
+        //_leaderboardButton.onClick.AddListener(OpenLeaderboard);
+        //_exitLeaderboardButton.onClick.AddListener(ExitLeaderboard);
     }
 
     private void Awake()
@@ -35,7 +35,7 @@ public class Menu : MonoBehaviour
         //YandexGamesSdk.GameReady();
 
         ExitLevelsWindow();
-        ExitLeaderboard();
+        //ExitLeaderboard();
         ExitSettings();
     }
 
@@ -46,8 +46,8 @@ public class Menu : MonoBehaviour
         _exitLevelsWindowButton.onClick.RemoveListener(ExitLevelsWindow);
         _settingsButton.onClick.RemoveListener(OpenSettings);
         _exitSettings.onClick.RemoveListener(ExitSettings);
-        _leaderboardButton.onClick.RemoveListener(OpenLeaderboard);
-        _exitLeaderboardButton.onClick.RemoveListener(ExitLeaderboard);
+        //_leaderboardButton.onClick.RemoveListener(OpenLeaderboard);
+        //_exitLeaderboardButton.onClick.RemoveListener(ExitLeaderboard);
     }
 
     public void Play()
@@ -77,13 +77,13 @@ public class Menu : MonoBehaviour
         _imageSettings.gameObject.SetActive(false);
     }
 
-    public void OpenLeaderboard()
-    {
-        _imageLeaderboard.gameObject.SetActive(true);
-    }
+    //public void OpenLeaderboard()
+    //{
+    //    _imageLeaderboard.gameObject.SetActive(true);
+    //}
 
-    public void ExitLeaderboard()
-    {
-        _imageLeaderboard.gameObject.SetActive(false);
-    }
+    //public void ExitLeaderboard()
+    //{
+    //    _imageLeaderboard.gameObject.SetActive(false);
+    //}
 }

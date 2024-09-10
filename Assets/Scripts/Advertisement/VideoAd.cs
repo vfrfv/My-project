@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class VideoAd : MonoBehaviour
 {
+    private const string Video = "video";
+
     [SerializeField] private Button _advertisement;
     [SerializeField] private PlayerPointsManager _playerPointsManager;
     [SerializeField] private ImageVictory _imageVictory;
@@ -39,11 +41,11 @@ public class VideoAd : MonoBehaviour
 
     public void Play()
     {
-        _stopControl.Play();
+        _stopControl.Play(new PauseSource(Video));
     }
 
     public void Stop()
     {
-        _stopControl.Stop();
+        _stopControl.Stop(new PauseSource(Video));
     }
 }
