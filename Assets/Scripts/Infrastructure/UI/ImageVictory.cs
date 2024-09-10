@@ -65,7 +65,7 @@ public class ImageVictory : MonoBehaviour
             }
             else
             {
-                _message.gameObject.SetActive(true);
+                SceneManager.LoadScene(1);
             }
         }
         else
