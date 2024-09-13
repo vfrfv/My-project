@@ -37,6 +37,8 @@ public class PlayerRadar : MonoBehaviour
         {
             if (collider.TryGetComponent<Enemy>(out Enemy target))
             {
+                Debug.Log($"Вижу оверлапом {target}");
+
                 if (!Physics.Raycast(
                     transform.position,
                     (target.transform.position - transform.position).normalized,
@@ -45,6 +47,8 @@ public class PlayerRadar : MonoBehaviour
                     _obstacleMask,
                     queryTriggerInteraction: QueryTriggerInteraction.Collide))
                 {
+                    Debug.Log($"Вижу {target}");
+
                     _player.SetTarget(target);
                     return;
                 }

@@ -2440,6 +2440,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 913e71612a6e33f4b89921377fc6ea96, type: 2}
   - {fileID: 11400000, guid: 71a8ec0a080a710409c57bc5b026e095, type: 2}
   - {fileID: 11400000, guid: 46575fdedf93e6242a146089498bdc97, type: 2}
+  - {fileID: 11400000, guid: 298b6d32590bf6243bcc7a7a3931b657, type: 2}
   _mapDisplay: {fileID: 350650590}
 --- !u!1 &767736514
 GameObject:
@@ -4986,6 +4987,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290692124}
   m_CullTransparentMesh: 1
+--- !u!1 &1393430475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393430476}
+  - component: {fileID: 1393430477}
+  m_Layer: 0
+  m_Name: NameMap6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1393430476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393430475}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1573100070}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393430477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393430475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0411\u0438\u0442\u0432\u0430 \u0437\u0430 \u043C\u0430\u0440\u0441"
+    Object: {fileID: 0}
+  - Language: English
+    Text: The Battle for Mars
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Mars Sava\u015F\u0131"
+    Object: {fileID: 0}
 --- !u!1 &1415823667
 GameObject:
   m_ObjectHideFlags: 0
@@ -7347,6 +7403,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
+      insertIndex: 16
+      addedObject: {fileID: 1393430476}
     - targetCorrespondingSourceObject: {fileID: 1754860037019068942, guid: 16b15caf1638f0646b42ebace8d0daf1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 948561997}

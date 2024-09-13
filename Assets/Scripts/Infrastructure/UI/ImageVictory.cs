@@ -32,11 +32,6 @@ public class ImageVictory : MonoBehaviour
         _nextLevel.onClick.RemoveListener(RunBeforeChangingScene);
     }
 
-    private void Start()
-    {
-        _message.gameObject.SetActive(false);
-    }
-
     public void ShowPoints(float point)
     {
         _currentPoints = point;
