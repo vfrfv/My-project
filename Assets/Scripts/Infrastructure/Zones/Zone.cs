@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Zone : MonoBehaviour
@@ -12,6 +13,7 @@ public class Zone : MonoBehaviour
     public List<Enemy> Enemies => _enemies;
 
     public event Action EnemiesAreOver;
+    public event Action NumberEnemiesHasChanged;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +22,7 @@ public class Zone : MonoBehaviour
             if (_enemies.Contains(enemy) == false)
             {
                 _enemies.Add(enemy);
+                NumberEnemiesHasChanged?.Invoke();
                 enemy.Died += RemoveEnemy;
                 _loopService.OnEnemiesDie(enemy);
 
@@ -37,6 +40,7 @@ public class Zone : MonoBehaviour
     {
         enemy.Died -= RemoveEnemy;
         _enemies.Remove(enemy);
+        NumberEnemiesHasChanged?.Invoke();
 
         UpdateBarrierState();
     }
@@ -51,4 +55,9 @@ public class Zone : MonoBehaviour
         else
             _barrier.CloseZone();
     }
+
+    //private void Update()
+    //{
+    //    Debug.Log(_enemies.Count);
+    //}
 }
