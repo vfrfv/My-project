@@ -135,6 +135,11 @@ public class MovementPlayerTank : MonoBehaviour
         _meshAgent.destination = transform.position + moveDirection * _moveSpeed * Time.fixedDeltaTime;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(_meshAgent.destination, 1);
+    }
+
     private void TurnCourse(Vector2 course)
     {
         if(course != Vector2.zero)
