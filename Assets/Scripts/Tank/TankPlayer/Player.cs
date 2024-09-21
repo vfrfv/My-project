@@ -33,8 +33,6 @@ public class Player : TankBase
     public void SetTarget(Enemy target)
     {
         _target = target;
-
-        Debug.Log($"Есть цель {_target}");
     }
 
     public void LoseTarget()

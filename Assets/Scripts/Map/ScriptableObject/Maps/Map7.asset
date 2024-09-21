@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebeb1ccc044c9c848becfa83b32c6f38, type: 3}
-  m_Name: Unit Config 1
+  m_Script: {fileID: 11500000, guid: 6ba73665c0205ea408b30b4af2d8a912, type: 3}
+  m_Name: Map7
   m_EditorClassIdentifier: 
-  _TankModelPrefab: {fileID: 6719830382662648955, guid: 237ae500f388e6444b4e86d765137aff, type: 3}
-  _health: 5
-  _damage: 1
-  _shootDelayInSeconds: 0
+  _mapIndex: 7
+  _mapNameKey: NameMap7
+  _mapImage: {fileID: 21300000, guid: 526ab55782de01f4988b48d9dd43319e, type: 3}
+  _nameScene: 7Level
