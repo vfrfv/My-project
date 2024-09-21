@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class MovementPlayerTank : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _direction = 100;
     [SerializeField] private NavMeshAgent _meshAgent;
     [SerializeField] private AudioSource _movementSource;
     [SerializeField] private float _fadeDuration = 0.01f;
@@ -132,7 +132,7 @@ public class MovementPlayerTank : MonoBehaviour
     private void Move(Vector2 direction)
     {
         Vector3 moveDirection = new Vector3(direction.x, 0, direction.y);
-        _meshAgent.destination = transform.position + moveDirection * _moveSpeed * Time.fixedDeltaTime;
+        _meshAgent.destination = transform.position + moveDirection * _direction * Time.fixedDeltaTime;
     }
 
     private void OnDrawGizmos()
