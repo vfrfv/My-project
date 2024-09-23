@@ -24,31 +24,23 @@ public class TestFocus : MonoBehaviour
 
     private void OnInBackgroundChangeApp(bool inApp)
     {
-        MuteAudio(!inApp);
         PauseGame(!inApp);
     }
 
     private void OnInBackgroundChangeWeb(bool isBackground)
     {
-        MuteAudio(isBackground);
         PauseGame(isBackground);
-    }
-
-    private void MuteAudio(bool value)
-    {
-        if (value == false)
-        {
-            _stopControl.Play(new PauseSource(Focus));
-        }
-
-        if (value == true)
-        {
-           _stopControl.Stop(new PauseSource(Focus));
-        }
     }
 
     private void PauseGame(bool value)
     {
-        Time.timeScale = value ? 0 : 1;
+        if (value)
+        {
+            _stopControl.Stop(new PauseSource(Focus));
+        }
+        else
+        {
+            _stopControl.Play(new PauseSource(Focus));
+        }
     }
 }
