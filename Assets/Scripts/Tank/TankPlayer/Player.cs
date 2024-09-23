@@ -70,4 +70,10 @@ public class Player : TankBase
 
         base.Init(unitConfig);
     }
+
+    //public void XP()
+    //{
+    //    _health = _maxHealth;
+    //    Changed?.Invoke(_health);
+    //}
 }

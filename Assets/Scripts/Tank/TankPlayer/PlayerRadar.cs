@@ -18,7 +18,7 @@ public class PlayerRadar : MonoBehaviour
 
     private IEnumerator StartScanning()
     {
-        float amountDelay = 0.3f;
+        float amountDelay = 0.1f;
         var delay = new WaitForSeconds(amountDelay);
 
         while (true)

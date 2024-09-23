@@ -42,4 +42,10 @@ public abstract class TankBase : MonoBehaviour, IValue
     }
 
     protected abstract void Die();
+
+    public void XP()
+    {
+        _health = _maxHealth;
+        Changed?.Invoke(_health);
+    }
 }
