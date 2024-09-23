@@ -35,11 +35,6 @@ public class Player : TankBase
         _target = target;
     }
 
-    public void SetTransform(Transform target)
-    {
-        Vector3.MoveTowards(transform.position, target.localPosition, 1000);
-    }
-
     public void LoseTarget()
     {
         _target = null;

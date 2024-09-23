@@ -3583,7 +3583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623138993033245284, guid: f8dd15cfdd0dd8545848b8fb40984f42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.44
+      value: 9.46
       objectReference: {fileID: 0}
     - target: {fileID: 7623138993033245284, guid: f8dd15cfdd0dd8545848b8fb40984f42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3771,7 +3771,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: c2bf88600b620cd48b7c487138b3275e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2f280c117f7574253a4a2adca2bf0e6b, type: 2}
+      objectReference: {fileID: 2100000, guid: db96e04f47f6c2a44bc6bb90f93602ec, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6802,6 +6802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier1
       objectReference: {fileID: 0}
+    - target: {fileID: 2125265982072119376, guid: d0407d88db0c6ab419b713b8937b8450, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7604350457746556332, guid: d0407d88db0c6ab419b713b8937b8450, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.990271
@@ -7469,7 +7473,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 35f6dc42a5ecc1249b3ef22141ceb8d8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2819d0d6617ad5446870e817400677ce, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &2101689602
 PrefabInstance:

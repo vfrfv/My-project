@@ -17,11 +17,6 @@ namespace Assets.Scripts
 
         private string _languageCode;
 
-        private Map _map;
-        private string _mapName;
-
-        public string MapName => _mapName;
-
         private void Awake()
         {
 #if (UNITU_WEBGL && !UNITY_EDITOR)
@@ -37,40 +32,20 @@ namespace Assets.Scripts
             {
                 case English:
                     _leanLocalization.SetCurrentLanguage(EnglishCode);
-                    
+
                     break;
 
                 case Turkish:
                     _leanLocalization.SetCurrentLanguage(TurkishCode);
-                    
+
                     break;
 
                 case Russian:
                     _leanLocalization.SetCurrentLanguage(RussianCode);
-                    
+
                     break;
             }
         }
-
-        //private void TranslateText()
-        //{
-        //    Debug.Log("Получил нужный текст");
-
-        //    switch (_languageCode)
-        //    {
-        //        case English:
-        //            _mapName.text = _map.MapNameEU;
-        //            break;
-
-        //        case Turkish:
-        //            _mapName.text = _map.MapNameTR;
-        //            break;
-
-        //        case Russian:
-        //            _mapName.text = _map.MapNameRU;
-        //            break;
-        //    }
-        //}
     }
 }
 
