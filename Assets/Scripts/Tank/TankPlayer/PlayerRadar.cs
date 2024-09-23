@@ -21,10 +21,9 @@ public class PlayerRadar : MonoBehaviour
         float amountDelay = 0.3f;
         var delay = new WaitForSeconds(amountDelay);
 
-        while (_player.Target == null)
+        while (true)
         {
             Detect();
-
             yield return delay;
         }
     }
@@ -32,6 +31,8 @@ public class PlayerRadar : MonoBehaviour
     private void Detect()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, _fieldView, _mask);
+        Enemy closestTarget = null;
+        float closestDistance = Mathf.Infinity;
 
         foreach (var collider in colliders)
         {
@@ -45,10 +46,24 @@ public class PlayerRadar : MonoBehaviour
                     _obstacleMask,
                     queryTriggerInteraction: QueryTriggerInteraction.Collide))
                 {
-                    _player.SetTarget(target);
-                    return;
+                    float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+
+                    if (distanceToTarget < closestDistance)
+                    {
+                        closestDistance = distanceToTarget;
+                        closestTarget = target;
+                    }
                 }
             }
+        }
+
+        if (closestTarget != null)
+        {
+            _player.SetTarget(closestTarget);
+        }
+        else
+        {
+            _player.SetTarget(null);
         }
     }
 
