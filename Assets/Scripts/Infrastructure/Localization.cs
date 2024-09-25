@@ -19,15 +19,18 @@ namespace Assets.Scripts
 
         private void Awake()
         {
-#if (UNITU_WEBGL && !UNITY_EDITOR)
-         ChengeLanguage();
-#endif
-
             _languageCode = YandexGamesSdk.Environment.i18n.lang;
+
+#if (UNITY_WEBGL && !UNITY_EDITOR)
+         ChangeLanguage();
+#endif
+            Debug.Log($"Получаю регион {_languageCode}");
         }
 
         private void ChangeLanguage()
         {
+            Debug.Log("В методе ChangeLanguage");
+
             switch (_languageCode)
             {
                 case English:
