@@ -61,10 +61,10 @@ public class PlayerRadar : MonoBehaviour
         {
             _player.SetTarget(closestTarget);
         }
-        else
-        {
-            _player.SetTarget(null);
-        }
+        //else
+        //{
+        //    _player.SetTarget(null);
+        //}
     }
 
     //private void OnDrawGizmos()
