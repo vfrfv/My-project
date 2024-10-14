@@ -1,9 +1,7 @@
 using Agava.WebUtility;
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
 
 public class MovementPlayerTank : MonoBehaviour
 {
@@ -42,9 +40,9 @@ public class MovementPlayerTank : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Device.IsMobile)
+        if (Device.IsMobile)
         {
-            if(!_joystick.gameObject.activeSelf == false)
+            if (!_joystick.gameObject.activeSelf == false)
             {
                 _joystick.gameObject.SetActive(true);
             }
@@ -115,6 +113,7 @@ public class MovementPlayerTank : MonoBehaviour
                 StopCoroutine(_fadeCoroutine);
                 _fadeCoroutine = null;
             }
+
             _movementSource.volume = 0.5f;
             _movementSource.Play();
         }
@@ -142,9 +141,9 @@ public class MovementPlayerTank : MonoBehaviour
 
     private void TurnCourse(Vector2 course)
     {
-        if(course != Vector2.zero)
+        if (course != Vector2.zero)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3( course.x, 0, course.y));
+            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(course.x, 0, course.y));
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _turningSpeed * Time.deltaTime);
         }
     }

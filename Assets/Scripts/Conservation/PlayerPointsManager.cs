@@ -10,6 +10,8 @@ public class PlayerPointsManager
 
     private FlightTower _flightTower;
 
+    public FlightTower FlightTower => _flightTower;
+
     public PlayerPointsManager(FlightTower flightTower)
     {
         _flightTower = flightTower ?? throw new ArgumentNullException(nameof(flightTower));

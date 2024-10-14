@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class Reset : MonoBehaviour
 {
+    private const string KeySavingProgress = "TrainingCompleted";
+
     [SerializeField] private Button _button;
 
     [SerializeField] private LevelManager _levelManager;
@@ -22,7 +24,6 @@ public class Reset : MonoBehaviour
     {
         _levelManager.SetDefolt();
         _playerPointsManager.SetDefolt();
-        PlayerPrefs.DeleteKey("TrainingCompleted");
-
+        PlayerPrefs.DeleteKey(KeySavingProgress);
     }
 }

@@ -40,5 +40,4 @@ public class AuthorizationOfferView : MonoBehaviour
         Agava.YandexGames.PlayerAccount.Authorize(OnAuthorizeSuccess, OnAuthorizeError);
         Hide();
     }
-
 }

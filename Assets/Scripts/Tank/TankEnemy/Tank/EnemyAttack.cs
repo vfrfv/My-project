@@ -5,7 +5,6 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private EnemyWeapon _weapon;
     [SerializeField] private Enemy _enemy;
 
-    private float _turningSpeed = 8;
     private float _angleThreshold = 3.0f;
 
     private void FixedUpdate()
@@ -40,7 +39,6 @@ public class EnemyAttack : MonoBehaviour
         {
             Vector3 direction = player.transform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _turningSpeed * Time.fixedDeltaTime);
             transform.rotation = targetRotation;
         }
     }

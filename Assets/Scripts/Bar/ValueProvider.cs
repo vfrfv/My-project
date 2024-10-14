@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ValueProvider : MonoBehaviour , IValue
+public class ValueProvider : MonoBehaviour, IValue
 {
     private LevelProgressService _progressService;
     private SmoothBar _smoothBar;

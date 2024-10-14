@@ -20,7 +20,6 @@ public class Barrier : MonoBehaviour
             Open();
     }
 
-
     public void OpenZone()
     {
         _openingArea.enabled = true;

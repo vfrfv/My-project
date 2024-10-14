@@ -41,7 +41,7 @@ public class EnemyRadar : MonoBehaviour
                     transform.position,
                     (player.transform.position - transform.position).normalized,
                     out RaycastHit hit,
-                    15,
+                    _fieldView,
                     _obstacleMask,
                     queryTriggerInteraction: QueryTriggerInteraction.Collide))
                 {
@@ -51,10 +51,4 @@ public class EnemyRadar : MonoBehaviour
             }
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, _fieldView);
-    //}
 }

@@ -15,7 +15,6 @@ public class Menu : MonoBehaviour
 
     [SerializeField] LevelManager _levelManager;
 
-
     private void OnEnable()
     {
         _startButton.onClick.AddListener(Play);
@@ -27,7 +26,9 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
-        //YandexGamesSdk.GameReady();
+#if (UNITY_WEBGL && !UNITY_EDITOR)
+        YandexGamesSdk.GameReady();
+#endif
 
         ExitLevelsWindow();
         ExitSettings();

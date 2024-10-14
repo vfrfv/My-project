@@ -3,9 +3,9 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
-    [SerializeField] protected float _flightSpeed = 7;
+    [SerializeField] private float _flightSpeed = 7;
 
-    protected int _damage;
+    private int _damage;
 
     public int Damage => _damage;
 

@@ -16,7 +16,6 @@ public class Player : TankBase
     public Enemy Target => _target;
     public event Action Died;
 
-
     protected override void Start()
     {
         base.Start();
@@ -70,10 +69,4 @@ public class Player : TankBase
 
         base.Init(unitConfig);
     }
-
-    //public void XP()
-    //{
-    //    _health = _maxHealth;
-    //    Changed?.Invoke(_health);
-    //}
 }

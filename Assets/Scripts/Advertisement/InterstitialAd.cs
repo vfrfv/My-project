@@ -22,7 +22,7 @@ public class InterstitialAd : MonoBehaviour
         Agava.YandexGames.InterstitialAd.Show(Stop, OnClose);
     }
 
-    private void OnClose(bool value)
+    private void OnClose(bool _value)
     {
         _imageVictory.LaunchNextLevel();
         Play();

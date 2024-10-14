@@ -14,7 +14,9 @@ public class VideoAd : MonoBehaviour
 
     private float _points = 50;
 
-    public event Action<float> looked;
+    public float Points => _points;
+
+    public event Action<float> Looked;
 
     private void OnEnable()
     {
@@ -35,7 +37,7 @@ public class VideoAd : MonoBehaviour
 
     private void OnRewardCallback()
     {
-        looked?.Invoke(_points);
+        Looked?.Invoke(_points);
         _playerPointsManager.AddPoints(_points);
     }
 

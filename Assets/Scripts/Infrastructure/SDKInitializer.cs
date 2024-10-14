@@ -46,5 +46,3 @@ namespace Source.Yandex
         }
     }
 }
-
-

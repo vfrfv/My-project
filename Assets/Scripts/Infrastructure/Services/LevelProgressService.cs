@@ -18,7 +18,7 @@ public class LevelProgressService
     public event Action MovedNextLevel;
     public event Action<int> Changed;
 
-    public void AddProgress(Enemy enemy)
+    public void AddProgress(Enemy _enemy)
     {
         _killedOpponents++;
 

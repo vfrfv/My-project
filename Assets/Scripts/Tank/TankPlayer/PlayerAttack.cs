@@ -5,7 +5,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private PlayerWeapon _weapon;
     [SerializeField] private Player _player;
 
-    private float _turningSpeed = 8;
     private float _angleThreshold = 5.0f;
     private Transform _tower;
 

@@ -20,7 +20,7 @@ public class ImageVictory : MonoBehaviour
 
     private void OnEnable()
     {
-        _videoAd.looked += AddPointsAfterAd;
+        _videoAd.Looked += AddPointsAfterAd;
         _flightTower.NumberPointsChanged += ShowPoints;
         _nextLevel.onClick.AddListener(RunBeforeChangingScene);
     }
@@ -28,7 +28,7 @@ public class ImageVictory : MonoBehaviour
     private void OnDisable()
     {
         _flightTower.NumberPointsChanged -= ShowPoints;
-        _videoAd.looked -= AddPointsAfterAd;
+        _videoAd.Looked -= AddPointsAfterAd;
         _nextLevel.onClick.RemoveListener(RunBeforeChangingScene);
     }
 

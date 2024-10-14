@@ -12,6 +12,10 @@ public class ScoringPoints : MonoBehaviour
     private Coroutine _coroutine;
     private bool _works = true;
 
+    public float Points => _points;
+    public Coroutine Coroutine => _coroutine;
+    public bool Works => _works;
+
     private void Start()
     {
         _flightTower.Flew += StartAddPoints;

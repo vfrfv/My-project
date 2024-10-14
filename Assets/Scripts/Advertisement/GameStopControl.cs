@@ -6,6 +6,8 @@ public class GameStopControl : MonoBehaviour
 {
     private HashSet<PauseSource> _sources = new HashSet<PauseSource>();
 
+    public IReadOnlyCollection<PauseSource> Sources => _sources;
+
     public void Play(PauseSource pauseSource)
     {
         _sources.Remove(_sources.FirstOrDefault(x => x.Key == pauseSource.Key));

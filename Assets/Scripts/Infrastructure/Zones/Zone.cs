@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Zone : MonoBehaviour
@@ -53,11 +52,8 @@ public class Zone : MonoBehaviour
             _barrier.OpenZone();
         }
         else
+        {
             _barrier.CloseZone();
+        }
     }
-
-    //private void Update()
-    //{
-    //    Debug.Log(_enemies.Count);
-    //}
 }

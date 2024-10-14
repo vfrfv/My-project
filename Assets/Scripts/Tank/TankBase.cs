@@ -3,10 +3,10 @@ using UnityEngine;
 
 public abstract class TankBase : MonoBehaviour, IValue
 {
-    protected int _maxHealth;
-    protected int _health;
-    protected int _damage;
-    protected TankModel _tankModel;
+    private int _maxHealth;
+    private int _health;
+    private int _damage;
+    private TankModel _tankModel;
 
     public int Damage => _damage;
     public int Value => _health;

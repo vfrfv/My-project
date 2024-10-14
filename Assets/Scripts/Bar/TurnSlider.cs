@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TurnSlider : MonoBehaviour
 {
     private Camera _camera;
+    private float _degree = 180;
 
     private void Awake()
     {
@@ -15,6 +13,6 @@ public class TurnSlider : MonoBehaviour
     private void LateUpdate()
     {
         transform.LookAt(new Vector3(_camera.transform.position.x, _camera.transform.position.y, _camera.transform.position.z));
-        transform.Rotate(0, 180, 0);
+        transform.Rotate(0, _degree, 0);
     }
 }

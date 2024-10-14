@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,7 +12,7 @@ public class EnemyTankMovement : MonoBehaviour
 
     private void Update()
     {
-        if(!_agent.pathPending && _agent.remainingDistance < 2f)
+        if (!_agent.pathPending && _agent.remainingDistance < 2f)
         {
             SetRandomDestination();
         }
@@ -34,5 +32,3 @@ public class EnemyTankMovement : MonoBehaviour
         return randomPoint;
     }
 }
-
-
