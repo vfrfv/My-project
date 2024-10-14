@@ -34,11 +34,6 @@ public class CompositionRoot : MonoBehaviour
         _player.Init(_unitConfigs[0]);
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void SubscribePumping()
     {
         foreach (var zone in _zones)
