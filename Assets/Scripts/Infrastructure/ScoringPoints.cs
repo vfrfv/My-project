@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -36,6 +34,6 @@ public class ScoringPoints : MonoBehaviour
 
     private void ChengPointsValue(float value)
     {
-        _text.text = value.ToString("F0");  
+        _text.text = value.ToString("F0");
     }
 }

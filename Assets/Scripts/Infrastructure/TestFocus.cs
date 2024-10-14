@@ -1,15 +1,12 @@
 using Agava.WebUtility;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class TestFocus : MonoBehaviour
 {
     private const string Focus = "focus";
 
     [SerializeField] private GameStopControl _stopControl;
- 
+
     private void OnEnable()
     {
         Application.focusChanged += OnInBackgroundChangeApp;

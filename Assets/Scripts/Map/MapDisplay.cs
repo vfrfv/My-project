@@ -1,6 +1,4 @@
-using Agava.YandexGames;
 using Assets.Scripts;
-using System.Drawing;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;

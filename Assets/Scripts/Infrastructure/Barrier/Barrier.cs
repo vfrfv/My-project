@@ -33,8 +33,6 @@ public class Barrier : MonoBehaviour
 
     public void Open()
     {
-        //_hingeJoint.spring.targetPosition;
-
         JointSpring jointSpring = _hingeJoint.spring;
         jointSpring.targetPosition = 60f;
         _hingeJoint.spring = jointSpring;

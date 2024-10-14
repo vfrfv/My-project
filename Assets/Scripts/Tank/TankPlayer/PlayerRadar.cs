@@ -61,15 +61,5 @@ public class PlayerRadar : MonoBehaviour
         {
             _player.SetTarget(closestTarget);
         }
-        //else
-        //{
-        //    _player.SetTarget(null);
-        //}
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, 15f);
-    //}
 }

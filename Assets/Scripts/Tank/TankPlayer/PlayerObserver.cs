@@ -12,9 +12,6 @@ public class PlayerObserver : MonoBehaviour
 
     private void Start()
     {
-        //_playerRadar.enabled = true;
-        //_playerAttask.enabled = false;
-
         _coroutine = StartCoroutine(DestroyEnemies());
         _movement.enabled = true;
     }
@@ -58,24 +55,4 @@ public class PlayerObserver : MonoBehaviour
             _playerAttask.enabled = true;
         }
     }
-    //private void Update()
-    //{
-    //    if (_player.Target != null)
-    //    {
-    //        if (Vector3.Distance(transform.position, _player.Target.transform.position) < _playerRadar.FieldView)
-    //        {
-    //            _playerRadar.enabled = false;
-    //            _playerAttask.enabled = true;
-    //        }
-    //        else
-    //        {
-    //            _player.LoseTarget();
-    //        }
-    //    }
-    //    else
-    //    {
-    //        _playerRadar.enabled = true;
-    //        _playerAttask.enabled = false;
-    //    }
-    //}
 }

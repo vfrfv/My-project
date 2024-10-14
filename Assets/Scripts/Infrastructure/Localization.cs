@@ -24,13 +24,10 @@ namespace Assets.Scripts
 #if (UNITY_WEBGL && !UNITY_EDITOR)
          ChangeLanguage();
 #endif
-            Debug.Log($"Получаю регион {_languageCode}");
         }
 
         private void ChangeLanguage()
         {
-            Debug.Log("В методе ChangeLanguage");
-
             switch (_languageCode)
             {
                 case English:

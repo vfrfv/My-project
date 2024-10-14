@@ -40,7 +40,7 @@ public class ImageVictory : MonoBehaviour
 
     public void AddPointsAfterAd(float bonusPoints)
     {
-        _currentPoints += bonusPoints; 
+        _currentPoints += bonusPoints;
         _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
     }
 
@@ -65,7 +65,7 @@ public class ImageVictory : MonoBehaviour
         }
         else
         {
-            _message.gameObject.SetActive(true); 
+            _message.gameObject.SetActive(true);
         }
 
         Time.timeScale = 1;

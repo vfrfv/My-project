@@ -1,9 +1,7 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManagement: MonoBehaviour
+public class CameraManagement : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera _cameraPlayer;
     [SerializeField] private CinemachineVirtualCamera _cameraBoss;
@@ -23,7 +21,7 @@ public class CameraManagement: MonoBehaviour
     }
 
     public void SwitchToTowerBoss()
-    { 
+    {
         _cameraBoss.gameObject.SetActive(false);
         _cameraTowerBoss.gameObject.SetActive(true);
     }

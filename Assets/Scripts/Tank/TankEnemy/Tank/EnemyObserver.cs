@@ -7,11 +7,6 @@ public class EnemyObserver : MonoBehaviour
 
     [SerializeField] private Enemy _enemy;
 
-    //private void Awake()
-    //{
-    //    _enemy = GetComponent<Enemy>();
-    //}
-
     private void Start()
     {
         _enemyRadar.enabled = true;
