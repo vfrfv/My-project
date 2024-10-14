@@ -7,7 +7,7 @@ public class EnemyRadar : MonoBehaviour
     [SerializeField] private LayerMask _obstacleMask;
     [SerializeField] private Enemy _enemy;
 
-    private float _fieldView = 15f;
+    private readonly float _fieldView = 15f;
 
     public float FieldView => _fieldView;
 
@@ -31,6 +31,8 @@ public class EnemyRadar : MonoBehaviour
 
     private void Detect()
     {
+        RaycastHit _1;
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, _fieldView, _mask);
 
         foreach (var collider in colliders)
@@ -40,7 +42,7 @@ public class EnemyRadar : MonoBehaviour
                 if (!Physics.Raycast(
                     transform.position,
                     (player.transform.position - transform.position).normalized,
-                    out RaycastHit hit,
+                    out _1,
                     _fieldView,
                     _obstacleMask,
                     queryTriggerInteraction: QueryTriggerInteraction.Collide))

@@ -12,7 +12,7 @@ public class VideoAd : MonoBehaviour
     [SerializeField] private ImageVictory _imageVictory;
     [SerializeField] private GameStopControl _stopControl;
 
-    private float _points = 50;
+    private readonly float _points = 50;
 
     public float Points => _points;
 

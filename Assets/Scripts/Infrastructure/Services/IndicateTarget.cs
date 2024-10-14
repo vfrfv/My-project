@@ -4,9 +4,7 @@ using System;
 public class IndicateTarget
 {
     private CinemachineVirtualCamera _camera;
-    private SmoothBar _smoothHealthBar;
-
-    public SmoothBar SmoothBar => _smoothHealthBar;
+    private readonly SmoothBar _smoothHealthBar;
 
     public IndicateTarget(CinemachineVirtualCamera camera, SmoothBar smoothHealthBar)
     {

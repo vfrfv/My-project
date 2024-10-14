@@ -2,8 +2,8 @@ using System;
 
 public class GameLoopService
 {
-    private LevelProgressService _levelProgressService;
-    private UpgradeService _upgradeService;
+    private readonly LevelProgressService _levelProgressService;
+    private readonly UpgradeService _upgradeService;
 
     public LevelProgressService LevelProgressService => _levelProgressService;
     public UpgradeService UpgradeService => _upgradeService;

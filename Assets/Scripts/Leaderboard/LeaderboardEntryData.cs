@@ -1,4 +1,4 @@
-public struct LeaderboardEntryData
+public readonly struct LeaderboardEntryData
 {
     public LeaderboardEntryData(Agava.YandexGames.LeaderboardEntryResponse entry)
     {

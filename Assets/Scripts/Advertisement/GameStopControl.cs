@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class GameStopControl : MonoBehaviour
 {
-    private HashSet<PauseSource> _sources = new HashSet<PauseSource>();
-
-    public IReadOnlyCollection<PauseSource> Sources => _sources;
+    private readonly HashSet<PauseSource> _sources = new HashSet<PauseSource>();
 
     public void Play(PauseSource pauseSource)
     {
-        _sources.Remove(_sources.FirstOrDefault(x => x.Key == pauseSource.Key));
+        _sources.Remove(_sources.FirstOrDefault(key => key.Key == pauseSource.Key));
 
         if (_sources.Count > 0)
         {

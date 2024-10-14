@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerPoolBullet
 {
-    private PlayerBullet _prefabMissile;
-    private Queue<Bullet> _bulletQueue;
+    private readonly PlayerBullet _prefabMissile;
+    private  readonly Queue<Bullet> _bulletQueue;
 
     public PlayerPoolBullet(PlayerBullet prefabMissile)
     {

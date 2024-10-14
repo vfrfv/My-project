@@ -8,9 +8,7 @@ public class PlayerPointsManager
 
     [SerializeField] private float _currentPoints;
 
-    private FlightTower _flightTower;
-
-    public FlightTower FlightTower => _flightTower;
+    private readonly FlightTower _flightTower;
 
     public PlayerPointsManager(FlightTower flightTower)
     {

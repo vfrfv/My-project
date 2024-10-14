@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyPoolBullet : MonoBehaviour
 {
-    private EnemyBullet _prefabBullet;
-    private Queue<Bullet> _missileQueue;
+    private readonly EnemyBullet _prefabBullet;
+    private readonly Queue<Bullet> _missileQueue;
 
     public EnemyPoolBullet(EnemyBullet prefabMissile)
     {

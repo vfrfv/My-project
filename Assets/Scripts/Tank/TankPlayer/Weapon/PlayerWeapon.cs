@@ -10,7 +10,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private Transform _shootPoint;
     private float _shootDelayCounter = 0;
-    private float _shootDelayInSeconds = 1;
+    private readonly float _shootDelayInSeconds = 1;
     private PlayerPoolHandler _poolHandler;
 
     public bool CanShoot => _shootDelayCounter <= 0;

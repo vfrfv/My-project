@@ -12,7 +12,7 @@ public class AdjustVolume : MonoBehaviour
     [SerializeField] private Slider _musicVolume;
     [SerializeField] private Slider _SFXVolume;
 
-    private int _minimumVolumeLevel = -80;
+    private readonly int _minimumVolumeLevel = -80;
 
     private void Start()
     {
