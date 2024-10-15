@@ -1,26 +1,31 @@
+using Assets.Scripts.Bar;
+using Assets.Scripts.Tanks.TankPlayer;
 using Cinemachine;
 using System;
 
-public class IndicateTarget
+namespace Assets.Scripts.Infrastructure.Services
 {
-    private CinemachineVirtualCamera _camera;
-    private readonly SmoothBar _smoothHealthBar;
-
-    public IndicateTarget(CinemachineVirtualCamera camera, SmoothBar smoothHealthBar)
+    public class IndicateTarget
     {
-        _camera = camera ?? throw new ArgumentNullException(nameof(camera));
+        private CinemachineVirtualCamera _camera;
+        private readonly SmoothBar _smoothHealthBar;
 
-        _smoothHealthBar = smoothHealthBar ?? throw new ArgumentNullException(nameof(smoothHealthBar));
-    }
+        public IndicateTarget(CinemachineVirtualCamera camera, SmoothBar smoothHealthBar)
+        {
+            _camera = camera ?? throw new ArgumentNullException(nameof(camera));
 
-    public void BindPlayerToCamera(Player player)
-    {
-        _camera.Follow = player.transform;
-        _camera.LookAt = player.transform;
-    }
+            _smoothHealthBar = smoothHealthBar ?? throw new ArgumentNullException(nameof(smoothHealthBar));
+        }
 
-    public void BindPlayerToHealthBar(Player player)
-    {
-        _smoothHealthBar.Init(player);
+        public void BindPlayerToCamera(Player player)
+        {
+            _camera.Follow = player.transform;
+            _camera.LookAt = player.transform;
+        }
+
+        public void BindPlayerToHealthBar(Player player)
+        {
+            _smoothHealthBar.Init(player);
+        }
     }
 }

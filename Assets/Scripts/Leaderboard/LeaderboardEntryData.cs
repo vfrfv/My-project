@@ -1,16 +1,19 @@
-public readonly struct LeaderboardEntryData
+namespace Assets.Scripts.Leaderboard
 {
-    public LeaderboardEntryData(Agava.YandexGames.LeaderboardEntryResponse entry)
+    public readonly struct LeaderboardEntryData
     {
-        Rank = entry.rank;
-        Name = entry.player.publicName;
-        Score = entry.score;
+        public LeaderboardEntryData(Agava.YandexGames.LeaderboardEntryResponse entry)
+        {
+            Rank = entry.rank;
+            Name = entry.player.publicName;
+            Score = entry.score;
 
-        if (string.IsNullOrEmpty(Name))
-            Name = Constants.ANONYMOUS_NAME;
+            if (string.IsNullOrEmpty(Name))
+                Name = Constants.ANONYMOUS_NAME;
+        }
+
+        public int Rank { get; }
+        public string Name { get; }
+        public int Score { get; }
     }
-
-    public int Rank { get; }
-    public string Name { get; }
-    public int Score { get; }
 }

@@ -1,9 +1,12 @@
-public class PauseSource
+namespace Assets.Scripts.Advertisement
 {
-    public string Key;
-
-    public PauseSource(string key)
+    public class PauseSource
     {
-        Key = key;
+        public string Key;
+
+        public PauseSource(string key)
+        {
+            Key = key;
+        }
     }
 }

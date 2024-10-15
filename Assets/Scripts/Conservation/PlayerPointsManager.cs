@@ -1,52 +1,57 @@
+using Assets.Scripts.Leaderboard;
+using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
 using System;
 using UnityEngine;
 
-[Serializable]
-public class PlayerPointsManager
+namespace Assets.Scripts.Conservation
 {
-    private const string KeySavedPoints = "CurrentPoints";
-
-    [SerializeField] private float _currentPoints;
-
-    private readonly FlightTower _flightTower;
-
-    public PlayerPointsManager(FlightTower flightTower)
+    [Serializable]
+    public class PlayerPointsManager
     {
-        _flightTower = flightTower ?? throw new ArgumentNullException(nameof(flightTower));
+        private const string KeySavedPoints = "CurrentPoints";
 
-        Load();
+        [SerializeField] private float _currentPoints;
 
-        _flightTower.PointsTransferredPlayer += AddPoints;
-    }
+        private readonly FlightTower _flightTower;
 
-    public float CurrentPoints => _currentPoints;
-
-    public event Action<int> IsPointsAwarded;
-
-    public void AddPoints(float points)
-    {
-        float anInteger = (float)Math.Truncate(points);
-        Load();
-        _currentPoints += anInteger;
-
-        IsPointsAwarded?.Invoke((int)_currentPoints);
-
-        Agava.YandexGames.Utility.PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
-        Agava.YandexGames.Utility.PlayerPrefs.Save();
-        Agava.YandexGames.Leaderboard.SetScore(Constants.LEADERBOARD_NAME, (int)_currentPoints);
-    }
-
-    public void Load()
-    {
-        if (Agava.YandexGames.Utility.PlayerPrefs.HasKey(KeySavedPoints))
+        public PlayerPointsManager(FlightTower flightTower)
         {
-            _currentPoints = Agava.YandexGames.Utility.PlayerPrefs.GetFloat(KeySavedPoints);
-        }
-    }
+            _flightTower = flightTower ?? throw new ArgumentNullException(nameof(flightTower));
 
-    public void SetDefolt()
-    {
-        PlayerPrefs.SetFloat(KeySavedPoints, 0);
-        PlayerPrefs.Save();
+            Load();
+
+            _flightTower.PointsTransferredPlayer += AddPoints;
+        }
+
+        public float CurrentPoints => _currentPoints;
+
+        public event Action<int> IsPointsAwarded;
+
+        public void AddPoints(float points)
+        {
+            float anInteger = (float)Math.Truncate(points);
+            Load();
+            _currentPoints += anInteger;
+
+            IsPointsAwarded?.Invoke((int)_currentPoints);
+
+            Agava.YandexGames.Utility.PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
+            Agava.YandexGames.Utility.PlayerPrefs.Save();
+            Agava.YandexGames.Leaderboard.SetScore(Constants.LEADERBOARD_NAME, (int)_currentPoints);
+        }
+
+        public void Load()
+        {
+            if (Agava.YandexGames.Utility.PlayerPrefs.HasKey(KeySavedPoints))
+            {
+                _currentPoints = Agava.YandexGames.Utility.PlayerPrefs.GetFloat(KeySavedPoints);
+            }
+        }
+
+        public void SetDefolt()
+        {
+            PlayerPrefs.SetFloat(KeySavedPoints, 0);
+            PlayerPrefs.Save();
+        }
     }
 }

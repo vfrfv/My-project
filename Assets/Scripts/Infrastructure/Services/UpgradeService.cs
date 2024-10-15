@@ -1,52 +1,57 @@
+using Assets.Scripts.ScriptableObjects;
+using Assets.Scripts.Tanks.TankPlayer;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeService
+namespace Assets.Scripts.Infrastructure.Services
 {
-    private List<UnitConfig> _unitConfigs;
-    private readonly Player _player;
-    private readonly AudioSource _audioSource;
-    private readonly ParticleSystem _particleSystem;
-    private int _currentConfig = 0;
-
-    public UpgradeService(List<UnitConfig> unitConfigs, Player player, AudioSource audioSource, ParticleSystem particleSystem)
+    public class UpgradeService
     {
-        _unitConfigs = unitConfigs;
-        _player = player;
-        _audioSource = audioSource;
-        _particleSystem = particleSystem;
-    }
+        private List<UnitConfig> _unitConfigs;
+        private readonly Player _player;
+        private readonly AudioSource _audioSource;
+        private readonly ParticleSystem _particleSystem;
+        private int _currentConfig = 0;
 
-    public void Upgrade()
-    {
-        UnitConfig nextConfig = GetFollowingConfiguration();
-
-        if (nextConfig != null)
+        public UpgradeService(List<UnitConfig> unitConfigs, Player player, AudioSource audioSource, ParticleSystem particleSystem)
         {
-            ParticleSystem particleSystem = Object.Instantiate(_particleSystem, _player.transform.position, Quaternion.identity);
-            _audioSource.Play();
-
-            _player.Init(nextConfig);
+            _unitConfigs = unitConfigs;
+            _player = player;
+            _audioSource = audioSource;
+            _particleSystem = particleSystem;
         }
-    }
 
-    private UnitConfig GetFollowingConfiguration()
-    {
-        if (_currentConfig < _unitConfigs.Count - 1)
+        public void Upgrade()
         {
-            _currentConfig++;
-            UnitConfig config = _unitConfigs[_currentConfig];
+            UnitConfig nextConfig = GetFollowingConfiguration();
 
-            return config;
+            if (nextConfig != null)
+            {
+                ParticleSystem particleSystem = Object.Instantiate(_particleSystem, _player.transform.position, Quaternion.identity);
+                _audioSource.Play();
+
+                _player.Init(nextConfig);
+            }
         }
-        else
+
+        private UnitConfig GetFollowingConfiguration()
         {
-            return null;
-        }
-    }
+            if (_currentConfig < _unitConfigs.Count - 1)
+            {
+                _currentConfig++;
+                UnitConfig config = _unitConfigs[_currentConfig];
 
-    public bool IsMaxLevel()
-    {
-        return _currentConfig >= _unitConfigs.Count - 1;
+                return config;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public bool IsMaxLevel()
+        {
+            return _currentConfig >= _unitConfigs.Count - 1;
+        }
     }
 }

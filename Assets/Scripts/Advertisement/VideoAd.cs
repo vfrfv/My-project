@@ -1,53 +1,58 @@
+using Assets.Scripts.Conservation;
+using Assets.Scripts.Infrastructure.UI;
 using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VideoAd : MonoBehaviour
+namespace Assets.Scripts.Advertisement
 {
-    private const string Video = "video";
-
-    [SerializeField] private Button _advertisement;
-    [SerializeField] private PlayerPointsManager _playerPointsManager;
-    [SerializeField] private ImageVictory _imageVictory;
-    [SerializeField] private GameStopControl _stopControl;
-
-    private readonly float _points = 50;
-
-    public float Points => _points;
-
-    public event Action<float> Looked;
-
-    private void OnEnable()
+    public class VideoAd : MonoBehaviour
     {
-        _advertisement.onClick.AddListener(Show);
-        _advertisement.interactable = true;
-    }
+        private const string Video = "video";
 
-    private void OnDisable()
-    {
-        _advertisement.onClick.RemoveListener(Show);
-    }
+        [SerializeField] private Button _advertisement;
+        [SerializeField] private PlayerPointsManager _playerPointsManager;
+        [SerializeField] private ImageVictory _imageVictory;
+        [SerializeField] private GameStopControl _stopControl;
 
-    public void Show()
-    {
-        Agava.YandexGames.VideoAd.Show(Stop, OnRewardCallback, Play);
-        _advertisement.interactable = false;
-    }
+        private readonly float _points = 50;
 
-    private void OnRewardCallback()
-    {
-        Looked?.Invoke(_points);
-        _playerPointsManager.AddPoints(_points);
-    }
+        public float Points => _points;
 
-    public void Play()
-    {
-        _stopControl.Play(new PauseSource(Video));
-    }
+        public event Action<float> Looked;
 
-    public void Stop()
-    {
-        _stopControl.Stop(new PauseSource(Video));
+        private void OnEnable()
+        {
+            _advertisement.onClick.AddListener(Show);
+            _advertisement.interactable = true;
+        }
+
+        private void OnDisable()
+        {
+            _advertisement.onClick.RemoveListener(Show);
+        }
+
+        public void Show()
+        {
+            Agava.YandexGames.VideoAd.Show(Stop, OnRewardCallback, Play);
+            _advertisement.interactable = false;
+        }
+
+        private void OnRewardCallback()
+        {
+            Looked?.Invoke(_points);
+            _playerPointsManager.AddPoints(_points);
+        }
+
+        public void Play()
+        {
+            _stopControl.Play(new PauseSource(Video));
+        }
+
+        public void Stop()
+        {
+            _stopControl.Stop(new PauseSource(Video));
+        }
     }
 }

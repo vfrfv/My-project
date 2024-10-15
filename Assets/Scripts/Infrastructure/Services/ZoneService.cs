@@ -1,27 +1,32 @@
+using Assets.Scripts.Infrastructure.Zones;
+using Assets.Scripts.Tanks.TankEnemy.Tank;
 using System;
 using System.Collections.Generic;
 
-public class ZoneService
+namespace Assets.Scripts.Infrastructure.Services
 {
-    private List<Zone> _zones = new List<Zone>();
-
-    public ZoneService(List<Zone> zones)
+    public class ZoneService
     {
-        _zones = zones ?? throw new ArgumentNullException(nameof(zones));
-    }
+        private List<Zone> _zones = new List<Zone>();
 
-    public List<Enemy> GetAllEnemies()
-    {
-        List<Enemy> enemys = new List<Enemy>();
-
-        foreach (Zone zone in _zones)
+        public ZoneService(List<Zone> zones)
         {
-            foreach (Enemy enemy in zone.Enemies)
-            {
-                enemys.Add(enemy);
-            }
+            _zones = zones ?? throw new ArgumentNullException(nameof(zones));
         }
 
-        return enemys;
+        public List<Enemy> GetAllEnemies()
+        {
+            List<Enemy> enemys = new List<Enemy>();
+
+            foreach (Zone zone in _zones)
+            {
+                foreach (Enemy enemy in zone.Enemies)
+                {
+                    enemys.Add(enemy);
+                }
+            }
+
+            return enemys;
+        }
     }
 }

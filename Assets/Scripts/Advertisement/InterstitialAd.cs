@@ -1,40 +1,44 @@
+using Assets.Scripts.Infrastructure.UI;
 using UnityEngine;
 
-public class InterstitialAd : MonoBehaviour
+namespace Assets.Scripts.Advertisement
 {
-    private const string Interstitial = "interstitial";
-
-    [SerializeField] private GameStopControl _gameStopControl;
-    [SerializeField] private ImageVictory _imageVictory;
-
-    private void OnEnable()
+    public class InterstitialAd : MonoBehaviour
     {
-        _imageVictory.Pressed += Show;
-    }
+        private const string Interstitial = "interstitial";
 
-    private void OnDisable()
-    {
-        _imageVictory.Pressed -= Show;
-    }
+        [SerializeField] private GameStopControl _gameStopControl;
+        [SerializeField] private ImageVictory _imageVictory;
 
-    public void Show()
-    {
-        Agava.YandexGames.InterstitialAd.Show(Stop, OnClose);
-    }
+        private void OnEnable()
+        {
+            _imageVictory.Pressed += Show;
+        }
 
-    private void OnClose(bool _value)
-    {
-        _imageVictory.LaunchNextLevel();
-        Play();
-    }
+        private void OnDisable()
+        {
+            _imageVictory.Pressed -= Show;
+        }
 
-    public void Play()
-    {
-        _gameStopControl.Play(new PauseSource(Interstitial));
-    }
+        public void Show()
+        {
+            Agava.YandexGames.InterstitialAd.Show(Stop, OnClose);
+        }
 
-    public void Stop()
-    {
-        _gameStopControl.Stop(new PauseSource(Interstitial));
+        private void OnClose(bool _value)
+        {
+            _imageVictory.LaunchNextLevel();
+            Play();
+        }
+
+        public void Play()
+        {
+            _gameStopControl.Play(new PauseSource(Interstitial));
+        }
+
+        public void Stop()
+        {
+            _gameStopControl.Stop(new PauseSource(Interstitial));
+        }
     }
 }

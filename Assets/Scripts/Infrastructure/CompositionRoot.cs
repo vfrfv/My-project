@@ -1,44 +1,54 @@
+using Assets.Scripts.Bar;
+using Assets.Scripts.Conservation;
+using Assets.Scripts.Infrastructure.Services;
+using Assets.Scripts.Infrastructure.Zones;
+using Assets.Scripts.ScriptableObjects;
+using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
+using Assets.Scripts.Tanks.TankPlayer;
 using Cinemachine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CompositionRoot : MonoBehaviour
+namespace Assets.Scripts.Infrastructure
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private List<Zone> _zones = new List<Zone>();
-    [SerializeField] private List<UnitConfig> _unitConfigs;
-
-    [SerializeField] private SmoothBar _smoothHealthBar;
-    [SerializeField] private SmoothBar _progressBar;
-    [SerializeField] private ParticleSystem _upgradeEffect;
-    [SerializeField] private AudioSource _upgradeSound;
-    [SerializeField] private FlightTower _flightTower;
-
-    private GameLoopService _loopService;
-    private LevelProgressService _levelProgressService;
-    private UpgradeService _upgradeService;
-    private PlayerPointsManager _playerPointsManager;
-
-    private void Awake()
+    public class CompositionRoot : MonoBehaviour
     {
-        _upgradeService = new UpgradeService(_unitConfigs, _player, _upgradeSound, _upgradeEffect);
-        _levelProgressService = new LevelProgressService(_upgradeService);
-        _loopService = new GameLoopService(_levelProgressService, _upgradeService);
-        _playerPointsManager = new PlayerPointsManager(_flightTower);
+        [SerializeField] private Player _player;
+        [SerializeField] private List<Zone> _zones = new List<Zone>();
+        [SerializeField] private List<UnitConfig> _unitConfigs;
 
-        var provider = _progressBar.AddComponent<ValueProvider>();
-        provider.Init(_levelProgressService, _progressBar);
+        [SerializeField] private SmoothBar _smoothHealthBar;
+        [SerializeField] private SmoothBar _progressBar;
+        [SerializeField] private ParticleSystem _upgradeEffect;
+        [SerializeField] private AudioSource _upgradeSound;
+        [SerializeField] private FlightTower _flightTower;
 
-        SubscribePumping();
-        _player.Init(_unitConfigs[0]);
-    }
+        private GameLoopService _loopService;
+        private LevelProgressService _levelProgressService;
+        private UpgradeService _upgradeService;
+        private PlayerPointsManager _playerPointsManager;
 
-    private void SubscribePumping()
-    {
-        foreach (var zone in _zones)
+        private void Awake()
         {
-            zone.Init(_loopService);
+            _upgradeService = new UpgradeService(_unitConfigs, _player, _upgradeSound, _upgradeEffect);
+            _levelProgressService = new LevelProgressService(_upgradeService);
+            _loopService = new GameLoopService(_levelProgressService, _upgradeService);
+            _playerPointsManager = new PlayerPointsManager(_flightTower);
+
+            var provider = _progressBar.AddComponent<ValueProvider>();
+            provider.Init(_levelProgressService, _progressBar);
+
+            SubscribePumping();
+            _player.Init(_unitConfigs[0]);
+        }
+
+        private void SubscribePumping()
+        {
+            foreach (var zone in _zones)
+            {
+                zone.Init(_loopService);
+            }
         }
     }
 }

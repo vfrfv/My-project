@@ -1,29 +1,33 @@
+using Assets.Scripts.Tanks.TankEnemy.Tank;
 using System;
 
-public class GameLoopService
+namespace Assets.Scripts.Infrastructure.Services
 {
-    private readonly LevelProgressService _levelProgressService;
-    private readonly UpgradeService _upgradeService;
-
-    public LevelProgressService LevelProgressService => _levelProgressService;
-    public UpgradeService UpgradeService => _upgradeService;
-
-    public GameLoopService(LevelProgressService levelProgressService,
-        UpgradeService upgradeService)
+    public class GameLoopService
     {
-        _levelProgressService = levelProgressService ?? throw new ArgumentNullException(nameof(levelProgressService));
-        _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
+        private readonly LevelProgressService _levelProgressService;
+        private readonly UpgradeService _upgradeService;
 
-        levelProgressService.Improved += OnImproved;
-    }
+        public LevelProgressService LevelProgressService => _levelProgressService;
+        public UpgradeService UpgradeService => _upgradeService;
 
-    public void OnEnemiesDie(Enemy enemy)
-    {
-        enemy.Died += _levelProgressService.AddProgress;
-    }
+        public GameLoopService(LevelProgressService levelProgressService,
+            UpgradeService upgradeService)
+        {
+            _levelProgressService = levelProgressService ?? throw new ArgumentNullException(nameof(levelProgressService));
+            _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
 
-    private void OnImproved()
-    {
-        _upgradeService.Upgrade();
+            levelProgressService.Improved += OnImproved;
+        }
+
+        public void OnEnemiesDie(Enemy enemy)
+        {
+            enemy.Died += _levelProgressService.AddProgress;
+        }
+
+        private void OnImproved()
+        {
+            _upgradeService.Upgrade();
+        }
     }
 }

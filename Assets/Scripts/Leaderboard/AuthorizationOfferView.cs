@@ -2,42 +2,45 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AuthorizationOfferView : MonoBehaviour
+namespace Assets.Scripts.Leaderboard
 {
-    [SerializeField] private Button _closeButton;
-    [SerializeField] private Button _authorizeButton;
-
-    private Action _onAuthorizeSuccess;
-    private Action _onAuthorizeError;
-
-    private void Awake()
+    public class AuthorizationOfferView : MonoBehaviour
     {
-        _closeButton.onClick.AddListener(Hide);
-        _authorizeButton.onClick.AddListener(OnAuthorizeButtonClick);
-    }
+        [SerializeField] private Button _closeButton;
+        [SerializeField] private Button _authorizeButton;
 
-    private void OnDestroy()
-    {
-        _closeButton.onClick.RemoveListener(Hide);
-        _authorizeButton.onClick.RemoveListener(OnAuthorizeButtonClick);
-    }
+        private Action _onAuthorizeSuccess;
+        private Action _onAuthorizeError;
 
-    public void Show(Action onAuthorizeSuccess, Action onAuthorizeError)
-    {
-        _onAuthorizeSuccess = onAuthorizeSuccess;
-        _onAuthorizeError = onAuthorizeError;
+        private void Awake()
+        {
+            _closeButton.onClick.AddListener(Hide);
+            _authorizeButton.onClick.AddListener(OnAuthorizeButtonClick);
+        }
 
-        gameObject.SetActive(true);
-    }
+        private void OnDestroy()
+        {
+            _closeButton.onClick.RemoveListener(Hide);
+            _authorizeButton.onClick.RemoveListener(OnAuthorizeButtonClick);
+        }
 
-    private void Hide() => gameObject.SetActive(false);
+        public void Show(Action onAuthorizeSuccess, Action onAuthorizeError)
+        {
+            _onAuthorizeSuccess = onAuthorizeSuccess;
+            _onAuthorizeError = onAuthorizeError;
 
-    private void OnAuthorizeButtonClick()
-    {
-        void OnAuthorizeSuccess() => _onAuthorizeSuccess?.Invoke();
-        void OnAuthorizeError(string error) => _onAuthorizeError?.Invoke();
+            gameObject.SetActive(true);
+        }
 
-        Agava.YandexGames.PlayerAccount.Authorize(OnAuthorizeSuccess, OnAuthorizeError);
-        Hide();
+        private void Hide() => gameObject.SetActive(false);
+
+        private void OnAuthorizeButtonClick()
+        {
+            void OnAuthorizeSuccess() => _onAuthorizeSuccess?.Invoke();
+            void OnAuthorizeError(string error) => _onAuthorizeError?.Invoke();
+
+            Agava.YandexGames.PlayerAccount.Authorize(OnAuthorizeSuccess, OnAuthorizeError);
+            Hide();
+        }
     }
 }

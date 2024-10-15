@@ -2,30 +2,33 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GameStopControl : MonoBehaviour
+namespace Assets.Scripts.Advertisement
 {
-    private readonly HashSet<PauseSource> _sources = new HashSet<PauseSource>();
-
-    public void Play(PauseSource pauseSource)
+    public class GameStopControl : MonoBehaviour
     {
-        _sources.Remove(_sources.FirstOrDefault(key => key.Key == pauseSource.Key));
+        private readonly HashSet<PauseSource> _sources = new HashSet<PauseSource>();
 
-        if (_sources.Count > 0)
+        public void Play(PauseSource pauseSource)
         {
-            return;
+            _sources.Remove(_sources.FirstOrDefault(key => key.Key == pauseSource.Key));
+
+            if (_sources.Count > 0)
+            {
+                return;
+            }
+
+            Time.timeScale = 1;
+            AudioListener.volume = 1;
+            AudioListener.pause = false;
         }
 
-        Time.timeScale = 1;
-        AudioListener.volume = 1;
-        AudioListener.pause = false;
-    }
+        public void Stop(PauseSource pauseSource)
+        {
+            _sources.Add(pauseSource);
 
-    public void Stop(PauseSource pauseSource)
-    {
-        _sources.Add(pauseSource);
-
-        Time.timeScale = 0;
-        AudioListener.volume = 0;
-        AudioListener.pause = true;
+            Time.timeScale = 0;
+            AudioListener.volume = 0;
+            AudioListener.pause = true;
+        }
     }
 }

@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class TrainingCity : MonoBehaviour
+namespace Assets.Scripts.Infrastructure
 {
+    public class TrainingCity : MonoBehaviour
+    {
+    }
 }

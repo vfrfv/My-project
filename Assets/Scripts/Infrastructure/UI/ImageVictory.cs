@@ -1,78 +1,83 @@
+using Assets.Scripts.Advertisement;
+using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
 using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ImageVictory : MonoBehaviour
+namespace Assets.Scripts.Infrastructure.UI
 {
-    private const string KeyTextPoints = "Points";
-
-    [SerializeField] private TMP_Text _textPoints;
-    [SerializeField] private TMP_Text _message;
-    [SerializeField] private FlightTower _flightTower;
-    [SerializeField] private Button _nextLevel;
-    [SerializeField] VideoAd _videoAd;
-
-    private float _currentPoints;
-
-    public event Action Pressed;
-
-    private void OnEnable()
+    public class ImageVictory : MonoBehaviour
     {
-        _videoAd.Looked += AddPointsAfterAd;
-        _flightTower.NumberPointsChanged += ShowPoints;
-        _nextLevel.onClick.AddListener(RunBeforeChangingScene);
-    }
+        private const string KeyTextPoints = "Points";
 
-    private void OnDisable()
-    {
-        _flightTower.NumberPointsChanged -= ShowPoints;
-        _videoAd.Looked -= AddPointsAfterAd;
-        _nextLevel.onClick.RemoveListener(RunBeforeChangingScene);
-    }
+        [SerializeField] private TMP_Text _textPoints;
+        [SerializeField] private TMP_Text _message;
+        [SerializeField] private FlightTower _flightTower;
+        [SerializeField] private Button _nextLevel;
+        [SerializeField] VideoAd _videoAd;
 
-    public void ShowPoints(float point)
-    {
-        _currentPoints = point;
-        _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
-    }
+        private float _currentPoints;
 
-    public void AddPointsAfterAd(float bonusPoints)
-    {
-        _currentPoints += bonusPoints;
-        _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
-    }
+        public event Action Pressed;
 
-    public void LaunchNextLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        private void OnEnable()
         {
-            string nextScenePath = SceneUtility.GetScenePathByBuildIndex(nextSceneIndex);
-            string nextSceneName = System.IO.Path.GetFileNameWithoutExtension(nextScenePath);
+            _videoAd.Looked += AddPointsAfterAd;
+            _flightTower.NumberPointsChanged += ShowPoints;
+            _nextLevel.onClick.AddListener(RunBeforeChangingScene);
+        }
 
-            if (nextSceneName != "Menu")
+        private void OnDisable()
+        {
+            _flightTower.NumberPointsChanged -= ShowPoints;
+            _videoAd.Looked -= AddPointsAfterAd;
+            _nextLevel.onClick.RemoveListener(RunBeforeChangingScene);
+        }
+
+        public void ShowPoints(float point)
+        {
+            _currentPoints = point;
+            _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
+        }
+
+        public void AddPointsAfterAd(float bonusPoints)
+        {
+            _currentPoints += bonusPoints;
+            _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
+        }
+
+        public void LaunchNextLevel()
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextSceneIndex = currentSceneIndex + 1;
+
+            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
             {
-                SceneManager.LoadScene(nextSceneIndex);
+                string nextScenePath = SceneUtility.GetScenePathByBuildIndex(nextSceneIndex);
+                string nextSceneName = System.IO.Path.GetFileNameWithoutExtension(nextScenePath);
+
+                if (nextSceneName != "Menu")
+                {
+                    SceneManager.LoadScene(nextSceneIndex);
+                }
+                else
+                {
+                    SceneManager.LoadScene(1);
+                }
             }
             else
             {
-                SceneManager.LoadScene(1);
+                _message.gameObject.SetActive(true);
             }
+
+            Time.timeScale = 1;
         }
-        else
+
+        private void RunBeforeChangingScene()
         {
-            _message.gameObject.SetActive(true);
+            Pressed?.Invoke();
         }
-
-        Time.timeScale = 1;
-    }
-
-    private void RunBeforeChangingScene()
-    {
-        Pressed?.Invoke();
     }
 }

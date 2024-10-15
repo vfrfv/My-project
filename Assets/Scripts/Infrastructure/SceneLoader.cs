@@ -3,33 +3,36 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneLoader : MonoBehaviour
+namespace Assets.Scripts.Infrastructure
 {
-    [SerializeField] private Slider _slider;
-
-    public void LoadScene(string sceneName)
+    public class SceneLoader : MonoBehaviour
     {
-        StartCoroutine(LoadSceneAsync(sceneName));
-    }
+        [SerializeField] private Slider _slider;
 
-    private IEnumerator LoadSceneAsync(string sceneName)
-    {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-        asyncOperation.allowSceneActivation = false;
-
-        while (!asyncOperation.isDone)
+        public void LoadScene(string sceneName)
         {
-            float progress = Mathf.Clamp01(asyncOperation.progress / 0.9f);
+            StartCoroutine(LoadSceneAsync(sceneName));
+        }
 
-            if (asyncOperation.progress >= 0.9f)
+        private IEnumerator LoadSceneAsync(string sceneName)
+        {
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+            asyncOperation.allowSceneActivation = false;
+
+            while (!asyncOperation.isDone)
             {
-                if (Input.anyKeyDown)
-                {
-                    asyncOperation.allowSceneActivation = true;
-                }
-            }
+                float progress = Mathf.Clamp01(asyncOperation.progress / 0.9f);
 
-            yield return null;
+                if (asyncOperation.progress >= 0.9f)
+                {
+                    if (Input.anyKeyDown)
+                    {
+                        asyncOperation.allowSceneActivation = true;
+                    }
+                }
+
+                yield return null;
+            }
         }
     }
 }

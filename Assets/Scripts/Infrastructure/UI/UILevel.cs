@@ -1,80 +1,85 @@
+using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
+using Assets.Scripts.Tanks.TankPlayer;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UILevel : MonoBehaviour
+namespace Assets.Scripts.Infrastructure.UI
 {
-    [SerializeField] private GameObject _imageDefeat;
-    [SerializeField] private GameObject _imageVictory;
-    [SerializeField] private Player _player;
-    [SerializeField] private FlightTower _flightTower;
-
-    [SerializeField] private Button _restartButton;
-    [SerializeField] private Button[] _menuButtons;
-    [SerializeField] private ImageVictory _image;
-
-    private void OnEnable()
+    public class UILevel : MonoBehaviour
     {
-        _restartButton.onClick.AddListener(Restart);
+        [SerializeField] private GameObject _imageDefeat;
+        [SerializeField] private GameObject _imageVictory;
+        [SerializeField] private Player _player;
+        [SerializeField] private FlightTower _flightTower;
 
-        foreach (var button in _menuButtons)
+        [SerializeField] private Button _restartButton;
+        [SerializeField] private Button[] _menuButtons;
+        [SerializeField] private ImageVictory _image;
+
+        private void OnEnable()
         {
-            button.onClick.AddListener(ExitInMenu);
-        }
-    }
+            _restartButton.onClick.AddListener(Restart);
 
-    private void OnDisable()
-    {
-        _restartButton.onClick.RemoveListener(Restart);
-
-        foreach (var button in _menuButtons)
-        {
-            button.onClick.RemoveListener(ExitInMenu);
+            foreach (var button in _menuButtons)
+            {
+                button.onClick.AddListener(ExitInMenu);
+            }
         }
 
-        _player.Died -= ShowDefeatWindow;
-        _flightTower.AchievedGoal += ShowVictoryWindow;
-        _flightTower.NumberPointsChanged -= ShowVictoryWindow;
-    }
+        private void OnDisable()
+        {
+            _restartButton.onClick.RemoveListener(Restart);
 
-    private void Start()
-    {
-        _imageDefeat.SetActive(false);
-        _imageVictory.SetActive(false);
+            foreach (var button in _menuButtons)
+            {
+                button.onClick.RemoveListener(ExitInMenu);
+            }
 
-        _player.Died += ShowDefeatWindow;
-        _flightTower.AchievedGoal += ShowVictoryWindow;
-        _flightTower.NumberPointsChanged += ShowVictoryWindow;
-    }
+            _player.Died -= ShowDefeatWindow;
+            _flightTower.AchievedGoal += ShowVictoryWindow;
+            _flightTower.NumberPointsChanged -= ShowVictoryWindow;
+        }
 
-    private void ShowDefeatWindow()
-    {
-        Time.timeScale = 0;
-        _imageDefeat.SetActive(true);
-    }
+        private void Start()
+        {
+            _imageDefeat.SetActive(false);
+            _imageVictory.SetActive(false);
 
-    private void ShowVictoryWindow(float point)
-    {
-        StartCoroutine(DelayBeforeShowing(point));
-    }
+            _player.Died += ShowDefeatWindow;
+            _flightTower.AchievedGoal += ShowVictoryWindow;
+            _flightTower.NumberPointsChanged += ShowVictoryWindow;
+        }
 
-    private IEnumerator DelayBeforeShowing(float point)
-    {
-        yield return new WaitForSeconds(2);
+        private void ShowDefeatWindow()
+        {
+            Time.timeScale = 0;
+            _imageDefeat.SetActive(true);
+        }
 
-        _imageVictory.SetActive(true);
-        _image.ShowPoints(point);
-    }
+        private void ShowVictoryWindow(float point)
+        {
+            StartCoroutine(DelayBeforeShowing(point));
+        }
 
-    public void Restart()
-    {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
-    }
-    public void ExitInMenu()
-    {
-        SceneManager.LoadScene("Menu");
-        Time.timeScale = 1;
+        private IEnumerator DelayBeforeShowing(float point)
+        {
+            yield return new WaitForSeconds(2);
+
+            _imageVictory.SetActive(true);
+            _image.ShowPoints(point);
+        }
+
+        public void Restart()
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1;
+        }
+        public void ExitInMenu()
+        {
+            SceneManager.LoadScene("Menu");
+            Time.timeScale = 1;
+        }
     }
 }

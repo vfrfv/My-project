@@ -1,31 +1,35 @@
+using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
 using TMPro;
 using UnityEngine;
 
-public class ScoringPoints : MonoBehaviour
+namespace Assets.Scripts.Infrastructure
 {
-    [SerializeField] private TMP_Text _text;
-    [SerializeField] private FlightTower _flightTower;
-
-    private void Start()
+    public class ScoringPoints : MonoBehaviour
     {
-        _flightTower.Flew += StartAddPoints;
-        _flightTower.NumberPointsChanged += ChengPointsValue;
-        _text.enabled = false;
-    }
+        [SerializeField] private TMP_Text _text;
+        [SerializeField] private FlightTower _flightTower;
 
-    private void OnDestroy()
-    {
-        _flightTower.Flew -= StartAddPoints;
-        _flightTower.NumberPointsChanged -= ChengPointsValue;
-    }
+        private void Start()
+        {
+            _flightTower.Flew += StartAddPoints;
+            _flightTower.NumberPointsChanged += ChengPointsValue;
+            _text.enabled = false;
+        }
 
-    private void StartAddPoints()
-    {
-        _text.enabled = true;
-    }
+        private void OnDestroy()
+        {
+            _flightTower.Flew -= StartAddPoints;
+            _flightTower.NumberPointsChanged -= ChengPointsValue;
+        }
 
-    private void ChengPointsValue(float value)
-    {
-        _text.text = value.ToString("F0");
+        private void StartAddPoints()
+        {
+            _text.enabled = true;
+        }
+
+        private void ChengPointsValue(float value)
+        {
+            _text.text = value.ToString("F0");
+        }
     }
 }

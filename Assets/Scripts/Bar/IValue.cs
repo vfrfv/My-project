@@ -1,9 +1,12 @@
 using System;
 
-public interface IValue
+namespace Assets.Scripts.Bar
 {
-    event Action<int> Changed;
+    public interface IValue
+    {
+        event Action<int> Changed;
 
-    int Value { get; }
-    int MaxValue { get; }
+        int Value { get; }
+        int MaxValue { get; }
+    }
 }

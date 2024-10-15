@@ -1,29 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Reset : MonoBehaviour
+namespace Assets.Scripts.Conservation
 {
-    private const string KeySavingProgress = "TrainingCompleted";
-
-    [SerializeField] private Button _button;
-
-    [SerializeField] private LevelManager _levelManager;
-    [SerializeField] private PlayerPointsManager _playerPointsManager;
-
-    private void OnEnable()
+    public class Reset : MonoBehaviour
     {
-        _button.onClick.AddListener(ThrowOff);
-    }
+        private const string KeySavingProgress = "TrainingCompleted";
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(ThrowOff);
-    }
+        [SerializeField] private Button _button;
 
-    private void ThrowOff()
-    {
-        _levelManager.SetDefolt();
-        _playerPointsManager.SetDefolt();
-        PlayerPrefs.DeleteKey(KeySavingProgress);
+        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private PlayerPointsManager _playerPointsManager;
+
+        private void OnEnable()
+        {
+            _button.onClick.AddListener(ThrowOff);
+        }
+
+        private void OnDisable()
+        {
+            _button.onClick.RemoveListener(ThrowOff);
+        }
+
+        private void ThrowOff()
+        {
+            _levelManager.SetDefolt();
+            _playerPointsManager.SetDefolt();
+            PlayerPrefs.DeleteKey(KeySavingProgress);
+        }
     }
 }

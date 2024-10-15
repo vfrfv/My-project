@@ -1,33 +1,37 @@
+using Assets.Scripts.Infrastructure.Services;
 using System;
 using UnityEngine;
 
-public class ValueProvider : MonoBehaviour, IValue
+namespace Assets.Scripts.Bar
 {
-    private LevelProgressService _progressService;
-    private SmoothBar _smoothBar;
-
-    public int Value => _progressService.KilledOpponents;
-
-    public int MaxValue => _progressService.NumberFragsUpgrade;
-
-    public event Action<int> Changed;
-
-    public void Init(LevelProgressService levelProgressService, SmoothBar smoothBar)
+    public class ValueProvider : MonoBehaviour, IValue
     {
-        _progressService = levelProgressService;
-        _smoothBar = smoothBar;
+        private LevelProgressService _progressService;
+        private SmoothBar _smoothBar;
 
-        _progressService.Changed += OnProgressChange;
-        _smoothBar.Init(this);
-    }
+        public int Value => _progressService.KilledOpponents;
 
-    private void OnProgressChange(int progress)
-    {
-        Changed?.Invoke(progress);
-    }
+        public int MaxValue => _progressService.NumberFragsUpgrade;
 
-    private void OnDestroy()
-    {
-        _progressService.Changed -= OnProgressChange;
+        public event Action<int> Changed;
+
+        public void Init(LevelProgressService levelProgressService, SmoothBar smoothBar)
+        {
+            _progressService = levelProgressService;
+            _smoothBar = smoothBar;
+
+            _progressService.Changed += OnProgressChange;
+            _smoothBar.Init(this);
+        }
+
+        private void OnProgressChange(int progress)
+        {
+            Changed?.Invoke(progress);
+        }
+
+        private void OnDestroy()
+        {
+            _progressService.Changed -= OnProgressChange;
+        }
     }
 }

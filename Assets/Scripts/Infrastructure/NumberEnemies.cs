@@ -1,18 +1,22 @@
+using Assets.Scripts.Infrastructure.Zones;
 using TMPro;
 using UnityEngine;
 
-public class NumberEnemies : MonoBehaviour
+namespace Assets.Scripts.Infrastructure
 {
-    [SerializeField] private Zone _zone;
-    [SerializeField] private TMP_Text _textMeshPro;
-
-    private void Awake()
+    public class NumberEnemies : MonoBehaviour
     {
-        _zone.NumberEnemiesHasChanged += ShowNumberEnemies;
-    }
+        [SerializeField] private Zone _zone;
+        [SerializeField] private TMP_Text _textMeshPro;
 
-    private void ShowNumberEnemies()
-    {
-        _textMeshPro.text = $"{_zone.Enemies.Count}";
+        private void Awake()
+        {
+            _zone.NumberEnemiesHasChanged += ShowNumberEnemies;
+        }
+
+        private void ShowNumberEnemies()
+        {
+            _textMeshPro.text = $"{_zone.Enemies.Count}";
+        }
     }
 }

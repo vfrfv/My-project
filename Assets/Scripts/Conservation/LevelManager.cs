@@ -1,37 +1,40 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public class LevelManager
+namespace Assets.Scripts.Conservation
 {
-    private const string KeySavedLevel = "ÑurrentLevel";
-
-    [SerializeField] private int _currentLevel = 1;
-
-    public int CurrentLevel => _currentLevel;
-
-    public void CompleteLevel()
+    [Serializable]
+    public class LevelManager
     {
-        _currentLevel++;
+        private const string KeySavedLevel = "ÑurrentLevel";
 
-        PlayerPrefs.SetInt(KeySavedLevel, _currentLevel);
-        PlayerPrefs.Save();
-    }
+        [SerializeField] private int _currentLevel = 1;
 
-    public void Load()
-    {
-        if (PlayerPrefs.HasKey(KeySavedLevel))
+        public int CurrentLevel => _currentLevel;
+
+        public void CompleteLevel()
         {
-            int savetLevel = PlayerPrefs.GetInt(KeySavedLevel);
+            _currentLevel++;
 
-            if (savetLevel > _currentLevel)
-                _currentLevel = savetLevel;
+            PlayerPrefs.SetInt(KeySavedLevel, _currentLevel);
+            PlayerPrefs.Save();
         }
-    }
 
-    public void SetDefolt()
-    {
-        PlayerPrefs.SetInt(KeySavedLevel, 1);
-        PlayerPrefs.Save();
+        public void Load()
+        {
+            if (PlayerPrefs.HasKey(KeySavedLevel))
+            {
+                int savetLevel = PlayerPrefs.GetInt(KeySavedLevel);
+
+                if (savetLevel > _currentLevel)
+                    _currentLevel = savetLevel;
+            }
+        }
+
+        public void SetDefolt()
+        {
+            PlayerPrefs.SetInt(KeySavedLevel, 1);
+            PlayerPrefs.Save();
+        }
     }
 }

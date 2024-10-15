@@ -2,63 +2,66 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Slider))]
-public class SmoothBar : MonoBehaviour
+namespace Assets.Scripts.Bar
 {
-    [SerializeField] private GameObject _helthSourse;
-
-    private IValue _value;
-    private Coroutine _coroutine;
-    private Slider _slider;
-
-    public IValue Value => _value;
-
-    private void Awake()
+    [RequireComponent(typeof(Slider))]
+    public class SmoothBar : MonoBehaviour
     {
-        if(_helthSourse == null)
+        [SerializeField] private GameObject _helthSourse;
+
+        private IValue _value;
+        private Coroutine _coroutine;
+        private Slider _slider;
+
+        public IValue Value => _value;
+
+        private void Awake()
         {
-            return;
+            if (_helthSourse == null)
+            {
+                return;
+            }
+
+            Init(_helthSourse.GetComponent<IValue>());
+
+            _slider = GetComponent<Slider>();
         }
 
-        Init(_helthSourse.GetComponent<IValue>());
-
-        _slider = GetComponent<Slider>();
-    }
-
-    private void OnDestroy()
-    {
-        _value.Changed -= Fill;
-    }
-
-    public void Init(IValue health)
-    {
-        _slider = GetComponent<Slider>();
-        _slider.SetValueWithoutNotify(health.Value);
-        _value = health;
-        _value.Changed += Fill;
-    }
-
-    private void Fill(int currentValue)
-    {
-        if (_coroutine != null)
+        private void OnDestroy()
         {
-            StopCoroutine(_coroutine);
+            _value.Changed -= Fill;
         }
 
-        _coroutine = StartCoroutine(SmoothlyChange(currentValue));
-    }
-
-    private IEnumerator SmoothlyChange(float currentValue)
-    {
-        float degreeVolumeChange = 1f;
-        bool IsChanges = true;
-        currentValue /= _value.MaxValue;
-
-        while (IsChanges)
+        public void Init(IValue health)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, currentValue, degreeVolumeChange * Time.deltaTime);
+            _slider = GetComponent<Slider>();
+            _slider.SetValueWithoutNotify(health.Value);
+            _value = health;
+            _value.Changed += Fill;
+        }
 
-            yield return null;
+        private void Fill(int currentValue)
+        {
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+            }
+
+            _coroutine = StartCoroutine(SmoothlyChange(currentValue));
+        }
+
+        private IEnumerator SmoothlyChange(float currentValue)
+        {
+            float degreeVolumeChange = 1f;
+            bool IsChanges = true;
+            currentValue /= _value.MaxValue;
+
+            while (IsChanges)
+            {
+                _slider.value = Mathf.MoveTowards(_slider.value, currentValue, degreeVolumeChange * Time.deltaTime);
+
+                yield return null;
+            }
         }
     }
 }

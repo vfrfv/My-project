@@ -1,20 +1,24 @@
+using Assets.Scripts.Tanks.TankPlayer;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Portal : MonoBehaviour
+namespace Assets.Scripts.Portal
 {
-    [SerializeField] private Transform _point;
-    [SerializeField] NavMeshAgent _agent;
-
-    private void OnTriggerEnter(Collider other)
+    public class Portal : MonoBehaviour
     {
-        if (other.TryGetComponent<Player>(out Player player))
+        [SerializeField] private Transform _point;
+        [SerializeField] NavMeshAgent _agent;
+
+        private void OnTriggerEnter(Collider other)
         {
-            _agent.enabled = false;
+            if (other.TryGetComponent(out Player player))
+            {
+                _agent.enabled = false;
 
-            player.transform.position = _point.position;
+                player.transform.position = _point.position;
 
-            _agent.enabled = true;
+                _agent.enabled = true;
+            }
         }
     }
 }

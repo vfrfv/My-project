@@ -3,50 +3,53 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Leaderboard : MonoBehaviour
+namespace Assets.Scripts.Leaderboard
 {
-    [SerializeField] private Button _openButton;
-
-    [SerializeField] private LeaderboardView _leaderboardView;
-    [SerializeField] private AuthorizationOfferView _authorizationOfferView;
-    [SerializeField] private AuthorizationErrorView _authorizationErrorView;
-
-    private void Awake() => _openButton.onClick.AddListener(OnOpenButtonClick);
-    private void OnDestroy() => _openButton.onClick.RemoveListener(OnOpenButtonClick);
-
-    private void OpenLeaderboard()
+    public class Leaderboard : MonoBehaviour
     {
-        Agava.YandexGames.Leaderboard.GetEntries(
-            Constants.LEADERBOARD_NAME,
-            result =>
-            {
-                List<LeaderboardEntryData> entries = new();
-                foreach (Agava.YandexGames.LeaderboardEntryResponse entry in result.entries)
-                    entries.Add(new LeaderboardEntryData(entry));
-                _leaderboardView.ConstructEntries(entries);
-            });
+        [SerializeField] private Button _openButton;
 
-        Agava.YandexGames.Leaderboard.GetPlayerEntry(
-            Constants.LEADERBOARD_NAME,
-            entry => _leaderboardView.ConstructPlayerInfo(new LeaderboardEntryData(entry)));
+        [SerializeField] private LeaderboardView _leaderboardView;
+        [SerializeField] private AuthorizationOfferView _authorizationOfferView;
+        [SerializeField] private AuthorizationErrorView _authorizationErrorView;
 
-        _leaderboardView.Show();
-    }
+        private void Awake() => _openButton.onClick.AddListener(OnOpenButtonClick);
+        private void OnDestroy() => _openButton.onClick.RemoveListener(OnOpenButtonClick);
 
-    private void OnOpenButtonClick()
-    {
-        if (Agava.YandexGames.PlayerAccount.IsAuthorized)
+        private void OpenLeaderboard()
         {
-            OpenLeaderboard();
-            return;
+            Agava.YandexGames.Leaderboard.GetEntries(
+                Constants.LEADERBOARD_NAME,
+                result =>
+                {
+                    List<LeaderboardEntryData> entries = new();
+                    foreach (Agava.YandexGames.LeaderboardEntryResponse entry in result.entries)
+                        entries.Add(new LeaderboardEntryData(entry));
+                    _leaderboardView.ConstructEntries(entries);
+                });
+
+            Agava.YandexGames.Leaderboard.GetPlayerEntry(
+                Constants.LEADERBOARD_NAME,
+                entry => _leaderboardView.ConstructPlayerInfo(new LeaderboardEntryData(entry)));
+
+            _leaderboardView.Show();
         }
 
-        void onAuthorizeSuccess() =>
-            Agava.YandexGames.Utility.PlayerPrefs.Load(
-                () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+        private void OnOpenButtonClick()
+        {
+            if (Agava.YandexGames.PlayerAccount.IsAuthorized)
+            {
+                OpenLeaderboard();
+                return;
+            }
 
-        void onAuthorizeError() => _authorizationErrorView.Show();
+            void onAuthorizeSuccess() =>
+                Agava.YandexGames.Utility.PlayerPrefs.Load(
+                    () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
 
-        _authorizationOfferView.Show(onAuthorizeSuccess, onAuthorizeError);
+            void onAuthorizeError() => _authorizationErrorView.Show();
+
+            _authorizationOfferView.Show(onAuthorizeSuccess, onAuthorizeError);
+        }
     }
 }

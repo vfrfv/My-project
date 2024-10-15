@@ -2,59 +2,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LeaderboardView : MonoBehaviour
+namespace Assets.Scripts.Leaderboard
 {
-    [SerializeField] private Transform _mainContainer;
-    [SerializeField] private Transform _playerEntryContainer;
-    [SerializeField] private Button _closeButton;
-    [SerializeField] private LeaderboardEntryView _leaderboardEntryViewPrefab;
-
-    private List<LeaderboardEntryView> _leaderboardEntryViewInstances = new();
-    private LeaderboardEntryView _leaderboardPlayerViewInstance;
-
-    private void Awake() => _closeButton.onClick.AddListener(Hide);
-    private void OnDestroy() => _closeButton.onClick.RemoveListener(Hide);
-
-    public void ConstructEntries(List<LeaderboardEntryData> entryDatas)
+    public class LeaderboardView : MonoBehaviour
     {
-        ClearEntries();
+        [SerializeField] private Transform _mainContainer;
+        [SerializeField] private Transform _playerEntryContainer;
+        [SerializeField] private Button _closeButton;
+        [SerializeField] private LeaderboardEntryView _leaderboardEntryViewPrefab;
 
-        foreach (LeaderboardEntryData entryData in entryDatas)
+        private List<LeaderboardEntryView> _leaderboardEntryViewInstances = new();
+        private LeaderboardEntryView _leaderboardPlayerViewInstance;
+
+        private void Awake() => _closeButton.onClick.AddListener(Hide);
+        private void OnDestroy() => _closeButton.onClick.RemoveListener(Hide);
+
+        public void ConstructEntries(List<LeaderboardEntryData> entryDatas)
         {
-            LeaderboardEntryView entryView = Instantiate(_leaderboardEntryViewPrefab, _mainContainer);
+            ClearEntries();
+
+            foreach (LeaderboardEntryData entryData in entryDatas)
+            {
+                LeaderboardEntryView entryView = Instantiate(_leaderboardEntryViewPrefab, _mainContainer);
+                entryView.Initialize(entryData);
+
+                _leaderboardEntryViewInstances.Add(entryView);
+            }
+        }
+
+        public void ConstructPlayerInfo(LeaderboardEntryData entryData)
+        {
+            ClearPlayerEntry();
+
+            LeaderboardEntryView entryView = Instantiate(_leaderboardEntryViewPrefab, _playerEntryContainer);
             entryView.Initialize(entryData);
 
-            _leaderboardEntryViewInstances.Add(entryView);
+            _leaderboardPlayerViewInstance = entryView;
         }
-    }
 
-    public void ConstructPlayerInfo(LeaderboardEntryData entryData)
-    {
-        ClearPlayerEntry();
+        public void Show() => gameObject.SetActive(true);
+        private void Hide() => gameObject.SetActive(false);
 
-        LeaderboardEntryView entryView = Instantiate(_leaderboardEntryViewPrefab, _playerEntryContainer);
-        entryView.Initialize(entryData);
+        private void ClearEntries()
+        {
+            foreach (LeaderboardEntryView leaderboardEntryView in _leaderboardEntryViewInstances)
+                Destroy(leaderboardEntryView.gameObject);
 
-        _leaderboardPlayerViewInstance = entryView;
-    }
+            _leaderboardEntryViewInstances.Clear();
+        }
 
-    public void Show() => gameObject.SetActive(true);
-    private void Hide() => gameObject.SetActive(false);
+        private void ClearPlayerEntry()
+        {
+            if (_leaderboardPlayerViewInstance == null)
+                return;
 
-    private void ClearEntries()
-    {
-        foreach (LeaderboardEntryView leaderboardEntryView in _leaderboardEntryViewInstances)
-            Destroy(leaderboardEntryView.gameObject);
-
-        _leaderboardEntryViewInstances.Clear();
-    }
-
-    private void ClearPlayerEntry()
-    {
-        if (_leaderboardPlayerViewInstance == null)
-            return;
-
-        Destroy(_leaderboardPlayerViewInstance.gameObject);
-        _leaderboardPlayerViewInstance = null;
+            Destroy(_leaderboardPlayerViewInstance.gameObject);
+            _leaderboardPlayerViewInstance = null;
+        }
     }
 }
