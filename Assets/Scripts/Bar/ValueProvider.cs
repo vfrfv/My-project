@@ -6,21 +6,21 @@ namespace Assets.Scripts.Bar
 {
     public class ValueProvider : MonoBehaviour, IValue
     {
-        private LevelProgressService _progressService;
+        private PlayerLevelProgressService _playerProgressService;
         private SmoothBar _smoothBar;
 
-        public int Value => _progressService.KilledOpponents;
+        public int Value => _playerProgressService.CurrentCountFrags;
 
-        public int MaxValue => _progressService.NumberFragsUpgrade;
+        public int MaxValue => _playerProgressService.CountFragsUpgrade;
 
         public event Action<int> Changed;
 
-        public void Init(LevelProgressService levelProgressService, SmoothBar smoothBar)
+        public void Init(PlayerLevelProgressService levelProgressService, SmoothBar smoothBar)
         {
-            _progressService = levelProgressService;
+            _playerProgressService = levelProgressService;
             _smoothBar = smoothBar;
 
-            _progressService.Changed += OnProgressChange;
+            _playerProgressService.Changed += OnProgressChange;
             _smoothBar.Init(this);
         }
 
@@ -31,7 +31,7 @@ namespace Assets.Scripts.Bar
 
         private void OnDestroy()
         {
-            _progressService.Changed -= OnProgressChange;
+            _playerProgressService.Changed -= OnProgressChange;
         }
     }
 }

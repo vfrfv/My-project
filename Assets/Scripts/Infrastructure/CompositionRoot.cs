@@ -25,19 +25,19 @@ namespace Assets.Scripts.Infrastructure
         [SerializeField] private FlightTower _flightTower;
 
         private GameLoopService _loopService;
-        private LevelProgressService _levelProgressService;
+        private PlayerLevelProgressService _playerLevelProgressService;
         private UpgradeService _upgradeService;
         private PlayerPointsSaver _playerPointsSaver;
 
         private void Awake()
         {
             _upgradeService = new UpgradeService(_unitConfigs, _player, _upgradeSound, _upgradeEffect);
-            _levelProgressService = new LevelProgressService(_upgradeService);
-            _loopService = new GameLoopService(_levelProgressService, _upgradeService);
+            _playerLevelProgressService = new PlayerLevelProgressService(_upgradeService);
+            _loopService = new GameLoopService(_playerLevelProgressService, _upgradeService);
             _playerPointsSaver = new PlayerPointsSaver(_flightTower);
 
             var provider = _progressBar.AddComponent<ValueProvider>();
-            provider.Init(_levelProgressService, _progressBar);
+            provider.Init(_playerLevelProgressService, _progressBar);
 
             SubscribePumping();
             _player.Init(_unitConfigs[0]);

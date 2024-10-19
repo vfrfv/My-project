@@ -3,19 +3,19 @@ using System;
 
 namespace Assets.Scripts.Infrastructure.Services
 {
-    public class LevelProgressService
+    public class PlayerLevelProgressService
     {
-        private int _killedOpponents = 0;
-        private readonly int _numberFragsUpgrade = 4;
+        private int _currentCountFrags = 0;
+        private readonly int _countFragsUpgrade = 4;
         private readonly UpgradeService _upgradeService;
 
-        public LevelProgressService(UpgradeService upgradeService)
+        public PlayerLevelProgressService(UpgradeService upgradeService)
         {
             _upgradeService = upgradeService;
         }
 
-        public int KilledOpponents => _killedOpponents;
-        public int NumberFragsUpgrade => _numberFragsUpgrade;
+        public int CurrentCountFrags => _currentCountFrags;
+        public int CountFragsUpgrade => _countFragsUpgrade;
 
         public event Action Improved;
         public event Action MovedNextLevel;
@@ -23,21 +23,21 @@ namespace Assets.Scripts.Infrastructure.Services
 
         public void AddProgress(Enemy _enemy)
         {
-            _killedOpponents++;
+            _currentCountFrags++;
 
-            if (_killedOpponents >= _numberFragsUpgrade)
+            if (_currentCountFrags >= _countFragsUpgrade)
             {
                 Improved?.Invoke();
-                _killedOpponents = 0;
+                _currentCountFrags = 0;
             }
 
             if (_upgradeService.IsMaxLevel())
             {
-                Changed?.Invoke(_numberFragsUpgrade);
+                Changed?.Invoke(_countFragsUpgrade);
             }
             else
             {
-                Changed?.Invoke(_killedOpponents);
+                Changed?.Invoke(_currentCountFrags);
             }
         }
     }

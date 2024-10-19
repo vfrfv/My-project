@@ -5,16 +5,16 @@ namespace Assets.Scripts.Infrastructure.Services
 {
     public class GameLoopService
     {
-        private readonly LevelProgressService _levelProgressService;
+        private readonly PlayerLevelProgressService _playerLevelProgressService;
         private readonly UpgradeService _upgradeService;
 
-        public LevelProgressService LevelProgressService => _levelProgressService;
+        public PlayerLevelProgressService LevelProgressService => _playerLevelProgressService;
         public UpgradeService UpgradeService => _upgradeService;
 
-        public GameLoopService(LevelProgressService levelProgressService,
+        public GameLoopService(PlayerLevelProgressService levelProgressService,
             UpgradeService upgradeService)
         {
-            _levelProgressService = levelProgressService ?? throw new ArgumentNullException(nameof(levelProgressService));
+            _playerLevelProgressService = levelProgressService ?? throw new ArgumentNullException(nameof(levelProgressService));
             _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
 
             levelProgressService.Improved += OnImproved;
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Infrastructure.Services
 
         public void OnEnemiesDie(Enemy enemy)
         {
-            enemy.Died += _levelProgressService.AddProgress;
+            enemy.Died += _playerLevelProgressService.AddProgress;
         }
 
         private void OnImproved()

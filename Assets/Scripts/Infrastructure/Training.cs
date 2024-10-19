@@ -13,9 +13,9 @@ namespace Assets.Scripts.Infrastructure
         [SerializeField] private Image _imageArm;
         [SerializeField] private Image _imageKeys;
 
-        [SerializeField] private Image _imageSlide1;
-        [SerializeField] private Image _imageSlide2;
-        [SerializeField] private Image _imageSlide3;
+        [SerializeField] private Image _learningSlide1;
+        [SerializeField] private Image _learningSlide2;
+        [SerializeField] private Image _learningSlide3;
 
         [SerializeField] private Zone _zone;
 
@@ -28,9 +28,9 @@ namespace Assets.Scripts.Infrastructure
             _imageArm.gameObject.SetActive(false);
             _imageKeys.gameObject.SetActive(false);
 
-            _imageSlide1.gameObject.SetActive(false);
-            _imageSlide2.gameObject.SetActive(false);
-            _imageSlide3.gameObject.SetActive(false);
+            _learningSlide1.gameObject.SetActive(false);
+            _learningSlide2.gameObject.SetActive(false);
+            _learningSlide3.gameObject.SetActive(false);
         }
 
         private void Start()
@@ -96,7 +96,7 @@ namespace Assets.Scripts.Infrastructure
             {
                 yield return new WaitForSecondsRealtime(2);
 
-                _imageSlide1.gameObject.SetActive(true);
+                _learningSlide1.gameObject.SetActive(true);
                 Time.timeScale = 0.1f;
 
                 yield return new WaitForSecondsRealtime(1);
@@ -106,7 +106,7 @@ namespace Assets.Scripts.Infrastructure
                     yield return null;
                 }
 
-                _imageSlide1.gameObject.SetActive(false);
+                _learningSlide1.gameObject.SetActive(false);
                 Time.timeScale = 1;
 
                 StartCoroutine(ShowSecondSlide());
@@ -122,7 +122,7 @@ namespace Assets.Scripts.Infrastructure
             {
                 yield return new WaitForSecondsRealtime(2);
 
-                _imageSlide2.gameObject.SetActive(true);
+                _learningSlide2.gameObject.SetActive(true);
                 Time.timeScale = 0.1f;
 
                 yield return new WaitForSecondsRealtime(1);
@@ -132,7 +132,7 @@ namespace Assets.Scripts.Infrastructure
                     yield return null;
                 }
 
-                _imageSlide2.gameObject.SetActive(false);
+                _learningSlide2.gameObject.SetActive(false);
                 Time.timeScale = 1;
 
                 isPressed = true;
@@ -150,7 +150,7 @@ namespace Assets.Scripts.Infrastructure
 
             while (isPressed == false)
             {
-                _imageSlide3.gameObject.SetActive(true);
+                _learningSlide3.gameObject.SetActive(true);
                 Time.timeScale = 0.1f;
 
                 yield return new WaitForSecondsRealtime(1);
@@ -160,7 +160,7 @@ namespace Assets.Scripts.Infrastructure
                     yield return null;
                 }
 
-                _imageSlide3.gameObject.SetActive(false);
+                _learningSlide3.gameObject.SetActive(false);
                 Time.timeScale = 1;
 
                 PlayerPrefs.SetInt(TrainingCompletedKey, 1);
