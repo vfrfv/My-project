@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Advertisement
 {
-    public class GameStopControl : MonoBehaviour
+    public class PauseManager : MonoBehaviour
     {
         private readonly HashSet<PauseSource> _sources = new HashSet<PauseSource>();
 

@@ -1,7 +1,7 @@
 using Assets.Scripts;
-using Assets.Scripts.Conservation;
 using Assets.Scripts.Infrastructure;
 using Assets.Scripts.Maps.ScriptableObjects;
+using Conservation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +19,7 @@ namespace Assets.Scripts.Maps
         [SerializeField] private Image _mapImage;
         [SerializeField] private Button _playBatton;
         [SerializeField] private Image _locImage;
-        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private ProgressSaver _progressSaver;
         [SerializeField] private Localization _localization;
 
         private Map _map;
@@ -31,9 +31,9 @@ namespace Assets.Scripts.Maps
             _mapName.text = Lean.Localization.LeanLocalization.GetTranslationText(_map.MapNameKey);
             _mapImage.sprite = _map.MapImage;
 
-            _levelManager.Load();
+            _progressSaver.Load();
 
-            bool mapUnlocked = _levelManager.CurrentLevel >= _map.MapIndex;
+            bool mapUnlocked = _progressSaver.CurrentLevel >= _map.MapIndex;
             DisplayExclamationMark(mapUnlocked);
             DarkenMapDisplay(mapUnlocked);
 

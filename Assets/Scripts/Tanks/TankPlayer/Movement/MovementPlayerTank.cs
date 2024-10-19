@@ -136,11 +136,6 @@ namespace Assets.Scripts.Tanks.TankPlayer.Movement
             _meshAgent.destination = transform.position + moveDirection * _direction * Time.fixedDeltaTime;
         }
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawSphere(_meshAgent.destination, 1);
-        }
-
         private void TurnCourse(Vector2 course)
         {
             if (course != Vector2.zero)

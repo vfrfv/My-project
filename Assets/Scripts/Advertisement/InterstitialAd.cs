@@ -7,7 +7,7 @@ namespace Assets.Scripts.Advertisement
     {
         private const string Interstitial = "interstitial";
 
-        [SerializeField] private GameStopControl _gameStopControl;
+        [SerializeField] private PauseManager _pauseManager;
         [SerializeField] private ImageVictory _imageVictory;
 
         private void OnEnable()
@@ -33,12 +33,12 @@ namespace Assets.Scripts.Advertisement
 
         public void Play()
         {
-            _gameStopControl.Play(new PauseSource(Interstitial));
+            _pauseManager.Play(new PauseSource(Interstitial));
         }
 
         public void Stop()
         {
-            _gameStopControl.Stop(new PauseSource(Interstitial));
+            _pauseManager.Stop(new PauseSource(Interstitial));
         }
     }
 }

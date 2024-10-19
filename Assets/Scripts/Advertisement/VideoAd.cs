@@ -12,9 +12,9 @@ namespace Assets.Scripts.Advertisement
         private const string Video = "video";
 
         [SerializeField] private Button _advertisement;
-        [SerializeField] private PlayerPointsManager _playerPointsManager;
+        [SerializeField] private PlayerPointsSaver _playerPointSaver;
         [SerializeField] private ImageVictory _imageVictory;
-        [SerializeField] private GameStopControl _stopControl;
+        [SerializeField] private PauseManager _pauseManager;
 
         private readonly float _points = 50;
 
@@ -42,17 +42,17 @@ namespace Assets.Scripts.Advertisement
         private void OnRewardCallback()
         {
             Looked?.Invoke(_points);
-            _playerPointsManager.AddPoints(_points);
+            _playerPointSaver.AddPoints(_points);
         }
 
         public void Play()
         {
-            _stopControl.Play(new PauseSource(Video));
+            _pauseManager.Play(new PauseSource(Video));
         }
 
         public void Stop()
         {
-            _stopControl.Stop(new PauseSource(Video));
+            _pauseManager.Stop(new PauseSource(Video));
         }
     }
 }

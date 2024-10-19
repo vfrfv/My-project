@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Tanks.TankEnemy.Tank
 {
-    public class EnemyObserver : MonoBehaviour
+    public class EnemyStateController : MonoBehaviour
     {
         [SerializeField] private EnemyRadar _enemyRadar;
         [SerializeField] private EnemyAttack _enemyAttack;

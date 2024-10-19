@@ -27,14 +27,14 @@ namespace Assets.Scripts.Infrastructure
         private GameLoopService _loopService;
         private LevelProgressService _levelProgressService;
         private UpgradeService _upgradeService;
-        private PlayerPointsManager _playerPointsManager;
+        private PlayerPointsSaver _playerPointsSaver;
 
         private void Awake()
         {
             _upgradeService = new UpgradeService(_unitConfigs, _player, _upgradeSound, _upgradeEffect);
             _levelProgressService = new LevelProgressService(_upgradeService);
             _loopService = new GameLoopService(_levelProgressService, _upgradeService);
-            _playerPointsManager = new PlayerPointsManager(_flightTower);
+            _playerPointsSaver = new PlayerPointsSaver(_flightTower);
 
             var provider = _progressBar.AddComponent<ValueProvider>();
             provider.Init(_levelProgressService, _progressBar);

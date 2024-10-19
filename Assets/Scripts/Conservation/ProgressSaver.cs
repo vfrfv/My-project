@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Conservation
+namespace Conservation
 {
     [Serializable]
-    public class LevelManager
+    public class ProgressSaver
     {
         private const string KeySavedLevel = "ÑurrentLevel";
 

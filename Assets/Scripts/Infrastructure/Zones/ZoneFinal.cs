@@ -1,8 +1,8 @@
-using Assets.Scripts.Conservation;
 using Assets.Scripts.Manager.Camers;
 using Assets.Scripts.Manager.Sounds;
 using Assets.Scripts.Tanks.TankEnemy.Tank;
 using Assets.Scripts.Tanks.TankPlayer;
+using Conservation;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -17,7 +17,7 @@ namespace Assets.Scripts.Infrastructure.Zones
         [SerializeField] private Enemy _boss;
         [SerializeField] private EnemyAttack _bossAttack;
         [SerializeField] private BoxCollider _playerBoxCollider;
-        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private ProgressSaver _progressSaver;
 
         public event Action PlayerInZone;
 
@@ -58,11 +58,11 @@ namespace Assets.Scripts.Infrastructure.Zones
 
         private void OpenNextLevel(Enemy enemy)
         {
-            _levelManager.Load();
+            _progressSaver.Load();
 
-            if (SceneManager.GetActiveScene().buildIndex == _levelManager.CurrentLevel)
+            if (SceneManager.GetActiveScene().buildIndex == _progressSaver.CurrentLevel)
             {
-                _levelManager.CompleteLevel();
+                _progressSaver.CompleteLevel();
             }
         }
 

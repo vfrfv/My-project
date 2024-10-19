@@ -1,4 +1,4 @@
-using Assets.Scripts.Conservation;
+using Conservation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,7 +16,7 @@ namespace Assets.Scripts.Infrastructure.UI.Menu
         [SerializeField] Image _imageLevelsWindow;
         [SerializeField] Image _imageSettings;
 
-        [SerializeField] LevelManager _levelManager;
+        [SerializeField] ProgressSaver _progressSaver;
 
         private void OnEnable()
         {
@@ -48,9 +48,9 @@ namespace Assets.Scripts.Infrastructure.UI.Menu
 
         public void Play()
         {
-            _levelManager.Load();
+            _progressSaver.Load();
 
-            SceneManager.LoadScene(_levelManager.CurrentLevel);
+            SceneManager.LoadScene(_progressSaver.CurrentLevel);
         }
 
         public void OpenLevelsWindow()

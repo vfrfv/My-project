@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Assets.Scripts.Conservation
 {
     [Serializable]
-    public class PlayerPointsManager
+    public class PlayerPointsSaver
     {
         private const string KeySavedPoints = "CurrentPoints";
 
@@ -14,7 +14,7 @@ namespace Assets.Scripts.Conservation
 
         private readonly FlightTower _flightTower;
 
-        public PlayerPointsManager(FlightTower flightTower)
+        public PlayerPointsSaver(FlightTower flightTower)
         {
             _flightTower = flightTower ?? throw new ArgumentNullException(nameof(flightTower));
 

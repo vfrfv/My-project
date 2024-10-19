@@ -2,13 +2,13 @@ using Agava.WebUtility;
 using Assets.Scripts.Advertisement;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure
+namespace Manager
 {
-    public class TestFocus : MonoBehaviour
+    public class FocusManager : MonoBehaviour
     {
         private const string Focus = "focus";
 
-        [SerializeField] private GameStopControl _stopControl;
+        [SerializeField] private PauseManager _pauseManager;
 
         private void OnEnable()
         {
@@ -36,11 +36,11 @@ namespace Assets.Scripts.Infrastructure
         {
             if (value)
             {
-                _stopControl.Stop(new PauseSource(Focus));
+                _pauseManager.Stop(new PauseSource(Focus));
             }
             else
             {
-                _stopControl.Play(new PauseSource(Focus));
+                _pauseManager.Play(new PauseSource(Focus));
             }
         }
     }
