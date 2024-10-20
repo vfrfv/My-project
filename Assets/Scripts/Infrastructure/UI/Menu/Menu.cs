@@ -3,20 +3,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Infrastructure.UI.Menu
+namespace Infrastructure.UI.Menu
 {
     public class Menu : MonoBehaviour
     {
-        [SerializeField] Button _startButton;
-        [SerializeField] Button _levelsButton;
-        [SerializeField] Button _exitLevelsWindowButton;
-        [SerializeField] Button _settingsButton;
-        [SerializeField] Button _exitSettings;
+        [SerializeField]private Button _startButton;
+        [SerializeField] private Button _levelsButton;
+        [SerializeField] private Button _exitLevelsWindowButton;
+        [SerializeField] private Button _settingsButton;
+        [SerializeField] private Button _exitSettings;
 
-        [SerializeField] Image _imageLevelsWindow;
-        [SerializeField] Image _imageSettings;
+        [SerializeField] private Image _imageLevelsWindow;
+        [SerializeField] private Image _imageSettings;
 
-        [SerializeField] ProgressSaver _progressSaver;
+        [SerializeField] private ProgressSaver _progressSaver;
 
         private void OnEnable()
         {
@@ -46,29 +46,29 @@ namespace Assets.Scripts.Infrastructure.UI.Menu
             _exitSettings.onClick.RemoveListener(ExitSettings);
         }
 
-        public void Play()
+        private void Play()
         {
             _progressSaver.Load();
 
             SceneManager.LoadScene(_progressSaver.CurrentLevel);
         }
 
-        public void OpenLevelsWindow()
+        private void OpenLevelsWindow()
         {
             _imageLevelsWindow.gameObject.SetActive(true);
         }
 
-        public void ExitLevelsWindow()
+        private void ExitLevelsWindow()
         {
             _imageLevelsWindow.gameObject.SetActive(false);
         }
 
-        public void OpenSettings()
+        private void OpenSettings()
         {
             _imageSettings.gameObject.SetActive(true);
         }
 
-        public void ExitSettings()
+        private void ExitSettings()
         {
             _imageSettings.gameObject.SetActive(false);
         }

@@ -19,8 +19,6 @@ namespace Infrastructure.Zones
         [SerializeField] private BoxCollider _playerBoxCollider;
         [SerializeField] private ProgressSaver _progressSaver;
 
-        public event Action PlayerInZone;
-
         private void Awake()
         {
             _boss.Died += SwitchCameraToTowerBoss;
@@ -56,7 +54,7 @@ namespace Infrastructure.Zones
             player.SetTarget(_boss);
         }
 
-        private void OpenNextLevel(Enemy enemy)
+        private void OpenNextLevel(Enemy _)
         {
             _progressSaver.Load();
 
@@ -66,13 +64,13 @@ namespace Infrastructure.Zones
             }
         }
 
-        private void SwitchCameraToTowerBoss(Enemy enemy)
+        private void SwitchCameraToTowerBoss(Enemy _)
         {
             _cameraManagement.SwitchToTowerBoss();
             _bossAttack.enabled = false;
         }
 
-        private void DisableTakingPlayerDamage(Enemy enemy)
+        private void DisableTakingPlayerDamage(Enemy _)
         {
             _playerBoxCollider.enabled = false;
         }

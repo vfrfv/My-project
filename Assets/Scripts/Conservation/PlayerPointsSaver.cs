@@ -23,17 +23,11 @@ namespace Conservation
             _flightTower.PointsTransferredPlayer += AddPoints;
         }
 
-        public float CurrentPoints => _currentPoints;
-
-        public event Action<int> IsPointsAwarded;
-
         public void AddPoints(float points)
         {
             float anInteger = (float)Math.Truncate(points);
             Load();
             _currentPoints += anInteger;
-
-            IsPointsAwarded?.Invoke((int)_currentPoints);
 
             Agava.YandexGames.Utility.PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
             Agava.YandexGames.Utility.PlayerPrefs.Save();

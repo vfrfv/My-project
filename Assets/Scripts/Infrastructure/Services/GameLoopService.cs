@@ -8,9 +8,6 @@ namespace Infrastructure.Services
         private readonly PlayerLevelProgressService _playerLevelProgressService;
         private readonly UpgradeService _upgradeService;
 
-        public PlayerLevelProgressService LevelProgressService => _playerLevelProgressService;
-        public UpgradeService UpgradeService => _upgradeService;
-
         public GameLoopService(PlayerLevelProgressService levelProgressService,
             UpgradeService upgradeService)
         {

@@ -17,8 +17,6 @@ namespace Advertisement
 
         private readonly float _points = 50;
 
-        public float Points => _points;
-
         public event Action<float> Looked;
 
         private void OnEnable()

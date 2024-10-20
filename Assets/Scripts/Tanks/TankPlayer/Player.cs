@@ -1,7 +1,6 @@
 using Bullet.EnemyBullet;
 using ScriptableObjects;
 using System;
-using Tanks;
 using Tanks.TankEnemy.Tank;
 using Tanks.TankPlayer.Movement;
 using Tanks.TankPlayer.Weapon;

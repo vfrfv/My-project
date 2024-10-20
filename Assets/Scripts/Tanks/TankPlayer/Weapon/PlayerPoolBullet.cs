@@ -39,7 +39,7 @@ namespace Tanks.TankPlayer.Weapon
             _bulletQueue.Enqueue(bullet);
         }
 
-        public void CreateMissile()
+        private void CreateMissile()
         {
             PlayerBullet bullet = UnityEngine.Object.Instantiate(_prefabMissile);
             bullet.gameObject.SetActive(false);

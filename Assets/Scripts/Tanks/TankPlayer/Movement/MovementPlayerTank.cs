@@ -70,6 +70,16 @@ namespace Tanks.TankPlayer.Movement
             TurnCourse(_moveDirection);
         }
 
+        public void InstallAnimator(Animator animator)
+        {
+            _animator = animator;
+        }
+
+        public void DisableMotionAnimation()
+        {
+            _animator.enabled = false;
+        }
+
         private IEnumerator FadeOut()
         {
             float startVolume = _movementSource.volume;
@@ -82,16 +92,6 @@ namespace Tanks.TankPlayer.Movement
 
             _movementSource.volume = 0;
             _movementSource.Stop();
-        }
-
-        public void InstallAnimator(Animator animator)
-        {
-            _animator = animator;
-        }
-
-        public void DisableMotionAnimation()
-        {
-            _animator.enabled = false;
         }
 
         private void ControlAnimation(bool isMoving)

@@ -18,10 +18,9 @@ namespace Infrastructure.Services
         public int CountFragsUpgrade => _countFragsUpgrade;
 
         public event Action Improved;
-        public event Action MovedNextLevel;
         public event Action<int> Changed;
 
-        public void AddProgress(Enemy _enemy)
+        public void AddProgress(Enemy _)
         {
             _currentCountFrags++;
 

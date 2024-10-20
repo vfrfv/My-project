@@ -27,7 +27,7 @@ namespace Infrastructure.Services
 
             if (nextConfig != null)
             {
-                ParticleSystem particleSystem = Object.Instantiate(_particleSystem, _player.transform.position, Quaternion.identity);
+                _ = Object.Instantiate(_particleSystem, _player.transform.position, Quaternion.identity);
                 _audioSource.Play();
 
                 _player.Init(nextConfig);
