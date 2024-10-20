@@ -51,7 +51,7 @@ namespace Infrastructure
 
         private IEnumerator OffUIManagement()
         {
-            while (_isPressed == false)
+            while (!_isPressed)
             {
                 if (Device.IsMobile)
                 {
@@ -59,13 +59,9 @@ namespace Infrastructure
 
                     if (Input.GetMouseButtonDown(0))
                     {
-                        if (_imageArm.gameObject.activeSelf == true)
-                        {
-                            _imageArm.gameObject.SetActive(false);
-
-                            StartCoroutine(ShowFirstSlide());
-                            _isPressed = true;
-                        }
+                        _imageArm.gameObject.SetActive(false);
+                        _isPressed = true;
+                        StartCoroutine(ShowSlideSequence());
                     }
                 }
                 else
@@ -74,13 +70,9 @@ namespace Infrastructure
 
                     if (Input.anyKeyDown)
                     {
-                        if (_imageKeys.gameObject.activeSelf == true)
-                        {
-                            _imageKeys.gameObject.SetActive(false);
-
-                            StartCoroutine(ShowFirstSlide());
-                            _isPressed = true;
-                        }
+                        _imageKeys.gameObject.SetActive(false);
+                        _isPressed = true;
+                        StartCoroutine(ShowSlideSequence());
                     }
                 }
 
@@ -88,55 +80,11 @@ namespace Infrastructure
             }
         }
 
-        private IEnumerator ShowFirstSlide()
+        private IEnumerator ShowSlideSequence()
         {
-            bool isPressed = false;
+            yield return ShowSlide(_learningSlide1);
 
-            while (isPressed == false)
-            {
-                yield return new WaitForSecondsRealtime(2);
-
-                _learningSlide1.gameObject.SetActive(true);
-                Time.timeScale = 0.1f;
-
-                yield return new WaitForSecondsRealtime(1);
-
-                while (!Input.GetMouseButtonDown(0) && !Input.anyKeyDown)
-                {
-                    yield return null;
-                }
-
-                _learningSlide1.gameObject.SetActive(false);
-                Time.timeScale = 1;
-
-                StartCoroutine(ShowSecondSlide());
-                isPressed = true;
-            }
-        }
-
-        private IEnumerator ShowSecondSlide()
-        {
-            bool isPressed = false;
-
-            while (isPressed == false)
-            {
-                yield return new WaitForSecondsRealtime(2);
-
-                _learningSlide2.gameObject.SetActive(true);
-                Time.timeScale = 0.1f;
-
-                yield return new WaitForSecondsRealtime(1);
-
-                while (!Input.GetMouseButtonDown(0) && !Input.anyKeyDown)
-                {
-                    yield return null;
-                }
-
-                _learningSlide2.gameObject.SetActive(false);
-                Time.timeScale = 1;
-
-                isPressed = true;
-            }
+            yield return ShowSlide(_learningSlide2);
         }
 
         private void StartShowThirdSlide()
@@ -146,28 +94,26 @@ namespace Infrastructure
 
         private IEnumerator ShowThirdSlide()
         {
-            bool isPressed = false;
+            yield return ShowSlide(_learningSlide3);
 
-            while (isPressed == false)
+            PlayerPrefs.SetInt(TrainingCompletedKey, 1);
+            PlayerPrefs.Save();
+        }
+
+        private IEnumerator ShowSlide(Image slide)
+        {
+            slide.gameObject.SetActive(true);
+            Time.timeScale = 0.1f;
+
+            yield return new WaitForSecondsRealtime(1);
+
+            while (!Input.GetMouseButtonDown(0) && !Input.anyKeyDown)
             {
-                _learningSlide3.gameObject.SetActive(true);
-                Time.timeScale = 0.1f;
-
-                yield return new WaitForSecondsRealtime(1);
-
-                while (!Input.GetMouseButtonDown(0) && !Input.anyKeyDown)
-                {
-                    yield return null;
-                }
-
-                _learningSlide3.gameObject.SetActive(false);
-                Time.timeScale = 1;
-
-                PlayerPrefs.SetInt(TrainingCompletedKey, 1);
-                PlayerPrefs.Save();
-
-                isPressed = true;
+                yield return null;
             }
+
+            slide.gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }

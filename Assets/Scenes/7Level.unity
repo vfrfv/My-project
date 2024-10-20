@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -205,6 +205,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 536410983747872330, guid: c296bd319dfe424499df110c60bd4484, type: 3}
+      propertyPath: _pauseManager
+      value: 
+      objectReference: {fileID: 955937842}
     - target: {fileID: 1412390513414597968, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       propertyPath: _helthSourse
       value: 
@@ -349,6 +353,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9014901200374716111, guid: c296bd319dfe424499df110c60bd4484, type: 3}
+      propertyPath: _pauseManager
+      value: 
+      objectReference: {fileID: 955937842}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -362,6 +370,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7841307538267763793, guid: c296bd319dfe424499df110c60bd4484, type: 3}
       insertIndex: -1
       addedObject: {fileID: 148308807}
+    - targetCorrespondingSourceObject: {fileID: 7915258407071614988, guid: c296bd319dfe424499df110c60bd4484, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 955937842}
   m_SourcePrefab: {fileID: 100100000, guid: c296bd319dfe424499df110c60bd4484, type: 3}
 --- !u!114 &2561147 stripped
 MonoBehaviour:
@@ -374,6 +385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2561148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7915258407071614988, guid: c296bd319dfe424499df110c60bd4484, type: 3}
+  m_PrefabInstance: {fileID: 2561146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4041032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3028,7 +3044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46cc4457158600489b69225370afbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stopControl: {fileID: 955937841}
+  _pauseManager: {fileID: 955937842}
 --- !u!1001 &268896768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8653,15 +8669,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 547241154283467168, guid: f9b2f8e8166d21146bd8fa829f92a477, type: 3}
   m_PrefabInstance: {fileID: 949690815}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &955937841 stripped
+--- !u!114 &955937842
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2974741376401618760, guid: c296bd319dfe424499df110c60bd4484, type: 3}
-  m_PrefabInstance: {fileID: 2561146}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2561148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e483038b8cf5dd046af4a4b3c6a9beea, type: 3}
+  m_Script: {fileID: 11500000, guid: 801502a98a5ac37418c9293ab02e042f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &965050926
@@ -16532,7 +16549,7 @@ MonoBehaviour:
   _boss: {fileID: 1538898025}
   _bossAttack: {fileID: 1538898026}
   _playerBoxCollider: {fileID: 1850550834}
-  _levelManager:
+  _progressSaver:
     _currentLevel: 1
 --- !u!65 &1766507007
 BoxCollider:
