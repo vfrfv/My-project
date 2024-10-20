@@ -17588,6 +17588,10 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1654485346951309728, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
+      propertyPath: _joystick
+      value: 
+      objectReference: {fileID: 1743760186}
     - target: {fileID: 2377104138623805303, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
       propertyPath: m_Name
       value: TankConteiner

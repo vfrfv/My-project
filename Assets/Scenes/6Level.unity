@@ -2240,6 +2240,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1654485346951309728, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
+      propertyPath: _joystick
+      value: 
+      objectReference: {fileID: 439433017}
     - target: {fileID: 2377104138623805303, guid: 19a2e80a81e9b43429fc02c953d87982, type: 3}
       propertyPath: m_Name
       value: TankConteiner
@@ -2459,11 +2463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.024526699
+      value: 0.02452672
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.007834321
+      value: -0.007834328
       objectReference: {fileID: 0}
     - target: {fileID: 2404376094192588600, guid: ffb040b6a8be36a4f8f5fc5f858e3b6f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2690,7 +2694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047145624}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30417377, y: 0.024526699, z: -0.007834321, w: 0.9522686}
+  m_LocalRotation: {x: 0.30417377, y: 0.02452672, z: -0.007834328, w: 0.9522686}
   m_LocalPosition: {x: 25.6, y: 6.920002, z: 7.0999994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
