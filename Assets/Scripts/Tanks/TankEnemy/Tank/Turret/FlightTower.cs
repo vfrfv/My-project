@@ -1,29 +1,26 @@
-using Assets.Scripts.Tanks.TankEnemy.Tank;
 using Bar;
 using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankEnemy.Tank.Turret
+namespace Tanks.TankEnemy.Tank.Turret
 {
     public class FlightTower : MonoBehaviour
     {
         [SerializeField] private Transform _point;
         [SerializeField] private Enemy _bossEnemy;
         [SerializeField] private SmoothBar _smoothBar;
-        [SerializeField] AnimationCurve _curve;
+        [SerializeField] private AnimationCurve _curve;
         [SerializeField] private EnemyAttack _enemyAttack;
 
         private float _points = 0;
         private float _totalPoints;
+        private Coroutine _coroutine;
 
         public event Action Flew;
         public event Action<float> AchievedGoal;
         public event Action<float> NumberPointsChanged;
         public event Action<float> PointsTransferredPlayer;
-        private Coroutine _coroutine;
-
-        public float TotalPoints => _totalPoints;
 
         private void Start()
         {

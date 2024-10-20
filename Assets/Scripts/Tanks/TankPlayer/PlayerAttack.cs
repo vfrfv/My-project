@@ -1,8 +1,8 @@
-using Assets.Scripts.Tanks.TankEnemy.Tank;
-using Assets.Scripts.Tanks.TankPlayer.Weapon;
+using Tanks.TankEnemy.Tank;
+using Tanks.TankPlayer.Weapon;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankPlayer
+namespace Tanks.TankPlayer
 {
     public class PlayerAttack : MonoBehaviour
     {

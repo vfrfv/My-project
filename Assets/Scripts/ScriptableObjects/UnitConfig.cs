@@ -1,7 +1,7 @@
-using Assets.Scripts.Tanks;
+using Tanks;
 using UnityEngine;
 
-namespace Assets.Scripts.ScriptableObjects
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Unit Config", menuName = "Tank/Create new unit config")]
     public class UnitConfig : ScriptableObject

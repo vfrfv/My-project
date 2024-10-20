@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Maps.ScriptableObjects
+namespace Maps.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "New Map", menuName = "Map/New Map")]
     public class Map : ScriptableObject

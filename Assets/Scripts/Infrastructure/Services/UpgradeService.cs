@@ -1,6 +1,6 @@
-using Assets.Scripts.ScriptableObjects;
-using Assets.Scripts.Tanks.TankPlayer;
+using ScriptableObjects;
 using System.Collections.Generic;
+using Tanks.TankPlayer;
 using UnityEngine;
 
 namespace Infrastructure.Services

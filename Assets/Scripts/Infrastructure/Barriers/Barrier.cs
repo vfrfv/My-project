@@ -1,4 +1,4 @@
-using Assets.Scripts.Tanks.TankPlayer;
+using Tanks.TankPlayer;
 using UnityEngine;
 using UnityEngine.AI;
 

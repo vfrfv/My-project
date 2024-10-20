@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Leaderboard
+namespace LeaderboardPlayer
 {
     public class AuthorizationOfferView : MonoBehaviour
     {

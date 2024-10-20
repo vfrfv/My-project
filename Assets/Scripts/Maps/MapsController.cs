@@ -1,7 +1,7 @@
-using Assets.Scripts.Maps.ScriptableObjects;
+using Maps.ScriptableObjects;
 using UnityEngine;
 
-namespace Assets.Scripts.Maps
+namespace Maps
 {
     public class MapsController : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Assets.Scripts.Maps
             ChangScriptableObject(0);
         }
 
-        public void ChangScriptableObject(int chang)
+        private void ChangScriptableObject(int chang)
         {
             _currentIndex += chang;
 

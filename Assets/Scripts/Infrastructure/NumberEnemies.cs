@@ -1,4 +1,4 @@
-using Assets.Scripts.Infrastructure.Zones;
+using Infrastructure.Zones;
 using TMPro;
 using UnityEngine;
 

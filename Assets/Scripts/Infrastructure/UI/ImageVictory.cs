@@ -1,12 +1,12 @@
 using Advertisement;
-using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
 using System;
+using Tanks.TankEnemy.Tank.Turret;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Infrastructure.UI
+namespace Infrastructure.UI
 {
     public class ImageVictory : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace Assets.Scripts.Infrastructure.UI
         [SerializeField] private TMP_Text _message;
         [SerializeField] private FlightTower _flightTower;
         [SerializeField] private Button _nextLevel;
-        [SerializeField] VideoAd _videoAd;
+        [SerializeField] private VideoAd _videoAd;
 
         private float _currentPoints;
 
@@ -39,12 +39,6 @@ namespace Assets.Scripts.Infrastructure.UI
         public void ShowPoints(float point)
         {
             _currentPoints = point;
-            _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
-        }
-
-        public void AddPointsAfterAd(float bonusPoints)
-        {
-            _currentPoints += bonusPoints;
             _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
         }
 
@@ -78,6 +72,12 @@ namespace Assets.Scripts.Infrastructure.UI
         private void RunBeforeChangingScene()
         {
             Pressed?.Invoke();
+        }
+
+        private void AddPointsAfterAd(float bonusPoints)
+        {
+            _currentPoints += bonusPoints;
+            _textPoints.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(KeyTextPoints)} {_currentPoints.ToString("F0")}";
         }
     }
 }

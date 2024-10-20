@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks
+namespace Tanks
 {
     public class TankModel : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
+using Tanks.TankEnemy.Tank.Turret;
 using TMPro;
 using UnityEngine;
 

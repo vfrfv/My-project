@@ -1,11 +1,11 @@
-using Assets.Scripts.Tanks.TankEnemy.Tank;
 using Infrastructure.Barriers;
 using Infrastructure.Services;
 using System;
 using System.Collections.Generic;
+using Tanks.TankEnemy.Tank;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.Zones
+namespace Infrastructure.Zones
 {
     public class Zone : MonoBehaviour
     {

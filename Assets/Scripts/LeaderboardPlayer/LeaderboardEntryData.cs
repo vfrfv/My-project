@@ -1,4 +1,4 @@
-namespace Assets.Scripts.Leaderboard
+namespace LeaderboardPlayer
 {
     public readonly struct LeaderboardEntryData
     {

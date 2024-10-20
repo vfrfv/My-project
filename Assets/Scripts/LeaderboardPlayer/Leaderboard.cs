@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Leaderboard
+namespace LeaderboardPlayer
 {
     public class Leaderboard : MonoBehaviour
     {

@@ -1,11 +1,11 @@
-using Assets.Scripts.Infrastructure.Zones;
-using Assets.Scripts.ScriptableObjects;
-using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
-using Assets.Scripts.Tanks.TankPlayer;
 using Bar;
 using Conservation;
 using Infrastructure.Services;
+using Infrastructure.Zones;
+using ScriptableObjects;
 using System.Collections.Generic;
+using Tanks.TankEnemy.Tank.Turret;
+using Tanks.TankPlayer;
 using Unity.VisualScripting;
 using UnityEngine;
 

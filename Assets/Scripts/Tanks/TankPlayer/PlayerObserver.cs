@@ -1,9 +1,9 @@
-using Assets.Scripts.Infrastructure.Zones;
-using Assets.Scripts.Tanks.TankPlayer.Movement;
+using Infrastructure.Zones;
 using System.Collections;
+using Tanks.TankPlayer.Movement;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankPlayer
+namespace Tanks.TankPlayer
 {
     public class PlayerObserver : MonoBehaviour
     {

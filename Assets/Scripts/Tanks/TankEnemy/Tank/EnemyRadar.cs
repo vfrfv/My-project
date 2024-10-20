@@ -1,8 +1,8 @@
-using Assets.Scripts.Tanks.TankPlayer;
 using System.Collections;
+using Tanks.TankPlayer;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankEnemy.Tank
+namespace Tanks.TankEnemy.Tank
 {
     public class EnemyRadar : MonoBehaviour
     {

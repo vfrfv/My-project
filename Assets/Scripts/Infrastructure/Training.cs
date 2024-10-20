@@ -1,5 +1,5 @@
 using Agava.WebUtility;
-using Assets.Scripts.Infrastructure.Zones;
+using Infrastructure.Zones;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;

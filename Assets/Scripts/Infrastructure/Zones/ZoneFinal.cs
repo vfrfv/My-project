@@ -1,19 +1,19 @@
-using Assets.Scripts.Manager.Camers;
-using Assets.Scripts.Manager.Sounds;
-using Assets.Scripts.Tanks.TankEnemy.Tank;
-using Assets.Scripts.Tanks.TankPlayer;
 using Conservation;
+using Manager.Camers;
+using Manager.Sounds;
 using System;
 using System.Collections;
+using Tanks.TankEnemy.Tank;
+using Tanks.TankPlayer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Infrastructure.Zones
+namespace Infrastructure.Zones
 {
     public class ZoneFinal : MonoBehaviour
     {
-        [SerializeField] CameraManagement _cameraManagement;
-        [SerializeField] SoundManager _soundManager;
+        [SerializeField] private CameraManagement _cameraManagement;
+        [SerializeField] private SoundManager _soundManager;
         [SerializeField] private Enemy _boss;
         [SerializeField] private EnemyAttack _bossAttack;
         [SerializeField] private BoxCollider _playerBoxCollider;

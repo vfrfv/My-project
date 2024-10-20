@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankEnemy.Tank.Weapon
+namespace Tanks.TankEnemy.Tank.Weapon
 {
     public class EnemyPoolBullet : MonoBehaviour
     {

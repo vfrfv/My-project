@@ -1,5 +1,5 @@
-using Assets.Scripts.Infrastructure.UI;
 using Conservation;
+using Infrastructure.UI;
 using System;
 using UnityEngine;
 using UnityEngine.UI;

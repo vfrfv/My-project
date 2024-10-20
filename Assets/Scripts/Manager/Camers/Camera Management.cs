@@ -1,7 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 
-namespace Assets.Scripts.Manager.Camers
+namespace Manager.Camers
 {
     public class CameraManagement : MonoBehaviour
     {

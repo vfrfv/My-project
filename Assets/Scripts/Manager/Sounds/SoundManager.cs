@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Manager.Sounds
+namespace Manager.Sounds
 {
     public class SoundManager : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using Bullet.EnemyBullet;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankEnemy.Tank.Weapon
+namespace Tanks.TankEnemy.Tank.Weapon
 {
     public class EnemyPoolHandler : MonoBehaviour
     {

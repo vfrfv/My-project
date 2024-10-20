@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankPlayer.Weapon
+namespace Tanks.TankPlayer.Weapon
 {
     public class PlayerPoolBullet
     {

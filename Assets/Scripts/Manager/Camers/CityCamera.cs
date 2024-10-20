@@ -1,10 +1,10 @@
-using Assets.Scripts.Tanks.TankPlayer;
 using Cinemachine;
 using System.Collections;
+using Tanks.TankPlayer;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Manager.Camers
+namespace Manager.Camers
 {
     public class CityCamera : MonoBehaviour
     {

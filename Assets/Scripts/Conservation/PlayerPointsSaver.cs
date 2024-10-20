@@ -1,6 +1,6 @@
-using Assets.Scripts.Leaderboard;
-using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
+using LeaderboardPlayer;
 using System;
+using Tanks.TankEnemy.Tank.Turret;
 using UnityEngine;
 
 namespace Conservation

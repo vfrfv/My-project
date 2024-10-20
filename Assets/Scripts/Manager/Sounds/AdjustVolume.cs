@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Manager.Sounds
+namespace Manager.Sounds
 {
     public class AdjustVolume : MonoBehaviour
     {
@@ -28,12 +28,12 @@ namespace Assets.Scripts.Manager.Sounds
             _SFXVolume.onValueChanged.RemoveListener(ChangeVolumeSFX);
         }
 
-        public void ChangeVolumeMusic(float value)
+        private void ChangeVolumeMusic(float value)
         {
             _audioMixerGroup.audioMixer.SetFloat(MusicGroup, Mathf.Lerp(_minimumVolumeLevel, 0, value));
         }
 
-        public void ChangeVolumeSFX(float value)
+        private void ChangeVolumeSFX(float value)
         {
             _audioMixerGroup.audioMixer.SetFloat(SFXGroup, Mathf.Lerp(_minimumVolumeLevel, 0, value));
         }

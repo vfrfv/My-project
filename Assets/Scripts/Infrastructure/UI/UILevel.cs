@@ -1,11 +1,11 @@
-using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
-using Assets.Scripts.Tanks.TankPlayer;
 using System.Collections;
+using Tanks.TankEnemy.Tank.Turret;
+using Tanks.TankPlayer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Infrastructure.UI
+namespace Infrastructure.UI
 {
     public class UILevel : MonoBehaviour
     {
@@ -71,12 +71,13 @@ namespace Assets.Scripts.Infrastructure.UI
             _image.ShowPoints(point);
         }
 
-        public void Restart()
+        private void Restart()
         {
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             Time.timeScale = 1;
         }
-        public void ExitInMenu()
+
+        private void ExitInMenu()
         {
             SceneManager.LoadScene("Menu");
             Time.timeScale = 1;

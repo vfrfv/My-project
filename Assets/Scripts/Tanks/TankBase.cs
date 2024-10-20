@@ -1,9 +1,9 @@
-using Assets.Scripts.ScriptableObjects;
 using Bar;
+using ScriptableObjects;
 using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks
+namespace Tanks
 {
     public abstract class TankBase : MonoBehaviour, IValue
     {

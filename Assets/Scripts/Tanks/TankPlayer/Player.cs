@@ -1,13 +1,13 @@
-using Assets.Scripts.ScriptableObjects;
-using Assets.Scripts.Tanks;
-using Assets.Scripts.Tanks.TankEnemy.Tank;
-using Assets.Scripts.Tanks.TankPlayer.Movement;
-using Assets.Scripts.Tanks.TankPlayer.Weapon;
 using Bullet.EnemyBullet;
+using ScriptableObjects;
 using System;
+using Tanks;
+using Tanks.TankEnemy.Tank;
+using Tanks.TankPlayer.Movement;
+using Tanks.TankPlayer.Weapon;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankPlayer
+namespace Tanks.TankPlayer
 {
     public class Player : TankBase
     {
@@ -47,17 +47,6 @@ namespace Assets.Scripts.Tanks.TankPlayer
             _target = null;
         }
 
-        protected override void Die()
-        {
-            Destroy(gameObject);
-            Died?.Invoke();
-
-            AudioSource sfxInstance = Instantiate(_sfxPlayerPrefab, transform.position, Quaternion.identity);
-            sfxInstance.PlayOneShot(_deathSound);
-
-            Destroy(sfxInstance.gameObject, _deathSound.length);
-        }
-
         public override void Init(UnitConfig unitConfig)
         {
             if (_model != null)
@@ -76,6 +65,17 @@ namespace Assets.Scripts.Tanks.TankPlayer
             _movementPlayerTank.InstallAnimator(_model.Animator);
 
             base.Init(unitConfig);
+        }
+
+        protected override void Die()
+        {
+            Destroy(gameObject);
+            Died?.Invoke();
+
+            AudioSource sfxInstance = Instantiate(_sfxPlayerPrefab, transform.position, Quaternion.identity);
+            sfxInstance.PlayOneShot(_deathSound);
+
+            Destroy(sfxInstance.gameObject, _deathSound.length);
         }
     }
 }

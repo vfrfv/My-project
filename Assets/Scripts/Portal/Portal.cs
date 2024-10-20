@@ -1,13 +1,13 @@
-using Assets.Scripts.Tanks.TankPlayer;
+using Tanks.TankPlayer;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Assets.Scripts.Portal
+namespace Portal
 {
     public class Portal : MonoBehaviour
     {
         [SerializeField] private Transform _point;
-        [SerializeField] NavMeshAgent _agent;
+        [SerializeField] private NavMeshAgent _agent;
 
         private void OnTriggerEnter(Collider other)
         {

@@ -1,11 +1,10 @@
-using Assets.Scripts.ScriptableObjects;
-using Assets.Scripts.Tanks;
-using Assets.Scripts.Tanks.TankPlayer;
 using Bullet.PlayerBullet;
+using ScriptableObjects;
 using System;
+using Tanks.TankPlayer;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankEnemy.Tank
+namespace Tanks.TankEnemy.Tank
 {
     public class Enemy : TankBase
     {
@@ -40,10 +39,14 @@ namespace Assets.Scripts.Tanks.TankEnemy.Tank
             }
         }
 
-        public new void Init(UnitConfig statsDto)
+        public void SetTarget(Player target)
         {
-            base.Init(statsDto);
-            _shootDelayInSeconds = statsDto.ShootDelayInSeconds;
+            _target = target;
+        }
+
+        public void LosePlayer()
+        {
+            _target = null;
         }
 
         protected override void Die()
@@ -59,14 +62,10 @@ namespace Assets.Scripts.Tanks.TankEnemy.Tank
             Destroy(gameObject, 0.01f);
         }
 
-        public void SetTarget(Player target)
+        private new void Init(UnitConfig statsDto)
         {
-            _target = target;
-        }
-
-        public void LosePlayer()
-        {
-            _target = null;
-        }
+            base.Init(statsDto);
+            _shootDelayInSeconds = statsDto.ShootDelayInSeconds;
+        }  
     }
 }

@@ -1,4 +1,4 @@
-using Assets.Scripts.Infrastructure.UI;
+using Infrastructure.UI;
 using UnityEngine;
 
 namespace Advertisement

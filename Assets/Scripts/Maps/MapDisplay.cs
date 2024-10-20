@@ -1,13 +1,12 @@
-using Assets.Scripts;
-using Assets.Scripts.Maps.ScriptableObjects;
 using Conservation;
 using Infrastructure;
+using Maps.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Maps
+namespace Maps
 {
     public class MapDisplay : MonoBehaviour
     {

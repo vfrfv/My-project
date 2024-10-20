@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Leaderboard
+namespace LeaderboardPlayer
 {
     public class LeaderboardView : MonoBehaviour
     {

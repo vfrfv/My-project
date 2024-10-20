@@ -1,7 +1,7 @@
 using Bullet.PlayerBullet;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankPlayer.Weapon
+namespace Tanks.TankPlayer.Weapon
 {
     public class PlayerPoolHandler : MonoBehaviour
     {

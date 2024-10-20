@@ -1,9 +1,9 @@
-using Assets.Scripts.Tanks.TankEnemy.Tank;
 using Bullet;
 using System.Collections;
+using Tanks.TankEnemy.Tank;
 using UnityEngine;
 
-namespace Assets.Scripts.Tanks.TankEnemy.Tank.Weapon
+namespace Tanks.TankEnemy.Tank.Weapon
 {
     [RequireComponent(typeof(EnemyPoolHandler))]
     public class EnemyWeapon : MonoBehaviour

@@ -1,5 +1,5 @@
-using Assets.Scripts.Tanks.TankEnemy.Tank;
 using System;
+using Tanks.TankEnemy.Tank;
 
 namespace Infrastructure.Services
 {

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Assets.Scripts.Tanks.TankPlayer.Movement
+namespace Tanks.TankPlayer.Movement
 {
     public class MovementPlayerTank : MonoBehaviour
     {
