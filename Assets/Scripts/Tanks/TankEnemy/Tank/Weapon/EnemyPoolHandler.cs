@@ -1,4 +1,4 @@
-using Assets.Scripts.Bullet.EnemyBullet;
+using Bullet.EnemyBullet;
 using UnityEngine;
 
 namespace Assets.Scripts.Tanks.TankEnemy.Tank.Weapon

@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Bar
+namespace Bar
 {
     [RequireComponent(typeof(Slider))]
     public class SmoothBar : MonoBehaviour

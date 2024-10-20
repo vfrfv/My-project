@@ -1,6 +1,6 @@
-using Assets.Scripts.Infrastructure.Barriers;
-using Assets.Scripts.Infrastructure.Services;
 using Assets.Scripts.Tanks.TankEnemy.Tank;
+using Infrastructure.Barriers;
+using Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

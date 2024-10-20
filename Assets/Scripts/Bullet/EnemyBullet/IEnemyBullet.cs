@@ -1,4 +1,4 @@
-namespace Assets.Scripts.Bullet.EnemyBullet
+namespace Bullet.EnemyBullet
 {
     public interface IEnemyBullet
     {

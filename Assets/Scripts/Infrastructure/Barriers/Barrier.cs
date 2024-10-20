@@ -2,7 +2,7 @@ using Assets.Scripts.Tanks.TankPlayer;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Assets.Scripts.Infrastructure.Barriers
+namespace Infrastructure.Barriers
 {
     public class Barrier : MonoBehaviour
     {

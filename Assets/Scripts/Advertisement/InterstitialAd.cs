@@ -1,7 +1,7 @@
 using Assets.Scripts.Infrastructure.UI;
 using UnityEngine;
 
-namespace Assets.Scripts.Advertisement
+namespace Advertisement
 {
     public class InterstitialAd : MonoBehaviour
     {
@@ -20,17 +20,6 @@ namespace Assets.Scripts.Advertisement
             _imageVictory.Pressed -= Show;
         }
 
-        public void Show()
-        {
-            Agava.YandexGames.InterstitialAd.Show(Stop, OnClose);
-        }
-
-        private void OnClose(bool _value)
-        {
-            _imageVictory.LaunchNextLevel();
-            Play();
-        }
-
         public void Play()
         {
             _pauseManager.Play(new PauseSource(Interstitial));
@@ -39,6 +28,17 @@ namespace Assets.Scripts.Advertisement
         public void Stop()
         {
             _pauseManager.Stop(new PauseSource(Interstitial));
+        }
+
+        private void Show()
+        {
+            Agava.YandexGames.InterstitialAd.Show(Stop, OnClose);
+        }
+
+        private void OnClose(bool _value)
+        {
+            _imageVictory.LaunchNextLevel();
+            Play();
         }
     }
 }

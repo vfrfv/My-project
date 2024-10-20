@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Infrastructure
+namespace Infrastructure
 {
     public class Training : MonoBehaviour
     {

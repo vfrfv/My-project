@@ -1,5 +1,5 @@
-using Assets.Scripts.Bullet;
-using Assets.Scripts.Bullet.PlayerBullet;
+using Bullet;
+using Bullet.PlayerBullet;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

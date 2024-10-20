@@ -1,7 +1,7 @@
 using Assets.Scripts.Tanks.TankEnemy.Tank;
 using System;
 
-namespace Assets.Scripts.Infrastructure.Services
+namespace Infrastructure.Services
 {
     public class GameLoopService
     {

@@ -2,7 +2,7 @@ using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
 using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure
+namespace Infrastructure
 {
     public class ScoringPoints : MonoBehaviour
     {

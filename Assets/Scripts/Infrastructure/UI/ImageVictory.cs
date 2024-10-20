@@ -1,4 +1,4 @@
-using Assets.Scripts.Advertisement;
+using Advertisement;
 using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
 using System;
 using TMPro;

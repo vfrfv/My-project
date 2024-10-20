@@ -1,6 +1,4 @@
-using Assets.Scripts.Bullet;
-
-namespace Assets.Scripts.Bullet.PlayerBullet
+namespace Bullet.PlayerBullet
 {
     public class PlayerBullet : BulletBase
     {

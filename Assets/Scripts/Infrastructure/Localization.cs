@@ -2,7 +2,7 @@ using Agava.YandexGames;
 using Lean.Localization;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure
+namespace Infrastructure
 {
     public class Localization : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using Assets.Scripts.Tanks.TankPlayer;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.Services
+namespace Infrastructure.Services
 {
     public class UpgradeService
     {
@@ -34,6 +34,11 @@ namespace Assets.Scripts.Infrastructure.Services
             }
         }
 
+        public bool IsMaxLevel()
+        {
+            return _currentConfig >= _unitConfigs.Count - 1;
+        }
+
         private UnitConfig GetFollowingConfiguration()
         {
             if (_currentConfig < _unitConfigs.Count - 1)
@@ -47,11 +52,6 @@ namespace Assets.Scripts.Infrastructure.Services
             {
                 return null;
             }
-        }
-
-        public bool IsMaxLevel()
-        {
-            return _currentConfig >= _unitConfigs.Count - 1;
         }
     }
 }

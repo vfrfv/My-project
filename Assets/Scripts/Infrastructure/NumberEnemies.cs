@@ -2,7 +2,7 @@ using Assets.Scripts.Infrastructure.Zones;
 using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure
+namespace Infrastructure
 {
     public class NumberEnemies : MonoBehaviour
     {

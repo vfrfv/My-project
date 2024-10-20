@@ -1,4 +1,4 @@
-using Assets.Scripts.Bullet.PlayerBullet;
+using Bullet.PlayerBullet;
 using UnityEngine;
 
 namespace Assets.Scripts.Tanks.TankPlayer.Weapon

@@ -1,6 +1,6 @@
 using System;
 
-namespace Assets.Scripts.Bar
+namespace Bar
 {
     public interface IValue
     {

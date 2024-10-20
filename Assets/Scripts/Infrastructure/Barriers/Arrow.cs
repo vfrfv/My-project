@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure.Barriers
+namespace Infrastructure.Barriers
 {
     public class Arrow : MonoBehaviour
     {

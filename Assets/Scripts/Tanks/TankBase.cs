@@ -1,5 +1,5 @@
-using Assets.Scripts.Bar;
 using Assets.Scripts.ScriptableObjects;
+using Bar;
 using System;
 using UnityEngine;
 

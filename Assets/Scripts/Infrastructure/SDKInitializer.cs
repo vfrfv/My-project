@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Infrastructure
+namespace Infrastructure
 {
     public class SDKInitializer : MonoBehaviour
     {

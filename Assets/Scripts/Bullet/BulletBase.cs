@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Bullet
+namespace Bullet
 {
     public abstract class BulletBase : MonoBehaviour
     {

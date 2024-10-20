@@ -1,7 +1,7 @@
 using Assets.Scripts;
-using Assets.Scripts.Infrastructure;
 using Assets.Scripts.Maps.ScriptableObjects;
 using Conservation;
+using Infrastructure;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;

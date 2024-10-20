@@ -1,5 +1,5 @@
+using Advertisement;
 using Agava.WebUtility;
-using Assets.Scripts.Advertisement;
 using UnityEngine;
 
 namespace Manager

@@ -3,7 +3,7 @@ using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
 using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Conservation
+namespace Conservation
 {
     [Serializable]
     public class PlayerPointsSaver
@@ -40,18 +40,12 @@ namespace Assets.Scripts.Conservation
             Agava.YandexGames.Leaderboard.SetScore(Constants.LEADERBOARD_NAME, (int)_currentPoints);
         }
 
-        public void Load()
+        private void Load()
         {
             if (Agava.YandexGames.Utility.PlayerPrefs.HasKey(KeySavedPoints))
             {
                 _currentPoints = Agava.YandexGames.Utility.PlayerPrefs.GetFloat(KeySavedPoints);
             }
-        }
-
-        public void SetDefolt()
-        {
-            PlayerPrefs.SetFloat(KeySavedPoints, 0);
-            PlayerPrefs.Save();
         }
     }
 }

@@ -1,11 +1,10 @@
-using Assets.Scripts.Conservation;
 using Assets.Scripts.Infrastructure.UI;
+using Conservation;
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Advertisement
+namespace Advertisement
 {
     public class VideoAd : MonoBehaviour
     {
@@ -33,7 +32,7 @@ namespace Assets.Scripts.Advertisement
             _advertisement.onClick.RemoveListener(Show);
         }
 
-        public void Show()
+        private void Show()
         {
             Agava.YandexGames.VideoAd.Show(Stop, OnRewardCallback, Play);
             _advertisement.interactable = false;
@@ -45,12 +44,12 @@ namespace Assets.Scripts.Advertisement
             _playerPointSaver.AddPoints(_points);
         }
 
-        public void Play()
+        private void Play()
         {
             _pauseManager.Play(new PauseSource(Video));
         }
 
-        public void Stop()
+        private void Stop()
         {
             _pauseManager.Stop(new PauseSource(Video));
         }

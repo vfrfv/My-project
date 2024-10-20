@@ -1,8 +1,8 @@
-using Assets.Scripts.Infrastructure.Services;
+using Infrastructure.Services;
 using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Bar
+namespace Bar
 {
     public class ValueProvider : MonoBehaviour, IValue
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Bar
+namespace Bar
 {
     public class TurnSlider : MonoBehaviour
     {

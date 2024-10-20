@@ -1,16 +1,15 @@
-using Assets.Scripts.Bar;
-using Assets.Scripts.Conservation;
-using Assets.Scripts.Infrastructure.Services;
 using Assets.Scripts.Infrastructure.Zones;
 using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.Tanks.TankEnemy.Tank.Turret;
 using Assets.Scripts.Tanks.TankPlayer;
-using Cinemachine;
+using Bar;
+using Conservation;
+using Infrastructure.Services;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Assets.Scripts.Infrastructure
+namespace Infrastructure
 {
     public class CompositionRoot : MonoBehaviour
     {

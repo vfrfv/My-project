@@ -30,11 +30,5 @@ namespace Conservation
                     _currentLevel = savetLevel;
             }
         }
-
-        public void SetDefolt()
-        {
-            PlayerPrefs.SetInt(KeySavedLevel, 1);
-            PlayerPrefs.Save();
-        }
     }
 }

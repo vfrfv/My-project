@@ -1,5 +1,5 @@
-using Assets.Scripts.Bar;
 using Assets.Scripts.Tanks.TankEnemy.Tank;
+using Bar;
 using System;
 using System.Collections;
 using UnityEngine;

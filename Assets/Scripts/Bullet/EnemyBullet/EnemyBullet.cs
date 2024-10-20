@@ -1,6 +1,4 @@
-using Assets.Scripts.Bullet;
-
-namespace Assets.Scripts.Bullet.EnemyBullet
+namespace Bullet.EnemyBullet
 {
     public class EnemyBullet : BulletBase
     {
