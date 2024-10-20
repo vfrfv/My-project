@@ -12,10 +12,10 @@ namespace Tanks.TankPlayer
     {
         [SerializeField] private PlayerAttack _playerAttack;
         [SerializeField] private PlayerWeapon _playerWeapon;
-        [SerializeField] private MovementPlayerTank _movementPlayerTank;
         [SerializeField] private Transform _parentTransform;
         [SerializeField] private AudioSource _sfxPlayerPrefab;
         [SerializeField] private AudioClip _deathSound;
+        [SerializeField] private AnimationController animationController;
 
         private Enemy _target;
         private TankModel _model;
@@ -61,7 +61,7 @@ namespace Tanks.TankPlayer
 
             _playerAttack.InstallTower(_model.Tower);
             _playerWeapon.InstallShootPoint(_model.ShootPoint);
-            _movementPlayerTank.InstallAnimator(_model.Animator);
+            animationController.InstallAnimator(_model.Animator);
 
             base.Init(unitConfig);
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1180,7 +1180,7 @@ MonoBehaviour:
   _mapImage: {fileID: 1129325275}
   _playBatton: {fileID: 2078201874}
   _locImage: {fileID: 1816616128}
-  _levelManager:
+  _progressSaver:
     _currentLevel: 1
   _localization: {fileID: 0}
 --- !u!1 &398429630 stripped
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   _exitSettings: {fileID: 908996532}
   _imageLevelsWindow: {fileID: 1449274997}
   _imageSettings: {fileID: 698951597}
-  _levelManager:
+  _progressSaver:
     _currentLevel: 1
 --- !u!114 &398429634
 MonoBehaviour:
@@ -2357,7 +2357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46cc4457158600489b69225370afbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stopControl: {fileID: 742765200}
+  _pauseManager: {fileID: 742765200}
 --- !u!114 &742765200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2367,7 +2367,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 742765195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e483038b8cf5dd046af4a4b3c6a9beea, type: 3}
+  m_Script: {fileID: 11500000, guid: 801502a98a5ac37418c9293ab02e042f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &746232112

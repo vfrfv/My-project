@@ -10,14 +10,15 @@ namespace Tanks.TankPlayer
         [SerializeField] private PlayerRadar _playerRadar;
         [SerializeField] private PlayerAttack _playerAttask;
         [SerializeField] private Player _player;
-        [SerializeField] private MovementPlayerTank _movement;
+        [SerializeField] private PlayerTankController _playerTankController;
+        [SerializeField] private AnimationController _playerAnimationController;
 
         private Coroutine _coroutine;
 
         private void Start()
         {
             _coroutine = StartCoroutine(DestroyEnemies());
-            _movement.enabled = true;
+            _playerTankController.enabled = true;
         }
 
         private IEnumerator DestroyEnemies()
@@ -53,8 +54,8 @@ namespace Tanks.TankPlayer
                 StopCoroutine(_coroutine);
 
                 _playerRadar.enabled = false;
-                _movement.enabled = false;
-                _movement.DisableMotionAnimation();
+                _playerTankController.enabled = false;
+                _playerAnimationController.DisableMotionAnimation();
 
                 _playerAttask.enabled = true;
             }
