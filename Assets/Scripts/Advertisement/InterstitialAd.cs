@@ -20,19 +20,19 @@ namespace Advertisement
             _imageVictory.Pressed -= Show;
         }
 
-        public void Play()
+        private void Show()
+        {
+            Agava.YandexGames.InterstitialAd.Show(Stop, OnClose);
+        }
+
+        private void Play()
         {
             _pauseManager.Play(new PauseSource(Interstitial));
         }
 
-        public void Stop()
+        private void Stop()
         {
             _pauseManager.Stop(new PauseSource(Interstitial));
-        }
-
-        private void Show()
-        {
-            Agava.YandexGames.InterstitialAd.Show(Stop, OnClose);
         }
 
         private void OnClose(bool _value)
