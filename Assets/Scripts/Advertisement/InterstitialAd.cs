@@ -35,7 +35,7 @@ namespace Advertisement
             _pauseManager.Stop(new PauseSource(Interstitial));
         }
 
-        private void OnClose(bool _value)
+        private void OnClose(bool _)
         {
             _imageVictory.LaunchNextLevel();
             Play();

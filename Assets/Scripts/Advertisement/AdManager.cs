@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Advertisement
 {
-    public class VideoAd : MonoBehaviour
+    public class AdManager : MonoBehaviour
     {
         private const string Video = "video";
 
