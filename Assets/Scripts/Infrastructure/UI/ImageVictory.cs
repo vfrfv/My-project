@@ -13,10 +13,9 @@ namespace Infrastructure.UI
         private const string KeyTextPoints = "Points";
 
         [SerializeField] private TMP_Text _textPoints;
-        [SerializeField] private TMP_Text _message;
         [SerializeField] private FlightTower _flightTower;
         [SerializeField] private Button _nextLevel;
-        [SerializeField] private VideoAd _videoAd;
+        [SerializeField] private AdManager _adManager;
 
         private float _currentPoints;
 
@@ -24,7 +23,7 @@ namespace Infrastructure.UI
 
         private void OnEnable()
         {
-            _videoAd.Looked += AddPointsAfterAd;
+            _adManager.Looked += AddPointsAfterAd;
             _flightTower.NumberPointsChanged += ShowPoints;
             _nextLevel.onClick.AddListener(RunBeforeChangingScene);
         }
@@ -32,7 +31,7 @@ namespace Infrastructure.UI
         private void OnDisable()
         {
             _flightTower.NumberPointsChanged -= ShowPoints;
-            _videoAd.Looked -= AddPointsAfterAd;
+            _adManager.Looked -= AddPointsAfterAd;
             _nextLevel.onClick.RemoveListener(RunBeforeChangingScene);
         }
 
@@ -60,10 +59,6 @@ namespace Infrastructure.UI
                 {
                     SceneManager.LoadScene(1);
                 }
-            }
-            else
-            {
-                _message.gameObject.SetActive(true);
             }
 
             Time.timeScale = 1;
