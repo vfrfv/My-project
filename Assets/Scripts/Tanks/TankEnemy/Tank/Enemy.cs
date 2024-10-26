@@ -59,13 +59,13 @@ namespace Tanks.TankEnemy.Tank
 
             Destroy(sfxInstance.gameObject, _deathSound.length);
             Destroy(explosionEffect.gameObject, 2);
-            Destroy(gameObject, 0.01f);
+            Destroy(gameObject, 0.05f);
         }
 
         private new void Init(UnitConfig statsDto)
         {
             base.Init(statsDto);
             _shootDelayInSeconds = statsDto.ShootDelayInSeconds;
-        }  
+        }
     }
 }

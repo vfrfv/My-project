@@ -26,7 +26,7 @@ namespace Tanks.TankEnemy.Tank.Turret
         {
             _bossEnemy.Died += LaunchTower;
         }
-        private void LaunchTower(Enemy enemy)
+        private void LaunchTower(Enemy _)
         {
             if (_coroutine != null)
             {

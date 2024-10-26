@@ -12,8 +12,9 @@ namespace Advertisement
 
         [SerializeField] private Button _advertisement;
         [SerializeField] private PlayerPointsSaver _playerPointSaver;
-        [SerializeField] private ImageVictory _imageVictory;
+        [SerializeField] private VictoryPanel _imageVictory;
         [SerializeField] private PauseManager _pauseManager;
+        [SerializeField] private LevelManager _levelManager;
 
         private readonly float _points = 50;
 
@@ -45,7 +46,7 @@ namespace Advertisement
 
         private void OnClose(bool _)
         {
-            _imageVictory.LaunchNextLevel();
+            _levelManager.LoadNextLevel();
             Play();
         }
 

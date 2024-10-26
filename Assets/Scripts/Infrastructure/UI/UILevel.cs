@@ -16,7 +16,7 @@ namespace Infrastructure.UI
 
         [SerializeField] private Button _restartButton;
         [SerializeField] private Button[] _menuButtons;
-        [SerializeField] private ImageVictory _image;
+        [SerializeField] private VictoryPanel _image;
 
         private void OnEnable()
         {
