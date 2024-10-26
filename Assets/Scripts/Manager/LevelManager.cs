@@ -1,3 +1,4 @@
+using Maps.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,6 +39,11 @@ namespace Manager
         {
             SceneManager.LoadScene("Menu");
             Time.timeScale = 1;
+        }
+
+        public void UploadSceneName(string nameScene)
+        {
+            SceneManager.LoadScene(nameScene);
         }
     }
 }

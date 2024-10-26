@@ -1,9 +1,9 @@
 using Conservation;
 using Infrastructure;
+using Manager;
 using Maps.ScriptableObjects;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Maps
@@ -20,6 +20,7 @@ namespace Maps
         [SerializeField] private Image _locImage;
         [SerializeField] private ProgressSaver _progressSaver;
         [SerializeField] private Localization _localization;
+        [SerializeField] private LevelManager _levelManager;
 
         private Map _map;
 
@@ -42,7 +43,7 @@ namespace Maps
 
         private void OnPlayButtonClick()
         {
-            SceneManager.LoadScene(_map.NameScene);
+            _levelManager.UploadSceneName(_map.NameScene);
         }
 
         private void DisplayExclamationMark(bool mapUnlocked)
