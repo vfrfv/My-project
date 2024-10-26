@@ -10,7 +10,7 @@ namespace Tanks.TankEnemy.Tank
     public class Enemy : TankBase
     {
         [SerializeField] private UnitConfig _unitConfig;
-        [SerializeField] private ParticleSystem _prefabExplosionEffect;
+        [SerializeField] private EffectsController _effectsController;
         [SerializeField] private SoundController _soundController;
 
         private Player _target;
@@ -52,11 +52,10 @@ namespace Tanks.TankEnemy.Tank
         protected override void Die()
         {
             Died?.Invoke(this);
-
-            ParticleSystem explosionEffect = Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
+   
             _soundController.PlaySoundEnemyDeath();
+            _effectsController.ReproduceTankExplosion();
 
-            Destroy(explosionEffect.gameObject, 2);
             Destroy(gameObject, 0.05f);
         }
 

@@ -1,8 +1,7 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Tanks.TankPlayer.Movement
+namespace Tanks
 {
     public class SoundController : MonoBehaviour
     {
@@ -66,7 +65,7 @@ namespace Tanks.TankPlayer.Movement
             StopFadeCoroutine();
             _fadeCoroutine = StartCoroutine(FadeOut());
         }
-        
+
 
         private void PlaySoundDeath(AudioClip audioClip)
         {
