@@ -13,8 +13,7 @@ namespace Tanks.TankPlayer
         [SerializeField] private PlayerAttack _playerAttack;
         [SerializeField] private PlayerWeapon _playerWeapon;
         [SerializeField] private Transform _parentTransform;
-        [SerializeField] private AudioSource _sfxPlayerPrefab;
-        [SerializeField] private AudioClip _deathSound;
+        [SerializeField] private SoundController _soundController;
         [SerializeField] private AnimationController animationController;
 
         private Enemy _target;
@@ -71,10 +70,7 @@ namespace Tanks.TankPlayer
             Destroy(gameObject);
             Died?.Invoke();
 
-            AudioSource sfxInstance = Instantiate(_sfxPlayerPrefab, transform.position, Quaternion.identity);
-            sfxInstance.PlayOneShot(_deathSound);
-
-            Destroy(sfxInstance.gameObject, _deathSound.length);
+            _soundController.PlaySoundPlayerDeath();
         }
     }
 }

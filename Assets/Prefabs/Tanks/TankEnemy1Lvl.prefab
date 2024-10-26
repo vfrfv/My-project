@@ -681,6 +681,7 @@ GameObject:
   - component: {fileID: 8723879443525629777}
   - component: {fileID: 9036906286194188889}
   - component: {fileID: 6162907669034008487}
+  - component: {fileID: 2157966695664356823}
   m_Layer: 7
   m_Name: TankEnemy1Lvl
   m_TagString: Untagged
@@ -768,8 +769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitConfig: {fileID: 11400000, guid: 7e5e65126cdf87543be29b67e8c35d5e, type: 2}
   _prefabExplosionEffect: {fileID: 19800006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
-  _sfxPlayerPrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
-  _deathSound: {fileID: 8300000, guid: b1ef5c5eb330454499bfb4379c76b435, type: 3}
+  _soundController: {fileID: 2157966695664356823}
 --- !u!195 &1986917845799038090
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -922,6 +922,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2157966695664356823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732407154131380407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd098f2febd86f469f1e1e38f38589a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSource: {fileID: 0}
+  _fadeDuration: 0.01
+  _sfxAudioSourcePrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _playerDeathSound: {fileID: 0}
+  _enemyDeathSound: {fileID: 8300000, guid: b1ef5c5eb330454499bfb4379c76b435, type: 3}
 --- !u!1 &6921253446499476620
 GameObject:
   m_ObjectHideFlags: 0

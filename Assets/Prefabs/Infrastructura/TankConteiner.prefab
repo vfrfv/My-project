@@ -61,8 +61,7 @@ MonoBehaviour:
   _playerAttack: {fileID: 698888640377090386}
   _playerWeapon: {fileID: 8549805691916039289}
   _parentTransform: {fileID: 6520761207262236639}
-  _sfxPlayerPrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
-  _deathSound: {fileID: 8300000, guid: 5689676c239874e488fee41403207744, type: 3}
+  _soundController: {fileID: 4224716626981752343}
   animationController: {fileID: 3504585678893009613}
 --- !u!114 &252791847660143296
 MonoBehaviour:
@@ -446,5 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd098f2febd86f469f1e1e38f38589a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSource: {fileID: 3093937552135192153}
+  _playerMovementSource: {fileID: 3093937552135192153}
   _fadeDuration: 0.01
+  _sfxAudioSourcePrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _playerDeathSound: {fileID: 8300000, guid: 5689676c239874e488fee41403207744, type: 3}
+  _enemyDeathSound: {fileID: 0}

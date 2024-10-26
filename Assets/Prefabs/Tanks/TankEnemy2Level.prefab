@@ -14,13 +14,14 @@ GameObject:
   - component: {fileID: 995816887960461617}
   - component: {fileID: 6515912105672328295}
   - component: {fileID: 3510191319037075066}
+  - component: {fileID: 4856745429696772481}
   m_Layer: 7
   m_Name: TankEnemy2Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4016025333597669067
 Transform:
   m_ObjectHideFlags: 0
@@ -99,8 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitConfig: {fileID: 11400000, guid: d564660b2511fca44ae48d6f36b7efcf, type: 2}
   _prefabExplosionEffect: {fileID: 19800006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
-  _sfxPlayerPrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
-  _deathSound: {fileID: 8300000, guid: b1ef5c5eb330454499bfb4379c76b435, type: 3}
+  _soundController: {fileID: 4856745429696772481}
 --- !u!195 &6515912105672328295
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -136,6 +136,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 6515912105672328295}
+--- !u!114 &4856745429696772481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487578154643969200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd098f2febd86f469f1e1e38f38589a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSource: {fileID: 0}
+  _fadeDuration: 0.01
+  _sfxAudioSourcePrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _playerDeathSound: {fileID: 0}
+  _enemyDeathSound: {fileID: 8300000, guid: b1ef5c5eb330454499bfb4379c76b435, type: 3}
 --- !u!1001 &3963364331430805174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 487578154643969200}
     - target: {fileID: 7974317933272502184, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4627731259544738787, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}

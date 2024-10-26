@@ -2,6 +2,7 @@ using Bullet.PlayerBullet;
 using ScriptableObjects;
 using System;
 using Tanks.TankPlayer;
+using Tanks.TankPlayer.Movement;
 using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank
@@ -10,8 +11,7 @@ namespace Tanks.TankEnemy.Tank
     {
         [SerializeField] private UnitConfig _unitConfig;
         [SerializeField] private ParticleSystem _prefabExplosionEffect;
-        [SerializeField] private AudioSource _sfxPlayerPrefab;
-        [SerializeField] private AudioClip _deathSound;
+        [SerializeField] private SoundController _soundController;
 
         private Player _target;
         private float _shootDelayInSeconds;
@@ -54,10 +54,8 @@ namespace Tanks.TankEnemy.Tank
             Died?.Invoke(this);
 
             ParticleSystem explosionEffect = Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
-            AudioSource sfxInstance = Instantiate(_sfxPlayerPrefab, transform.position, Quaternion.identity);
-            sfxInstance.PlayOneShot(_deathSound);
+            _soundController.PlaySoundEnemyDeath();
 
-            Destroy(sfxInstance.gameObject, _deathSound.length);
             Destroy(explosionEffect.gameObject, 2);
             Destroy(gameObject, 0.05f);
         }
