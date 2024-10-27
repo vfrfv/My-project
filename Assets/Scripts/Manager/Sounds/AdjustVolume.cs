@@ -6,8 +6,8 @@ namespace Manager.Sounds
 {
     public class AdjustVolume : MonoBehaviour
     {
-        const string SFXGroup = "SFX";
-        const string MusicGroup = "Music";
+        private const string SFXGroup = "SFX";
+        private const string MusicGroup = "Music";
 
         [SerializeField] private AudioMixerGroup _audioMixerGroup;
 

@@ -17,7 +17,6 @@ namespace Infrastructure
         [SerializeField] private List<Zone> _zones = new List<Zone>();
         [SerializeField] private List<UnitConfig> _unitConfigs;
 
-        [SerializeField] private SmoothBar _smoothHealthBar;
         [SerializeField] private SmoothBar _progressBar;
         [SerializeField] private ParticleSystem _upgradeEffect;
         [SerializeField] private AudioSource _upgradeSound;

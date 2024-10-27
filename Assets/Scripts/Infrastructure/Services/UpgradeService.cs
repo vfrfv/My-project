@@ -7,10 +7,10 @@ namespace Infrastructure.Services
 {
     public class UpgradeService
     {
-        private List<UnitConfig> _unitConfigs;
         private readonly Player _player;
         private readonly AudioSource _audioSource;
         private readonly ParticleSystem _particleSystem;
+        private List<UnitConfig> _unitConfigs;
         private int _currentConfig = 0;
 
         public UpgradeService(List<UnitConfig> unitConfigs, Player player, AudioSource audioSource, ParticleSystem particleSystem)

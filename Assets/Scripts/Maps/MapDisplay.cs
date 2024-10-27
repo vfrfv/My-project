@@ -10,16 +10,11 @@ namespace Maps
 {
     public class MapDisplay : MonoBehaviour
     {
-        private const string Turkish = "tr";
-        private const string Russian = "ru";
-        private const string English = "en";
-
         [SerializeField] private TMP_Text _mapName;
         [SerializeField] private Image _mapImage;
         [SerializeField] private Button _playBatton;
         [SerializeField] private Image _locImage;
         [SerializeField] private ProgressSaver _progressSaver;
-        [SerializeField] private Localization _localization;
         [SerializeField] private LevelManager _levelManager;
 
         private Map _map;

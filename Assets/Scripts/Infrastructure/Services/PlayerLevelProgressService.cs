@@ -5,9 +5,9 @@ namespace Infrastructure.Services
 {
     public class PlayerLevelProgressService
     {
-        private int _currentCountFrags = 0;
         private readonly int _countFragsUpgrade = 4;
         private readonly UpgradeService _upgradeService;
+        private int _currentCountFrags = 0;
 
         public PlayerLevelProgressService(UpgradeService upgradeService)
         {
