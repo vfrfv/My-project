@@ -6,44 +6,8 @@ using UnityEngine;
 
 namespace Tanks.TankPlayer.Weapon
 {
-    public class PlayerPoolBullet
+    public class PlayerPoolBullet : BulletPoolBase<PlayerBullet>
     {
-        private readonly PlayerBullet _prefabMissile;
-        private readonly Queue<BulletBase> _bulletQueue;
-
-        public PlayerPoolBullet(PlayerBullet prefabMissile)
-        {
-            _prefabMissile = prefabMissile ?? throw new ArgumentNullException(nameof(prefabMissile));
-            _bulletQueue = new Queue<BulletBase>();
-        }
-
-        public BulletBase GiveMissile(Vector3 position, Quaternion rotation)
-        {
-            if (_bulletQueue.Count < 1)
-            {
-                CreateMissile();
-            }
-
-            BulletBase bullet = _bulletQueue.Dequeue();
-
-            bullet.gameObject.SetActive(true);
-            bullet.transform.position = position;
-            bullet.transform.rotation = rotation;
-
-            return bullet;
-        }
-
-        public void GetMissile(BulletBase bullet)
-        {
-            bullet.gameObject.SetActive(false);
-            _bulletQueue.Enqueue(bullet);
-        }
-
-        private void CreateMissile()
-        {
-            PlayerBullet bullet = UnityEngine.Object.Instantiate(_prefabMissile);
-            bullet.gameObject.SetActive(false);
-            _bulletQueue.Enqueue(bullet);
-        }
+        public PlayerPoolBullet(PlayerBullet prefabMissile) : base(prefabMissile) { }
     }
 }

@@ -3,17 +3,11 @@ using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank.Weapon
 {
-    public class EnemyPoolHandler : MonoBehaviour
+    public class EnemyPoolHandler : PoolHandler<EnemyPoolBullet, EnemyBullet>
     {
-        [SerializeField] private EnemyBullet _prefabBullet;
-
-        private EnemyPoolBullet _pool;
-
-        public EnemyPoolBullet Pool => _pool;
-
-        private void Awake()
+        protected override EnemyPoolBullet CreatePool(EnemyBullet prefabBullet)
         {
-            _pool = new EnemyPoolBullet(_prefabBullet);
+            return new EnemyPoolBullet(prefabBullet);
         }
     }
 }
