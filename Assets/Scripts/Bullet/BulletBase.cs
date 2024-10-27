@@ -13,12 +13,12 @@ namespace Bullet
 
         public event Action<BulletBase> Destroyed;
 
-        protected void Update()
+        private void Update()
         {
             Fly();
         }
 
-        protected void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (other != null)
             {
@@ -31,7 +31,7 @@ namespace Bullet
             _damage = damage;
         }
 
-        protected virtual void Fly()
+        private void Fly()
         {
             transform.Translate(Vector3.forward * _flightSpeed * Time.deltaTime);
         }

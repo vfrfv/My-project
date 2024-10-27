@@ -34,7 +34,7 @@ namespace Infrastructure.Barriers
             _openingArea.enabled = false;
         }
 
-        public void Open()
+        private void Open()
         {
             JointSpring jointSpring = _hingeJoint.spring;
             jointSpring.targetPosition = 60f;

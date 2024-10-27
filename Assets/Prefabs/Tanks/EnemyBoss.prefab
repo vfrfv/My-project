@@ -830,6 +830,7 @@ MonoBehaviour:
   _enemy: {fileID: 5421898125293843092}
   _prefabShoot: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
   _shootSound: {fileID: 9015450548998994611}
+  _poolHandler: {fileID: 6485896422880355663}
 --- !u!82 &9015450548998994611
 AudioSource:
   m_ObjectHideFlags: 0

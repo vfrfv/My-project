@@ -4,24 +4,18 @@ using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank.Weapon
 {
-    [RequireComponent(typeof(EnemyPoolHandler))]
     public class EnemyWeapon : MonoBehaviour
     {
         [SerializeField] private Transform _shootPoint;
         [SerializeField] private Enemy _enemy;
         [SerializeField] private ParticleSystem _prefabShoot;
         [SerializeField] private AudioSource _shootSound;
+        [SerializeField] private EnemyPoolHandler _poolHandler;
 
         private float _shootDelayCounter = 0;
         private float _shootDelayInSeconds;
-        private EnemyPoolHandler _poolHandler;
 
         public bool CanShoot => _shootDelayCounter <= 0;
-
-        private void Awake()
-        {
-            _poolHandler = GetComponent<EnemyPoolHandler>();
-        }
 
         private void Start()
         {
@@ -50,7 +44,7 @@ namespace Tanks.TankEnemy.Tank.Weapon
 
         private void ReturnMissile(BulletBase bullet)
         {
-            _poolHandler.Pool.GetMissile(bullet);
+            _poolHandler.Pool.ReleaseMissile(bullet);
             bullet.Destroyed -= ReturnMissile;
         }
 

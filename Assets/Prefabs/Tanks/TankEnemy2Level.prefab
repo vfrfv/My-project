@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: _enemy
       value: 
       objectReference: {fileID: 995816887960461617}
+    - target: {fileID: 2488291145062101472, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+      propertyPath: _poolHandler
+      value: 
+      objectReference: {fileID: 185715250599943817}
     - target: {fileID: 2952029081208349185, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: _enemy
       value: 
@@ -257,6 +261,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+--- !u!114 &185715250599943817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3860563261439287359, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+  m_PrefabInstance: {fileID: 3963364331430805174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e660ecb49120f2c4383de3709776af66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2904179153404378153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2255464837064802975, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}

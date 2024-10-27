@@ -1,28 +1,21 @@
 using Bullet;
 using System.Collections;
-using Tanks.TankPlayer;
 using UnityEngine;
 
 namespace Tanks.TankPlayer.Weapon
 {
-    [RequireComponent(typeof(PlayerPoolHandler))]
     public class PlayerWeapon : MonoBehaviour
     {
         [SerializeField] private Player _player;
         [SerializeField] private ParticleSystem _prefabShoot;
         [SerializeField] private AudioSource _shootSound;
+        [SerializeField] private PlayerPoolHandler _poolHandler;
 
         private Transform _shootPoint;
         private float _shootDelayCounter = 0;
         private readonly float _shootDelayInSeconds = 1;
-        private PlayerPoolHandler _poolHandler;
 
         public bool CanShoot => _shootDelayCounter <= 0;
-
-        private void Awake()
-        {
-            _poolHandler = GetComponent<PlayerPoolHandler>();
-        }
 
         public void InstallShootPoint(Transform shootPoint)
         {
@@ -52,7 +45,7 @@ namespace Tanks.TankPlayer.Weapon
         private void ReturnMissile(BulletBase bullet)
         {
             bullet.Destroyed -= ReturnMissile;
-            _poolHandler.Pool.GetMissile(bullet);
+            _poolHandler.Pool.ReleaseMissile(bullet);
         }
 
         private IEnumerator StartCooldown()

@@ -30,7 +30,7 @@ public abstract class BulletPoolBase<T> where T : BulletBase
         return bullet;
     }
 
-    public void GetMissile(BulletBase bullet)
+    public void ReleaseMissile(BulletBase bullet)
     {
         bullet.gameObject.SetActive(false);
         _bulletQueue.Enqueue(bullet);

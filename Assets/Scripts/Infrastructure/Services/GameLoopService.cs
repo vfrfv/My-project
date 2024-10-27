@@ -17,7 +17,7 @@ namespace Infrastructure.Services
             levelProgressService.Improved += OnImproved;
         }
 
-        public void OnEnemiesDie(Enemy enemy)
+        public void AddPlayerProgress(Enemy enemy)
         {
             enemy.Died += _playerLevelProgressService.AddProgress;
         }

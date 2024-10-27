@@ -28,7 +28,7 @@ namespace Infrastructure.Zones
                     _enemies.Add(enemy);
                     NumberEnemiesHasChanged?.Invoke();
                     enemy.Died += RemoveEnemy;
-                    _loopService.OnEnemiesDie(enemy);
+                    _loopService.AddPlayerProgress(enemy);
 
                     UpdateBarrierState();
                 }
