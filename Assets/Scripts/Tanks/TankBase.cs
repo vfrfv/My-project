@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Tanks
 {
-    public abstract class TankBase : MonoBehaviour, IValue
+    public abstract class TankBase : Health, IValue
     {
         private int _maxHealth;
         private int _health;

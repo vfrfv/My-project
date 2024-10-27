@@ -7,7 +7,7 @@ namespace Bar
     [RequireComponent(typeof(Slider))]
     public class SmoothBar : MonoBehaviour
     {
-        [SerializeField] private GameObject _helthSourse;
+        [SerializeField] private Health _helthSourse;
 
         private IValue _value;
         private Coroutine _coroutine;
