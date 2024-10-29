@@ -152,6 +152,7 @@ MonoBehaviour:
   _playerMovementSource: {fileID: 0}
   _fadeDuration: 0.01
   _sfxAudioSourcePrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _shootSound: {fileID: 9181661634936471905}
   _playerDeathSound: {fileID: 0}
   _enemyDeathSound: {fileID: 8300000, guid: b1ef5c5eb330454499bfb4379c76b435, type: 3}
 --- !u!114 &7450243977378598840
@@ -229,6 +230,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 185715250599943817}
     - target: {fileID: 2488291145062101472, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+      propertyPath: _soundController
+      value: 
+      objectReference: {fileID: 4856745429696772481}
+    - target: {fileID: 2488291145062101472, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: _effectsController
       value: 
       objectReference: {fileID: 7450243977378598840}
@@ -280,5 +285,10 @@ MonoBehaviour:
 --- !u!4 &2904179153404378153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2255464837064802975, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+  m_PrefabInstance: {fileID: 3963364331430805174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &9181661634936471905 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5218372620597755863, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
   m_PrefabInstance: {fileID: 3963364331430805174}
   m_PrefabAsset: {fileID: 0}

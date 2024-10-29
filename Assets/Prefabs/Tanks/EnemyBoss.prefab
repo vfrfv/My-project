@@ -349,6 +349,7 @@ MonoBehaviour:
   _playerMovementSource: {fileID: 0}
   _fadeDuration: 0.01
   _sfxAudioSourcePrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _shootSound: {fileID: 9015450548998994611}
   _playerDeathSound: {fileID: 0}
   _enemyDeathSound: {fileID: 8300000, guid: b1ef5c5eb330454499bfb4379c76b435, type: 3}
 --- !u!114 &8991669467032472918
@@ -828,8 +829,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 5144443670778522878}
-  _shootSound: {fileID: 9015450548998994611}
   _effectsController: {fileID: 8991669467032472918}
+  _soundController: {fileID: 11073038562987498}
   _shootDelayInSeconds: 1
   _enemy: {fileID: 5421898125293843092}
   _poolHandler: {fileID: 6485896422880355663}

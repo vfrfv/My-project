@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 3633557088143224674}
   - component: {fileID: 3504585678893009613}
   - component: {fileID: 4224716626981752343}
+  - component: {fileID: 4784871900206672768}
   m_Layer: 6
   m_Name: TankConteiner
   m_TagString: Untagged
@@ -138,9 +139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a3894a26d42624e9039aee9966e0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shootPoint: {fileID: 0}
+  _effectsController: {fileID: 4784871900206672768}
+  _soundController: {fileID: 4224716626981752343}
+  _shootDelayInSeconds: 1
   _player: {fileID: 5290381123530719263}
-  _prefabShoot: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
-  _shootSound: {fileID: 1691964373851512852}
+  _poolHandler: {fileID: 7997094938824878354}
 --- !u!65 &7499043151605965738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -448,5 +452,20 @@ MonoBehaviour:
   _playerMovementSource: {fileID: 3093937552135192153}
   _fadeDuration: 0.01
   _sfxAudioSourcePrefab: {fileID: 8915160236466481339, guid: 40c6ac62281cb614c97e02357a1f3178, type: 3}
+  _shootSound: {fileID: 1691964373851512852}
   _playerDeathSound: {fileID: 8300000, guid: 5689676c239874e488fee41403207744, type: 3}
   _enemyDeathSound: {fileID: 0}
+--- !u!114 &4784871900206672768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377104138623805303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8680b8b01b48c2a4db4eace3240dd403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabExplosionEffect: {fileID: 0}
+  _prefabShootEffect: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}

@@ -8,8 +8,9 @@ namespace Tanks.TankPlayer.Weapon
     {
         [SerializeField] protected Transform _shootPoint;
         //[SerializeField] protected ParticleSystem _prefabShoot;
-        [SerializeField] protected AudioSource _shootSound;
+        //[SerializeField] protected AudioSource _shootSound;
         [SerializeField] protected EffectsController _effectsController;
+        [SerializeField] protected SoundController _soundController;
         [SerializeField] protected float _shootDelayInSeconds = 1;
 
         protected float _shootDelayCounter = 0;
@@ -24,24 +25,13 @@ namespace Tanks.TankPlayer.Weapon
 
             BulletBase bullet = CreateBullet();
             _effectsController.PlayShootEffect(_shootPoint.transform);
-            PlayShootSound();
+            _soundController.PlayShootSound();
             bullet.Destroyed += ReturnMissile;
 
             StartCoroutine(StartCooldown());
         }
 
         protected abstract BulletBase CreateBullet();
-
-        //protected virtual void PlayShootEffect()
-        //{
-        //    var shootEffect = Instantiate(_prefabShoot, _shootPoint.position, _shootPoint.rotation);
-        //    Destroy(shootEffect.gameObject, 1);
-        //}
-
-        protected virtual void PlayShootSound()
-        {
-            _shootSound.Play();
-        }
 
         protected abstract void ReturnMissile(BulletBase bullet);
 
