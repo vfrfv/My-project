@@ -2,7 +2,6 @@ using Bullet.PlayerBullet;
 using ScriptableObjects;
 using System;
 using Tanks.TankPlayer;
-using Tanks.TankPlayer.Movement;
 using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank
@@ -52,7 +51,7 @@ namespace Tanks.TankEnemy.Tank
         protected override void Die()
         {
             Died?.Invoke(this);
-   
+
             _soundController.PlaySoundEnemyDeath();
             _effectsController.ReproduceTankExplosion();
 

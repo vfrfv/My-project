@@ -1,5 +1,4 @@
 using Tanks.TankEnemy.Tank.Weapon;
-using Tanks.TankPlayer;
 using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank
