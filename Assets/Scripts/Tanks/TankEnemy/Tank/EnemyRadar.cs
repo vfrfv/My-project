@@ -1,59 +1,41 @@
-using System.Collections;
 using Tanks.TankPlayer;
 using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank
 {
-    public class EnemyRadar : MonoBehaviour
+    public class EnemyRadar : TankRadarBase
     {
-        [SerializeField] private LayerMask _mask;
-        [SerializeField] private LayerMask _obstacleMask;
         [SerializeField] private Enemy _enemy;
 
-        private readonly float _fieldView = 15f;
-
-        public float FieldView => _fieldView;
-
-        private void OnEnable()
+        protected override void SetTarget(Collider target)
         {
-            StartCoroutine(StartScanning());
-        }
-
-        private IEnumerator StartScanning()
-        {
-            float amountDelay = 0.3f;
-            var delay = new WaitForSeconds(amountDelay);
-
-            while (_enemy.Player == null)
+            if (target.TryGetComponent(out Player player))
             {
-                Detect();
-
-                yield return delay;
+                _enemy.SetTarget(player);
             }
         }
 
-        private void Detect()
+        protected override bool IsValidTarget(Collider collider, out Collider target)
         {
-            RaycastHit _1;
-
-            Collider[] colliders = Physics.OverlapSphere(transform.position, _fieldView, _mask);
-
-            foreach (var collider in colliders)
+            if (collider.TryGetComponent(out Player player))
             {
-                if (collider.TryGetComponent(out Player player))
-                {
-                    if (!Physics.Raycast(
-                        transform.position,
-                        (player.transform.position - transform.position).normalized,
-                        out _1,
-                        _fieldView,
-                        _obstacleMask,
-                        queryTriggerInteraction: QueryTriggerInteraction.Collide))
-                    {
-                        _enemy.SetTarget(player);
-                        return;
-                    }
-                }
+                target = collider;
+                return true;
+            }
+            target = null;
+            return false;
+        }
+
+        protected override float GetScanningDelay()
+        {
+            return 0.3f;
+        }
+
+        private void Update()
+        {
+            if (_enemy.Player != null)
+            {
+                StopCoroutine(StartScanning());
             }
         }
     }
