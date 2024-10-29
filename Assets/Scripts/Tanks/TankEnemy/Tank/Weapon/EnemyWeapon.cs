@@ -4,57 +4,33 @@ using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank.Weapon
 {
-    public class EnemyWeapon : MonoBehaviour
+    public class EnemyWeapon : WeaponBase
     {
-        [SerializeField] private Transform _shootPoint;
         [SerializeField] private Enemy _enemy;
-        [SerializeField] private ParticleSystem _prefabShoot;
-        [SerializeField] private AudioSource _shootSound;
         [SerializeField] private EnemyPoolHandler _poolHandler;
-
-        private float _shootDelayCounter = 0;
-        private float _shootDelayInSeconds;
-
-        public bool CanShoot => _shootDelayCounter <= 0;
 
         private void Start()
         {
             _shootDelayInSeconds = _enemy.ShootDelayInSeconds;
         }
 
-        public void Shoot()
+        public new void Shoot()
         {
-            if (CanShoot == false)
-            {
-                return;
-            }
+            base.Shoot();
+        }
 
-            _shootDelayCounter = _shootDelayInSeconds;
-
-            BulletBase bullet = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
-            ParticleSystem shootEffect = Instantiate(_prefabShoot, _shootPoint.transform.position, _shootPoint.transform.rotation);
-            Destroy(shootEffect.gameObject, 1);
-
-            _shootSound.Play();
+        protected override BulletBase CreateBullet()
+        {
+            BulletBase bullet = _poolHandler.Pool.GiveMissile(_shootPoint.position, _shootPoint.rotation);
             bullet.SetDamage(_enemy.Damage);
-            bullet.Destroyed += ReturnMissile;
 
-            StartCoroutine(StartCooldown());
+            return bullet;
         }
 
-        private void ReturnMissile(BulletBase bullet)
+        protected override void ReturnMissile(BulletBase bullet)
         {
-            _poolHandler.Pool.ReleaseMissile(bullet);
             bullet.Destroyed -= ReturnMissile;
-        }
-
-        private IEnumerator StartCooldown()
-        {
-            while (CanShoot == false)
-            {
-                yield return null;
-                _shootDelayCounter -= Time.fixedDeltaTime;
-            }
+            _poolHandler.Pool.ReleaseMissile(bullet);
         }
     }
 }

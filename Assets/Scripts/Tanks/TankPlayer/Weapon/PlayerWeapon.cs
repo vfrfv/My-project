@@ -4,57 +4,33 @@ using UnityEngine;
 
 namespace Tanks.TankPlayer.Weapon
 {
-    public class PlayerWeapon : MonoBehaviour
+    public class PlayerWeapon : WeaponBase
     {
         [SerializeField] private Player _player;
-        [SerializeField] private ParticleSystem _prefabShoot;
-        [SerializeField] private AudioSource _shootSound;
         [SerializeField] private PlayerPoolHandler _poolHandler;
-
-        private Transform _shootPoint;
-        private float _shootDelayCounter = 0;
-        private readonly float _shootDelayInSeconds = 1;
-
-        public bool CanShoot => _shootDelayCounter <= 0;
 
         public void InstallShootPoint(Transform shootPoint)
         {
             _shootPoint = shootPoint;
         }
 
-        public void Shoot()
+        public new void Shoot()
         {
-            if (CanShoot == false)
-            {
-                return;
-            }
-
-            _shootDelayCounter = _shootDelayInSeconds;
-
-            BulletBase bullet = _poolHandler.Pool.GiveMissile(_shootPoint.transform.position, _shootPoint.transform.rotation);
-            ParticleSystem shootEffect = Instantiate(_prefabShoot, _shootPoint.transform.position, _shootPoint.transform.rotation);
-            Destroy(shootEffect.gameObject, 1);
-
-            _shootSound.Play();
-            bullet.SetDamage(_player.Damage);
-            bullet.Destroyed += ReturnMissile;
-
-            StartCoroutine(StartCooldown());
+            base.Shoot();
         }
 
-        private void ReturnMissile(BulletBase bullet)
+        protected override BulletBase CreateBullet()
+        {
+            BulletBase bullet = _poolHandler.Pool.GiveMissile(_shootPoint.position, _shootPoint.rotation);
+            bullet.SetDamage(_player.Damage);
+
+            return bullet;
+        }
+
+        protected override void ReturnMissile(BulletBase bullet)
         {
             bullet.Destroyed -= ReturnMissile;
             _poolHandler.Pool.ReleaseMissile(bullet);
-        }
-
-        private IEnumerator StartCooldown()
-        {
-            while (CanShoot == false)
-            {
-                yield return null;
-                _shootDelayCounter -= Time.fixedDeltaTime;
-            }
         }
     }
 }
