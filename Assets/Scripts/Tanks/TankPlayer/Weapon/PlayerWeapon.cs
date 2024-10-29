@@ -1,5 +1,4 @@
 using Bullet;
-using System.Collections;
 using UnityEngine;
 
 namespace Tanks.TankPlayer.Weapon

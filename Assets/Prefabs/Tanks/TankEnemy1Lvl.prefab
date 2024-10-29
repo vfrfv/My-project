@@ -953,6 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabExplosionEffect: {fileID: 19800006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
+  _prefabShootEffect: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
 --- !u!1 &6921253446499476620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,9 +1067,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 5314317363372448151}
-  _enemy: {fileID: 3577128622675474931}
-  _prefabShoot: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
   _shootSound: {fileID: 8671765687542703896}
+  _effectsController: {fileID: 6357570090954944304}
+  _shootDelayInSeconds: 1
+  _enemy: {fileID: 3577128622675474931}
   _poolHandler: {fileID: 1482395659158998732}
 --- !u!82 &8671765687542703896
 AudioSource:

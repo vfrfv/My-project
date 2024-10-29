@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabExplosionEffect: {fileID: 19800006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
+  _prefabShootEffect: {fileID: 19800008, guid: 8f611da60097c85438a2947021f045cf, type: 3}
 --- !u!1001 &3963364331430805174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +228,10 @@ PrefabInstance:
       propertyPath: _poolHandler
       value: 
       objectReference: {fileID: 185715250599943817}
+    - target: {fileID: 2488291145062101472, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
+      propertyPath: _effectsController
+      value: 
+      objectReference: {fileID: 7450243977378598840}
     - target: {fileID: 2952029081208349185, guid: d57394b1f313fb4499c21c40afd3d368, type: 3}
       propertyPath: _enemy
       value: 

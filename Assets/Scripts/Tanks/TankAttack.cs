@@ -1,31 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TankAttack : MonoBehaviour
+namespace Tanks
 {
-    protected Transform _target;
-    protected readonly float _angleThreshold;
-
-    protected TankAttack(float angleThreshold)
+    public abstract class TankAttack : MonoBehaviour
     {
-        _angleThreshold = angleThreshold;
-    }
+        protected Transform _target;
+        protected readonly float _angleThreshold;
 
-    protected void LookAtDirection(Vector3 targetPosition, Transform turretTransform)
-    {
-        if (targetPosition != null)
+        protected TankAttack(float angleThreshold)
         {
-            Vector3 direction = targetPosition - turretTransform.position;
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            turretTransform.rotation = targetRotation;
+            _angleThreshold = angleThreshold;
         }
-    }
 
-    protected bool IsTurretFacingTarget(Vector3 targetPosition, Transform turretTransform)
-    {
-        Vector3 directionToTarget = targetPosition - turretTransform.position;
-        float angle = Vector3.Angle(turretTransform.forward, directionToTarget);
-        return angle <= _angleThreshold;
+        protected void LookAtDirection(Vector3 targetPosition, Transform turretTransform)
+        {
+            if (targetPosition != null)
+            {
+                Vector3 direction = targetPosition - turretTransform.position;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                turretTransform.rotation = targetRotation;
+            }
+        }
+
+        protected bool IsTurretFacingTarget(Vector3 targetPosition, Transform turretTransform)
+        {
+            Vector3 directionToTarget = targetPosition - turretTransform.position;
+            float angle = Vector3.Angle(turretTransform.forward, directionToTarget);
+            return angle <= _angleThreshold;
+        }
     }
 }

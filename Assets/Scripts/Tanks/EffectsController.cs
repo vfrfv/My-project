@@ -1,16 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectsController : MonoBehaviour
+namespace Tanks
 {
-    [SerializeField] private ParticleSystem _prefabExplosionEffect;
-
-    private int _destructionTimer = 2;
-
-    public void ReproduceTankExplosion()
+    public class EffectsController : MonoBehaviour
     {
-        ParticleSystem explosionEffect = Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
-        Destroy(explosionEffect.gameObject, _destructionTimer);
+        [SerializeField] private ParticleSystem _prefabExplosionEffect;
+        [SerializeField] protected ParticleSystem _prefabShootEffect;
+
+        private int _timerDestroyingDeathEffect = 2;
+        private int _timerDestroyingEffectShot = 1;
+
+        public void ReproduceTankExplosion()
+        {
+            ParticleSystem explosionEffect = Instantiate(_prefabExplosionEffect, transform.position, Quaternion.identity);
+            Destroy(explosionEffect.gameObject, _timerDestroyingDeathEffect);
+        }
+
+        public void PlayShootEffect(Transform shootPoint)
+        {
+            ParticleSystem shootEffect = Instantiate(_prefabShootEffect, shootPoint.position, shootPoint.rotation);
+            Destroy(shootEffect.gameObject, _timerDestroyingEffectShot);
+        }
     }
 }
