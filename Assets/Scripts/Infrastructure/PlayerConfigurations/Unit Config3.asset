@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebeb1ccc044c9c848becfa83b32c6f38, type: 3}
   m_Name: Unit Config3
   m_EditorClassIdentifier: 
-  _TankModelPrefab: {fileID: 7192572984787097886, guid: 912d9934ff9b55542b900f284d1094f2, type: 3}
+  _tankModelPrefab: {fileID: 7192572984787097886, guid: 912d9934ff9b55542b900f284d1094f2, type: 3}
   _health: 13
   _damage: 1
   _shootDelayInSeconds: 0
