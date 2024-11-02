@@ -3,7 +3,6 @@ using ScriptableObjects;
 using System;
 using Tanks.TankEnemy.Tank;
 using Tanks.TankPlayer.Movement;
-using Tanks.TankPlayer.Weapon;
 using UnityEngine;
 
 namespace Tanks.TankPlayer
@@ -11,7 +10,7 @@ namespace Tanks.TankPlayer
     public class Player : TankBase
     {
         [SerializeField] private PlayerAttack _playerAttack;
-        [SerializeField] private PlayerWeapon _playerWeapon;
+        [SerializeField] private Weapon _playerWeapon;
         [SerializeField] private Transform _parentTransform;
         [SerializeField] private SoundController _soundController;
         [SerializeField] private AnimationController animationController;

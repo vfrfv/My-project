@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Bullet
 {
-    public abstract class BulletBase : MonoBehaviour
+    public abstract class Bullet : MonoBehaviour
     {
         [SerializeField] private float _flightSpeed = 7;
 
@@ -11,7 +11,7 @@ namespace Bullet
 
         public int Damage => _damage;
 
-        public event Action<BulletBase> Destroyed;
+        public event Action<Bullet> Destroyed;
 
         private void Update()
         {

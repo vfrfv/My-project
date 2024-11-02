@@ -1,6 +1,6 @@
 namespace Bullet.PlayerBullet
 {
-    public class PlayerBullet : BulletBase
+    public class PlayerBullet : Bullet
     {
     }
 }

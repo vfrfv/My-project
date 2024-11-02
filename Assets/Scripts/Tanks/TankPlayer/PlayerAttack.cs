@@ -1,12 +1,10 @@
-using Tanks.TankEnemy.Tank;
-using Tanks.TankPlayer.Weapon;
 using UnityEngine;
 
 namespace Tanks.TankPlayer
 {
     public class PlayerAttack : TankAttack
     {
-        [SerializeField] private PlayerWeapon _weapon;
+        [SerializeField] private Weapon _weapon;
         [SerializeField] private Player _player;
         private Transform _tower;
 
