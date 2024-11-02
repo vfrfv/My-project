@@ -6,6 +6,7 @@ namespace Tanks.TankPlayer
 {
     public class Attack : MonoBehaviour
     {
+        [SerializeField] private TankType _type;
         [SerializeField] private Weapon _weapon;
         [SerializeField] private TankBase _tank;
         [SerializeField] private readonly float _angleThreshold = 5.0f;
@@ -16,12 +17,15 @@ namespace Tanks.TankPlayer
         {
             if (_tank.Target != null)
             {
-                LookAtDirection(_tank.Target);
-
-                if (IsTurretFacingTarget(_tank.Target))
+                if(_tank.Target.Type == _type)
                 {
-                    _weapon.Shoot();
-                }
+                    LookAtDirection(_tank.Target);
+
+                    if (IsTurretFacingTarget(_tank.Target))
+                    {
+                        _weapon.Shoot();
+                    }
+                } 
             }
         }
 

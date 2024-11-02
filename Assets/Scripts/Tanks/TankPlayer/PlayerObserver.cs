@@ -1,5 +1,6 @@
 using Infrastructure.Zones;
 using System.Collections;
+using Tanks.TankEnemy.Tank;
 using Tanks.TankPlayer.Movement;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ namespace Tanks.TankPlayer
 {
     public class PlayerObserver : MonoBehaviour
     {
-        [SerializeField] private PlayerRadar _playerRadar;
-        [SerializeField] private Attack _playerAttask;
+        [SerializeField] private Radar _radar;
+        [SerializeField] private Attack _attask;
         [SerializeField] private TankBase _tank;
         [SerializeField] private PlayerTankController _playerTankController;
         [SerializeField] private AnimationController _playerAnimationController;
@@ -27,10 +28,10 @@ namespace Tanks.TankPlayer
             {
                 if (_tank.Target != null)
                 {
-                    if (Vector3.Distance(transform.position, _tank.Target.transform.position) < _playerRadar.FieldView)
+                    if (Vector3.Distance(transform.position, _tank.Target.transform.position) < _radar.FieldView)
                     {
-                        _playerRadar.enabled = false;
-                        _playerAttask.enabled = true;
+                        _radar.enabled = false;
+                        _attask.enabled = true;
                     }
                     else
                     {
@@ -39,8 +40,8 @@ namespace Tanks.TankPlayer
                 }
                 else
                 {
-                    _playerRadar.enabled = true;
-                    _playerAttask.enabled = false;
+                    _radar.enabled = true;
+                    _attask.enabled = false;
                 }
 
                 yield return null;
@@ -53,11 +54,11 @@ namespace Tanks.TankPlayer
             {
                 StopCoroutine(_coroutine);
 
-                _playerRadar.enabled = false;
+                _radar.enabled = false;
                 _playerTankController.enabled = false;
                 _playerAnimationController.DisableMotionAnimation();
 
-                _playerAttask.enabled = true;
+                _attask.enabled = true;
             }
         }
     }
