@@ -15,10 +15,8 @@ namespace Tanks.TankPlayer
         [SerializeField] private SoundController _soundController;
         [SerializeField] private AnimationController animationController;
 
-        private Enemy _target;
         private TankModel _model;
 
-        public Enemy Target => _target;
         public event Action Died;
 
         protected override void Start()
@@ -34,15 +32,6 @@ namespace Tanks.TankPlayer
             }
         }
 
-        public void SetTarget(Enemy target)
-        {
-            _target = target;
-        }
-
-        public void LoseTarget()
-        {
-            _target = null;
-        }
 
         public override void Init(UnitConfig unitConfig)
         {

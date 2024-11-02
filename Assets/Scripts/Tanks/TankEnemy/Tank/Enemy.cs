@@ -6,16 +6,14 @@ using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank
 {
-    public class Enemy : TankBase
+    public class Enemy : Tanks.TankBase
     {
         [SerializeField] private UnitConfig _unitConfig;
         [SerializeField] private EffectsController _effectsController;
         [SerializeField] private SoundController _soundController;
 
-        private Player _target;
         private float _shootDelayInSeconds;
 
-        public Player Player => _target;
         public float ShootDelayInSeconds => _shootDelayInSeconds;
 
         public event Action<Enemy> Died;
@@ -36,16 +34,6 @@ namespace Tanks.TankEnemy.Tank
             {
                 TakeDamage(bullet.Damage);
             }
-        }
-
-        public void SetTarget(Player target)
-        {
-            _target = target;
-        }
-
-        public void LosePlayer()
-        {
-            _target = null;
         }
 
         protected override void Die()

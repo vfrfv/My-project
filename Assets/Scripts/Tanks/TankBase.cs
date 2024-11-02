@@ -7,14 +7,20 @@ namespace Tanks
 {
     public abstract class TankBase : Health, IValue
     {
+        [SerializeField] private TankType _typeTank;
+
         private int _maxHealth;
         private int _health;
         private int _damage;
+        private TankBase _target;
         private TankModel _tankModel;
 
         public int Damage => _damage;
         public int Value => _health;
         public int MaxValue => _maxHealth;
+        public TankBase Target => _target;
+
+        public TankType Type => _typeTank;
 
         public event Action<int> Changed;
 
@@ -32,6 +38,16 @@ namespace Tanks
             _damage = unitConfig.Damage;
 
             Changed?.Invoke(_health);
+        }
+
+        public void SetTarget(TankBase target)
+        {
+            _target = target;
+        }
+
+        public void LoseTarget()
+        {
+            _target = null;
         }
 
         protected void TakeDamage(int damage)

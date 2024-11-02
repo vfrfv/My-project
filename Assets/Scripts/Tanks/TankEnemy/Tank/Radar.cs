@@ -1,14 +1,15 @@
 using System.Collections;
-using Tanks.TankEnemy.Tank;
+using Tanks.TankPlayer;
 using UnityEngine;
 
-namespace Tanks.TankPlayer
+namespace Tanks.TankEnemy.Tank
 {
-    public class PlayerRadar : MonoBehaviour
+    public class Radar : MonoBehaviour
     {
+        [SerializeField] private TankType _type;
         [SerializeField] private LayerMask _mask;
         [SerializeField] private LayerMask _obstacleMask;
-        [SerializeField] private Player _player;
+        [SerializeField] private Tanks.TankBase _tank;
 
         private readonly float _fieldView = 15f;
 
@@ -21,48 +22,42 @@ namespace Tanks.TankPlayer
 
         private IEnumerator StartScanning()
         {
-            float amountDelay = 0.1f;
+            float amountDelay = 0.3f;
             var delay = new WaitForSeconds(amountDelay);
 
-            while (true)
+            while (_tank.Target == null)
             {
                 Detect();
+
                 yield return delay;
             }
         }
 
         private void Detect()
         {
+            RaycastHit _1;
+
             Collider[] colliders = Physics.OverlapSphere(transform.position, _fieldView, _mask);
-            Enemy closestTarget = null;
-            float closestDistance = Mathf.Infinity;
 
             foreach (var collider in colliders)
             {
-                if (collider.TryGetComponent(out Enemy target))
+                if (collider.TryGetComponent(out TankBase tank))
                 {
-                    if (!Physics.Raycast(
+                    if(tank.Type == _type)
+                    {
+                        if (!Physics.Raycast(
                         transform.position,
-                        (target.transform.position - transform.position).normalized,
-                        out RaycastHit hit,
-                        15,
+                        (tank.transform.position - transform.position).normalized,
+                        out _1,
+                        _fieldView,
                         _obstacleMask,
                         queryTriggerInteraction: QueryTriggerInteraction.Collide))
-                    {
-                        float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
-
-                        if (distanceToTarget < closestDistance)
                         {
-                            closestDistance = distanceToTarget;
-                            closestTarget = target;
+                            _tank.SetTarget(tank);
+                            return;
                         }
-                    }
+                    } 
                 }
-            }
-
-            if (closestTarget != null)
-            {
-                _player.SetTarget(closestTarget);
             }
         }
     }

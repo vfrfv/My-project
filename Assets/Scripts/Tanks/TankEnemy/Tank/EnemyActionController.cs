@@ -4,7 +4,7 @@ namespace Tanks.TankEnemy.Tank
 {
     public class EnemyActionController : MonoBehaviour
     {
-        [SerializeField] private EnemyRadar _enemyRadar;
+        [SerializeField] private Radar _enemyRadar;
         [SerializeField] private EnemyAttack _enemyAttack;
 
         [SerializeField] private Enemy _enemy;
@@ -17,16 +17,16 @@ namespace Tanks.TankEnemy.Tank
 
         private void Update()
         {
-            if (_enemy.Player != null)
+            if (_enemy.Target != null)
             {
-                if (Vector3.Distance(transform.position, _enemy.Player.transform.position) < _enemyRadar.FieldView)
+                if (Vector3.Distance(transform.position, _enemy.Target.transform.position) < _enemyRadar.FieldView)
                 {
                     _enemyRadar.enabled = false;
                     _enemyAttack.enabled = true;
                 }
                 else
                 {
-                    _enemy.LosePlayer();
+                    _enemy.LoseTarget();
                 }
             }
             else

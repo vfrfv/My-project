@@ -9,7 +9,7 @@ namespace Tanks.TankPlayer
     {
         [SerializeField] private PlayerRadar _playerRadar;
         [SerializeField] private PlayerAttack _playerAttask;
-        [SerializeField] private Player _player;
+        [SerializeField] private TankBase _tank;
         [SerializeField] private PlayerTankController _playerTankController;
         [SerializeField] private AnimationController _playerAnimationController;
 
@@ -25,16 +25,16 @@ namespace Tanks.TankPlayer
         {
             while (true)
             {
-                if (_player.Target != null)
+                if (_tank.Target != null)
                 {
-                    if (Vector3.Distance(transform.position, _player.Target.transform.position) < _playerRadar.FieldView)
+                    if (Vector3.Distance(transform.position, _tank.Target.transform.position) < _playerRadar.FieldView)
                     {
                         _playerRadar.enabled = false;
                         _playerAttask.enabled = true;
                     }
                     else
                     {
-                        _player.LoseTarget();
+                        _tank.LoseTarget();
                     }
                 }
                 else

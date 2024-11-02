@@ -12,11 +12,11 @@ namespace Tanks.TankEnemy.Tank
 
         private void FixedUpdate()
         {
-            if (_enemy.Player != null)
+            if (_enemy.Target != null)
             {
-                LookAtDirection(_enemy.Player.transform.position, transform);
+                LookAtDirection(_enemy.Target.transform.position, transform);
 
-                if (IsTurretFacingTarget(_enemy.Player.transform.position, transform))
+                if (IsTurretFacingTarget(_enemy.Target.transform.position, transform))
                 {
                     _weapon.Shoot();
                 }
