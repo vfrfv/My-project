@@ -1,28 +1,29 @@
+using Tanks.TankPlayer;
 using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank
 {
     public class EnemyActionController : MonoBehaviour
     {
-        [SerializeField] private Radar _enemyRadar;
-        [SerializeField] private EnemyAttack _enemyAttack;
+        [SerializeField] private Radar _radar;
+        [SerializeField] private Attack _attack;
 
         [SerializeField] private Enemy _enemy;
 
         private void Start()
         {
-            _enemyRadar.enabled = true;
-            _enemyAttack.enabled = false;
+            _radar.enabled = true;
+            _attack.enabled = false;
         }
 
         private void Update()
         {
             if (_enemy.Target != null)
             {
-                if (Vector3.Distance(transform.position, _enemy.Target.transform.position) < _enemyRadar.FieldView)
+                if (Vector3.Distance(transform.position, _enemy.Target.transform.position) < _radar.FieldView)
                 {
-                    _enemyRadar.enabled = false;
-                    _enemyAttack.enabled = true;
+                    _radar.enabled = false;
+                    _attack.enabled = true;
                 }
                 else
                 {
@@ -31,8 +32,8 @@ namespace Tanks.TankEnemy.Tank
             }
             else
             {
-                _enemyRadar.enabled = true;
-                _enemyAttack.enabled = false;
+                _radar.enabled = true;
+                _attack.enabled = false;
             }
         }
     }

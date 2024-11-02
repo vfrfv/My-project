@@ -1,6 +1,7 @@
 using Bar;
 using System;
 using System.Collections;
+using Tanks.TankPlayer;
 using UnityEngine;
 
 namespace Tanks.TankEnemy.Tank.Turret
@@ -11,7 +12,7 @@ namespace Tanks.TankEnemy.Tank.Turret
         [SerializeField] private Enemy _bossEnemy;
         [SerializeField] private SmoothBar _smoothBar;
         [SerializeField] private AnimationCurve _curve;
-        [SerializeField] private EnemyAttack _enemyAttack;
+        [SerializeField] private Attack _enemyAttack;
 
         private float _points = 0;
         private float _totalPoints;
@@ -40,7 +41,7 @@ namespace Tanks.TankEnemy.Tank.Turret
             _bossEnemy.Died -= LaunchTower;
         }
 
-        private IEnumerator Fly(EnemyAttack enemyAttack)
+        private IEnumerator Fly(Attack enemyAttack)
         {
             Flew?.Invoke();
 

@@ -8,7 +8,7 @@ namespace Tanks.TankPlayer
     public class PlayerObserver : MonoBehaviour
     {
         [SerializeField] private PlayerRadar _playerRadar;
-        [SerializeField] private PlayerAttack _playerAttask;
+        [SerializeField] private Attack _playerAttask;
         [SerializeField] private TankBase _tank;
         [SerializeField] private PlayerTankController _playerTankController;
         [SerializeField] private AnimationController _playerAnimationController;

@@ -14,7 +14,7 @@ namespace Infrastructure.Zones
         [SerializeField] private CameraManagement _cameraManagement;
         [SerializeField] private SoundManager _soundManager;
         [SerializeField] private Enemy _boss;
-        [SerializeField] private EnemyAttack _bossAttack;
+        [SerializeField] private Attack _bossAttack;
         [SerializeField] private BoxCollider _playerBoxCollider;
         [SerializeField] private ProgressSaver _progressSaver;
 

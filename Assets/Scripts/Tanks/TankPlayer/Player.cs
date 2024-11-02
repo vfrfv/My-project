@@ -9,7 +9,7 @@ namespace Tanks.TankPlayer
 {
     public class Player : TankBase
     {
-        [SerializeField] private PlayerAttack _playerAttack;
+        [SerializeField] private Attack _playerAttack;
         [SerializeField] private Weapon _playerWeapon;
         [SerializeField] private Transform _parentTransform;
         [SerializeField] private SoundController _soundController;
