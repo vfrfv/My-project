@@ -10,8 +10,7 @@ namespace Tanks.TankPlayer
         [SerializeField] private Weapon _weapon;
         [SerializeField] private TankBase _tank;
         [SerializeField] private readonly float _angleThreshold = 5.0f;
-
-        private Transform _tower;
+        [SerializeField] private Transform _tower;
 
         private void FixedUpdate()
         {

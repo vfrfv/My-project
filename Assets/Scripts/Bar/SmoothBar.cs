@@ -34,7 +34,6 @@ namespace Bar
 
         public void Init(IValue health)
         {
-            _slider = GetComponent<Slider>();
             _slider.SetValueWithoutNotify(health.Value);
             _value = health;
             _value.Changed += Fill;
