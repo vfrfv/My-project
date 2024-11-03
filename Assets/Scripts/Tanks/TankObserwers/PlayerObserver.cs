@@ -1,9 +1,9 @@
 using Infrastructure.Zones;
+using Tanks.Controllers;
 using Tanks.TankEnemy.Tank;
-using Tanks.TankPlayer.Movement;
 using UnityEngine;
 
-namespace Tanks.TankPlayer
+namespace Tanks.TankObserwers
 {
     public class PlayerObserver : TankObserver
     {

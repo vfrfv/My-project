@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Tanks.TankPlayer.Movement
+namespace Tanks.Controllers
 {
     public class MovementController : MonoBehaviour
     {

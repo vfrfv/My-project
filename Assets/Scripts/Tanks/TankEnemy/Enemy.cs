@@ -1,12 +1,12 @@
 using Bullet.PlayerBullet;
 using ScriptableObjects;
 using System;
-using Tanks.TankPlayer;
+using Tanks.Controllers;
 using UnityEngine;
 
-namespace Tanks.TankEnemy.Tank
+namespace Tanks.TankEnemy
 {
-    public class Enemy : Tanks.TankBase
+    public class Enemy : TankBase
     {
         [SerializeField] private UnitConfig _unitConfig;
         [SerializeField] private EffectsController _effectsController;

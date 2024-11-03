@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Tanks.TankEnemy.Tank
+namespace Tanks.TankEnemy
 {
     public class EnemyTankMovement : MonoBehaviour
     {

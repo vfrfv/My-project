@@ -1,8 +1,6 @@
-using Tanks.TankEnemy.Tank;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-namespace Tanks.TankPlayer
+namespace Tanks
 {
     public class Attack : MonoBehaviour
     {
@@ -16,7 +14,7 @@ namespace Tanks.TankPlayer
         {
             if (_tank.Target != null)
             {
-                if(_tank.Target.Type == _type)
+                if (_tank.Target.Type == _type)
                 {
                     LookAtDirection(_tank.Target);
 
@@ -24,7 +22,7 @@ namespace Tanks.TankPlayer
                     {
                         _weapon.Shoot();
                     }
-                } 
+                }
             }
         }
 

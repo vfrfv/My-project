@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Tanks.TankPlayer.Movement
+namespace Tanks.Controllers
 {
     public class AnimationController : MonoBehaviour
     {

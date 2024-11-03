@@ -4,7 +4,7 @@ using System.Collections;
 using Tanks.TankPlayer;
 using UnityEngine;
 
-namespace Tanks.TankEnemy.Tank.Turret
+namespace Tanks.TankEnemy.Turret
 {
     public class FlightTower : MonoBehaviour
     {

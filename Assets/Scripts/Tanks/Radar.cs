@@ -1,8 +1,7 @@
 using System.Collections;
-using Tanks.TankPlayer;
 using UnityEngine;
 
-namespace Tanks.TankEnemy.Tank
+namespace Tanks
 {
     public class Radar : MonoBehaviour
     {
@@ -43,7 +42,7 @@ namespace Tanks.TankEnemy.Tank
             {
                 if (collider.TryGetComponent(out TankBase tank))
                 {
-                    if(tank.Type == _type)
+                    if (tank.Type == _type)
                     {
                         if (!Physics.Raycast(
                         transform.position,
@@ -56,7 +55,7 @@ namespace Tanks.TankEnemy.Tank
                             _tank.SetTarget(tank);
                             return;
                         }
-                    } 
+                    }
                 }
             }
         }

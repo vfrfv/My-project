@@ -1,8 +1,8 @@
-using Bullet;
 using System.Collections;
+using Tanks.Controllers;
 using UnityEngine;
 
-namespace Tanks.TankPlayer
+namespace Tanks
 {
     public sealed class Weapon : MonoBehaviour
     {

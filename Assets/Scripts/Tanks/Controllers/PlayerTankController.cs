@@ -1,6 +1,7 @@
+using InputPlayer;
 using UnityEngine;
 
-namespace Tanks.TankPlayer.Movement
+namespace Tanks.Controllers
 {
     public class PlayerTankController : MonoBehaviour
     {

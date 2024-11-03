@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Tanks
+namespace Tanks.Controllers
 {
     public class SoundController : MonoBehaviour
     {

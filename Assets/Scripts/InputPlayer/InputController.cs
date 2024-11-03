@@ -1,7 +1,7 @@
 using Agava.WebUtility;
 using UnityEngine;
 
-namespace Tanks.TankPlayer.Movement
+namespace InputPlayer
 {
     public class InputController : MonoBehaviour
     {

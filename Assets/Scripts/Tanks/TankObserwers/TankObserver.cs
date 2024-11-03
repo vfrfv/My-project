@@ -1,8 +1,9 @@
 using System.Collections;
+using Tanks.TankEnemy.Tank;
 using Tanks.TankPlayer;
 using UnityEngine;
 
-namespace Tanks.TankEnemy.Tank
+namespace Tanks.TankObserwers
 {
     public class TankObserver : MonoBehaviour
     {

@@ -1,8 +1,7 @@
 using Bullet.EnemyBullet;
 using ScriptableObjects;
 using System;
-using Tanks.TankEnemy.Tank;
-using Tanks.TankPlayer.Movement;
+using Tanks.Controllers;
 using UnityEngine;
 
 namespace Tanks.TankPlayer

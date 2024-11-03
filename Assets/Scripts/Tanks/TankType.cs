@@ -1,5 +1,8 @@
-public enum TankType
+namespace Tanks
 {
-    Player,
-    Enemy
+    public enum TankType
+    {
+        Player,
+        Enemy
+    }
 }
