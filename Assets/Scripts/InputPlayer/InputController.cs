@@ -26,22 +26,15 @@ namespace Tanks.TankPlayer.Movement
 
         public Vector2 GetInputDirection()
         {
-            if (Device.IsMobile)
-            {
-                if (!_joystick.gameObject.activeSelf)
-                {
-                    _joystick.gameObject.SetActive(true);
-                }
+            bool isMobile = Device.IsMobile;
+            _joystick.gameObject.SetActive(isMobile);
 
+            if (isMobile)
+            {
                 return _joystick.Direction;
             }
             else
             {
-                if (_joystick.gameObject.activeSelf)
-                {
-                    _joystick.gameObject.SetActive(false);
-                }
-
                 return _inputsPlayer.Player.Move.ReadValue<Vector2>();
             }
         }

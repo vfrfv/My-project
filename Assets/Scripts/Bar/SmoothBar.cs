@@ -23,8 +23,6 @@ namespace Bar
             }
 
             Init(_helthSourse.GetComponent<IValue>());
-
-            _slider = GetComponent<Slider>();
         }
 
         private void OnDestroy()

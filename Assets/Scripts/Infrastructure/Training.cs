@@ -1,6 +1,7 @@
 using Agava.WebUtility;
 using Infrastructure.Zones;
 using System.Collections;
+using System.Reflection.Emit;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,28 +56,28 @@ namespace Infrastructure
             {
                 if (Device.IsMobile)
                 {
-                    _imageArm.gameObject.SetActive(true);
+                    ShowControl(_imageArm);
 
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        _imageArm.gameObject.SetActive(false);
-                        _isPressed = true;
-                        StartCoroutine(ShowSlideSequence());
-                    }
+                    _imageArm.gameObject.SetActive(true);
                 }
                 else
                 {
-                    _imageKeys.gameObject.SetActive(true);
-
-                    if (Input.anyKeyDown)
-                    {
-                        _imageKeys.gameObject.SetActive(false);
-                        _isPressed = true;
-                        StartCoroutine(ShowSlideSequence());
-                    }
+                    ShowControl(_imageKeys);
                 }
 
                 yield return null;
+            }
+        }
+
+        private void ShowControl(Image image)
+        {
+            image.gameObject.SetActive(true);
+
+            if (Input.anyKeyDown)
+            {
+                image.gameObject.SetActive(false);
+                _isPressed = true;
+                StartCoroutine(ShowSlideSequence());
             }
         }
 
