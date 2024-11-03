@@ -55,26 +55,28 @@ namespace Infrastructure
             {
                 if (Device.IsMobile)
                 {
-                    ShowManagementTool(_imageArm);
+                    _imageArm.gameObject.SetActive(true);
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        _imageArm.gameObject.SetActive(false);
+                        _isPressed = true;
+                        StartCoroutine(ShowSlideSequence());
+                    }
                 }
                 else
                 {
-                    ShowManagementTool(_imageKeys);
+                    _imageKeys.gameObject.SetActive(true);
+
+                    if (Input.anyKeyDown)
+                    {
+                        _imageKeys.gameObject.SetActive(false);
+                        _isPressed = true;
+                        StartCoroutine(ShowSlideSequence());
+                    }
                 }
 
                 yield return null;
-            }
-        }
-
-        private void ShowManagementTool(Image image)
-        {
-            image.gameObject.SetActive(true);
-
-            if (Input.anyKeyDown)
-            {
-                image.gameObject.SetActive(false);
-                _isPressed = true;
-                StartCoroutine(ShowSlideSequence());
             }
         }
 
