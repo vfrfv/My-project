@@ -3,7 +3,6 @@ using Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using Tanks.TankEnemy;
-using Tanks.TankEnemy.Tank;
 using UnityEngine;
 
 namespace Infrastructure.Zones

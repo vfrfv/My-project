@@ -1,6 +1,4 @@
 using System.Collections;
-using Tanks.TankEnemy.Tank;
-using Tanks.TankPlayer;
 using UnityEngine;
 
 namespace Tanks.TankObserwers

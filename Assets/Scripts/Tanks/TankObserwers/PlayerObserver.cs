@@ -1,6 +1,5 @@
 using Infrastructure.Zones;
 using Tanks.Controllers;
-using Tanks.TankEnemy.Tank;
 using UnityEngine;
 
 namespace Tanks.TankObserwers

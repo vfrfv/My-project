@@ -1,6 +1,5 @@
 using System;
 using Tanks.TankEnemy;
-using Tanks.TankEnemy.Tank;
 
 namespace Infrastructure.Services
 {

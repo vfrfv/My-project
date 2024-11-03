@@ -1,7 +1,6 @@
 using Bar;
 using System;
 using System.Collections;
-using Tanks.TankPlayer;
 using UnityEngine;
 
 namespace Tanks.TankEnemy.Turret
