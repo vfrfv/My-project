@@ -6,7 +6,7 @@ namespace Tanks
 {
     public sealed class Weapon : MonoBehaviour
     {
-        [SerializeField] private Bullet.Bullet _bulletPrefab;
+        [SerializeField] private Bullets.Bullet _bulletPrefab;
         [SerializeField] private TankBase _tank;
         [SerializeField] private Transform _shootPoint;
         [SerializeField] private EffectsController _effectsController;
@@ -34,7 +34,7 @@ namespace Tanks
 
             _shootDelayCounter = _shootDelayInSeconds;
 
-            Bullet.Bullet bullet = CreateBullet();
+            Bullets.Bullet bullet = CreateBullet();
             _effectsController.PlayShootEffect(_shootPoint.transform);
             _soundController.PlayShootSound();
             bullet.Destroyed += ReturnMissile;
@@ -42,15 +42,15 @@ namespace Tanks
             StartCoroutine(StartCooldown());
         }
 
-        private Bullet.Bullet CreateBullet()
+        private Bullets.Bullet CreateBullet()
         {
-            Bullet.Bullet bullet = _bulletPool.GiveMissile(_shootPoint.position, _shootPoint.rotation);
+            Bullets.Bullet bullet = _bulletPool.GiveMissile(_shootPoint.position, _shootPoint.rotation);
             bullet.SetDamage(_tank.Damage);
 
             return bullet;
         }
 
-        private void ReturnMissile(Bullet.Bullet bullet)
+        private void ReturnMissile(Bullets.Bullet bullet)
         {
             bullet.Destroyed -= ReturnMissile;
             _bulletPool.ReleaseMissile(bullet);

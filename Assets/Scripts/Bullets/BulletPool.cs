@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class BulletPool
 {
-    private readonly Bullet.Bullet _prefabBullet;
-    private readonly Queue<Bullet.Bullet> _bulletQueue;
+    private readonly Bullets.Bullet _prefabBullet;
+    private readonly Queue<Bullets.Bullet> _bulletQueue;
 
-    public BulletPool(Bullet.Bullet prefabBullet)
+    public BulletPool(Bullets.Bullet prefabBullet)
     {
         _prefabBullet = prefabBullet ?? throw new ArgumentNullException(nameof(prefabBullet));
-        _bulletQueue = new Queue<Bullet.Bullet>();
+        _bulletQueue = new Queue<Bullets.Bullet>();
     }
 
-    public Bullet.Bullet GiveMissile(Vector3 position, Quaternion rotation)
+    public Bullets.Bullet GiveMissile(Vector3 position, Quaternion rotation)
     {
         if (_bulletQueue.Count < 1)
         {
             CreateMissile();
         }
 
-        Bullet.Bullet bullet = _bulletQueue.Dequeue();
+        Bullets.Bullet bullet = _bulletQueue.Dequeue();
         bullet.gameObject.SetActive(true);
         bullet.transform.position = position;
         bullet.transform.rotation = rotation;
@@ -28,7 +28,7 @@ public class BulletPool
         return bullet;
     }
 
-    public void ReleaseMissile(Bullet.Bullet bullet)
+    public void ReleaseMissile(Bullets.Bullet bullet)
     {
         bullet.gameObject.SetActive(false);
         _bulletQueue.Enqueue(bullet);
@@ -36,7 +36,7 @@ public class BulletPool
 
     private void CreateMissile()
     {
-        Bullet.Bullet bullet = UnityEngine.Object.Instantiate(_prefabBullet);
+        Bullets.Bullet bullet = UnityEngine.Object.Instantiate(_prefabBullet);
         bullet.gameObject.SetActive(false);
         _bulletQueue.Enqueue(bullet);
     }

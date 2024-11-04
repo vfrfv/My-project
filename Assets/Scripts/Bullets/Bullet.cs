@@ -1,15 +1,17 @@
 using System;
 using UnityEngine;
 
-namespace Bullet
+namespace Bullets
 {
-    public abstract class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour
     {
+        [SerializeField] private BulletType _type;
         [SerializeField] private float _flightSpeed = 7;
 
         private int _damage;
 
         public int Damage => _damage;
+        public BulletType Type => _type;
 
         public event Action<Bullet> Destroyed;
 
