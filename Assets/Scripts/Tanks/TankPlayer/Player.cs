@@ -11,17 +11,11 @@ namespace Tanks.TankPlayer
         [SerializeField] private Attack _playerAttack;
         [SerializeField] private Weapon _playerWeapon;
         [SerializeField] private Transform _parentTransform;
-        [SerializeField] private SoundController _soundController;
         [SerializeField] private AnimationController animationController;
 
         private TankModel _model;
 
         public event Action Died;
-
-        protected override void Start()
-        {
-            base.Start();
-        }
 
         protected override void OnTriggerEnter(Collider other)
         {

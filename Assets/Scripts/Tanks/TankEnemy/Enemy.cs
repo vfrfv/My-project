@@ -10,7 +10,6 @@ namespace Tanks.TankEnemy
     {
         [SerializeField] private UnitConfig _unitConfig;
         [SerializeField] private EffectsController _effectsController;
-        [SerializeField] private SoundController _soundController;
 
         private float _shootDelayInSeconds;
 
@@ -21,11 +20,6 @@ namespace Tanks.TankEnemy
         private void Awake()
         {
             Init(_unitConfig);
-        }
-
-        protected override void Start()
-        {
-            base.Start();
         }
 
         protected override void OnTriggerEnter(Collider other)

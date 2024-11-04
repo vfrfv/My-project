@@ -1,6 +1,7 @@
 using Bar;
 using ScriptableObjects;
 using System;
+using Tanks.Controllers;
 using UnityEngine;
 
 namespace Tanks
@@ -8,6 +9,7 @@ namespace Tanks
     public abstract class TankBase : Health, IValue
     {
         [SerializeField] private TankType _typeTank;
+        [SerializeField] protected SoundController _soundController;
 
         private int _maxHealth;
         private int _health;
@@ -24,7 +26,7 @@ namespace Tanks
 
         public event Action<int> Changed;
 
-        protected virtual void Start()
+         private void Start()
         {
             Changed?.Invoke(Value);
         }
