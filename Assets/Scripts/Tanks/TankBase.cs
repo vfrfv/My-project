@@ -33,8 +33,6 @@ namespace Tanks
             Changed?.Invoke(Value);
         }
 
-        //protected virtual void OnTriggerEnter(Collider other) { }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.TryGetComponent(out Bullet bullet))

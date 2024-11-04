@@ -1,4 +1,3 @@
-using Bullets;
 using ScriptableObjects;
 using System;
 using Tanks.Controllers;
@@ -21,14 +20,6 @@ namespace Tanks.TankEnemy
         {
             Init(_unitConfig);
         }
-
-        //protected override void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.gameObject.TryGetComponent(out Bullet bullet))
-        //    {
-        //        TakeDamage(bullet.Damage);
-        //    }
-        //}
 
         protected override void Die()
         {

@@ -1,4 +1,3 @@
-using Bullets;
 using ScriptableObjects;
 using System;
 using Tanks.Controllers;
@@ -16,15 +15,6 @@ namespace Tanks.TankPlayer
         private TankModel _model;
 
         public event Action Died;
-
-        //protected override void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.TryGetComponent(out Bullet enemyBullet))
-        //    {
-        //        TakeDamage(enemyBullet.Damage);
-        //    }
-        //}
-
 
         public override void Init(UnitConfig unitConfig)
         {
