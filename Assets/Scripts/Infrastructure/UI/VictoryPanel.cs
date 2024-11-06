@@ -14,7 +14,7 @@ namespace Infrastructure.UI
         [SerializeField] private TMP_Text _textPoints;
         [SerializeField] private FlightTower _flightTower;
         [SerializeField] private Button _nextLevel;
-        [SerializeField] private LevelNavigator _levelManager;
+        [SerializeField] private LevelManager _levelManager;
 
         public event Action Pressed;
 

@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace Tanks.Controllers
 {
-    public class TankMover : MonoBehaviour
+    public class MovementController : MonoBehaviour
     {
         [SerializeField] private float _speed = 100;
         [SerializeField] private float _turningSpeed = 8f;

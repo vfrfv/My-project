@@ -8,7 +8,7 @@ namespace Tanks.TankEnemy
     public class Enemy : TankBase
     {
         [SerializeField] private UnitConfig _unitConfig;
-        [SerializeField] private TankEffects _effectsController;
+        [SerializeField] private EffectsController _effectsController;
 
         private float _shootDelayInSeconds;
 

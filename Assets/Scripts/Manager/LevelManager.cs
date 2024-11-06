@@ -1,9 +1,10 @@
+using Maps.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Manager
 {
-    public class LevelNavigator : MonoBehaviour
+    public class LevelManager : MonoBehaviour
     {
         public void LoadNextLevel()
         {

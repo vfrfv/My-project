@@ -13,7 +13,7 @@ namespace Infrastructure.UI
         [SerializeField] private Image _imageVictory;
         [SerializeField] private Player _player;
         [SerializeField] private FlightTower _flightTower;
-        [SerializeField] private LevelNavigator _levelManager;
+        [SerializeField] private LevelManager _levelManager;
         [SerializeField] private Button _restartButton;
         [SerializeField] private Button[] _menuButtons;
         [SerializeField] private VictoryPanel _image;

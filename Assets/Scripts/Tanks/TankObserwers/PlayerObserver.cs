@@ -6,8 +6,8 @@ namespace Tanks.TankObserwers
 {
     public class PlayerObserver : TankObserver
     {
-        [SerializeField] private PlayerTankInput _playerTankController;
-        [SerializeField] private TankAnimation _playerAnimationController;
+        [SerializeField] private PlayerTankController _playerTankController;
+        [SerializeField] private AnimationController _playerAnimationController;
 
         private void Start()
         {

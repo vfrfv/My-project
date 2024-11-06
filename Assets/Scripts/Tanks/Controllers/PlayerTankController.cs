@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Tanks.Controllers
 {
-    public class PlayerTankInput : MonoBehaviour
+    public class PlayerTankController : MonoBehaviour
     {
-        [SerializeField] private TankMover _movementController;
-        [SerializeField] private TankSound _soundController;
-        [SerializeField] private TankAnimation _animationController;
+        [SerializeField] private MovementController _movementController;
+        [SerializeField] private SoundController _soundController;
+        [SerializeField] private AnimationController _animationController;
         [SerializeField] private InputController _inputController;
 
         private void FixedUpdate()

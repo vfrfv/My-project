@@ -11,7 +11,7 @@ namespace Tanks
     {
         [SerializeField] private TankType _typeTank;
         [SerializeField] private BulletType _bulletType;
-        [SerializeField] protected TankSound _soundController;
+        [SerializeField] protected SoundController _soundController;
 
         private int _maxHealth;
         private int _health;
