@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Tanks.Controllers
 {
-    public class EffectsController : MonoBehaviour
+    public class TankEffects : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _prefabExplosionEffect;
         [SerializeField] protected ParticleSystem _prefabShootEffect;

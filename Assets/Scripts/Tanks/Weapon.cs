@@ -9,8 +9,8 @@ namespace Tanks
         [SerializeField] private Bullets.Bullet _bulletPrefab;
         [SerializeField] private TankBase _tank;
         [SerializeField] private Transform _shootPoint;
-        [SerializeField] private EffectsController _effectsController;
-        [SerializeField] private SoundController _soundController;
+        [SerializeField] private TankEffects _effectsController;
+        [SerializeField] private TankSound _soundController;
         [SerializeField] private float _shootDelayInSeconds = 1;
 
         private float _shootDelayCounter = 0;

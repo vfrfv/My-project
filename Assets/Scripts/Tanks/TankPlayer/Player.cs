@@ -10,7 +10,7 @@ namespace Tanks.TankPlayer
         [SerializeField] private Attack _playerAttack;
         [SerializeField] private Weapon _playerWeapon;
         [SerializeField] private Transform _parentTransform;
-        [SerializeField] private AnimationController _animationController;
+        [SerializeField] private TankAnimation _animationController;
 
         private TankModel _model;
 

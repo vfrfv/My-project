@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Tanks.Controllers
 {
-    public class AnimationController : MonoBehaviour
+    public class TankAnimation : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
 

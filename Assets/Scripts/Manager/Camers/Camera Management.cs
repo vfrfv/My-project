@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Manager.Camers
 {
-    public class CameraManagement : MonoBehaviour
+    public class CameraSwitcher : MonoBehaviour
     {
         [SerializeField] private CinemachineVirtualCamera _cameraPlayer;
         [SerializeField] private CinemachineVirtualCamera _cameraBoss;

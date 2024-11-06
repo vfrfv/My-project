@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Manager
 {
-    public class FocusManager : MonoBehaviour
+    public class FocusObserver : MonoBehaviour
     {
         private const string Focus = "focus";
 

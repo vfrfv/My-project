@@ -15,7 +15,7 @@ namespace Advertisement
         [SerializeField] private PlayerPointsSaver _playerPointSaver;
         [SerializeField] private VictoryPanel _imageVictory;
         [SerializeField] private PauseManager _pauseManager;
-        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private LevelNavigator _levelManager;
 
         private readonly float _points = 50;
 

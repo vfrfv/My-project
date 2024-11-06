@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Tanks.Controllers
 {
-    public class SoundController : MonoBehaviour
+    public class TankSound : MonoBehaviour
     {
         [SerializeField] private AudioSource _playerMovementSource;
         [SerializeField] private float _fadeDuration = 0.01f;

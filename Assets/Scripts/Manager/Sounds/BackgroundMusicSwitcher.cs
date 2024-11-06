@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Manager.Sounds
 {
-    public class SoundManager : MonoBehaviour
+    public class BackgroundMusicSwitcher : MonoBehaviour
     {
         [SerializeField] private AudioSource _soundBackground;
         [SerializeField] private AudioSource _soundBossBackground;
