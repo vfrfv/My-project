@@ -14,6 +14,11 @@ namespace Infrastructure
             _zone.NumberEnemiesHasChanged += ShowNumberEnemies;
         }
 
+        private void OnDisable()
+        {
+            _zone.NumberEnemiesHasChanged -= ShowNumberEnemies;
+        }
+
         private void ShowNumberEnemies()
         {
             _textMeshPro.text = $"{_zone.Enemies.Count}";
