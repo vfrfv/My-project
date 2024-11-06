@@ -10,7 +10,7 @@ namespace Tanks.TankPlayer
         [SerializeField] private Attack _playerAttack;
         [SerializeField] private Weapon _playerWeapon;
         [SerializeField] private Transform _parentTransform;
-        [SerializeField] private AnimationController animationController;
+        [SerializeField] private AnimationController _animationController;
 
         private TankModel _model;
 
@@ -31,7 +31,7 @@ namespace Tanks.TankPlayer
 
             _playerAttack.InstallTower(_model.Tower);
             _playerWeapon.InstallShootPoint(_model.ShootPoint);
-            animationController.InstallAnimator(_model.Animator);
+            _animationController.InstallAnimator(_model.Animator);
 
             base.Init(unitConfig);
         }

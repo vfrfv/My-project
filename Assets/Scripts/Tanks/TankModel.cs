@@ -10,7 +10,6 @@ namespace Tanks
 
         public Transform Tower => _tower;
         public Transform ShootPoint => _shootPoint;
-
         public Animator Animator => _animator;
     }
 }

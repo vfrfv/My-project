@@ -293,9 +293,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeTank: 1
+  _bulletType: 0
+  _soundController: {fileID: 1821380179940248480}
   _unitConfig: {fileID: 11400000, guid: 7e5e65126cdf87543be29b67e8c35d5e, type: 2}
   _effectsController: {fileID: 7065530720476649494}
-  _soundController: {fileID: 1821380179940248480}
 --- !u!195 &36614260428699448
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -825,8 +826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radar: {fileID: 6612394273226681556}
-  _attack: {fileID: 7862163345355582754}
-  _enemy: {fileID: 8253085390036050852}
+  _attask: {fileID: 7862163345355582754}
+  _tank: {fileID: 8253085390036050852}
 --- !u!114 &6612394273226681556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +863,7 @@ MonoBehaviour:
   _type: 0
   _weapon: {fileID: 610859866870514798}
   _tank: {fileID: 8253085390036050852}
+  _tower: {fileID: 5922583879532544656}
 --- !u!1 &5688109380527797453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,7 +1312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c0dd32d2894c046971785daba356b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 5809886216609705320, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
+  _bulletPrefab: {fileID: 3433824390855756682, guid: 029dad1fa006db34bb74c726f1816bd4, type: 3}
   _tank: {fileID: 8253085390036050852}
   _shootPoint: {fileID: 7030810125773398950}
   _effectsController: {fileID: 7065530720476649494}
