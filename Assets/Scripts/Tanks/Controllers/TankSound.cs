@@ -8,7 +8,7 @@ namespace Tanks.Controllers
         [SerializeField] private AudioSource _playerMovementSource;
         [SerializeField] private float _fadeDuration = 0.01f;
         [SerializeField] private AudioSource _sfxAudioSourcePrefab;
-        [SerializeField] protected AudioSource _shootSound;
+        [SerializeField] private AudioSource _shootSound;
         [SerializeField] private AudioClip _playerDeathSound;
         [SerializeField] private AudioClip _enemyDeathSound;
 

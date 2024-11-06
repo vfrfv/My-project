@@ -12,8 +12,6 @@ namespace Tanks.TankEnemy
 
         private float _shootDelayInSeconds;
 
-        public float ShootDelayInSeconds => _shootDelayInSeconds;
-
         public event Action<Enemy> Died;
 
         private void Awake()

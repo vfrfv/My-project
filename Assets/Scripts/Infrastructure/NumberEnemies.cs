@@ -1,5 +1,6 @@
 using Infrastructure.Zones;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Infrastructure
@@ -12,6 +13,11 @@ namespace Infrastructure
         private void Awake()
         {
             _zone.NumberEnemiesHasChanged += ShowNumberEnemies;
+        }
+
+        private void OnDisable()
+        {
+            _zone.NumberEnemiesHasChanged -= ShowNumberEnemies;
         }
 
         private void ShowNumberEnemies()

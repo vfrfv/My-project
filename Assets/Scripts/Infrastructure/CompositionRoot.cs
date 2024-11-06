@@ -25,14 +25,13 @@ namespace Infrastructure
         private GameLoopService _loopService;
         private PlayerLevelProgressService _playerLevelProgressService;
         private UpgradeService _upgradeService;
-        private PlayerPointsSaver _playerPointsSaver;
 
         private void Awake()
         {
             _upgradeService = new UpgradeService(_unitConfigs, _player, _upgradeSound, _upgradeEffect);
             _playerLevelProgressService = new PlayerLevelProgressService(_upgradeService);
             _loopService = new GameLoopService(_playerLevelProgressService, _upgradeService);
-            _playerPointsSaver = new PlayerPointsSaver(_flightTower);
+            PlayerPointsSaver playerPointsSaver = new PlayerPointsSaver(_flightTower);
 
             var provider = _progressBar.AddComponent<ValueProvider>();
             provider.Init(_playerLevelProgressService, _progressBar);

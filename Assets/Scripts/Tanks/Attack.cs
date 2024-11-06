@@ -7,8 +7,9 @@ namespace Tanks
         [SerializeField] private TankType _type;
         [SerializeField] private Weapon _weapon;
         [SerializeField] private TankBase _tank;
-        [SerializeField] private readonly float _angleThreshold = 5.0f;
         [SerializeField] private Transform _tower;
+
+        private readonly float _angleThreshold = 5.0f;
 
         private void FixedUpdate()
         {

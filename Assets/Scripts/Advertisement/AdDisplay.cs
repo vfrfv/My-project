@@ -16,22 +16,21 @@ namespace Advertisement
         [SerializeField] private VictoryPanel _imageVictory;
         [SerializeField] private PauseHandler _pauseManager;
         [SerializeField] private LevelNavigator _levelManager;
+        [SerializeField] private Button _nextLevel;
 
         private readonly float _points = 50;
-
-        public event Action<float> Looked;
 
         private void OnEnable()
         {
             _advertisement.onClick.AddListener(ShowVideoAd);
             _advertisement.interactable = true;
-            _imageVictory.Pressed += ShowInterstitialAd;
+            _nextLevel.onClick.AddListener(ShowInterstitialAd);
         }
 
         private void OnDisable()
         {
             _advertisement.onClick.RemoveListener(ShowVideoAd);
-            _imageVictory.Pressed -= ShowInterstitialAd;
+            _nextLevel.onClick.RemoveListener(ShowInterstitialAd);
         }
 
         private void ShowVideoAd()
@@ -53,7 +52,6 @@ namespace Advertisement
 
         private void OnRewardCallback()
         {
-            Looked?.Invoke(_points);
             _playerPointSaver.AddPoints(_points);
         }
 

@@ -32,6 +32,8 @@ namespace Conservation
             Agava.YandexGames.Utility.PlayerPrefs.SetFloat(KeySavedPoints, _currentPoints);
             Agava.YandexGames.Utility.PlayerPrefs.Save();
             Agava.YandexGames.Leaderboard.SetScore(Constants.LEADERBOARD_NAME, (int)_currentPoints);
+
+            _flightTower.PointsTransferredPlayer -= AddPoints;
         }
 
         private void Load()
