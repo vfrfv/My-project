@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace Manager
 {
-    public class LevelManager : MonoBehaviour
+    public class LevelNavigator : MonoBehaviour
     {
         public void LoadNextLevel()
         {

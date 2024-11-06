@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Manager
 {
-    public class FocusManager : MonoBehaviour
+    public class FocusObserver : MonoBehaviour
     {
         private const string Focus = "focus";
 
-        [SerializeField] private PauseManager _pauseManager;
+        [SerializeField] private PauseHandler _pauseManager;
 
         private void OnEnable()
         {

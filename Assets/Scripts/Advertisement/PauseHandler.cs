@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Advertisement
 {
-    public class PauseManager : MonoBehaviour
+    public class PauseHandler : MonoBehaviour
     {
         private readonly HashSet<PauseSource> _sources = new HashSet<PauseSource>();
 

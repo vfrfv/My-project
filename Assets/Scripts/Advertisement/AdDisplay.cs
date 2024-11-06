@@ -7,15 +7,15 @@ using UnityEngine.UI;
 
 namespace Advertisement
 {
-    public class AdManager : MonoBehaviour
+    public class AdDisplay : MonoBehaviour
     {
         private const string Video = "video";
 
         [SerializeField] private Button _advertisement;
         [SerializeField] private PlayerPointsSaver _playerPointSaver;
         [SerializeField] private VictoryPanel _imageVictory;
-        [SerializeField] private PauseManager _pauseManager;
-        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private PauseHandler _pauseManager;
+        [SerializeField] private LevelNavigator _levelManager;
 
         private readonly float _points = 50;
 

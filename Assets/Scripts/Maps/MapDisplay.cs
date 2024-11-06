@@ -14,7 +14,7 @@ namespace Maps
         [SerializeField] private Button _playBatton;
         [SerializeField] private Image _locImage;
         [SerializeField] private ProgressSaver _progressSaver;
-        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private LevelNavigator _levelManager;
 
         private Map _map;
 

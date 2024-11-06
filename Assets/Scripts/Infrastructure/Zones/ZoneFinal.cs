@@ -12,8 +12,8 @@ namespace Infrastructure.Zones
 {
     public class ZoneFinal : MonoBehaviour
     {
-        [SerializeField] private CameraManagement _cameraManagement;
-        [SerializeField] private SoundManager _soundManager;
+        [SerializeField] private CameraSwitcher _cameraManagement;
+        [SerializeField] private BackgroundMusicSwitcher _soundManager;
         [SerializeField] private Enemy _boss;
         [SerializeField] private Attack _bossAttack;
         [SerializeField] private BoxCollider _playerBoxCollider;
