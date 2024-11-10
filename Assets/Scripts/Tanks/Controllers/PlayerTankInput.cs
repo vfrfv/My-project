@@ -8,7 +8,7 @@ namespace Tanks.Controllers
         [SerializeField] private TankMover _movementController;
         [SerializeField] private TankSound _soundController;
         [SerializeField] private TankAnimation _animationController;
-        [SerializeField] private InputController _inputController;
+        [SerializeField] private PlayerInput _inputController;
 
         private void FixedUpdate()
         {
